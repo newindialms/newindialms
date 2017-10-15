@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="edu.thapar.newindialms.MainScreen">
+
+    <!--Custom Toolbar for MainScreen-->
+    <include
+        android:id="@+id/toolbar_login_screen"
+        layout="@layout/toolbar_login_screen"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar_login_screen"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/login_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="22dp"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:text="@string/login_heading"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/login_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_above="@+id/login_phone"
+            android:layout_alignEnd="@+id/login_heading"
+            android:layout_alignLeft="@+id/login_heading"
+            android:layout_alignRight="@+id/login_heading"
+            android:layout_alignStart="@+id/login_heading"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/login_id"
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
+
+        <EditText
+            android:id="@+id/login_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_alignEnd="@+id/login_id"
+            android:layout_alignLeft="@+id/login_heading"
+            android:layout_alignRight="@+id/login_id"
+            android:layout_alignStart="@+id/login_heading"
+            android:layout_centerVertical="true"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/login_phone"
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/login_signup"
+            android:layout_alignEnd="@+id/login_phone"
+            android:layout_alignLeft="@+id/login_signup"
+            android:layout_alignRight="@+id/login_phone"
+            android:layout_alignStart="@+id/login_signup"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/login_button"
+            android:textAlignment="center"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:id="@+id/login_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/login_phone"
+            android:layout_alignLeft="@+id/login_heading"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/login_phone"
+            android:layout_alignStart="@+id/login_heading"
+            android:layout_marginBottom="39dp"
+            android:autoLink="web"
+            android:text="@string/login_signup"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>

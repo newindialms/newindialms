@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">NEWINDIALMS</string>
+
+
+    <!-- MainScreen-->
+    <string name="about_us">About Us</string>
+    <string name="about_us_message">NewIndiaLMS is an university based android Application project designed to track feedback on daily basis.</string>
+    <string name="about_us_button">OK</string>
+    <string name="mainscreen_heading">LM Thapar School of Management</string>
+    <string name="mainscreen_subheading">New India LMS APP 01</string>
+    <string name="mainscreen_details">NewIndiaLMS is an university based android Application project designed to track feedback on daily basis.</string>
+    <string name="mainscreen_register">Register</string>
+    <string name="mainscreen_Login">Login</string>
+
+    <!-- Registration Screen -->
+
+    <string name="registration_heading">Registration</string>
+    <string name="registration_id">EmployeeID/StudentID</string>
+    <string name="registration_phone">Phone Number</string>
+    <string name="registration_email">EmailAddress</string>
+    <string name="registration_passsword">Password</string>
+    <string name="registration_select">Select One Type</string>
+    <string name="registration_radio1">FacultyStaff</string>
+    <string name="registration_radio2">Student</string>
+    <string name="registration_button">Register</string>
+
+    <string name="registration_error_missingfields_title">Error</string>
+    <string name="registration_error_missingfields_text">Please fill in all the fields</string>
+
+    <string name="registration_server_response">Success</string>
+
+    <!-- Login Screen -->
+    <string name="login_heading">Let\'s start by signing you in</string>
+    <string name="login_id">EmployeeID/StudentID</string>
+    <string name="login_phone">Phone Number</string>
+    <string name="login_button">SignIn</string>
+    <string name="login_signup">New User Signup?</string>
+
+    <string name="menu_logout">Logout</string>
+    <string name="menu_studentid">StudentId</string>
+
+
+    <!-- Program Managr Screen-->
+    <string name="programid">Program Manager</string>
+    <string name="navigation_program_courselist">Course List</string>
+    <string name="navigation_program_schedule">Schedule</string>
+    <string name="navigation_program_calendar">Academic Calendar</string>
+    <string name="navigation_program_picbook">Student Picture Book</string>
+    <string name="navigation_program_addcourse">Add Course</string>
+    <string name="navigation_program_removecourse">Remove Course</string>
+    <string name="navigation_program_enrollstudent">Enroll Student</string>
+    <string name="navigation_program_enrollfaculty">Enroll Faculty/Staff</string>
+    <string name="navigation_program_feedback">Feedback Module</string>
+    <string name="navigation_program_notification">Notification</string>
+    <string name="navigation_program_logout">Logout</string>
+
+    <!-- Common Menu Screens -->
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add">ADD</string>
+</resources>
