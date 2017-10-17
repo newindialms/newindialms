@@ -192,4 +192,7 @@
         <item>Vote</item>
         <item>Rate</item>
     </string-array>
+
+    <string name="title_activity_student_view">StudentViewActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

@@ -26,7 +26,7 @@ android {
                             'src/main/res/layout/feedback',
                             'src/main/res/layout/enrollfaculty',
                             'src/main/res/layout/notification',
-                            'src/main/res/layout/enrollstudent',
+                            'src/main/res/layout/student',
                             'src/main/res/layout/notification',
                             'src/main/res/layout/courselist',
                             'src/main/res/layout/navigationdrawer',

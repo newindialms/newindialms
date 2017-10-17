@@ -1,19 +1,18 @@
 package edu.thapar.newindialms;
 
-/**
- * Created by kamalshree on 10/4/2017.
- */
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,36 +22,41 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowAllStudentsActivity extends AppCompatActivity {
-    Toolbar toolbar_all_students;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ShowAllStudentFragment extends Fragment {
+
     ListView StudentListView;
-    ProgressBar progressBar;
     String HttpUrl = "https://newindialms.000webhostapp.com/AllStudentData.php";
     List<String> IdList = new ArrayList<>();
+    public SwipeRefreshLayout swipeRefreshLayout;
+    public ShowAllStudentFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootview= inflater.inflate(R.layout.activity_show_all_students, container, false);
+        StudentListView = (ListView) rootview.findViewById(R.id.all_student_list);
 
-        super.onCreate(savedInstanceState);
+        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        new GetHttpResponse(getActivity()).execute();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
-        setContentView(R.layout.activity_show_all_students);
-        toolbar_all_students = (Toolbar) findViewById(R.id.toolbar_all_students);
-        //setSupportActionBar(toolbar_all_students);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar_all_students.setNavigationIcon(R.drawable.ic_left);
-        setSupportActionBar(toolbar_all_students);
-        toolbar_all_students.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
-                finish();
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                IdList.clear();
+                new GetHttpResponse(getActivity()).execute();
             }
         });
 
-        StudentListView = (ListView) findViewById(R.id.all_student_list);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-        new GetHttpResponse(ShowAllStudentsActivity.this).execute();
 
         //Adding ListView Item click Listener.
         StudentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,19 +65,24 @@ public class ShowAllStudentsActivity extends AppCompatActivity {
 
                 // TODO Auto-generated method stub
 
-                Intent intent = new Intent(ShowAllStudentsActivity.this, ShowSingleRecordActivity.class);
+                Intent intent = new Intent(getActivity(), ShowStudentSingleRecordActivity.class);
 
                 // Sending ListView clicked value using intent.
                 intent.putExtra("ListViewValue", IdList.get(position).toString());
 
                 startActivity(intent);
 
-                //Finishing current activity after open next activity.
-                finish();
+
 
             }
         });
+        return rootview;
     }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_program_enrollstudent));
+    }
+
 
     // JSON parse class started from here.
     private class GetHttpResponse extends AsyncTask<Void, Void, Void> {
@@ -120,10 +129,10 @@ public class ShowAllStudentsActivity extends AppCompatActivity {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Student Id TO IdList Array.
-                                IdList.add(jsonObject.getString("id").toString());
+                                IdList.add(jsonObject.getString("studentdetails_ID").toString());
 
                                 //Adding Student Name.
-                                student.StudentName = jsonObject.getString("firstname").toString();
+                                student.StudentName = jsonObject.getString("student_firstname").toString();
 
                                 studentList.add(student);
 
@@ -147,8 +156,6 @@ public class ShowAllStudentsActivity extends AppCompatActivity {
         protected void onPostExecute(Void result)
 
         {
-            progressBar.setVisibility(View.GONE);
-
             StudentListView.setVisibility(View.VISIBLE);
 
             ListAdapterClass adapter = new ListAdapterClass(studentList, context);
@@ -157,4 +164,5 @@ public class ShowAllStudentsActivity extends AppCompatActivity {
 
         }
     }
+
 }

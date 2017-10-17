@@ -4,67 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:id="@+id/enrollstudenttitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/enrollstudenttitle"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/enrollstudentimage"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_above="@+id/enrollstudent"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="45dp"
-            app:srcCompat="@drawable/ic_enroll_student" />
-
-        <Button
-            android:id="@+id/enrollstudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:padding="10dp"
-            android:text="@string/enrollstudent"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:onClick="ShowenrollstudentDialog"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
-
-        </Button>
-
-        <Button
-            android:id="@+id/buttonShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="170dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:padding="10dp"
-            android:text="@string/disenrollstudent"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:onClick="ShowAllStudents"/>
-    </RelativeLayout>
+    <include
+        layout="@layout/activity_student_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

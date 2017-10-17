@@ -12,11 +12,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -29,8 +27,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.R.attr.id;
 
 public class ProgramManagerMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -169,12 +165,20 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment=new ProgramManagerStudentPic();
                 break;
             case R.id.navigation_program_addcourse:
-
                 fragment=new ProgramManagerAddCourse();
                 break;
             case R.id.navigation_program_removecourse:
-
                 fragment=new ProgramManagerRemoveCourse();
+                break;
+            case R.id.navigation_program_enrollstudent:
+                Intent intent = new Intent(getApplicationContext(), ViewStudentsTab.class);
+                startActivity(intent);
+                break;
+            case R.id.navigation_program_enrollfaculty:
+                fragment=new ProgramManagerEnrollFaculty();
+                break;
+            case R.id.navigation_program_feedback:
+                fragment=new ProgramManagerFeedbackModule();
                 break;
             case R.id.navigation_program_notification:
                 fragment=new ProgramManagerNotification();

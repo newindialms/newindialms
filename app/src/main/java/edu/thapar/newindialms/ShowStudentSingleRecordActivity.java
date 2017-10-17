@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class ShowSingleRecordActivity extends AppCompatActivity {
+public class ShowStudentSingleRecordActivity extends AppCompatActivity {
 
     HttpParse httpParse = new HttpParse();
     ProgressDialog pDialog;
@@ -93,7 +93,7 @@ public class ShowSingleRecordActivity extends AppCompatActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                progressDialog2 = ProgressDialog.show(ShowSingleRecordActivity.this, "Loading Data", null, true, true);
+                progressDialog2 = ProgressDialog.show(ShowStudentSingleRecordActivity.this, "Loading Data", null, true, true);
             }
 
             @Override
@@ -103,7 +103,7 @@ public class ShowSingleRecordActivity extends AppCompatActivity {
 
                 progressDialog2.dismiss();
 
-                Toast.makeText(ShowSingleRecordActivity.this, httpResponseMsg.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ShowStudentSingleRecordActivity.this, httpResponseMsg.toString(), Toast.LENGTH_LONG).show();
 
                 finish();
 
@@ -136,7 +136,7 @@ public class ShowSingleRecordActivity extends AppCompatActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                pDialog = ProgressDialog.show(ShowSingleRecordActivity.this,"Loading Data",null,true,true);
+                pDialog = ProgressDialog.show(ShowStudentSingleRecordActivity.this,"Loading Data",null,true,true);
             }
 
             @Override
@@ -150,7 +150,7 @@ public class ShowSingleRecordActivity extends AppCompatActivity {
                 FinalJSonObject = httpResponseMsg ;
 
                 //Parsing the Stored JSOn String to GetHttpResponse Method.
-                new GetHttpResponse(ShowSingleRecordActivity.this).execute();
+                new GetHttpResponse(ShowStudentSingleRecordActivity.this).execute();
 
             }
 
@@ -206,9 +206,9 @@ public class ShowSingleRecordActivity extends AppCompatActivity {
                             jsonObject = jsonArray.getJSONObject(i);
 
                             // Storing Student Name, Phone Number, Class into Variables.
-                            FirstNameHolder = jsonObject.getString("firstname").toString() ;
-                            PhoneHolder = jsonObject.getString("phoneno").toString() ;
-                            RollnoHolder = jsonObject.getString("rollno").toString() ;
+                            FirstNameHolder = jsonObject.getString("student_firstname").toString() ;
+                            PhoneHolder = jsonObject.getString("student_phone").toString() ;
+                            RollnoHolder = jsonObject.getString("student_rollnno").toString() ;
 
                         }
                     }
