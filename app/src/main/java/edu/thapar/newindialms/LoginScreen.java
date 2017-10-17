@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,9 +43,10 @@ public class LoginScreen extends AppCompatActivity {
     Button login_button;
     AlertDialog.Builder builder;
     String studentid, phonenumber;
-    String login_url = "http://192.168.0.10/lmsapp/login.php";
+    String login_url = "https://newindialms.000webhostapp.com/login.php";
     Context context;
     ProgressDialog progressDialog;
+    public View layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,13 @@ public class LoginScreen extends AppCompatActivity {
                 finish();
             }
         });
+
+        // Get your custom_toast.xml ayout
+        LayoutInflater inflater = getLayoutInflater();
+
+       layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id.custom_toast_layout_id));
+        final TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
 
         if(SharedPrefManager.getInstance(this).isLoggedIn()){
             // logged in
@@ -85,11 +96,18 @@ public class LoginScreen extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog = new ProgressDialog(LoginScreen.this);
+                progressDialog.setMessage("Loading...");
+                progressDialog.setTitle("Login");
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDialog.show();
+                progressDialog.setCancelable(false);
 
                 studentid = login_id.getText().toString();
                 phonenumber = login_phone.getText().toString();
 
                 if (studentid.equals("") || phonenumber.equals("")) {
+                    progressDialog.dismiss();
                     builder.setTitle("Error");
                     builder.setMessage("Fields are missing");
                     displayAlert("input_error");
@@ -98,14 +116,16 @@ public class LoginScreen extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             try {
-                                // progressDialog.dismiss();
+                                 progressDialog.dismiss();
                                 JSONArray jsonArray = new JSONArray(response);
                                 JSONObject jsonObject = jsonArray.getJSONObject(0);
                                 String code = jsonObject.getString("code");
                                 if (code.equals("login_failed")) {
+                                    progressDialog.dismiss();
                                     builder.setTitle("Login Failed");
                                     builder.setMessage("Check your Login details");
                                     displayAlert("input_error");
+
                                 } else {
 
                                     if(jsonObject.getString("idtype").equals("student")) {
@@ -115,13 +135,17 @@ public class LoginScreen extends AppCompatActivity {
                                         );
                                         finish();
                                         startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                                        Toast.makeText(LoginScreen.this,"Student Dashhboard",Toast.LENGTH_LONG).show();
+                                        toast_text.setText("Student Dashboard");
+                                        customToast();
+
                                     }
                                     else if(jsonObject.getString("idtype").equals("programmanager")){
                                         //program manager dashboard
                                         finish();
-                                       // startActivity(new Intent(getApplicationContext(), ProgramManagerMenu.class));
-                                        Toast.makeText(LoginScreen.this,"Program Dashhboard",Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(getApplicationContext(), ProgramManagerMenu.class));
+                                        toast_text.setText("ProgramManager Dashboard");
+                                        customToast();
+
                                     }
                                     else{
                                         //faculty dashboard
@@ -130,7 +154,8 @@ public class LoginScreen extends AppCompatActivity {
                                         );
                                         finish();
                                         startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                                        Toast.makeText(LoginScreen.this,jsonObject.getString("idtype"),Toast.LENGTH_LONG).show();
+                                        toast_text.setText(jsonObject.getString("idtype"));
+                                        customToast();
                                     }
                                 }
 
@@ -142,7 +167,8 @@ public class LoginScreen extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(LoginScreen.this, "Error", Toast.LENGTH_LONG).show();
+                            toast_text.setText("Unable to Connect Check your Network Connection");
+                            customToast();
                             error.printStackTrace();
                         }
                     }) {
@@ -172,5 +198,13 @@ public class LoginScreen extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    public void customToast(){
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
+        toast.setView(layout); // set the inflated layout
+        toast.show(); // display the custom Toast
     }
 }

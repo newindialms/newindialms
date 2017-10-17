@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/courselist_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="edu.thapar.newindialms.ProgramManagerMenu"
+    tools:showIn="@layout/app_bar_program_manager_menu"
+   >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:id="@+id/homescreen_reativelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.27"
+            android:elevation="1dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/homescreen_notification_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:onClick="homescreen_notification_layout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.70"
+                    app:srcCompat="@drawable/ic_white_notification" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.74"
+                    android:text="@string/homescreen_notification"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-15dp"
+                    android:layout_weight="1.38"
+                    android:text="@string/homescreen_subnotification"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@color/Menu" />
+
+            <LinearLayout
+                android:id="@+id/homescreen_courselist_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:onClick="homescreen_courselist_layout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.12"
+                    app:srcCompat="@drawable/ic_white_courselist" />
+
+                <TextView
+
+                    android:id="@+id/homescreen_courselist"
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.54"
+                    android:text="@string/homescreen_courselist"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-15dp"
+                    android:layout_weight="0.91"
+                    android:text="@string/homescreen_subcourselist"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <View
+            android:background="@drawable/background"
+            android:layout_width = "fill_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical ="true"
+            android:layout_alignParentTop="true"/>
+        <LinearLayout
+            android:id="@+id/homescreen_calendar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_below="@+id/linearLayout"
+            android:onClick="homescreen_calendar_layout"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_white_calendar" />
+
+            <TextView
+
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.74"
+                android:text="@string/homescreen_calendar"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="24sp" />
+
+            <TextView
+
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-15dp"
+                android:layout_weight="1.38"
+                android:text="@string/homescreen_subcalendar"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+        </LinearLayout>
+        <View android:id="@+id/separator"
+            android:background="@drawable/background"
+            android:layout_width = "fill_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical ="true"
+            android:layout_alignParentTop="true"/>
+        <RelativeLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.27"
+            android:elevation="1dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/homescreen_feedback_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:onClick="homescreen_feedback_layout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.70"
+                    app:srcCompat="@drawable/ic_white_feedback" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.74"
+                    android:text="@string/homescreen_feedback"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-15dp"
+                    android:layout_weight="1.38"
+                    android:text="@string/homescreen_subfeedback"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true" />
+
+            <LinearLayout
+                android:id="@+id/homescreen_logout_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:onClick="homescreen_logout_layout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.12"
+                    app:srcCompat="@drawable/icc_white_logout" />
+
+                <TextView
+
+                    android:id="@+id/homescreen_logout"
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.54"
+                    android:text="@string/homescreen_logout"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp" />
+
+                <TextView
+
+                    android:layout_width="189dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-15dp"
+                    android:layout_weight="0.96"
+                    android:text="@string/homescreen_sublogout"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

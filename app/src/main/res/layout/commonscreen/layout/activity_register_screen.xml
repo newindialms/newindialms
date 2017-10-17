@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.thapar.newindialms.MainScreen">
+
+    <!--Custom Toolbar for MainScreen-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp">
+
+    <TextView
+            android:id="@+id/registration_heading"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="0.12"
+            android:gravity="center"
+            android:text="Great.Lets create your Account."
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/registration_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/registration_id"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/registration_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/registration_phone"
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/registration_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/registration_email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <EditText
+            android:id="@+id/registration_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/registration_passsword"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
+
+        <RelativeLayout
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/registration_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/registration_select"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/registration_checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/registration_select"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_toLeftOf="@+id/registration_checkbox2"
+                android:layout_toStartOf="@+id/registration_checkbox2"
+                android:buttonTint="@color/textColor"
+                android:text="@string/registration_radio1"
+                android:textColor="@color/textColor" />
+
+            <CheckBox
+                android:id="@+id/registration_checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/registration_select"
+                android:layout_marginEnd="68dp"
+                android:layout_marginRight="68dp"
+                android:buttonTint="@color/textColor"
+                android:text="@string/registration_radio2"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/registration_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/registration_button"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:layout_below="@+id/registration_checkbox1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="11dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

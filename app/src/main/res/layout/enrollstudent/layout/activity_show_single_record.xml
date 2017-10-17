@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_show_single_record"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <include
+        android:id="@+id/toolbar_delete_students"
+        layout="@layout/disenroll_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
+
+    <TextView
+        android:id="@+id/delete_student_records"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_delete_students"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/delete_student_records"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/delete_student_records"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textFirstName"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textRollno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textRollno"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textPhone"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/buttonDelete"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

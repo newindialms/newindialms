@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/floatingcoursedialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/Menu"
+        android:gravity="center"
+        android:text="@string/floatingcoursedialog_title"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/floatingdialog_course"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="@string/floatingdialog_course"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark" />
+
+    <EditText
+        android:id="@+id/floatingdialog_faculty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="@string/floatingdialog_faculty"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark" />
+
+</LinearLayout>

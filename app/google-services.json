@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "2711231681",
+    "firebase_url": "https://newindialmsapp.firebaseio.com",
+    "project_id": "newindialmsapp",
+    "storage_bucket": "newindialmsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2711231681:android:0a0916f7e2736c45",
+        "android_client_info": {
+          "package_name": "edu.thapar.newindialms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2711231681-48r61imm3rjjvs9iacn904kasbmv39ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxyTBaNHICVOqaWSHfnukuidlBByUh6kQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

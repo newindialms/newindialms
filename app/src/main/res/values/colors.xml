@@ -6,4 +6,5 @@
     <color name="windowBackground">#FF800980</color>
     <color name="textColor">#FFFFFF</color>
     <color name="textHintColor">#FFB93867</color>
+    <color name="Menu">#FFFF714A</color>
 </resources>

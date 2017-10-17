@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/student_text_view_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:text="Email"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/student_text_view_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:text="Name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24dp"
+        />
+
+</LinearLayout>
