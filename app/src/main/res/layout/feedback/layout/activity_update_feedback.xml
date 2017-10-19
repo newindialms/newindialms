@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context="edu.thapar.newindialms.UpdateFeedback">
 
@@ -11,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="40dp"
         android:orientation="vertical">
 
@@ -21,7 +24,8 @@
             android:layout_weight="1"
             android:text="Udpate Feedback"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
+            android:textColorLink="@color/textColor"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -31,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="id"
-            android:visibility="invisible"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/feedback_udpate_title"
@@ -41,20 +45,23 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Name"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:inputType="textPersonName"
+            android:textColor="@color/textColor"
+            android:textColorLink="@color/textColor" />
 
         <EditText
             android:id="@+id/feedback_udpate_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:inputType="textMultiLine"
-            android:maxLines="4"
-            android:lines="8"
             android:hint="Question"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:maxLines="4"
+            android:textColor="@color/textColor"
+            android:textColorLink="@color/textColor" />
+
         <TextView
             android:id="@+id/showfeedback_typetitle"
             android:layout_width="match_parent"
@@ -62,7 +69,7 @@
             android:layout_weight="1"
             android:text="Select the Feedback Type"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -83,10 +90,11 @@
             android:id="@+id/feedback_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Update" />
+            android:text="Update"
+            android:textColor="@color/textColor" />
 
         <Button
             android:id="@+id/feedback_delete"
@@ -94,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:textColor="@color/colorPrimaryDark"
-            android:text="Delete" />
+            android:text="Delete"
+            android:textColor="@color/textColor" />
     </LinearLayout>
 </LinearLayout>

@@ -19,11 +19,18 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:text="Search Result"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/spinnerstudentlist_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
