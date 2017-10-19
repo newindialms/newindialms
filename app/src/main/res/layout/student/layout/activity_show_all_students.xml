@@ -4,7 +4,7 @@
     android:id="@+id/activity_show_all_students"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/windowBackground">
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/studentview_title"
@@ -22,6 +22,7 @@
         android:textColor="@color/textColor"
         android:textSize="24sp"
         android:textStyle="bold" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"

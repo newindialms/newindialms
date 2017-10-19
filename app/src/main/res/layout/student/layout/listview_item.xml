@@ -16,7 +16,7 @@
             android:id="@+id/student_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/textHintColor"
+            android:background="@drawable/rounded_button"
             android:padding="10dp"
             android:text="Items"
             android:textColor="@color/textColor"
@@ -31,7 +31,7 @@
             android:layout_alignRight="@id/student_text_view"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/textHintColor"
+            android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_right" />
 
     </RelativeLayout>

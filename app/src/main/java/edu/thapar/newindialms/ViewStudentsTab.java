@@ -89,8 +89,6 @@ public class ViewStudentsTab extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_student_view, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
@@ -112,8 +110,8 @@ public class ViewStudentsTab extends AppCompatActivity {
                 ShowAllStudentFragment showstudent =new ShowAllStudentFragment();
                 return showstudent;
                 case 1:
-                    ShowAllStudentFragment showstudent1 =new ShowAllStudentFragment();
-                    return showstudent1;
+                    SearchStudent searchStudent =new SearchStudent();
+                    return searchStudent;
                 case 2:
                     ShowAllStudentFragment showstudent2=new ShowAllStudentFragment();
                     return showstudent2;

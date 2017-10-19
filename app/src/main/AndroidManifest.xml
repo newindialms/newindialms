@@ -29,7 +29,6 @@
             android:name=".ProgramManagerMenu"
             android:label="@string/programid"
             android:theme="@style/MyTheme" />
-        <activity android:name=".ShowAllStudentsActivity" />
         <activity android:name=".ShowStudentSingleRecordActivity" />
         <activity android:name=".ShowAllFacultyActivity" />
         <activity android:name=".ShowFacultySingleRecordActivity" />
@@ -54,7 +53,8 @@
         <activity
             android:name=".ViewStudentsTab"
             android:label="@string/title_activity_student_view"
-            android:theme="@style/MyTheme"></activity>
+            android:theme="@style/MyTheme" />
+        <activity android:name=".SpinnerStudentList"></activity>
     </application>
 
 </manifest>
