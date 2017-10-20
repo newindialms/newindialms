@@ -1,0 +1,246 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="edu.thapar.newindialms.AddCourseFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/addcourse_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/addcourse_title"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/addcourse_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <EditText
+                    android:id="@+id/addcourse_startDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_startDate"
+                    android:inputType="date"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <EditText
+                    android:id="@+id/addcourse_endDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.63"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_endDate"
+                    android:inputType="date"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <TextView
+                    android:id="@+id/addcourse_semester"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:text="@string/addcourse_semester"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/semesterspinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/semestervalues"/>
+
+                <TextView
+                    android:id="@+id/addcourse_coursetype"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:text="@string/addcourse_coursetype"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/coursetypespinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/coursetype"
+                    />
+
+                <EditText
+                    android:id="@+id/addcourse_scheduleDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_scheduleDate"
+                    android:inputType="date"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor"
+                    />
+
+                <EditText
+                    android:id="@+id/addcourse_schedulingTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="string/addcourse_schedulingTime"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:text="Time"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <TextView
+                    android:id="@+id/addcourse_faculty"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:elevation="0dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/addcourse_faculty"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/facultyspinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/addcourse_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:text="@string/addcourse_feedback"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    tools:text="Feedback Questions" />
+
+                <Spinner
+                    android:id="@+id/feedbackspinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/addcourse_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_description"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="10"
+                    android:paddingLeft="5dp"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <EditText
+                    android:id="@+id/addcourse_learningoutcomes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_learningoutcomes"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor"
+                    android:lines="8"
+                    android:maxLines="10"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addcourse_addbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button"
+                android:text="ADD" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -38,6 +38,8 @@
         <activity android:name=".AddFeedbackActivity" />
         <activity android:name=".ShowFeedbackActivity" />
         <activity android:name=".UpdateFeedback" />
+        <activity android:name=".SpinnerStudentList" />
+
 
         <service android:name=".FCMInstanceIdService">
             <intent-filter>
@@ -54,7 +56,10 @@
             android:name=".ViewStudentsTab"
             android:label="@string/title_activity_student_view"
             android:theme="@style/MyTheme" />
-        <activity android:name=".SpinnerStudentList"></activity>
+
+        <activity
+            android:name=".AddCourseTab"
+            android:theme="@style/MyTheme"></activity>
     </application>
 
 </manifest>

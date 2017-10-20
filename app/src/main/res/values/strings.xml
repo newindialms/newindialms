@@ -195,4 +195,37 @@
 
     <string name="title_activity_student_view">StudentViewActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!--Add Course -->
+
+    <string name="addcourse_title">Add Course</string>
+    <string name="addcourse_name">Name of the Course</string>
+    <string name="addcourse_startDate">Start Date dd/mm/yyyy</string>
+    <string name="addcourse_endDate">End Date dd/mm/yyyy</string>
+    <string name="addcourse_semester">Semester</string>
+    <string name="addcourse_coursetype">Type of Course</string>
+    <string name="addcourse_scheduleDate">Date of Scheduling dd/mm/yyyy</string>
+    <string name="addcourse_schedulingTime">Time of Scheduling HH:MM</string>
+    <string name="addcourse_faculty">Faculty</string>
+    <string name="addcourse_feedback">Feedback Questions</string>
+    <string name="addcourse_description">Description of Course</string>
+    <string name="addcourse_learningoutcomes">Learning Outcomes</string>
+    <string name="addcourse_addbutton">ADD</string>
+
+
+    <string-array name="semestervalues">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="coursetype">
+        <item></item>
+        <item>Core</item>
+        <item>Elective</item>
+    </string-array>
+
+
 </resources>
