@@ -24,6 +24,7 @@ android {
                     [
                             'src/main/res/layout/addcourse',
                             'src/main/res/layout/calendar',
+                            'src/main/res/layout/studentpic',
                             'src/main/res/layout/feedback',
                             'src/main/res/layout/enrollfaculty',
                             'src/main/res/layout/notification',

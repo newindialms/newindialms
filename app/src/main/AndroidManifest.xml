@@ -40,7 +40,6 @@
         <activity android:name=".UpdateFeedback" />
         <activity android:name=".SpinnerStudentList" />
 
-
         <service android:name=".FCMInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE.ID.EVENT" />
@@ -56,10 +55,10 @@
             android:name=".ViewStudentsTab"
             android:label="@string/title_activity_student_view"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".AddCourseTab"
-            android:theme="@style/MyTheme"></activity>
+            android:theme="@style/MyTheme" />
+        <activity android:name=".StudentPicProgram" />
     </application>
 
 </manifest>

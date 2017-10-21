@@ -48,8 +48,8 @@
     <string name="navigation_program_picbook">Student Picture Book</string>
     <string name="navigation_program_addcourse">Add Course</string>
     <string name="navigation_program_removecourse">Remove Course</string>
-    <string name="navigation_program_enrollstudent">Enroll Student</string>
-    <string name="navigation_program_enrollfaculty">Enroll Faculty/Staff</string>
+    <string name="navigation_program_enrollstudent">Student View</string>
+    <string name="navigation_program_enrollfaculty">faculty View</string>
     <string name="navigation_program_feedback">Feedback Module</string>
     <string name="navigation_program_notification">Notification</string>
     <string name="navigation_program_logout">Logout</string>
@@ -200,12 +200,12 @@
 
     <string name="addcourse_title">Add Course</string>
     <string name="addcourse_name">Name of the Course</string>
-    <string name="addcourse_startDate">Start Date dd/mm/yyyy</string>
-    <string name="addcourse_endDate">End Date dd/mm/yyyy</string>
+    <string name="addcourse_startDate">Start Date</string>
+    <string name="addcourse_endDate">End Date </string>
     <string name="addcourse_semester">Semester</string>
     <string name="addcourse_coursetype">Type of Course</string>
-    <string name="addcourse_scheduleDate">Date of Scheduling dd/mm/yyyy</string>
-    <string name="addcourse_schedulingTime">Time of Scheduling HH:MM</string>
+    <string name="addcourse_scheduleDate">Date of Scheduling</string>
+    <string name="addcourse_schedulingTime">Time of Scheduling</string>
     <string name="addcourse_faculty">Faculty</string>
     <string name="addcourse_feedback">Feedback Questions</string>
     <string name="addcourse_description">Description of Course</string>
@@ -227,5 +227,8 @@
         <item>Elective</item>
     </string-array>
 
-
+    <!-- student pic book -->
+    <string name="studentpic_program">Program</string>
+    <string name="studentpic_title">Student Picture Book</string>
+    <string name="studentpic_programtitle">Programs</string>
 </resources>

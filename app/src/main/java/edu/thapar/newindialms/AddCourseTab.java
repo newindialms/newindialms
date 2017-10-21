@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import static edu.thapar.newindialms.R.id.toolbar_all_faculty;
+
 public class AddCourseTab extends AppCompatActivity {
 
     /**
@@ -35,14 +37,22 @@ public class AddCourseTab extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    Toolbar addcoursetoolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course_tab);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_add_course);
-        setSupportActionBar(toolbar);
+        addcoursetoolbar = (Toolbar) findViewById(R.id.toolbar_add_course);
+        addcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
+        setSupportActionBar(addcoursetoolbar);
+
+        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

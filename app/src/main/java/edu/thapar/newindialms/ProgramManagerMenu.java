@@ -161,7 +161,6 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment=new ProgramManagerCalendar();
                 break;
             case R.id.navigation_program_picbook:
-
                 fragment=new ProgramManagerStudentPic();
                 break;
             case R.id.navigation_program_addcourse:
