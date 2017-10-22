@@ -80,8 +80,8 @@ public class ProgramManagerCourseList extends Fragment{
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ListItemCourseList listItemCourseList = new ListItemCourseList(
-                                jsonObject1.getString("coursetitle"),
-                                jsonObject1.getString("coursefaculty")
+                                jsonObject1.getString("addcourse_name"),
+                                jsonObject1.getString("course_faculty")
                         );
                         listItemCourseLists.add(listItemCourseList);
                     }

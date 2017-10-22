@@ -62,6 +62,7 @@
 
         <activity android:name=".ProgramScreen" />
         <activity android:name=".ProgramScreenYear" />
+        <activity android:name=".ProgramScreenSpecialization" />
     </application>
 
 </manifest>
