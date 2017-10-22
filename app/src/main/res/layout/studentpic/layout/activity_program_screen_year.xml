@@ -12,7 +12,7 @@
         layout="@layout/studentpic_toolbar"></include>
 
     <TextView
-        android:id="@+id/Studentpic_program_title"
+        android:id="@+id/Studentpic_programyear_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
         android:layout_below="@+id/studentpic_toolbar"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text="@string/studentpic_programtitle"
+        android:text=""
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="24sp" />
@@ -28,9 +28,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/studentpic_programlist_ListView"
+        android:id="@+id/studentpic_programscreenyearlist_ListView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Studentpic_program_title" />
+        android:layout_below="@+id/Studentpic_programyear_title" />
 </RelativeLayout>

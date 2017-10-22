@@ -68,7 +68,7 @@ public class ShowAllStudentFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ShowStudentSingleRecordActivity.class);
 
                 // Sending ListView clicked value using intent.
-                intent.putExtra("ListViewValue", IdList.get(position).toString());
+                    intent.putExtra("ListViewValue", IdList.get(position).toString());
 
                 startActivity(intent);
 

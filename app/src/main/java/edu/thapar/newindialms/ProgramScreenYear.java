@@ -1,16 +1,16 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,39 +23,48 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.toolbar_all_faculty;
-import static java.security.AccessController.getContext;
+/**
+ * Created by kamalshree on 10/21/2017.
+ */
 
-public class StudentPicProgram extends AppCompatActivity {
-
-    List<StudentPicListItems> heroList;
-    ListView listView;
-    String programlist_url = "https://newindialms.000webhostapp.com/get_program.php";
+public class ProgramScreenYear extends AppCompatActivity {
+    String ProgramName,YearList;
+    TextView Studentpic_program_title;
     Toolbar studentpic_toolbar;
-    StudentPicProgramAdapter adapter;
+    String yearlist_url = "https://newindialms.000webhostapp.com/get_yearofjoining.php";
+    ProgramScreenYearAdapter adapter;
 
+    List<ProgramScreenYearListItems> heroList;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_pic_program);
+        setContentView(R.layout.activity_program_screen_year);
+        ProgramName = getIntent().getStringExtra("programname");
+        YearList = getIntent().getStringExtra("yearlist");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentpic_toolbar);
-        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
+        Studentpic_program_title = (TextView) findViewById(R.id.Studentpic_programyear_title);
+        Studentpic_program_title.setText(YearList);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programlist_ListView);
+        listView = (ListView) findViewById(R.id.studentpic_programscreenyearlist_ListView);
 
         loadRecyclerViewData();
+
     }
 
     private void loadRecyclerViewData() {
@@ -63,23 +72,23 @@ public class StudentPicProgram extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, programlist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, yearlist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("program_name");
+                    JSONArray array = j.getJSONArray("year");
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        StudentPicListItems listItemProgramList = new StudentPicListItems(
-                                jsonObject1.getString("student_program")
+                        ProgramScreenYearListItems listItemProgramList = new ProgramScreenYearListItems(
+                                jsonObject1.getString("student_joining")
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new StudentPicProgramAdapter(getApplicationContext(),R.layout.studentpic_program_listitem,heroList);
+                    adapter = new ProgramScreenYearAdapter(getApplicationContext(),R.layout.activity_program_screenyearlistitems,heroList);
                     listView.setAdapter(adapter);
 
 
@@ -94,7 +103,14 @@ public class StudentPicProgram extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_program", ProgramName);
+                return params;
+            }
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }

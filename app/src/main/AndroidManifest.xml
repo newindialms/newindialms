@@ -59,6 +59,9 @@
             android:name=".AddCourseTab"
             android:theme="@style/MyTheme" />
         <activity android:name=".StudentPicProgram" />
+
+        <activity android:name=".ProgramScreen" />
+        <activity android:name=".ProgramScreenYear" />
     </application>
 
 </manifest>
