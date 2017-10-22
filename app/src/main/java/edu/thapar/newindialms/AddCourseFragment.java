@@ -468,8 +468,9 @@ public class AddCourseFragment extends Fragment {
                 if (code.equals("input_error")) {
                     //missing fields
                 }else if(code.equals("Success")) {
-                    Intent home_intent = new Intent(getActivity(),ProgramManagerHome.class);
-                    startActivity(home_intent);
+                    Intent addcourseintent = new Intent(getContext(), AddCourseTab.class);
+                    addcourseintent.putExtra("openfragment", "0");
+                    startActivity(addcourseintent);
                 }
 
             }

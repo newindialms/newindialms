@@ -165,10 +165,13 @@ public class ProgramManagerMenu extends AppCompatActivity
                 break;
             case R.id.navigation_program_addcourse:
                 Intent addcourseintent = new Intent(getApplicationContext(), AddCourseTab.class);
+                addcourseintent.putExtra("openfragment", "0");
                 startActivity(addcourseintent);
                 break;
             case R.id.navigation_program_removecourse:
-                fragment=new ProgramManagerRemoveCourse();
+                Intent removecourseintent = new Intent(getApplicationContext(), AddCourseTab.class);
+                removecourseintent.putExtra("openfragment", "1");
+                startActivity(removecourseintent);
                 break;
             case R.id.navigation_program_enrollstudent:
                 Intent intent = new Intent(getApplicationContext(), ViewStudentsTab.class);

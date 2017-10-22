@@ -18,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
+import static android.R.attr.defaultValue;
 import static edu.thapar.newindialms.R.id.toolbar_all_faculty;
 
 public class AddCourseTab extends AppCompatActivity {
@@ -38,6 +40,7 @@ public class AddCourseTab extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     Toolbar addcoursetoolbar;
+    String pagefragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,8 @@ public class AddCourseTab extends AppCompatActivity {
         addcoursetoolbar = (Toolbar) findViewById(R.id.toolbar_add_course);
         addcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(addcoursetoolbar);
+
+        pagefragment = getIntent().getStringExtra("openfragment");
 
         addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,11 +65,9 @@ public class AddCourseTab extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        mViewPager.setCurrentItem(Integer.parseInt(pagefragment));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
     }
 
 

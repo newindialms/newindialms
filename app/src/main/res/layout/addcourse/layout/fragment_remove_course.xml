@@ -5,11 +5,10 @@
     tools:context="edu.thapar.newindialms.RemoveCourseFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/removecourselistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="remove course"
-        android:textAlignment="center"
-        android:textColor="@color/textColor" />
+        android:layout_marginTop="10dp" />
 
 </FrameLayout>
