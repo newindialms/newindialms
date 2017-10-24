@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/calendar_title"
@@ -22,14 +24,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="107dp">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="The Selected Date is "
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -39,10 +41,21 @@
             android:layout_height="100dp"
             android:gravity="center"
             android:hint=""
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/textColor"
             android:textSize="18sp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/open_calendar_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_button"
+        android:text="Add"
+        android:textColor="@color/textColor" />
 
 </LinearLayout>

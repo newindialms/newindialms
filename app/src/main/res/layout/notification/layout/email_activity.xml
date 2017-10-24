@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:text="@string/notification_email_title"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/textColor"
         android:textSize="24dp" />
 
     <LinearLayout
@@ -48,8 +48,8 @@
                 android:ems="10"
                 android:hint="@string/emailid"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark" />
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor" />
 
         </LinearLayout>
 
@@ -75,8 +75,8 @@
                 android:ems="10"
                 android:hint="@string/notification_email_subject"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark" />
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor" />
         </LinearLayout>
 
         <LinearLayout

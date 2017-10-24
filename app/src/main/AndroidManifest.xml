@@ -59,10 +59,10 @@
             android:name=".AddCourseTab"
             android:theme="@style/MyTheme" />
         <activity android:name=".StudentPicProgram" />
-
         <activity android:name=".ProgramScreen" />
         <activity android:name=".ProgramScreenYear" />
         <activity android:name=".ProgramScreenSpecialization" />
+        <activity android:name=".AcademicCalendar" />
     </application>
 
 </manifest>

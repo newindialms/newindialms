@@ -14,7 +14,7 @@
         android:background="@color/colorPrimaryDark"
         android:padding="10dp"
         android:text="Email"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/textColor"
         android:textSize="24dp" />
 
     <TextView
@@ -24,8 +24,7 @@
         android:background="@color/colorPrimaryDark"
         android:padding="10dp"
         android:text="Name"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="24dp"
-        />
+        android:textColor="@color/textColor"
+        android:textSize="24dp" />
 
 </LinearLayout>
