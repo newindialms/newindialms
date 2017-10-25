@@ -13,10 +13,11 @@ import static edu.thapar.newindialms.R.id.Studentpic_program_title;
  */
 
 public class ProgramScreenYearListItems{
-    private String Yeardetails;
+    private String Yeardetails,Programname;
 
-    public ProgramScreenYearListItems(String yeardetails) {
-        Yeardetails = yeardetails;
+    public ProgramScreenYearListItems(String yeardetails,String programname) {
+        this.Yeardetails = yeardetails;
+        this.Programname=programname;
     }
 
     public String getYeardetails() {
@@ -25,5 +26,13 @@ public class ProgramScreenYearListItems{
 
     public void setYeardetails(String yeardetails) {
         Yeardetails = yeardetails;
+    }
+
+    public String getProgramname() {
+        return Programname;
+    }
+
+    public void setProgramname(String programname) {
+        Programname = programname;
     }
 }

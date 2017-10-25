@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
 import static edu.thapar.newindialms.R.id.studentpic_programlist;
+import static edu.thapar.newindialms.R.id.studentpic_programscreenyear;
 
 /**
  * Created by kamalshree on 10/21/2017.
@@ -62,6 +64,23 @@ public class ProgramScreenYearAdapter extends ArrayAdapter<ProgramScreenYearList
         studentpic_programscreenyearlist.setText(hero.getYeardetails());
         studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
 
+        studentpic_programscreenyearlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //we will call this method to remove the selected value from the list
+                //we are passing the position which is to be removed in the method
+
+                String pgname=hero.getProgramname();
+                String yearname=hero.getYeardetails();
+
+                Intent yearintent = new Intent(context, ProgramScreenYearStudentName.class);
+                yearintent.putExtra("yearlist",yearname);
+                yearintent.putExtra("programname",pgname);
+                yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(yearintent);
+
+            }
+        });
         //finally returning the view
         return view;
     }

@@ -27,26 +27,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static edu.thapar.newindialms.R.id.Studentpic_program_title;
+
 /**
  * Created by kamalshree on 10/21/2017.
  */
 
-public class ProgramScreenSpecialization extends AppCompatActivity {
-    String ProgramName,SpecializationList;
-    TextView Studentpic_program_title;
+public class ProgramScreenYearStudentName extends AppCompatActivity {
+    String ProgramName,YearList;
     Toolbar studentpic_toolbar;
-    String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
-    ProgramScreenSpecializationAdapter adapter;
+    TextView Studentpic_programstudentname_title;
+    String yearlist_url = "https://newindialms.000webhostapp.com/get_student_name.php";
+    ProgramScreenYearAdapterStudentName adapter;
 
-    List<ProgramScreenSpecializationListItems> heroList;
+    List<ProgramScreenYearStudentNameListItems> heroList;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_screen_specialization);
+        setContentView(R.layout.activity_program_screen_year_studentname);
         ProgramName = getIntent().getStringExtra("programname");
-        SpecializationList = getIntent().getStringExtra("specializationlist");
+        YearList = getIntent().getStringExtra("yearlist");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -58,12 +60,12 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
             }
         });
 
-        Studentpic_program_title = (TextView) findViewById(R.id.Studentpic_programspecialization_title);
-        Studentpic_program_title.setText(SpecializationList);
+        Studentpic_programstudentname_title = (TextView) findViewById(R.id.Studentpic_programstudentname_title);
+        Studentpic_programstudentname_title.setText(YearList);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreenspecializationlist_ListView);
-
+        listView = (ListView) findViewById(R.id.studentpic_programscreenyearstudentnamelist_ListView);
         loadRecyclerViewData();
+
 
     }
 
@@ -72,23 +74,25 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, specializationlist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, yearlist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("specialization");
+                    JSONArray array = j.getJSONArray("name");
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        ProgramScreenSpecializationListItems listItemProgramList = new ProgramScreenSpecializationListItems(
-                                jsonObject1.getString("student_specialization")
+                        ProgramScreenYearStudentNameListItems listItemProgramList = new ProgramScreenYearStudentNameListItems(
+                                jsonObject1.getString("student_firstname")
                         );
                         heroList.add(listItemProgramList);
+
+
                     }
-                    adapter = new ProgramScreenSpecializationAdapter(getApplicationContext(),R.layout.activity_program_screen_specializationlistitems,heroList);
+                    adapter = new ProgramScreenYearAdapterStudentName(getApplicationContext(),R.layout.activity_program_screenyearstudentamelistitems,heroList);
                     listView.setAdapter(adapter);
 
 
@@ -108,6 +112,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("student_program", ProgramName);
+                params.put("student_joining", YearList);
                 return params;
             }
         };

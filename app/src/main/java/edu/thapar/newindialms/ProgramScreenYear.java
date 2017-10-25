@@ -40,7 +40,7 @@ public class ProgramScreenYear extends AppCompatActivity {
 
     List<ProgramScreenYearListItems> heroList;
     ListView listView;
-
+    ProgramScreenListItems pglist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +62,10 @@ public class ProgramScreenYear extends AppCompatActivity {
         Studentpic_program_title.setText(YearList);
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.studentpic_programscreenyearlist_ListView);
-
+        pglist= new ProgramScreenListItems(ProgramName);
+        pglist.setProgramname(ProgramName);
         loadRecyclerViewData();
+
 
     }
 
@@ -84,9 +86,12 @@ public class ProgramScreenYear extends AppCompatActivity {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenYearListItems listItemProgramList = new ProgramScreenYearListItems(
-                                jsonObject1.getString("student_joining")
+                                jsonObject1.getString("student_joining"),
+                                pglist.getProgramname()
                         );
                         heroList.add(listItemProgramList);
+
+
                     }
                     adapter = new ProgramScreenYearAdapter(getApplicationContext(),R.layout.activity_program_screenyearlistitems,heroList);
                     listView.setAdapter(adapter);
