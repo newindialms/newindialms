@@ -72,30 +72,34 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal"
-                       >
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_year"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
                             android:layout_weight="1"
+                            android:padding="5dp"
                             android:text="Fall"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
-
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/fall_year"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:paddingLeft="5dp"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -103,8 +107,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_semester_sesion"
@@ -112,21 +115,21 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="(Full Semester Session:)"
-                            android:textColor="@color/textColor" />
+                            android:layout_gravity="center_horizontal"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp" />
 
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor" />
                         <TextView
                             android:id="@+id/fall_semester_sesion"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
-                            android:paddingLeft="5dp"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
@@ -141,33 +144,43 @@
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_classes_semester3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
+
 
                         <TextView
                             android:id="@+id/fall_classes_semester3"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -175,27 +188,33 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_classes_semester2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I (Orientation Program)"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
 
                         <TextView
                             android:id="@+id/fall_classes_semester2"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -203,27 +222,29 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_classes_semester1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
+
 
                         <TextView
                             android:id="@+id/fall_classes_semester1"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
+
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
@@ -239,33 +260,42 @@
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_teaching_semester3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
+
 
                         <TextView
                             android:id="@+id/fall_teaching_semester3"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -273,26 +303,26 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_teaching_semester1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
 
                         <TextView
                             android:id="@+id/fall_teaching_semester1"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -307,34 +337,38 @@
                         android:text="Mid/End Semester Test"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
+                        android:gravity="center"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_midend_semester13"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I and III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
 
                         <TextView
                             android:id="@+id/fall_midend_semester13"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
 
                     </LinearLayout>
@@ -351,33 +385,37 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_teaching_semestersecond"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I and III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:gravity="center"/>
 
                         <TextView
                             android:id="@+id/fall_teaching_semestersecond"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -393,33 +431,38 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_break_semester13"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="Semester I and III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/fall_break_semester13"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -434,34 +477,37 @@
                         android:text="3rd Teaching session"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
+                        android:gravity="center"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfall_teaching_semesterthird"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester I and III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
-
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
                         <TextView
                             android:id="@+id/fall_teaching_semesterthird"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -478,32 +524,36 @@
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewfallend_break_semester13"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="Semester I and III"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/fallend_break_semester13"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -519,7 +569,12 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -534,8 +589,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:lines="5"
                             android:textAlignment="center"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -550,7 +608,12 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -564,9 +627,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:lines="5"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:padding="5dp"
+                            />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
@@ -580,7 +647,12 @@
                         android:text="Winter Break"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -594,8 +666,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="3"
+                            android:lines="3"
                             android:textAlignment="center"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                 </LinearLayout>
@@ -636,57 +711,63 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_year"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="Spring"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                         <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
                             android:background="@color/textColor"/>
 
                         <TextView
                             android:id="@+id/spring_year"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/textColor"/>
+                        android:background="@color/windowBackground" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_semester_sesion"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="(Full Semester Session:)"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
 
                         <TextView
                             android:id="@+id/spring_semester_sesion"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -702,32 +783,35 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewsprig_classes_semester24"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester II  and IV"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
-
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
                         <TextView
                             android:id="@+id/sprig_classes_semester24"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -744,32 +828,35 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
-
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_teaching_semester24"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester II and IV"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
 
                         <TextView
                             android:id="@+id/spring_teaching_semester24"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
 
@@ -786,32 +873,36 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_midend_semester24"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester II and IV"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
 
                         <TextView
                             android:id="@+id/spring_midend_semester24"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
 
                     </LinearLayout>
@@ -828,32 +919,35 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_teaching_semestersecond"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester II and IV"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
-
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
                         <TextView
                             android:id="@+id/spring_teaching_semestersecond"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -869,33 +963,36 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewspring_break_semester24"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Semester II and IV"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
-
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
                         <TextView
                             android:id="@+id/spring_break_semester24"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:padding="5dp"/>
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
@@ -909,23 +1006,31 @@
                         android:text="Weekend teaching Days"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/spring_weekend_days"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:lines="5"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:padding="5dp"/>
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
@@ -939,7 +1044,12 @@
                         android:text="Schools and University Closings"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -953,9 +1063,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:lines="5"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:padding="5dp"/>
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
@@ -970,32 +1083,37 @@
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewinternship_days"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="MBA Year 1"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/internship_days"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:gravity="center"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -1010,33 +1128,38 @@
                         android:text="Summer Semester"
                         android:textAlignment="center"
                         android:textColor="@color/textColor"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="5dp"/>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/textViewbacklog_dates"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
                             android:text="Backlog Courses"
-                            android:textColor="@color/textColor" />
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@color/textColor"/>
+                            android:textColor="@color/textColor"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/backlog_dates"
-                            android:layout_width="198dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
+                            android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
                     <View
@@ -1050,24 +1173,32 @@
                         android:textSize="18sp"
                         android:text="Summer Break"
                         android:textAlignment="center"
+                        android:padding="5dp"
                         android:textColor="@color/textColor"
                         android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/spring_summer_break"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName"
+                            android:inputType="textMultiLine"
+                            android:maxLines="3"
+                            android:lines="3"
                             android:textAlignment="center"
-                            android:textColor="@color/textColor" />
+                            android:textColor="@color/textColor"
+                            android:padding="5dp"/>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
