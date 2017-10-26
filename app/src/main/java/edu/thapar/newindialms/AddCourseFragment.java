@@ -47,12 +47,13 @@ import java.util.Map;
  */
 public class AddCourseFragment extends Fragment {
     View rootview;
-    private Spinner  semesterspinner,coursetypespinner,facultyspinner,feedbackspinner;
+    private Spinner  semesterspinner,coursetypespinner,facultyspinner,feedbackspinner,specializationtypespinner;
     private Button btnSubmit;
-    private ArrayList<String> facultylist,feedbacklist;
-    private JSONArray resultfaculty,resultfeedback;
+    private ArrayList<String> facultylist,feedbacklist,specializationlist;
+    private JSONArray resultfaculty,resultfeedback,resultspecialization;
     public static final String facultyspinner_URL = "https://newindialms.000webhostapp.com/get_facultyname.php";
     public static final String feedbackspinner_URL = "https://newindialms.000webhostapp.com/get_feedbacktitle.php";
+    public static final String specializationspinner_URL = "https://newindialms.000webhostapp.com/get_specialization.php";
     public static final String  addcourse_url = "https://newindialms.000webhostapp.com/add_course.php";
     private EditText startDateEtxt,endDateEtxt,scheduleDate;
     AlertDialog.Builder builder;
@@ -62,7 +63,7 @@ public class AddCourseFragment extends Fragment {
 
     EditText coursename,coursetime,descriptiondetails,outcomedetails;
     String addcourse_name,addcourse_startdate,addcourse_enddate,addcourse_semester,
-            addcourse_coursetype,addcourse_scheduledate,addcourse_time,addcourse_faculty,addcourse_feedback,
+            addcourse_coursetype,addcourse_specialization,addcourse_scheduledate,addcourse_time,addcourse_faculty,addcourse_feedback,
             addcourse_description,addcourse_outcomes;
 
     public AddCourseFragment() {
@@ -78,6 +79,7 @@ public class AddCourseFragment extends Fragment {
         addListenerOnSemesterSpinnerItemSelection();
         addListenerOnCourseSpinnerItemSelection();
         addListenerOnFacultySpinnerItemSelection();
+        addListenerOnSpecializationSpinnerItemSelection();
         addListenerOnFeedbackSpinnerItemSelection();
 
         builder = new AlertDialog.Builder(getActivity(), R.style.MyAlertDialogStyle);
@@ -228,6 +230,69 @@ public class AddCourseFragment extends Fragment {
 
         //Setting adapter to show the items in the spinner
         facultyspinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, facultylist));
+    }
+
+    //Spinner for specialization
+    public void addListenerOnSpecializationSpinnerItemSelection() {
+        specializationlist = new ArrayList<String>();
+        specializationtypespinner = (Spinner) rootview.findViewById(R.id.specilizationtypespinner);
+        getSpecializationData();
+
+    }
+
+    private void getSpecializationData(){
+
+        specializationtypespinner = (Spinner) rootview.findViewById(R.id.specilizationtypespinner);
+        //Creating a string request
+        StringRequest stringRequest = new StringRequest(specializationspinner_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        JSONObject j = null;
+                        try {
+                            //Parsing the fetched Json String to JSON Object
+                            j = new JSONObject(response);
+
+                            //Storing the Array of JSON String to our JSON Array
+                            resultspecialization = j.getJSONArray("specialization");
+
+                            //Calling method getStudents to get the students from the JSON Array
+                            getSpecializationName(resultspecialization);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(),error.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        //Creating a request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+
+        //Adding request to the queue
+        requestQueue.add(stringRequest);
+    }
+
+    private void getSpecializationName(JSONArray j){
+        //Traversing through all the items in the json array
+        for(int i=0;i<j.length();i++){
+            try {
+                //Getting json object
+                JSONObject json = j.getJSONObject(i);
+
+                //Adding the name of the student to array list
+                specializationlist.add(json.getString("student_specialization"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Setting adapter to show the items in the spinner
+        specializationtypespinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, specializationlist));
     }
 
     //Spinner for feedback
@@ -395,6 +460,7 @@ public class AddCourseFragment extends Fragment {
                     addcourse_time=coursetime.getText().toString();
                     addcourse_faculty=facultyspinner.getSelectedItem().toString();
                     addcourse_feedback=feedbackspinner.getSelectedItem().toString();
+                    addcourse_specialization=specializationtypespinner.getSelectedItem().toString();
                     addcourse_description=descriptiondetails.getText().toString();
                     addcourse_outcomes=outcomedetails.getText().toString();
 
@@ -406,6 +472,7 @@ public class AddCourseFragment extends Fragment {
                     addcourse_scheduledate.equals("") ||
                     addcourse_time.equals("") ||
                     addcourse_faculty.equals("") ||
+                    addcourse_specialization.equals("") ||
                     addcourse_feedback.equals("") ||
                     addcourse_description.equals("") ||addcourse_outcomes.equals("")){
                 progressDialog.dismiss();
@@ -448,6 +515,7 @@ public class AddCourseFragment extends Fragment {
                         params.put("addcourse_enddate", addcourse_enddate);
                         params.put("addcourse_semester", addcourse_semester);
                         params.put("addcourse_coursetype", addcourse_coursetype);
+                        params.put("addcourse_specialization", addcourse_specialization);
                         params.put("addcourse_scheduledate", addcourse_scheduledate);
                         params.put("addcourse_time", addcourse_time);
                         params.put("addcourse_faculty", addcourse_faculty);

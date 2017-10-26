@@ -127,6 +127,23 @@
                     android:layout_weight="1"
                     android:entries="@array/coursetype"
                     />
+                <TextView
+                    android:id="@+id/addcourse_specializationtype"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:text="@string/addcourse_specializationtype"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/specilizationtypespinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/addcourse_scheduleDate"

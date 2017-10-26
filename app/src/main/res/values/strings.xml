@@ -204,6 +204,7 @@
     <string name="addcourse_endDate">End Date </string>
     <string name="addcourse_semester">Semester</string>
     <string name="addcourse_coursetype">Type of Course</string>
+    <string name="addcourse_specializationtype">Specialization Type</string>
     <string name="addcourse_scheduleDate">Date of Scheduling</string>
     <string name="addcourse_schedulingTime">Time of Scheduling</string>
     <string name="addcourse_faculty">Faculty</string>

@@ -64,6 +64,7 @@
         <activity android:name=".ProgramScreenSpecialization" />
         <activity android:name=".AcademicCalendar" />
         <activity android:name=".ProgramScreenYearStudentName" />
+        <activity android:name=".ProgramScreenCourse" />
     </application>
 
 </manifest>
