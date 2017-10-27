@@ -21,38 +21,37 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
-
 /**
- * Created by kamalshree on 10/25/2017.
+ * Created by kamalshree on 10/21/2017.
  */
 
-public class ProgramScreenCourse  extends AppCompatActivity {
-    String ProgramName;
-    TextView Studentpic_programCourse_title;
+public class ProgramScreenCourseModule extends AppCompatActivity {
+    String specializationname;
+    TextView Studentpic_programycoursemodule_title;
     Toolbar studentpic_toolbar;
-    String coursespecificlist_url = "https://newindialms.000webhostapp.com/get_course_specific.php";
-    ProgramScreenCourseAdapter adapter;
+    String coursemodulelist_url = "https://newindialms.000webhostapp.com/get_coursemodule.php";
+    ProgramScreenCourseModuleAdapter adapter;
 
-    List<ProgramScreenCourseListItems> heroList;
+    List<ProgramScreenCourseModuleListItems> heroList;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_screen_course);
-        ProgramName = getIntent().getStringExtra("programname");
+        setContentView(R.layout.activity_program_screen_coursemodule);
+        specializationname = getIntent().getStringExtra("specializationname");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
-        studentpic_title.setText(ProgramName);
+        studentpic_title.setText(specializationname);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +60,12 @@ public class ProgramScreenCourse  extends AppCompatActivity {
             }
         });
 
-        Studentpic_programCourse_title = (TextView) findViewById(R.id.Studentpic_programcourse_title);
-        Studentpic_programCourse_title.setText("course");
+        Studentpic_programycoursemodule_title = (TextView) findViewById(R.id.Studentpic_programycoursemodule_title);
+        Studentpic_programycoursemodule_title.setText(specializationname+ " Courses");
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreencourselist_ListView);
+        listView = (ListView) findViewById(R.id.studentpic_programscreencoursemodulelist_ListView);
 
         loadRecyclerViewData();
-
 
     }
 
@@ -76,7 +74,7 @@ public class ProgramScreenCourse  extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, coursespecificlist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, coursemodulelist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
@@ -87,14 +85,12 @@ public class ProgramScreenCourse  extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        ProgramScreenCourseListItems listItemProgramList = new ProgramScreenCourseListItems(
+                        ProgramScreenCourseModuleListItems listItemProgramList = new ProgramScreenCourseModuleListItems(
                                 jsonObject1.getString("addcourse_name")
                         );
                         heroList.add(listItemProgramList);
-
-
                     }
-                    adapter = new ProgramScreenCourseAdapter(getApplicationContext(),R.layout.activity_program_screencourselistitems,heroList);
+                    adapter = new ProgramScreenCourseModuleAdapter(getApplicationContext(),R.layout.activity_program_screencoursemodulelistitems,heroList);
                     listView.setAdapter(adapter);
 
 
@@ -113,7 +109,7 @@ public class ProgramScreenCourse  extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("student_program", ProgramName);
+                params.put("addcourse_specialization", specializationname);
                 return params;
             }
         };
@@ -122,7 +118,7 @@ public class ProgramScreenCourse  extends AppCompatActivity {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle("Courses");
+        this.setTitle(specializationname+ " Courses");
     }
 
 }

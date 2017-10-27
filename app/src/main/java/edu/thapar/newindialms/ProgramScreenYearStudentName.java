@@ -52,6 +52,9 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
+
+        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        studentpic_title.setText(YearList);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +124,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle(getResources().getString(R.string.navigation_program_picbook));
+        this.setTitle(YearList);
     }
 
 }
