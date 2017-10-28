@@ -165,8 +165,8 @@
     <string name="message">Enter your Message</string>
     <string name="notification_email_button">Send</string>
 
-    <string name="FCM_PREF">edu.thapar.newindialms.fcmwithappserver.fcm_pref</string>
-    <string name="FCM_TOKEN">edu.thapar.newindialms.fcmwithappserver.fcm_token</string>
+    <string name="FCM_PREF">edu.thapar.newindialms.fcm_pref</string>
+    <string name="FCM_TOKEN">edu.thapar.newindialms.fcm_token</string>
 
 
     <!--  Calendar -->

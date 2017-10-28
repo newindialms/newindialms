@@ -90,7 +90,7 @@ public class ProgramManagerMenu extends AppCompatActivity
     //Notification firebase
 
 
-    public void ShowNotification(View v){
+   /* public void ShowNotification(View v){
         String ff = FirebaseInstanceId.getInstance().getToken();
         SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences(getString(R.string.FCM_PREF), Context.MODE_PRIVATE);
         final String token=sharedPreferences.getString(getString(R.string.FCM_TOKEN),ff);
@@ -115,7 +115,7 @@ public class ProgramManagerMenu extends AppCompatActivity
             }
         };
         MySingleton.getInstance(ProgramManagerMenu.this).addToRequestQueue(stringRequest);
-    }
+    }*/
 
 //Calendar
     public void GoToCalendar(View v){

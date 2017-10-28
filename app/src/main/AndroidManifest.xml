@@ -40,14 +40,16 @@
         <activity android:name=".UpdateFeedback" />
         <activity android:name=".SpinnerStudentList" />
 
-        <service android:name=".FCMInstanceIdService">
+        <service
+            android:name=".FcmMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE.ID.EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".FcmMessagingService">
+        <service
+            android:name=".FCMInstanceIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
 
@@ -67,6 +69,7 @@
         <activity android:name=".ProgramScreenCourse" />
         <activity android:name=".ProgramScreenSpecializationModule" />
         <activity android:name=".ProgramScreenCourseModule" />
+        <activity android:name=".CalendarView"/>
     </application>
 
 </manifest>

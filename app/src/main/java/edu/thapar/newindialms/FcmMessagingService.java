@@ -17,11 +17,10 @@ public class FcmMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        String title=remoteMessage.getNotification().getTitle();
-        String message=remoteMessage.getNotification().getBody();
+        String title=remoteMessage.getData().get("title");
+        String message=remoteMessage.getData().get("body");
 
-
-        Intent intent=new Intent(this,ProgramManagerMenu.class);
+        Intent intent=new Intent(this,CalendarView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT);
         android.support.v7.app.NotificationCompat.Builder notificationBuilder= new android.support.v7.app.NotificationCompat.Builder(this);

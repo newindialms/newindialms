@@ -8,8 +8,11 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import edu.thapar.newindialms.R;
+
+import static edu.thapar.newindialms.R.id.view;
 
 
 public class MainScreen extends AppCompatActivity implements View.OnClickListener {
@@ -22,10 +25,10 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+        if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             // logged in
             finish();
-            startActivity(new Intent(this,Dashboard.class));
+            startActivity(new Intent(this, Dashboard.class));
             return;
         }
 
