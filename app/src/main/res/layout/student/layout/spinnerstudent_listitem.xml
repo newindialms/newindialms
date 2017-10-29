@@ -49,6 +49,13 @@
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/mail_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/envelope" />
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

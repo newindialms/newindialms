@@ -2,9 +2,8 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
+import android.widget.Toast;
 
 import java.util.Properties;
 
@@ -17,7 +16,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * Created by Belal on 10/30/2015.
+ * Created by kamal
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
@@ -32,16 +31,21 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
     private String subject;
     private String message;
 
+    private String Email_Address;
+    private String Password;
+
     //Progressdialog to show while sending email
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendEmail(Context context, String email, String subject, String message){
+    public SendEmail(Context context, String email, String subject, String message,String Email_Address,String Password){
         //Initializing variables
         this.context = context;
         this.email = email;
         this.subject = subject;
         this.message = message;
+        this.Email_Address=Email_Address;
+        this.Password=Password;
     }
 
     @Override
@@ -57,17 +61,7 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
         //Dismissing the progress dialog
         progressDialog.dismiss();
         //Showing a success message
-    AlertDialog.Builder emailbuilder=new AlertDialog.Builder(context,R.style.MyAlertDialogStyle);
-        emailbuilder.setTitle("Success");
-        emailbuilder.setMessage("Email sent Successfully");
-        emailbuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-       emailbuilder.create();
-       emailbuilder.show();
+        Toast.makeText(context,"Message Sent",Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -82,16 +76,13 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
-        progressDialog.dismiss();
-
-
 
         //Creating a new session
         session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(Config.EMAIL, Config.PASSWORD);
+                        return new PasswordAuthentication(Email_Address,Password);
                     }
                 });
 
@@ -100,7 +91,7 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
             MimeMessage mm = new MimeMessage(session);
 
             //Setting sender address
-            mm.setFrom(new InternetAddress(Config.EMAIL));
+            mm.setFrom(new InternetAddress(Email_Address));
             //Adding receiver
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             //Adding subject
@@ -116,5 +107,4 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
         }
         return null;
     }
-
 }
