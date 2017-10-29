@@ -33,6 +33,7 @@
         <activity android:name=".ShowAllFacultyActivity" />
         <activity android:name=".ShowFacultySingleRecordActivity" />
         <activity android:name=".EmailActivity" />
+        <activity android:name=".EmailActivityAll"/>
         <activity android:name=".OpenCalendar" />
         <activity android:name=".AddFeedbackActivity" />
         <activity android:name=".ShowFeedbackActivity" />

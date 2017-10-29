@@ -1,12 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -34,7 +36,8 @@ public class SpinnerStudentList extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
 
     private List<SpinnerListItem> listItems;
-
+    private List<String> EmaillistItems;
+    Button Send_Email_All;
     private static final String spinnerlisturl="https://newindialms.000webhostapp.com/spinner_studentlist.php";
 
     @Override
@@ -52,8 +55,19 @@ public class SpinnerStudentList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         listItems=new ArrayList<>();
+        EmaillistItems=new ArrayList<>();
         loadSpinnerData();
+        Send_Email_All= (Button)findViewById(R.id.Send_Email_All);
+        Send_Email_All.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),EmailActivityAll.class);
+                intent.putStringArrayListExtra("emaillist", (ArrayList<String>) EmaillistItems);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadSpinnerData(){
@@ -72,12 +86,14 @@ public class SpinnerStudentList extends AppCompatActivity {
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        EmaillistItems.add(jsonObject1.getString("student_email"));
                         SpinnerListItem spinnerListItem = new SpinnerListItem(
                                 jsonObject1.getString("student_firstname"),
                                 jsonObject1.getString("student_rollnno"),
                                 jsonObject1.getString("student_email")
                         );
                         listItems.add(spinnerListItem);
+
                     }
                     adapter = new SpinnerAdapter(listItems,getApplicationContext());
                     recyclerView.setAdapter(adapter);
@@ -108,4 +124,5 @@ public class SpinnerStudentList extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
 }
