@@ -32,7 +32,6 @@
         <activity android:name=".ShowStudentSingleRecordActivity" />
         <activity android:name=".ShowAllFacultyActivity" />
         <activity android:name=".ShowFacultySingleRecordActivity" />
-        <activity android:name=".ShowAllNotificationActivity" />
         <activity android:name=".EmailActivity" />
         <activity android:name=".OpenCalendar" />
         <activity android:name=".AddFeedbackActivity" />
@@ -70,6 +69,7 @@
         <activity android:name=".ProgramScreenSpecializationModule" />
         <activity android:name=".ProgramScreenCourseModule" />
         <activity android:name=".CalendarView"/>
+        <activity android:name=".NotificationTab"/>
     </application>
 
 </manifest>

@@ -60,14 +60,9 @@ public class ProgramManagerMenu extends AppCompatActivity
         floatCourseListDialog.show(getFragmentManager(),"my_courselistdialog");
     }
 
-    //notification student list
-    public void ShowenrollstudentList(View v){
-        Intent intent = new Intent(getApplicationContext(),ShowAllNotificationActivity.class);
-        startActivity(intent);
-    }
 
     public void homescreen_notification_layout(View view){
-        Intent intent = new Intent(getApplicationContext(),ShowAllNotificationActivity.class);
+        Intent intent = new Intent(getApplicationContext(),NotificationTab.class);
         startActivity(intent);
     }
     public void homescreen_courselist_layout(View view){
@@ -87,35 +82,6 @@ public class ProgramManagerMenu extends AppCompatActivity
         this.startActivity(new Intent(this,LoginScreen.class));
     }
 
-    //Notification firebase
-
-
-   /* public void ShowNotification(View v){
-        String ff = FirebaseInstanceId.getInstance().getToken();
-        SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences(getString(R.string.FCM_PREF), Context.MODE_PRIVATE);
-        final String token=sharedPreferences.getString(getString(R.string.FCM_TOKEN),ff);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, app_server_url, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("fcm_token", token);
-                return params;
-            }
-        };
-        MySingleton.getInstance(ProgramManagerMenu.this).addToRequestQueue(stringRequest);
-    }*/
 
 //Calendar
     public void GoToCalendar(View v){
@@ -184,7 +150,8 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment=new ProgramManagerFeedbackModule();
                 break;
             case R.id.navigation_program_notification:
-                fragment=new ProgramManagerNotification();
+                Intent notificationintent = new Intent(getApplicationContext(), NotificationTab.class);
+                startActivity(notificationintent);
                 break;
         }
 

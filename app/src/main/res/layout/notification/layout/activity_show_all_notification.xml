@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_show_all_students"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/background"
+    tools:context="edu.thapar.newindialms.StudentPicProgram">
 
     <include
         android:id="@+id/toolbar_all_notiifcation"
         layout="@layout/notification_toolbar"></include>
 
     <TextView
-        android:id="@+id/all_student_records"
+        android:id="@+id/notification_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/toolbar_all_notiifcation"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/all_student_records"
+        android:text="Notifications"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/all_student_list"
-        android:layout_below="@+id/all_student_records"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible"
-        />
+        android:id="@+id/notification_listview"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/notification_title" />
 </RelativeLayout>
