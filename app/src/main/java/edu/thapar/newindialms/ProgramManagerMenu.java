@@ -66,7 +66,7 @@ public class ProgramManagerMenu extends AppCompatActivity
         displaySelectedScreen(R.id.navigation_program_calendar);
     }
     public void homescreen_feedback_layout(View view){
-        Intent intent = new Intent(getApplicationContext(),ShowFeedbackActivity.class);
+        Intent intent = new Intent(getApplicationContext(),FeedbackTab.class);
         startActivity(intent);
     }
     public void homescreen_logout_layout(View view){
@@ -141,7 +141,8 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment=new ProgramManagerEnrollFaculty();
                 break;
             case R.id.navigation_program_feedback:
-                fragment=new ProgramManagerFeedbackModule();
+                Intent feedbackintent = new Intent(getApplicationContext(), FeedbackTab.class);
+                startActivity(feedbackintent);
                 break;
             case R.id.navigation_program_notification:
                 Intent notificationintent = new Intent(getApplicationContext(), NotificationTab.class);

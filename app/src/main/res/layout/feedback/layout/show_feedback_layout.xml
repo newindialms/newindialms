@@ -8,9 +8,16 @@
     android:orientation="vertical">
 
 
-    <include
-        android:id="@+id/showfeedback_toolbar"
-        layout="@layout/showfeedback_toolbar"></include>
+    <TextView
+        android:id="@+id/Feedback_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Feedback List"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"

@@ -191,6 +191,7 @@
         <item>Star</item>
         <item>Vote</item>
         <item>Rate</item>
+        <item>Text</item>
     </string-array>
 
     <string name="title_activity_student_view">StudentViewActivity</string>

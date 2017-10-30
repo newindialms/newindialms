@@ -71,6 +71,8 @@
         <activity android:name=".ProgramScreenCourseModule" />
         <activity android:name=".CalendarView"/>
         <activity android:name=".NotificationTab"/>
+        <activity android:name=".FeedbackTab"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>

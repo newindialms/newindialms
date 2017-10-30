@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,15 +30,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static edu.thapar.newindialms.R.array.feedbacktype;
+import static edu.thapar.newindialms.R.id.coursetypespinner;
 
 public class UpdateFeedback extends AppCompatActivity {
-
+    Toolbar showfeedback_toolbar;
     EditText feedback_udpate_title,feedback_udpate_question;
     TextView showfeedback_id;
     Button udpateButton,deleteButton;
     Spinner feedbackspinner;
     ArrayAdapter<String> feedbacktype;
-    FeedbackAdapter feedbackAdapter;
     String feedback_title,feedback_question,feedback_type,id;
     String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
     String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";
@@ -49,6 +50,17 @@ public class UpdateFeedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_feedback);
         builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+
+        showfeedback_toolbar = (Toolbar) findViewById(R.id.showfeedback_toolbar);
+        showfeedback_toolbar.setNavigationIcon(R.drawable.ic_left);
+
+        setSupportActionBar(showfeedback_toolbar);
+        showfeedback_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         showfeedback_id= (TextView) findViewById(R.id.showfeedback_id);
         feedback_udpate_title= (EditText)findViewById(R.id.feedback_udpate_title);
@@ -63,21 +75,15 @@ public class UpdateFeedback extends AppCompatActivity {
 
 
         feedbackspinner=(Spinner)findViewById(R.id.addfeedbackspinner);
-
-        feedbacktype = new ArrayAdapter<String>(
-                UpdateFeedback.this,R.layout.feedbacklisttype, getResources().getStringArray(R.array.feedbacktype) );
-        feedbacktype.setDropDownViewResource(R.layout.feedbacklisttype);
-        feedbackspinner.setAdapter(feedbacktype);
-
         feedbackspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                feedback_type= feedbackspinner.getSelectedItem().toString();
+                feedback_type=feedbackspinner.getSelectedItem().toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(UpdateFeedback.this,"Select the Feedback Type",Toast.LENGTH_LONG).show();
+                Toast.makeText(UpdateFeedback.this,"nothing selected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -137,7 +143,7 @@ public class UpdateFeedback extends AppCompatActivity {
                 builder.setTitle("Error");
                 builder.setMessage("fail");
                 displayAlert("Fail");
-                finish();
+                UpdateFeedback.this.finish();
             }
         }) {
             @Override
@@ -167,7 +173,7 @@ public class UpdateFeedback extends AppCompatActivity {
                     String message = jsonObject.getString("message");
                     builder.setTitle(code);
                     builder.setMessage(message);
-                    displayAlert(message);
+                   // displayAlert(message);
                     UpdateFeedback.this.finish();
                 }
                 catch (JSONException e){

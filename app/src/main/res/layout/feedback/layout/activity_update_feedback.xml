@@ -8,6 +8,10 @@
     android:orientation="vertical"
     tools:context="edu.thapar.newindialms.UpdateFeedback">
 
+    <include
+        android:id="@+id/showfeedback_toolbar"
+        layout="@layout/showfeedback_toolbar"></include>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,25 +46,31 @@
         <EditText
             android:id="@+id/feedback_udpate_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
+            android:background="@color/textColor"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
-            android:textColor="@color/textColor"
-            android:textColorLink="@color/textColor" />
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
 
         <EditText
             android:id="@+id/feedback_udpate_question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_margin="10dp"
+            android:background="@color/textColor"
             android:hint="Question"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="4"
-            android:textColor="@color/textColor"
-            android:textColorLink="@color/textColor" />
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
 
         <TextView
             android:id="@+id/showfeedback_typetitle"
@@ -75,10 +85,11 @@
 
         <Spinner
             android:id="@+id/addfeedbackspinner"
+            style="@style/mySpinnerItemStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            />
+            android:entries="@array/feedbacktype" />
     </LinearLayout>
 
     <LinearLayout
