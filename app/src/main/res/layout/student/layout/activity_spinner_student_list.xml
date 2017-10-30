@@ -8,14 +8,16 @@
     tools:context="edu.thapar.newindialms.SpinnerStudentList">
 
     <include
-        android:id="@+id/toolbar_login_screen"
-        layout="@layout/toolbar_login_screen"></include>
+        android:id="@+id/studentlist_toolbar"
+        layout="@layout/studentlist_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_login_screen"
+        android:layout_below="@id/studentlist_toolbar"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"

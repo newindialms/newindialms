@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -31,7 +32,7 @@ import java.util.Map;
 public class SpinnerStudentList extends AppCompatActivity {
     String program,specialization;
    String year;
-    Toolbar toolbar_all_notification;
+    Toolbar studentlist_toolbar;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
@@ -44,6 +45,17 @@ public class SpinnerStudentList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner_student_list);
+
+        studentlist_toolbar = (Toolbar) findViewById(R.id.studentlist_toolbar);
+        studentlist_toolbar.setNavigationIcon(R.drawable.ic_left);
+
+        setSupportActionBar(studentlist_toolbar);
+        studentlist_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         String yearsstring=Integer.toString(getIntent().getIntExtra("year",1));

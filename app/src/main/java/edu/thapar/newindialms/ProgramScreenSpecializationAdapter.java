@@ -71,7 +71,6 @@ public class ProgramScreenSpecializationAdapter extends ArrayAdapter<ProgramScre
                 //we are passing the position which is to be removed in the method
 
                 String specializationname=hero.getSpecializationdetails();
-                Toast.makeText(getContext(),specializationname,Toast.LENGTH_LONG).show();
 
                 Intent specializationintent = new Intent(context, ProgramScreenSpecializationModule.class);
                 specializationintent.putExtra("specializationname",specializationname);

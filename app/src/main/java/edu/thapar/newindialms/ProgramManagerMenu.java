@@ -54,12 +54,6 @@ public class ProgramManagerMenu extends AppCompatActivity
 
 
     }
-    //Alert Dialog for the Course list floating button//
-    public void ShowCourselistDialog(View v){
-        FloatCourseListDialog floatCourseListDialog=new FloatCourseListDialog();
-        floatCourseListDialog.show(getFragmentManager(),"my_courselistdialog");
-    }
-
 
     public void homescreen_notification_layout(View view){
         Intent intent = new Intent(getApplicationContext(),NotificationTab.class);

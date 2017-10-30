@@ -93,6 +93,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:padding="5dp"
+                            android:textAlignment="center"
                             android:textColor="@color/textColor" />
 
                         <View
@@ -125,6 +126,7 @@
                             android:id="@+id/fall_semester_sesion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textAlignment="center"
                             android:ems="10"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -173,6 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -206,6 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -241,6 +245,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -288,6 +293,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -321,6 +327,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -367,6 +374,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -414,6 +422,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -461,6 +470,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -506,6 +516,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -552,6 +563,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -734,6 +746,7 @@
                             android:id="@+id/spring_year"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textAlignment="center"
                             android:ems="10"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -766,6 +779,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -810,6 +824,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -855,6 +870,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -901,6 +917,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -946,6 +963,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
@@ -990,6 +1008,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:textColor="@color/textColor"
                             android:padding="5dp"/>
@@ -1111,6 +1130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:gravity="center"
@@ -1158,6 +1178,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:textAlignment="center"
                             android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
