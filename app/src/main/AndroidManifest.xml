@@ -35,8 +35,6 @@
         <activity android:name=".EmailActivity" />
         <activity android:name=".EmailActivityAll"/>
         <activity android:name=".OpenCalendar" />
-        <activity android:name=".AddFeedbackActivity" />
-        <activity android:name=".ShowFeedbackActivity" />
         <activity android:name=".UpdateFeedback" />
         <activity android:name=".SpinnerStudentList" />
 
@@ -72,6 +70,8 @@
         <activity android:name=".CalendarView"/>
         <activity android:name=".NotificationTab"/>
         <activity android:name=".FeedbackTab"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".FacultyTab"
             android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 

@@ -1,28 +1,22 @@
 package edu.thapar.newindialms;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-import android.widget.Toast;
+/**
+ * Created by kamalshree on 10/30/2017.
+ */
 
-import static android.R.attr.defaultValue;
-
-public class AddCourseTab extends AppCompatActivity {
+public class FacultyTab extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -38,20 +32,17 @@ public class AddCourseTab extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    Toolbar addcoursetoolbar;
-    String pagefragment;
+    Toolbar facultytoolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course_tab);
+        setContentView(R.layout.activity_faculty_tab);
 
-        addcoursetoolbar = (Toolbar) findViewById(R.id.toolbar_add_course);
-        addcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
-        setSupportActionBar(addcoursetoolbar);
+        facultytoolbar = (Toolbar) findViewById(R.id.faculty_toolbar);
+        facultytoolbar.setNavigationIcon(R.drawable.ic_left);
+        setSupportActionBar(facultytoolbar);
 
-        pagefragment = getIntent().getStringExtra("openfragment");
-
-        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        facultytoolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 finish();
@@ -64,7 +55,6 @@ public class AddCourseTab extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setCurrentItem(Integer.parseInt(pagefragment));
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
@@ -99,7 +89,7 @@ public class AddCourseTab extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_add_course_tab, container, false);
+            View rootView = inflater.inflate(R.layout.activity_show_all_faculty, container, false);
             return rootView;
         }
     }
@@ -118,11 +108,11 @@ public class AddCourseTab extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position){
                 case 0:
-                    AddCourseFragment addCourseFragment =new AddCourseFragment();
-                    return addCourseFragment;
+                    ViewFacultyFragment viewFacultyFragment =new ViewFacultyFragment();
+                    return viewFacultyFragment;
                 case 1:
-                    RemoveCourseFragment removeCourseFragment =new RemoveCourseFragment();
-                    return removeCourseFragment;
+                    RemoveFacultyFragment removeFacultyFragment =new RemoveFacultyFragment();
+                    return removeFacultyFragment;
             }
             return null;
         }
@@ -137,9 +127,9 @@ public class AddCourseTab extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Add Course";
+                    return "View Faculty";
                 case 1:
-                    return "Remove Course";
+                    return "Remove Faculty";
             }
             return null;
         }

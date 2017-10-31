@@ -56,6 +56,7 @@ public class ListFacultyAdapterClass extends BaseAdapter {
             convertView = layoutInfiater.inflate(R.layout.listview_faculty_item, null);
 
             viewItem.TextViewFacultyName = (TextView)convertView.findViewById(R.id.faculty_text_view);
+            viewItem.TextViewFacultyProgram = (TextView)convertView.findViewById(R.id.facultyprogram_text_view);
 
             convertView.setTag(viewItem);
         }
@@ -65,6 +66,7 @@ public class ListFacultyAdapterClass extends BaseAdapter {
         }
 
         viewItem.TextViewFacultyName.setText(valueList.get(position).FacultyName);
+        viewItem.TextViewFacultyProgram.setText(valueList.get(position).FacultyProgram);
 
         return convertView;
     }
@@ -72,6 +74,6 @@ public class ListFacultyAdapterClass extends BaseAdapter {
 
 class ViewItemFaculty
 {
-    TextView TextViewFacultyName;
+    TextView TextViewFacultyName,TextViewFacultyProgram;
 
 }

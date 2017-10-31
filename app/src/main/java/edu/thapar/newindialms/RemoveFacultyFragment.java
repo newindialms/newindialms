@@ -1,19 +1,15 @@
 package edu.thapar.newindialms;
 
-/**
- * Created by kamalshree on 10/5/2017.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,48 +19,35 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by kamalshree on 10/30/2017.
+ */
 
-public class ShowAllFacultyActivity extends AppCompatActivity {
-    Toolbar toolbar_all_faculty;
+public class RemoveFacultyFragment  extends Fragment {
+    View rootview;
     ListView FacultyListView;
-    ProgressBar progressBar;
     String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_show_all_faculty);
-
-        FacultyListView = (ListView) findViewById(R.id.all_faculty_list);
-
-
-        new GetHttpResponse(ShowAllFacultyActivity.this).execute();
-
-        //Adding ListView Item click Listener.
-        FacultyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // TODO Auto-generated method stub
-
-                Intent intent = new Intent(ShowAllFacultyActivity.this, ShowFacultySingleRecordActivity.class);
-
-                // Sending ListView clicked value using intent.
-                intent.putExtra("ListViewValue", IdList.get(position).toString());
-
-                startActivity(intent);
-
-                //Finishing current activity after open next activity.
-                finish();
-
-            }
-        });
+    public RemoveFacultyFragment() {
     }
 
-    // JSON parse class started from here.
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        rootview = inflater.inflate(R.layout.activity_show_all_faculty, container, false);
+
+
+        FacultyListView = (ListView) rootview.findViewById(R.id.all_faculty_list);
+
+
+        new GetHttpResponse(getActivity()).execute();
+
+        return rootview;
+    }
+
+
     private class GetHttpResponse extends AsyncTask<Void, Void, Void> {
         public Context context;
 
@@ -114,6 +97,8 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
                                 //Adding Faculty Name.
                                 faculty.FacultyName = jsonObject.getString("firstname").toString();
                                 faculty.FacultyProgram = jsonObject.getString("program").toString();
+                                faculty.FacultyID=jsonObject.getString("employeeid").toString();
+
                                 facultyList.add(faculty);
 
                             }
@@ -136,10 +121,9 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
         protected void onPostExecute(Void result)
 
         {
-
             FacultyListView.setVisibility(View.VISIBLE);
 
-            ListFacultyAdapterClass adapter = new ListFacultyAdapterClass(facultyList, context);
+            ListFacultyRemoveAdapter adapter = new ListFacultyRemoveAdapter(facultyList, context);
 
             FacultyListView.setAdapter(adapter);
 

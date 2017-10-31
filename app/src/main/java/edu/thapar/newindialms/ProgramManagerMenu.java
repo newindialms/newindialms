@@ -83,17 +83,6 @@ public class ProgramManagerMenu extends AppCompatActivity
         startActivity(intent);
     }
 
-    //Feedback
-
-    public void AddFeedback(View v){
-        Intent intent = new Intent(getApplicationContext(),AddFeedbackActivity.class);
-        startActivity(intent);
-    }
-    public void ShowFeedback(View v){
-        Intent intent = new Intent(getApplicationContext(),ShowFeedbackActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -138,7 +127,8 @@ public class ProgramManagerMenu extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.navigation_program_enrollfaculty:
-                fragment=new ProgramManagerEnrollFaculty();
+                Intent facultyintent = new Intent(getApplicationContext(), FacultyTab.class);
+                startActivity(facultyintent);
                 break;
             case R.id.navigation_program_feedback:
                 Intent feedbackintent = new Intent(getApplicationContext(), FeedbackTab.class);
