@@ -14,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -24,7 +23,7 @@
 
                 <TextView
                     android:id="@+id/addcourse_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -38,7 +37,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
@@ -52,10 +51,55 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"
                     android:background="@drawable/white_background"
                     android:ems="10"
                     android:hint="@string/addcourse_name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+
+                <EditText
+                    android:id="@+id/addcourse_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_code"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+                <EditText
+                    android:id="@+id/addcourse_credits"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_credits"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/textHintColor"
+                    android:textColorHint="@color/textHintColor" />
+                <EditText
+                    android:id="@+id/addcourse_abbr"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/white_background"
+                    android:ems="10"
+                    android:hint="@string/addcourse_abbr"
                     android:inputType="textPersonName"
                     android:paddingLeft="5dp"
                     android:textColor="@color/textHintColor"

@@ -61,8 +61,8 @@ public class AddCourseFragment extends Fragment {
 
     private int  mHour, mMinute;
 
-    EditText coursename,coursetime,descriptiondetails,outcomedetails;
-    String addcourse_name,addcourse_startdate,addcourse_enddate,addcourse_semester,
+    EditText coursename,coursecode,coursecredits,courseabbr,coursetime,descriptiondetails,outcomedetails;
+    String addcourse_name,addcourse_code,addcourse_credits,addcourse_abbr,addcourse_startdate,addcourse_enddate,addcourse_semester,
             addcourse_coursetype,addcourse_specialization,addcourse_scheduledate,addcourse_time,addcourse_faculty,addcourse_feedback,
             addcourse_description,addcourse_outcomes;
 
@@ -222,7 +222,7 @@ public class AddCourseFragment extends Fragment {
                 JSONObject json = j.getJSONObject(i);
 
                 //Adding the name of the student to array list
-                facultylist.add(json.getString("faculty_firstname"));
+                facultylist.add(json.getString("faculty_code"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -447,12 +447,18 @@ public class AddCourseFragment extends Fragment {
         progressDialog.show();
 
                      coursename=(EditText)rootview.findViewById(R.id.addcourse_name);
+                     coursecode=(EditText)rootview.findViewById(R.id.addcourse_code);
+                     coursecredits=(EditText)rootview.findViewById(R.id.addcourse_credits);
+                     courseabbr=(EditText)rootview.findViewById(R.id.addcourse_abbr);
                     coursetime=(EditText)rootview.findViewById(R.id.addcourse_schedulingTime);
 
                     descriptiondetails=(EditText)rootview.findViewById(R.id.addcourse_description);
                     outcomedetails=(EditText)rootview.findViewById(R.id.addcourse_learningoutcomes);
 
                     addcourse_name=coursename.getText().toString();
+                     addcourse_code=coursecode.getText().toString();
+                    addcourse_credits=coursecredits.getText().toString();
+                    addcourse_abbr=courseabbr.getText().toString();
                     addcourse_startdate=startDateEtxt.getText().toString();
                     addcourse_enddate=endDateEtxt.getText().toString();
                     //addcourse_semester,addcourse_coursetype
@@ -464,7 +470,7 @@ public class AddCourseFragment extends Fragment {
                     addcourse_description=descriptiondetails.getText().toString();
                     addcourse_outcomes=outcomedetails.getText().toString();
 
-            if(addcourse_name.equals("") ||
+            if(addcourse_name.equals("") ||addcourse_code.equals("") ||addcourse_credits.equals("") ||addcourse_abbr.equals("") ||
                     addcourse_startdate.equals("") ||
                     addcourse_enddate.equals("") ||
                     addcourse_semester.equals("") ||
@@ -511,6 +517,9 @@ public class AddCourseFragment extends Fragment {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<String, String>();
                         params.put("addcourse_name", addcourse_name);
+                        params.put("addcourse_code", addcourse_code);
+                        params.put("addcourse_credits", addcourse_credits);
+                        params.put("addcourse_abbr", addcourse_abbr);
                         params.put("addcourse_startdate", addcourse_startdate);
                         params.put("addcourse_enddate", addcourse_enddate);
                         params.put("addcourse_semester", addcourse_semester);

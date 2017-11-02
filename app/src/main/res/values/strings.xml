@@ -201,6 +201,9 @@
 
     <string name="addcourse_title">Add Course</string>
     <string name="addcourse_name">Name of the Course</string>
+    <string name="addcourse_code">Course Code</string>
+    <string name="addcourse_credits">Course Credits</string>
+    <string name="addcourse_abbr">Course Abbreviation</string>
     <string name="addcourse_startDate">Start Date</string>
     <string name="addcourse_endDate">End Date </string>
     <string name="addcourse_semester">Semester</string>
@@ -225,6 +228,7 @@
 
     <string-array name="coursetype">
         <item></item>
+        <item>Summer Internship</item>
         <item>Core</item>
         <item>Elective</item>
     </string-array>

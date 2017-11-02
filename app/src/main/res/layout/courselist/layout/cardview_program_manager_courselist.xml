@@ -47,7 +47,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignRight="@id/cardviewCourselistTitle"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/textHintColor"
                 app:srcCompat="@drawable/ic_right" />
 
