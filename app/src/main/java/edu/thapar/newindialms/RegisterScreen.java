@@ -15,13 +15,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +36,8 @@ import java.util.Map;
 import edu.thapar.newindialms.MySingleton;
 import edu.thapar.newindialms.R;
 
+import static android.provider.Telephony.Carriers.PASSWORD;
+
 public class RegisterScreen extends AppCompatActivity {
 
     Toolbar toolbar_register_screen;
@@ -43,6 +48,8 @@ public class RegisterScreen extends AppCompatActivity {
     String studentid, emailaddress, phone, password, idtype;
     Button register_button;
     String reg_url = "https://newindialms.000webhostapp.com/register.php";
+    String EMAIL,PASSWORD;
+    String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
     AlertDialog.Builder builder;
     ProgressDialog progressDialog;
 
@@ -98,7 +105,7 @@ public class RegisterScreen extends AppCompatActivity {
                                 JSONObject jsonObject = jsonArray.getJSONObject(0);
                                 String code = jsonObject.getString("code");
                                 String message = jsonObject.getString("message");
-
+                                SendRegistrationEmail(emailaddress);
                                 builder.setTitle(getResources().getString(R.string.registration_server_response));
                                 builder.setMessage(message);
                                 displayAlert(code);
@@ -130,7 +137,40 @@ public class RegisterScreen extends AppCompatActivity {
         });
     }
 
+public void SendRegistrationEmail(final String EmailAddress){
+    StringRequest stringRequest = new StringRequest(Request.Method.GET, emailprofile_url, new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+            JSONArray jsonArray = null;
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                JSONArray array = jsonObject.getJSONArray("email_profile");
 
+                JSONObject jsonObject1 = array.getJSONObject(0);
+
+                EMAIL= jsonObject1.getString("username");
+                PASSWORD= jsonObject1.getString("password");
+                //Creating SendMail object
+                SendEmailRegistration sm = new SendEmailRegistration(RegisterScreen.this, EmailAddress,EMAIL,PASSWORD);
+
+                //Executing sendmail to send email
+                sm.execute();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Toast.makeText(RegisterScreen.this,error.getMessage(),Toast.LENGTH_LONG).show();
+        }
+    });
+    RequestQueue requestQueue = Volley.newRequestQueue(RegisterScreen.this);
+    requestQueue.add(stringRequest);
+
+
+}
     public void displayAlert(final String code) {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
