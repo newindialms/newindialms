@@ -92,12 +92,12 @@ public class RemoveFacultyFragment  extends Fragment {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Faculty Id TO IdList Array.
-                                IdList.add(jsonObject.getString("id").toString());
+                                IdList.add(jsonObject.getString("facultydetails_ID").toString());
 
                                 //Adding Faculty Name.
-                                faculty.FacultyName = jsonObject.getString("firstname").toString();
-                                faculty.FacultyProgram = jsonObject.getString("program").toString();
-                                faculty.FacultyID=jsonObject.getString("employeeid").toString();
+                                faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
+                                faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
+                                faculty.FacultyID=jsonObject.getString("faculty_employeeid").toString();
 
                                 facultyList.add(faculty);
 
@@ -126,7 +126,6 @@ public class RemoveFacultyFragment  extends Fragment {
             ListFacultyRemoveAdapter adapter = new ListFacultyRemoveAdapter(facultyList, context);
 
             FacultyListView.setAdapter(adapter);
-
         }
     }
 }

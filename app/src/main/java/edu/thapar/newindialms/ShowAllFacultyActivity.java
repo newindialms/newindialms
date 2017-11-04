@@ -109,11 +109,11 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Faculty Id TO IdList Array.
-                                IdList.add(jsonObject.getString("id").toString());
+                                IdList.add(jsonObject.getString("facultydetails_ID").toString());
 
                                 //Adding Faculty Name.
-                                faculty.FacultyName = jsonObject.getString("firstname").toString();
-                                faculty.FacultyProgram = jsonObject.getString("program").toString();
+                                faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
+                                faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
                                 facultyList.add(faculty);
 
                             }

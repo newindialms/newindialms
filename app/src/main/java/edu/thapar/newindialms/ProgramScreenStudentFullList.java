@@ -1,10 +1,19 @@
 package edu.thapar.newindialms;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,37 +30,46 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.R.attr.id;
+import static android.R.attr.value;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static edu.thapar.newindialms.R.id.view;
+
 /**
- * Created by kamalshree on 10/21/2017.
+ * Created by kamalshree on 11/2/2017.
  */
 
-public class ProgramScreenCourseModule extends AppCompatActivity {
-    String specializationname;
-    TextView Studentpic_programycoursemodule_title;
+public class ProgramScreenStudentFullList extends AppCompatActivity {
     Toolbar studentpic_toolbar;
-    String coursemodulelist_url = "https://newindialms.000webhostapp.com/get_coursemodule.php";
-    ProgramScreenCourseModuleAdapter adapter;
-    ProgramScreenCourseModuleListItems pglist;
-    List<ProgramScreenCourseModuleListItems> heroList;
+    String coursesname;
+    TextView Studentpic_programspecialization_title;
+
+    String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    ProgramScreenStudentFullListAdapter adapter;
+    List<ProgramScreenStudentFullListListItems> heroList;
     ListView listView;
+    int Student_size;
+    ProgramScreenStudentFullListListItems arraycount=new ProgramScreenStudentFullListListItems();
+    TextView Studentpic_programstudentfulllist_total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_screen_coursemodule);
-        specializationname = getIntent().getStringExtra("specializationname");
+        setContentView(R.layout.activity_program_screen_studentfulllist);
+        coursesname = getIntent().getStringExtra("coursesname");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
-        studentpic_title.setText(specializationname);
+
+        studentpic_title.setText(coursesname);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,12 +78,11 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
             }
         });
 
-        Studentpic_programycoursemodule_title = (TextView) findViewById(R.id.Studentpic_programycoursemodule_title);
-        Studentpic_programycoursemodule_title.setText(specializationname+ " Courses");
+        Studentpic_programspecialization_title = (TextView) findViewById(R.id.Studentpic_programstudentfulllist_title);
+        Studentpic_programspecialization_title.setText(coursesname);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreencoursemodulelist_ListView);
-        pglist= new ProgramScreenCourseModuleListItems(specializationname);
-        pglist.setSpecializationname(specializationname);
+        listView = (ListView) findViewById(R.id.studentpic_programscreenstudentfulllist_ListView);
+
         loadRecyclerViewData();
 
     }
@@ -75,26 +92,31 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, coursemodulelist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, studentfulllist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("courses");
+                    JSONArray array = j.getJSONArray("studentlist");
+
+                   Student_size = j.getInt("rowcount");
+                    arraycount.setRowcount(Student_size);
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        ProgramScreenCourseModuleListItems listItemProgramList = new ProgramScreenCourseModuleListItems(
-                                jsonObject1.getString("addcourse_name"),
-                                pglist.getSpecializationname()
+                        ProgramScreenStudentFullListListItems listItemProgramList = new ProgramScreenStudentFullListListItems(
+                                jsonObject1.getString("student_name"),
+                                jsonObject1.getString("student_rollnno")
+
+
                         );
+                        myarraycount(Student_size);
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenCourseModuleAdapter(getApplicationContext(),R.layout.activity_program_screencoursemodulelistitems,heroList);
+                    adapter = new ProgramScreenStudentFullListAdapter(getApplicationContext(),R.layout.activity_program_screen_studentfulllist_listitems,heroList,Student_size);
                     listView.setAdapter(adapter);
-
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
@@ -111,7 +133,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("addcourse_specialization", specializationname);
+                params.put("student_coursename", coursesname);
                 return params;
             }
         };
@@ -119,8 +141,10 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle(specializationname+ " Courses");
+
+    public void myarraycount(int rowcount){
+        Studentpic_programstudentfulllist_total = (TextView)findViewById(R.id.Studentpic_programstudentfulllist_total);
+        Studentpic_programstudentfulllist_total.setText("Total Students : "+rowcount);
     }
 
 }

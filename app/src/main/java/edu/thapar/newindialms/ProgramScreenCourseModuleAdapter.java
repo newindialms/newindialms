@@ -15,6 +15,7 @@ import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
 import static edu.thapar.newindialms.R.id.studentpic_programscreenspecializationlist;
+import static edu.thapar.newindialms.R.id.studentpic_programscreenyearlist;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -61,6 +62,23 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
         //adding values to the list item
         studentpic_programscreencoursemodulelist.setText(hero1.getCoursemodulelist());
         studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
+
+
+        studentpic_programscreencoursemodulelist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //we will call this method to remove the selected value from the list
+                //we are passing the position which is to be removed in the method
+
+                String szname=hero1.getCoursemodulelist();
+
+                Intent studentintent = new Intent(context, ProgramScreenStudentFullList.class);
+                studentintent.putExtra("coursesname",szname);
+                studentintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(studentintent);
+
+            }
+        });
 
 
         //finally returning the view

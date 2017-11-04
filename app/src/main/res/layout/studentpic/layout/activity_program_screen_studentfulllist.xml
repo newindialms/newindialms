@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="edu.thapar.newindialms.StudentPicProgram">
+
+    <include
+        android:id="@+id/studentpic_toolbar"
+        layout="@layout/studentpic_toolbar"></include>
+
+    <TextView
+        android:id="@+id/Studentpic_programstudentfulllist_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/studentpic_toolbar"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/Studentpic_programstudentfulllist_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Studentpic_programstudentfulllist_title"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/Studentpic_programstudentfulllistlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Studentpic_programstudentfulllist_total"
+        android:padding="6dip" >
+
+        <TextView
+            android:id="@+id/Studentpic_programstudentfulllist_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Studentpic_programstudentfulllist_rollno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Rollno"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+</LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentpic_programscreenstudentfulllist_ListView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Studentpic_programstudentfulllistlayout" />
+
+</RelativeLayout>

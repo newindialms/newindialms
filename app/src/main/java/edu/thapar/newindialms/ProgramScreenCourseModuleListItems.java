@@ -6,10 +6,15 @@ package edu.thapar.newindialms;
 
 public class ProgramScreenCourseModuleListItems {
 
-    private String coursemodulelist;
+    private String coursemodulelist,specializationname;
 
-    public ProgramScreenCourseModuleListItems(String coursemodulelist) {
+    public ProgramScreenCourseModuleListItems(String specializationname) {
+        this.specializationname = specializationname;
+    }
+
+    public ProgramScreenCourseModuleListItems(String coursemodulelist, String specializationname) {
         this.coursemodulelist = coursemodulelist;
+        this.specializationname=specializationname;
     }
 
     public String getCoursemodulelist() {
@@ -18,5 +23,13 @@ public class ProgramScreenCourseModuleListItems {
 
     public void setCoursemodulelist(String coursemodulelist) {
         this.coursemodulelist = coursemodulelist;
+    }
+
+    public String getSpecializationname() {
+        return specializationname;
+    }
+
+    public void setSpecializationname(String specializationname) {
+        this.specializationname = specializationname;
     }
 }

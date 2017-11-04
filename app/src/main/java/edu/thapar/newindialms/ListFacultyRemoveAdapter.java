@@ -162,7 +162,7 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("employeeid", removefacultyid);
+                params.put("facultydetails_ID", removefacultyid);
                 return params;
             }
         };
