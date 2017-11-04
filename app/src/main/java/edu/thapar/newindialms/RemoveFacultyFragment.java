@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,8 @@ public class RemoveFacultyFragment  extends Fragment {
     ListView FacultyListView;
     String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
-
+    List<Faculty> facultyList;
+    SwipeRefreshLayout swipeRefreshLayout;
     public RemoveFacultyFragment() {
     }
 
@@ -40,10 +42,18 @@ public class RemoveFacultyFragment  extends Fragment {
 
 
         FacultyListView = (ListView) rootview.findViewById(R.id.all_faculty_list);
-
-
+        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfaculty_swipe);
         new GetHttpResponse(getActivity()).execute();
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                facultyList.clear();
+                new GetHttpResponse(getActivity()).execute();
+            }
+        });
         return rootview;
     }
 
@@ -53,7 +63,7 @@ public class RemoveFacultyFragment  extends Fragment {
 
         String JSonResult;
 
-        List<Faculty> facultyList;
+
 
         public GetHttpResponse(Context context) {
             this.context = context;
@@ -97,7 +107,7 @@ public class RemoveFacultyFragment  extends Fragment {
                                 //Adding Faculty Name.
                                 faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
                                 faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
-                                faculty.FacultyID=jsonObject.getString("faculty_employeeid").toString();
+                                faculty.FacultyID=jsonObject.getString("facultydetails_ID").toString();
 
                                 facultyList.add(faculty);
 
