@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -160,6 +161,16 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 addcourse_coursetype=coursetypespinner.getSelectedItem().toString();
+                specializationtypespinner = (Spinner) rootview.findViewById(R.id.specilizationtypespinner);
+                TextView specializationtype= (TextView)rootview.findViewById(R.id.addcourse_specializationtype);
+                if(addcourse_coursetype.equals("Core")){
+                    specializationtypespinner.setVisibility(rootview.INVISIBLE);
+                    specializationtype.setVisibility(rootview.INVISIBLE);
+                }
+                else{
+                    specializationtypespinner.setVisibility(rootview.VISIBLE);
+                    specializationtype.setVisibility(rootview.VISIBLE);
+                }
             }
 
             @Override

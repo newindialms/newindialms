@@ -199,7 +199,7 @@
 
     <!--Add Course -->
 
-    <string name="addcourse_title">Add Course</string>
+    <string name="addcourse_title">Add Course Schedule</string>
     <string name="addcourse_name">Name of the Course</string>
     <string name="addcourse_code">Course Code</string>
     <string name="addcourse_credits">Course Credits</string>
@@ -231,6 +231,7 @@
         <item>Summer Internship</item>
         <item>Core</item>
         <item>Elective</item>
+        <item>CERTIFICATE</item>
     </string-array>
 
     <!-- student pic book -->

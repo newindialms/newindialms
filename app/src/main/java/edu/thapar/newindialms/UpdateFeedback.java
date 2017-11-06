@@ -130,7 +130,7 @@ public class UpdateFeedback extends AppCompatActivity {
                   String message = jsonObject.getString("message");
                   builder.setTitle(code);
                   builder.setMessage(message);
-                  displayAlert(message);
+                  //displayAlert(message);
                   UpdateFeedback.this.finish();
               }
               catch (JSONException e){
