@@ -20,7 +20,6 @@
         </activity>
         <activity android:name=".RegisterScreen" />
         <activity android:name=".LoginScreen" />
-        <activity android:name=".OtpScreen" />
         <activity
             android:name=".Dashboard"
             android:label="@string/programid"
@@ -75,6 +74,7 @@
         <activity android:name=".FacultyTab"
             android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".ProgramScreenStudentFullList"/>
+        <activity android:name=".Success"/>
     </application>
 
 </manifest>

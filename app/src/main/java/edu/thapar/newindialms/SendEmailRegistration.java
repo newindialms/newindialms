@@ -92,7 +92,7 @@ public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
             //Adding subject
             mm.setSubject("New India LMS APP Registration Confirmation");
             //Adding message
-            mm.setText("Hi,\n\n Thank you for using New India LMS App.\n\n This email confirms that you have registered using the LMS APP and the OTP confirmation is pending.Complete the OTP process and you are ready to use the LMS APP.\n\n " +
+            mm.setText("Hi,\n\n Thank you for using New India LMS App.\n\n This email confirms that you have successfully registered. \n\n " +
                     "Contact Us: Should you need any assistance,Please email us at newindialms@thapar.edu and we will be glad to help you. " +
                     "\n\n Yours Sincerly,\n\n" +
                     "New India LMS App");

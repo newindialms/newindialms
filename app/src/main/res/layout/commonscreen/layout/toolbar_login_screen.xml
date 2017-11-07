@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:id="@+id/toolbar"
+android:background="@color/colorPrimary"
+app:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/toolbarloginscreen"
-    android:background="@android:color/transparent"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAlignment="center">
-
-        <TextView
-            android:id="@+id/Feedback_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:paddingLeft="60dp"
-            android:text="Welcome"
-            android:textColor="@color/textColor"
-            android:textSize="22dp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        android:text="Welcome"
+        android:id="@+id/Feedback_toolbar"
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"/>
+</RelativeLayout>
 </android.support.v7.widget.Toolbar>
