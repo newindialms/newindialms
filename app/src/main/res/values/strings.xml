@@ -199,19 +199,20 @@
 
     <!--Add Course -->
 
-    <string name="addcourse_title">Add Course Schedule</string>
+    <string name="addcourse_title">New Course</string>
     <string name="addcourse_name">Name of the Course</string>
     <string name="addcourse_code">Course Code</string>
     <string name="addcourse_credits">Course Credits</string>
     <string name="addcourse_abbr">Course Abbreviation</string>
+    <string name="addcourse_category">Course Category</string>
     <string name="addcourse_startDate">Start Date</string>
     <string name="addcourse_endDate">End Date </string>
     <string name="addcourse_semester">Semester</string>
-    <string name="addcourse_coursetype">Type of Course</string>
-    <string name="addcourse_specializationtype">Specialization Type</string>
+    <string name="addcourse_coursetype">Choose Category</string>
+    <string name="addcourse_specializationtype">Choose Specialization</string>
     <string name="addcourse_scheduleDate">Date of Scheduling</string>
     <string name="addcourse_schedulingTime">Time of Scheduling</string>
-    <string name="addcourse_faculty">Faculty</string>
+    <string name="addcourse_faculty">Choose Faculty</string>
     <string name="addcourse_feedback">Feedback Questions</string>
     <string name="addcourse_description">Description of Course</string>
     <string name="addcourse_learningoutcomes">Learning Outcomes</string>
@@ -232,6 +233,19 @@
         <item>Core</item>
         <item>Elective</item>
         <item>CERTIFICATE</item>
+    </string-array>
+
+    <string-array name="specialization">
+        <item></item>
+        <item>Finance</item>
+        <item>Information Systems</item>
+        <item>Operations</item>
+        <item>Human Resource</item>
+        <item>Marketing</item>
+        <item>Entrepreneurship and Innovation</item>
+        <item>Energy and Sustainability</item>
+        <item>Education Management and Leadership</item>
+        <item>International Management and Strategy</item>
     </string-array>
 
     <!-- student pic book -->

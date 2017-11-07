@@ -239,24 +239,13 @@
                     android:layout_height="50dp"
                     android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/addcourse_feedback"
+                <Button
+                    android:id="@+id/addcourse_addfeedback"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:paddingTop="5dp"
-                    android:text="@string/addcourse_feedback"
-                    android:textAlignment="center"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp"
-                    tools:text="Feedback Questions" />
-
-                <Spinner
-                    android:id="@+id/feedbackspinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Select Feedback Questions" />
 
                 <EditText
                     android:id="@+id/addcourse_description"

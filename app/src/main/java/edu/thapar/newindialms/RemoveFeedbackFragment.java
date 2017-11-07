@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 
 import static edu.thapar.newindialms.R.array.feedbacktype;
-import static edu.thapar.newindialms.R.id.feedbackspinner;
+
 
 
 /**
