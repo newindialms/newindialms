@@ -78,7 +78,8 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView removecourselist = (TextView) view.findViewById(R.id.removecourselist);
+        TextView removecourselist_name = (TextView) view.findViewById(R.id.removecourselist_name);
+        TextView removecourselist_code = (TextView) view.findViewById(R.id.removecourselist_code);
         ImageView studentdeletearrow = (ImageView) view.findViewById(R.id.studentdeletearrow);
 
 
@@ -86,7 +87,8 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
         final RemoveCourseListItems hero = removeCourseListItems.get(position);
 
         //adding values to the list item
-        removecourselist.setText(hero.getRemovecoursename());
+        removecourselist_name.setText(hero.getRemovecoursename());
+        removecourselist_code.setText(hero.getRemovecoursecode());
         studentdeletearrow.setImageResource(R.drawable.ic_delete);
 
         studentdeletearrow.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +169,7 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("addcourse_name", removecoursename);
+                params.put("course_details_name", removecoursename);
                 return params;
             }
         };

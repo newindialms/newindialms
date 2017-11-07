@@ -9,10 +9,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button">
 
         <TextView
-            android:id="@+id/removecourselist"
+            android:id="@+id/removecourselist_name"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
@@ -20,10 +21,22 @@
             android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:width="0dp"
-            android:background="@drawable/rounded_button"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:text="2017"
+            android:text="name"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/removecourselist_code"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/removecourselist_name"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Code"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
 
@@ -31,12 +44,12 @@
             android:id="@+id/studentdeletearrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/removecourselist"
-            android:layout_alignRight="@+id/removecourselist"
-            android:layout_alignTop="@+id/removecourselist"
+            android:layout_alignEnd="@+id/removecourselist_name"
+            android:layout_alignRight="@+id/removecourselist_name"
+            android:layout_alignTop="@+id/removecourselist_name"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             app:srcCompat="@drawable/ic_delete" />
     </RelativeLayout>
 

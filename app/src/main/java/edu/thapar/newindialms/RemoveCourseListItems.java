@@ -5,12 +5,20 @@ package edu.thapar.newindialms;
  */
 
 public class RemoveCourseListItems {
-    private String removecoursename;
+    private String removecoursename,removecoursecode;
 
-    public RemoveCourseListItems(String removecoursename) {
+    public RemoveCourseListItems(String removecoursename,String removecoursecode) {
         this.removecoursename = removecoursename;
+        this.removecoursecode=removecoursecode;
     }
 
+    public String getRemovecoursecode() {
+        return removecoursecode;
+    }
+
+    public void setRemovecoursecode(String removecoursecode) {
+        this.removecoursecode = removecoursecode;
+    }
 
     public String getRemovecoursename() {
         return removecoursename;

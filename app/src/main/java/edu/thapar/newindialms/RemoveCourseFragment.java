@@ -77,7 +77,8 @@ public class RemoveCourseFragment extends Fragment {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         RemoveCourseListItems listItemProgramList = new RemoveCourseListItems(
-                                jsonObject1.getString("addcourse_name")
+                                jsonObject1.getString("course_details_name"),
+                                jsonObject1.getString("course_details_code")
                         );
                         heroList.add(listItemProgramList);
                     }
