@@ -12,6 +12,7 @@ public class ListItemCourseList {
     public ListItemCourseList(String courseListTitle, String courseListFaculty) {
         CourseListTitle = courseListTitle;
         CourseListFaculty = courseListFaculty;
+
     }
 
     public String getCourseListTitle() {

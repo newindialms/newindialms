@@ -33,7 +33,7 @@ import java.util.List;
 public class ProgramManagerCourseList extends Fragment{
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    String courselist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
+    String menucourselist_url = "https://newindialms.000webhostapp.com/menu_courselist.php";
 
     private List<ListItemCourseList> listItemCourseLists;
     public SwipeRefreshLayout swipeRefreshLayout;
@@ -50,25 +50,26 @@ public class ProgramManagerCourseList extends Fragment{
 
         listItemCourseLists = new ArrayList<>();
 
-        loadRecyclerViewData();
+        loadRecyclerViewDatafirstyear();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 // cancel the Visual indication of a refresh
                 swipeRefreshLayout.setRefreshing(false);
                 listItemCourseLists.clear();
-                loadRecyclerViewData();
+
+                loadRecyclerViewDatafirstyear();
             }
         });
         return rootView;
     }
 
-    private void loadRecyclerViewData() {
+    private void loadRecyclerViewDatafirstyear() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, courselist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, menucourselist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
@@ -76,12 +77,21 @@ public class ProgramManagerCourseList extends Fragment{
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray array = jsonObject.getJSONArray("Course_List");
+                    JSONArray array1 = jsonObject.getJSONArray("Course_List_first");
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ListItemCourseList listItemCourseList = new ListItemCourseList(
-                                jsonObject1.getString("addcourse_name"),
-                                jsonObject1.getString("course_faculty")
+                                jsonObject1.getString("course_details_name"),
+                                jsonObject1.getString("course_details_faculty")
+                        );
+                        listItemCourseLists.add(listItemCourseList);
+                    }
+                    for (int i = 0; i < array1.length(); i++) {
+                        JSONObject jsonObject1 = array1.getJSONObject(i);
+                        ListItemCourseList listItemCourseList = new ListItemCourseList(
+                                jsonObject1.getString("first_year_course_list_name"),
+                                jsonObject1.getString("first_year_course_list_faculty")
                         );
                         listItemCourseLists.add(listItemCourseList);
                     }
@@ -105,10 +115,4 @@ public class ProgramManagerCourseList extends Fragment{
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.navigation_program_courselist));
-    }
-
 }

@@ -2,7 +2,6 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,32 +26,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
+import static edu.thapar.newindialms.R.id.Studentpic_programspecialization_title;
+import static edu.thapar.newindialms.R.id.Studentpic_programstudentallcourselist_total;
 
 /**
- * Created by kamalshree on 10/25/2017.
+ * Created by kamalshree on 11/2/2017.
  */
 
-public class ProgramScreenCourse  extends AppCompatActivity {
-    String ProgramName;
-    TextView Studentpic_programCourse_title;
+public class ProgramScreenAllCourses extends AppCompatActivity {
     Toolbar studentpic_toolbar;
-    String coursespecificlist_url = "https://newindialms.000webhostapp.com/get_course_specific.php";
-    ProgramScreenCourseAdapter adapter;
+    String coursesname;
+    TextView Studentpic_programstudentallcourselist_title;
 
-    List<ProgramScreenCourseListItems> heroList;
+    String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    ProgramScreenAllCoursesAdapter adapter;
+    List<ProgramScreenAllCoursesListItems> heroList;
     ListView listView;
+    int Student_size;
+    ProgramScreenAllCoursesListItems arraycount=new ProgramScreenAllCoursesListItems();
+    TextView Studentpic_programstudentallcourselist_total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_program_screen_course);
-        ProgramName = getIntent().getStringExtra("programname");
+        setContentView(R.layout.activity_program_screen_allcourse);
+        coursesname = getIntent().getStringExtra("allcoursename");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
-        studentpic_title.setText(ProgramName);
+
+        studentpic_title.setText(coursesname);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +66,12 @@ public class ProgramScreenCourse  extends AppCompatActivity {
             }
         });
 
-        Studentpic_programCourse_title = (TextView) findViewById(R.id.Studentpic_programcourse_title);
-        Studentpic_programCourse_title.setText("course");
+        Studentpic_programstudentallcourselist_title = (TextView) findViewById(R.id.Studentpic_programstudentallcourselist_title);
+        Studentpic_programstudentallcourselist_title.setText(coursesname);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreencourselist_ListView);
+        listView = (ListView) findViewById(R.id.studentpic_programscreenstudentallcourselist_ListView);
 
         loadRecyclerViewData();
-
 
     }
 
@@ -76,27 +80,31 @@ public class ProgramScreenCourse  extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, coursespecificlist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, studentfulllist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("courses");
+                    JSONArray array = j.getJSONArray("studentlist");
+
+                   Student_size = j.getInt("rowcount");
+                    arraycount.setRowcount(Student_size);
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        ProgramScreenCourseListItems listItemProgramList = new ProgramScreenCourseListItems(
-                                jsonObject1.getString("course_details_name")
+                        ProgramScreenAllCoursesListItems listItemProgramList = new ProgramScreenAllCoursesListItems(
+                                jsonObject1.getString("student_name"),
+                                jsonObject1.getString("student_rollnno")
+
+
                         );
+                        myarraycount(Student_size);
                         heroList.add(listItemProgramList);
-
-
                     }
-                    adapter = new ProgramScreenCourseAdapter(getApplicationContext(),R.layout.activity_program_screencourselistitems,heroList);
+                    adapter = new ProgramScreenAllCoursesAdapter(getApplicationContext(),R.layout.activity_program_screen_allcourselistitems,heroList,Student_size);
                     listView.setAdapter(adapter);
-
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
@@ -109,13 +117,22 @@ public class ProgramScreenCourse  extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_coursename", coursesname);
+                return params;
+            }
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
 
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle("Courses");
+
+    public void myarraycount(int rowcount){
+        Studentpic_programstudentallcourselist_total = (TextView)findViewById(R.id.Studentpic_programstudentallcourselist_total);
+        Studentpic_programstudentallcourselist_total.setText("Total Students : "+rowcount);
     }
 
 }

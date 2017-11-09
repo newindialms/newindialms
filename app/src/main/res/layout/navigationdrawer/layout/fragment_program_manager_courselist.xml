@@ -20,40 +20,24 @@
         android:textColor="@color/textColor"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:text="Course List" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/CourselistTitle"
         android:background="@color/colorPrimaryDark">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/courselistRecyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/CourselistTitle">
+            android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<!--
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_course"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:elevation="6dp"
-            android:onClick="ShowCourselistDialog"
-            android:src="@drawable/add"
-            app:backgroundTint="@color/windowBackground"
-            app:pressedTranslationZ="12dp" /> -->
-    </android.support.design.widget.CoordinatorLayout>
 
 
 </RelativeLayout>

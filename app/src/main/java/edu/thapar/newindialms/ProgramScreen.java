@@ -55,7 +55,7 @@ public class ProgramScreen extends AppCompatActivity {
         ProgramScreenListItems pglist= new ProgramScreenListItems(ProgramName);
         pglist.setProgramname(ProgramName);
 
-        heroList.add(new ProgramScreenListItems("Year of Joining", "Specialization", "Courses",pglist.getProgramname()));
+        heroList.add(new ProgramScreenListItems("Year of Joining", "Specialization", "Courses","Core Courses",pglist.getProgramname()));
 
         //creating the adapter
         ProgramScreenAdapter adapter = new ProgramScreenAdapter(this, R.layout.activity_program_screen_listitems, heroList);

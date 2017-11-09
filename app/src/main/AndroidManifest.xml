@@ -75,6 +75,9 @@
             android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".ProgramScreenStudentFullList"/>
         <activity android:name=".Success"/>
+        <activity android:name=".ProgramScreenCoreCourse"/>
+        <activity android:name=".ProgramScreenCoreCourseStudent"/>
+        <activity android:name=".ProgramScreenAllCourses"/>
     </application>
 
 </manifest>

@@ -14,16 +14,16 @@ import android.widget.TextView;
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyearlist;
+import static edu.thapar.newindialms.R.id.studentpic_programscreenspecializationlist;
 
 /**
- * Created by kamalshree on 10/25/2017.
+ * Created by kamalshree on 11/8/2017.
  */
 
-public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCourseListItems> {
+public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCoreCourseListItems> {
 
     //the list values in the List of type hero
-    List<ProgramScreenCourseListItems> programScreenCourseListItems;
+    List<ProgramScreenCoreCourseListItems> programScreenCoreCourseListItems;
 
     //activity context
     Context context;
@@ -32,11 +32,11 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
     int resource;
 
     //constructor initializing the values
-    public ProgramScreenCourseAdapter(Context context, int resource, List<ProgramScreenCourseListItems> programScreenCourseListItems) {
-        super(context, resource, programScreenCourseListItems);
+    public ProgramScreenCoreCourseAdapter(Context context, int resource, List<ProgramScreenCoreCourseListItems> programScreenCoreCourseListItems) {
+        super(context, resource, programScreenCoreCourseListItems);
         this.context = context;
         this.resource = resource;
-        this.programScreenCourseListItems = programScreenCourseListItems;
+        this.programScreenCoreCourseListItems = programScreenCoreCourseListItems;
     }
 
     //this will return the ListView Item as a View
@@ -52,27 +52,28 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreencourselist = (TextView)view.findViewById(R.id.studentpic_programscreencourselist);
-        ImageView studentPicarrow = (ImageView)view.findViewById(R.id.studentPicarrow);
+        TextView studentpic_programcorecourse = (TextView)view.findViewById(R.id.studentpic_programcorecourse);
+        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
-        final ProgramScreenCourseListItems hero = programScreenCourseListItems.get(position);
+        final ProgramScreenCoreCourseListItems hero = programScreenCoreCourseListItems.get(position);
 
         //adding values to the list item
-        studentpic_programscreencourselist.setText(hero.getCoursename());
-        studentPicarrow.setImageResource(R.drawable.ic_right);
+        studentpic_programcorecourse.setText(hero.getCoursedetails());
+        studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
 
-        studentpic_programscreencourselist.setOnClickListener(new View.OnClickListener() {
+        studentpic_programcorecourse.setOnClickListener(new View.OnClickListener() {
 
-            String allcoursename=hero.getCoursename();
+            String corecoursename=hero.getCoursedetails();
             @Override
             public void onClick(View view) {
-                Intent allcourseintent = new Intent(context, ProgramScreenAllCourses.class);
-                allcourseintent.putExtra("allcoursename",allcoursename);
-                allcourseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(allcourseintent);
+                Intent studentintent = new Intent(context, ProgramScreenCoreCourseStudent.class);
+                studentintent.putExtra("corecoursename",corecoursename);
+                studentintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(studentintent);
             }
         });
+
         //finally returning the view
         return view;
     }

@@ -59,9 +59,11 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
         TextView studentpic_programscreenyear = (TextView) view.findViewById(R.id.studentpic_programscreenyear);
         TextView studentpic_programscreenspecialization = (TextView) view.findViewById(R.id.studentpic_programscreenspecialization);
         TextView studentpic_programscreenourse = (TextView) view.findViewById(R.id.studentpic_programscreenourse);
+        TextView studentpic_programscreencorecourses = (TextView) view.findViewById(R.id.studentpic_programscreencorecourses);
         ImageView studentPicarrow1 = (ImageView) view.findViewById(R.id.studentPicarrow1);
         ImageView studentPicarrow2 = (ImageView) view.findViewById(R.id.studentPicarrow2);
         ImageView studentPicarrow3 = (ImageView) view.findViewById(R.id.studentPicarrow3);
+        ImageView studentPicarrow4 = (ImageView) view.findViewById(R.id.studentPicarrow4);
 
 
         //getting the hero of the specified position
@@ -121,6 +123,20 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
 
                 Intent yearintent = new Intent(context, ProgramScreenCourse.class);
                 yearintent.putExtra("yearlist",yearname);
+                yearintent.putExtra("programname",pgname);
+                yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(yearintent);
+            }
+        });
+
+        studentpic_programscreencorecourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //we will call this method to remove the selected value from the list
+                //we are passing the position which is to be removed in the method
+
+                String pgname=hero.getProgramname();
+                Intent yearintent = new Intent(context, ProgramScreenCoreCourse.class);
                 yearintent.putExtra("programname",pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
