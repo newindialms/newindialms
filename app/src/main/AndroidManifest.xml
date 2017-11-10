@@ -78,6 +78,7 @@
         <activity android:name=".ProgramScreenCoreCourse"/>
         <activity android:name=".ProgramScreenCoreCourseStudent"/>
         <activity android:name=".ProgramScreenAllCourses"/>
+        <activity android:name=".ProgramManagerCourseSchedule" />
     </application>
 
 </manifest>

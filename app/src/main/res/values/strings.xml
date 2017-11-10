@@ -252,4 +252,11 @@
     <string name="studentpic_program">Program</string>
     <string name="studentpic_title">Student Picture Book</string>
     <string name="studentpic_programtitle">Programs</string>
+
+
+    <!-- Course Schedule -->
+    <string name="course_schedule_title">Course Schedule</string>
+    <string name="course_schedule_issue">Choose Issue</string>
+    <string name="course_schedule_day">Choose Day</string>
+    <string name="course_schedule_go">Go</string>
 </resources>
