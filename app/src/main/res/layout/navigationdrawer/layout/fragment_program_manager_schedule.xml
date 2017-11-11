@@ -70,11 +70,35 @@
             android:layout_below="@+id/course_schedule_issuespinner"
             android:layout_marginTop="63dp" />
 
+        <TextView
+            android:id="@+id/course_schedule_semester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course_schedule_semester"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/course_schedule_dayspinner"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="27dp" />
+
+        <Spinner
+            android:id="@+id/course_schedule_semesterspinner"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/course_schedule_semester"
+            android:layout_alignLeft="@+id/course_schedule_dayspinner"
+            android:layout_alignStart="@+id/course_schedule_dayspinner"
+            android:entries="@array/semester"/>
+
         <Button
             android:id="@+id/course_schedule_go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/course_schedule_dayspinner"
+            android:layout_below="@+id/course_schedule_semesterspinner"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
             android:background="@drawable/rounded_button"

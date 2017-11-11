@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -28,7 +29,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import static edu.thapar.newindialms.AddCourseFragment.facultyspinner_URL;
+import static edu.thapar.newindialms.R.id.coursetypespinner;
 import static edu.thapar.newindialms.R.id.facultyspinner;
+import static edu.thapar.newindialms.R.id.semesterspinner;
 
 
 /**
@@ -37,18 +40,18 @@ import static edu.thapar.newindialms.R.id.facultyspinner;
 public class ProgramManagerSchedule extends Fragment {
     String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
     String day_url = "https://newindialms.000webhostapp.com/get_days.php";
-    private Spinner issuespinner,dayspinner;
+    private Spinner issuespinner,dayspinner,semesterspinner;
     private ArrayList<String> issuelist,daylist;
     private JSONArray resultissue,resultday;
     Button gobutton;
-    String issue_details,day_details;
+    String issue_details,day_details,semester_details;
     View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview =inflater.inflate(R.layout.fragment_program_manager_schedule, container, false);
-
+        addListenerOnCourseSpinnerItemSelection();
         addListenerOnIssueSpinnerItemSelection();
         addListenerOnDaysSpinnerItemSelection();
 
@@ -59,9 +62,19 @@ public class ProgramManagerSchedule extends Fragment {
         gobutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                issuespinner = (Spinner) rootview.findViewById(R.id.course_schedule_issuespinner);
+                issue_details=issuespinner.getSelectedItem().toString();
+
+                dayspinner = (Spinner) rootview.findViewById(R.id.course_schedule_dayspinner);
+                day_details=dayspinner.getSelectedItem().toString();
+
+                semesterspinner = (Spinner) rootview.findViewById(R.id.course_schedule_semesterspinner);
+                semester_details=semesterspinner.getSelectedItem().toString();
+
                 Intent scheduleintent = new Intent(getActivity(), ProgramManagerCourseSchedule.class);
                 scheduleintent.putExtra("issue_details",issue_details);
                 scheduleintent.putExtra("day_details",day_details);
+                scheduleintent.putExtra("semester_details",semester_details);
                 scheduleintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getActivity().startActivity(scheduleintent);
             }
@@ -69,11 +82,24 @@ public class ProgramManagerSchedule extends Fragment {
         return rootview;
     }
 
+    public void addListenerOnCourseSpinnerItemSelection() {
+        semesterspinner = (Spinner) rootview.findViewById(R.id.course_schedule_semesterspinner);
+        semesterspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                semester_details=semesterspinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(getActivity(),"nothing selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     //Spinner for Issue
     public void addListenerOnIssueSpinnerItemSelection() {
         issuelist = new ArrayList<String>();
-        issuespinner = (Spinner) rootview.findViewById(R.id.course_schedule_issuespinner);
-        issue_details=issuespinner.getSelectedItem().toString();
         getIssueData();
 
     }
@@ -135,8 +161,6 @@ public class ProgramManagerSchedule extends Fragment {
     //Spinner for Issue
     public void addListenerOnDaysSpinnerItemSelection() {
         daylist = new ArrayList<String>();
-        dayspinner = (Spinner) rootview.findViewById(R.id.course_schedule_dayspinner);
-        day_details=dayspinner.getSelectedItem().toString();
         getDaysData();
 
     }

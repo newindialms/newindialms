@@ -12,7 +12,7 @@
         layout="@layout/studentpic_toolbar"></include>
 
     <TextView
-        android:id="@+id/Studentpic_programyear_title"
+        android:id="@+id/timetable_title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,17 +20,103 @@
         android:layout_below="@+id/studentpic_toolbar"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text=""
+        android:text="@string/timetable_title1"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="24sp" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timetable_title1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout1">
+
+
+        <TextView
+            android:id="@+id/timetable_title2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/timetable_title3"
+            android:layout_toRightOf="@+id/timetable_title3"
+            android:text="Fall"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timetable_title3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="issue"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/timetable_title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginBottom="10dp"
+        android:text="Duration"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timetable_title4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout2">
+
+
+        <TextView
+            android:id="@+id/timetable_title5"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:text="to"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timetable_title6"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:text="from"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/studentpic_programscreenyearlist_ListView"
+        android:id="@+id/programscreen_courseschedulelist_ListView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Studentpic_programyear_title" />
+        android:layout_below="@+id/relativeLayout2" />
 </RelativeLayout>

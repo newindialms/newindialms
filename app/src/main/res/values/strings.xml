@@ -258,5 +258,13 @@
     <string name="course_schedule_title">Course Schedule</string>
     <string name="course_schedule_issue">Choose Issue</string>
     <string name="course_schedule_day">Choose Day</string>
+    <string name="course_schedule_semester">Choose Semester</string>
     <string name="course_schedule_go">Go</string>
+    <string name="timetable_title1">MBA Program Time Table</string>
+
+    <string-array name="semester">
+        <item></item>
+        <item>Summer</item>
+        <item>Fall</item>
+    </string-array>
 </resources>
