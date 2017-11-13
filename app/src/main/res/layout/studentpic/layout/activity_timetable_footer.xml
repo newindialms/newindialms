@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/timetable_notes_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/timetable_notes1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="1. PKN = Prof. Padmakumar Nair; AKD = Prof. A. K. Dhingra; GJ = Prof. G. Jaswal; KSG = Dr. Karminder Singh Ghuman; PV=Dr.Piyush Verma; RR= Dr. Rudra Rameshwar; AM=Mr. Ankit Mahindroo; GG=Mr. Gaurav Goyal; NC= Ms. NitiChatterji; PKG= Mr. Pradeep Kumar Gupta; GP = Dr. Gurparkash; HS = Dr. HarjotSingh;  AKB=Mr. Amit K Bhardwaj; SB = Dr. Shalu Bansal; VG =Dr. Vipul Gupta; SG = Dr. Sonia Garg; MK= Prof. M. Kanchan; SD=Prof. Sanjiv Dhir; AG=Dr. Arunesh Garg; RA=Dr. Ridhi Arora; SJ=Dr. Snehlata Jaswal; AS=Dr. Anita Sharma; H= Mr. Hemant; GC= Dr. Ginni Chawla; GF=Guest Faculty."
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/timetable_notes2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="2.If required, the classes will also be scheduled on Saturdays or Sundays."
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/timetable_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:text="Click Here for More Details "
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textStyle="bold" />
+
+</LinearLayout>

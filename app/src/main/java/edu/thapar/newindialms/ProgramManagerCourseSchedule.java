@@ -1,10 +1,16 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
+import static edu.thapar.newindialms.R.id.textView;
 
 /**
  * Created by kamalshree on 11/9/2017.
@@ -42,6 +49,7 @@ String issue_details,day_details,semester_details;
     List<ProgramScreenCourseScheduleListItems> heroList;
     ProgramScreenCourseScheduleAdapter adapter;
     ListView listView;
+    LayoutInflater layoutinflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,9 @@ String issue_details,day_details,semester_details;
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
+        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        studentpic_title.setText("MBA Program Time Table");
+
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +76,23 @@ String issue_details,day_details,semester_details;
         listView = (ListView) findViewById(R.id.programscreen_courseschedulelist_ListView);
         loadRecyclerViewData();
         loadRecyclerTimeTable();
+
+        layoutinflater = getLayoutInflater();
+
+        ViewGroup footer = (ViewGroup)layoutinflater.inflate(R.layout.activity_timetable_footer,listView,false);
+        listView.addFooterView(footer);
+
+        TextView timetable_table=(TextView)findViewById(R.id.timetable_table);
+        timetable_table.setPaintFlags(timetable_table.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        timetable_table.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent i = new Intent(Intent.ACTION_VIEW);
+               i.setData(Uri.parse("https://newindialms.000webhostapp.com/timetable.php"));
+               startActivity(i);
+
+           }
+        });
     }
 
     private void loadRecyclerViewData() {
