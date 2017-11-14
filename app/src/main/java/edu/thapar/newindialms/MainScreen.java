@@ -25,12 +25,12 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        if(SharedPrefManager.getInstance(this).isLoggedIn()) {
+        /*if(SharedPrefManager.getInstance(this).isLoggedIn()) {
             // logged in
             finish();
             startActivity(new Intent(this, Dashboard.class));
             return;
-        }
+        }*/
 
         login_button = (Button) findViewById(R.id.mainscreen_login);
         register_button = (Button) findViewById(R.id.mainscreen_register);

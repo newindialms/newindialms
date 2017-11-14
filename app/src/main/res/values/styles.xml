@@ -2,6 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="MyTheme" parent="MyTheme.base"></style>
+    <style name="FacultyTheme" parent="FacultyTheme.base"></style>
 
     <style name="MyTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -11,10 +12,24 @@
         <item name="android:windowBackground">@color/windowBackground</item>
     </style>
 
+    <style name="FacultyTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. #32D9D6-->
+        <item name="colorPrimary">#08C6C9</item>
+        <item name="colorPrimaryDark">@color/Menu</item>
+        <item name="colorAccent">@color/textHintColor</item>
+        <item name="android:windowBackground">@color/facultywindowBackground</item>
+    </style>
+
     <!-- Styling for the menu items in the Toolbar-->
     <style name="MyMenuToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/textColor</item>
         <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <!-- Styling for the menu items in the Toolbar-->
+    <style name="MyFacultyMenuToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/facultycolorPrimary</item>
+        <item name="android:textColor">@color/facultytextColor</item>
     </style>
 
 
@@ -27,7 +42,18 @@
         <item name="android:background">@color/textColor</item>
     </style>
 
+
+    <!-- Styling for the Alert Dialog box-->
+    <style name="MyFacultyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#08C6C9</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#08C6C9</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/textColor</item>
+    </style>
+
     <style name="MyTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="FacultyTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="MyTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

@@ -22,6 +22,7 @@ android {
         main {
             res.srcDirs =
                     [
+                            'src/main/res/layout/faculty',
                             'src/main/res/layout/addcourse',
                             'src/main/res/layout/calendar',
                             'src/main/res/layout/studentpic',

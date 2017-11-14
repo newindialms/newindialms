@@ -267,4 +267,13 @@
         <item>Summer</item>
         <item>Fall</item>
     </string-array>
+
+
+    <!-- Faculty Module -->
+    <string name="faculty_notification_layout">Notification</string>
+    <string name="faculty_courselist_layout">Course List</string>
+    <string name="faculty_calendar_layout">Calendar</string>
+    <string name="faculty_schedule_layout">Schedule</string>
+    <string name="faculty_logout_layout">Logout</string>
+
 </resources>

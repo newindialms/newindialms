@@ -30,8 +30,6 @@ import java.util.Map;
 
 public class ProgramManagerMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Button ShowStudents;
-    String app_server_url= "https://newindialms.000webhostapp.com/fcm_insert.php";
     Fragment fragment=null;
 
     @Override

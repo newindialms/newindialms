@@ -70,12 +70,12 @@ public class LoginScreen extends AppCompatActivity {
                 (ViewGroup) findViewById(R.id.custom_toast_layout_id));
         final TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
 
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+       /* if(SharedPrefManager.getInstance(this).isLoggedIn()){
             // logged in
             finish();
             startActivity(new Intent(this,Dashboard.class));
             return;
-        }
+        }*/
 
         login_signup=(TextView)findViewById(R.id.login_signup);
 
@@ -117,7 +117,7 @@ public class LoginScreen extends AppCompatActivity {
                         public void onResponse(String response) {
                             try {
                                  progressDialog.dismiss();
-                                JSONArray jsonArray = new JSONArray(response);
+                                    JSONArray jsonArray = new JSONArray(response);
                                 JSONObject jsonObject = jsonArray.getJSONObject(0);
                                 String code = jsonObject.getString("code");
                                 if (code.equals("login_failed")) {
@@ -130,11 +130,8 @@ public class LoginScreen extends AppCompatActivity {
 
                                     if(jsonObject.getString("idtype").equals("student")) {
                                         //student dashboard
-                                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(
-                                                jsonObject.getString("studentid")
-                                        );
                                         finish();
-                                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                                        startActivity(new Intent(getApplicationContext(), StudentDashboard.class));
                                         toast_text.setText("Student Dashboard");
                                         customToast();
 
@@ -150,12 +147,16 @@ public class LoginScreen extends AppCompatActivity {
                                     else{
                                         //faculty dashboard
                                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(
-                                                jsonObject.getString("studentid")
+                                                jsonObject.getString("faculty_employeeid")
                                         );
+
+                                        String facultyname = jsonObject.getString("faculty_firstname");
+                                        String facultyid = jsonObject.getString("faculty_employeeid");
                                         finish();
-                                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                                        toast_text.setText(jsonObject.getString("idtype"));
-                                        customToast();
+                                        Intent facultyintent=new Intent(getApplicationContext(), FacultyMenu.class);
+                                        facultyintent.putExtra("facultyname",facultyname);
+                                        facultyintent.putExtra("facultyid",facultyid);
+                                        startActivity(facultyintent);
                                     }
                                 }
 

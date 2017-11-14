@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import static edu.thapar.newindialms.R.id.faculty_toolbar_title;
 
-public class FacultyDashboard extends AppCompatActivity {
+public class StudentDashboard extends AppCompatActivity {
     Toolbar toolbar_main_screen;
     MenuItem menuItem;
     String facultyname,facultyid;
@@ -17,7 +17,7 @@ public class FacultyDashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_facultydashboard);
+        setContentView(R.layout.activity_faculty_menu);
 
     }
 

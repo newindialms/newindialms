@@ -21,9 +21,10 @@
         <activity android:name=".RegisterScreen" />
         <activity android:name=".LoginScreen" />
         <activity
-            android:name=".Dashboard"
-            android:label="@string/programid"
-            android:theme="@style/MyTheme" />
+            android:name=".StudentDashboard" />
+        <activity android:name=".FacultyMenu"
+            android:label="Faculty"
+            android:theme="@style/FacultyTheme"/>
         <activity
             android:name=".ProgramManagerMenu"
             android:label="@string/programid"
