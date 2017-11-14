@@ -30,7 +30,6 @@ public class FacultyMenu extends AppCompatActivity
     Fragment fragment=null;
     String facultyname,facultyid;
     TextView faculty_toolbar_name,faculty_toolbar_id;
-    CoordinatorLayout app_bar_faculty_menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +54,15 @@ public class FacultyMenu extends AppCompatActivity
         faculty_toolbar_id=(TextView)header.findViewById(R.id.faculty_toolbar_id);
         faculty_toolbar_name.setText(facultyname);
         faculty_toolbar_id.setText(facultyid);
-    }
 
+
+    }
+    public String getEmployeeid() {
+        return facultyid;
+    }
+    public void homescreen_courselist_layout(View view){
+        displaySelectedScreen(R.id.navigation_faculty_program_courselist);
+    }
 
     public void homescreen_logout_layout(View view){
         Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
@@ -79,11 +85,11 @@ public class FacultyMenu extends AppCompatActivity
     private void displaySelectedScreen(int id){
         Fragment fragment=null;
         switch(id){
-            case R.id.navigation_program_home:
+            case R.id.navigation_faculty_program_home:
                 fragment=new FacultyHome();
                 break;
-            case R.id.navigation_program_courselist:
-                fragment=new ProgramManagerCourseList();
+            case R.id.navigation_faculty_program_courselist:
+                fragment=new FacultyCourseList();
                 break;
             case R.id.navigation_program_schedule:
                 fragment=new ProgramManagerSchedule();
@@ -112,7 +118,7 @@ public class FacultyMenu extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id!= R.id.navigation_program_logout) {
+        if(id!= R.id.navigation_faculty_program_logout) {
             displaySelectedScreen(id);
         }
         else{

@@ -23,7 +23,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
             android:text="New India LMS APP"
-            android:textColor="@color/textHintColor"
+            android:textColor="@color/textColor"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:text="Faculty Name"
-            android:textColor="@color/textHintColor"
+            android:textColor="@color/textColor"
             android:textSize="18dp" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_below="@+id/faculty_toolbar_name"
             android:layout_marginLeft="10dp"
             android:text="Employee Id"
-            android:textColor="@color/textHintColor"
+            android:textColor="@color/textColor"
             android:textSize="18dp" />
     </RelativeLayout>
 

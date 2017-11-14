@@ -276,4 +276,9 @@
     <string name="faculty_schedule_layout">Schedule</string>
     <string name="faculty_logout_layout">Logout</string>
 
+    <string name="faculty_courselist_title">Course List</string>
+    <string name="faculty_cardviewCourselistTitle">Course List</string>
+
+
+
 </resources>

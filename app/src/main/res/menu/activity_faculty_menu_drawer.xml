@@ -2,32 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <item
-        android:id="@+id/navigation_program_home"
+        android:id="@+id/navigation_faculty_program_home"
         android:icon="@drawable/faculty_home"
         android:title="Home"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_program_courselist"
+        android:id="@+id/navigation_faculty_program_courselist"
         android:icon="@drawable/faculty_courselist"
         android:title="@string/navigation_program_courselist"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_program_schedule"
+        android:id="@+id/navigation_faculty_program_schedule"
         android:icon="@drawable/faculty_schedule"
         android:title="@string/navigation_program_schedule"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_program_calendar"
+        android:id="@+id/navigation_faculty_program_calendar"
         android:icon="@drawable/faculty_calendar"
         android:title="@string/navigation_program_calendar"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_program_notification"
+        android:id="@+id/navigation_faculty_program_notification"
         android:icon="@drawable/faculty_notification"
         android:title="@string/navigation_program_notification"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_program_logout"
+        android:id="@+id/navigation_faculty_program_logout"
         android:icon="@drawable/faculty_signout"
         android:title="@string/navigation_program_logout"
         android:checkable="true"/>
