@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar_delete_faculty"
-        layout="@layout/faculty_toolbar"
+        layout="@layout/facultycourselist_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></include>
 

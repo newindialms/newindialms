@@ -278,7 +278,11 @@
 
     <string name="faculty_courselist_title">Course List</string>
     <string name="faculty_cardviewCourselistTitle">Course List</string>
-
+    <string name="facultydashboard_toolbar_title"></string>
+    <string name="faculty_courselist_dashboard_attendance">Attendance</string>
+    <string name="faculty_courselist_dashboard_feedback">Feedback</string>
+    <string name="faculty_courselist_attendance_take">Take Attendance</string>
+    <string name="faculty_courselist_attendance_see">See Attendance</string>
 
 
 </resources>

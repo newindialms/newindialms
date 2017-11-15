@@ -16,6 +16,7 @@ import java.util.List;
 
 import static edu.thapar.newindialms.R.id.faculty_courselist_rightarrow;
 import static edu.thapar.newindialms.R.id.studentPicarrow;
+import static edu.thapar.newindialms.R.id.studentpic_programcorecourse;
 import static edu.thapar.newindialms.R.id.studentpic_programscreenyearlist;
 
 /**
@@ -64,6 +65,19 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
         faculty_cardviewCourselistTitle.setText(hero.getCourseListTitle());
         faculty_courselist_rightarrow.setImageResource(R.drawable.faculty_rightarrow);
 
+
+
+        faculty_courselist_rightarrow.setOnClickListener(new View.OnClickListener() {
+
+            String coursename=hero.getCourseListTitle();
+            @Override
+            public void onClick(View view) {
+                Intent facultyintent = new Intent(context, FacultyCourseListDashboard.class);
+                facultyintent.putExtra("coursename",coursename);
+                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(facultyintent);
+            }
+        });
         //finally returning the view
         return view;
     }

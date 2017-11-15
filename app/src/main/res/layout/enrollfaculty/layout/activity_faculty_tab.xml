@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/faculty_toolbar"
-        layout="@layout/faculty_toolbar"></include>
+        layout="@layout/facultycourselist_toolbar"></include>
 
 
     <android.support.design.widget.TabLayout

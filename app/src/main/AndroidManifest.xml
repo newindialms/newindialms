@@ -20,11 +20,7 @@
         </activity>
         <activity android:name=".RegisterScreen" />
         <activity android:name=".LoginScreen" />
-        <activity
-            android:name=".StudentDashboard" />
-        <activity android:name=".FacultyMenu"
-            android:label="Faculty"
-            android:theme="@style/FacultyTheme"/>
+        <activity android:name=".StudentDashboard" />
         <activity
             android:name=".ProgramManagerMenu"
             android:label="@string/programid"
@@ -33,21 +29,19 @@
         <activity android:name=".ShowAllFacultyActivity" />
         <activity android:name=".ShowFacultySingleRecordActivity" />
         <activity android:name=".EmailActivity" />
-        <activity android:name=".EmailActivityAll"/>
+        <activity android:name=".EmailActivityAll" />
         <activity android:name=".OpenCalendar" />
         <activity android:name=".UpdateFeedback" />
         <activity android:name=".SpinnerStudentList" />
 
-        <service
-            android:name=".FcmMessagingService">
+        <service android:name=".FcmMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".FCMInstanceIdService">
+        <service android:name=".FCMInstanceIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
@@ -58,7 +52,7 @@
         <activity
             android:name=".AddCourseTab"
             android:theme="@style/MyTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".StudentPicProgram" />
         <activity android:name=".ProgramScreen" />
         <activity android:name=".ProgramScreenYear" />
@@ -68,18 +62,32 @@
         <activity android:name=".ProgramScreenCourse" />
         <activity android:name=".ProgramScreenSpecializationModule" />
         <activity android:name=".ProgramScreenCourseModule" />
-        <activity android:name=".CalendarView"/>
-        <activity android:name=".NotificationTab"/>
-        <activity android:name=".FeedbackTab"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".FacultyTab"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".ProgramScreenStudentFullList"/>
-        <activity android:name=".Success"/>
-        <activity android:name=".ProgramScreenCoreCourse"/>
-        <activity android:name=".ProgramScreenCoreCourseStudent"/>
-        <activity android:name=".ProgramScreenAllCourses"/>
+        <activity android:name=".CalendarView" />
+        <activity android:name=".NotificationTab" />
+        <activity
+            android:name=".FeedbackTab"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".FacultyTab"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ProgramScreenStudentFullList" />
+        <activity android:name=".Success" />
+        <activity android:name=".ProgramScreenCoreCourse" />
+        <activity android:name=".ProgramScreenCoreCourseStudent" />
+        <activity android:name=".ProgramScreenAllCourses" />
         <activity android:name=".ProgramManagerCourseSchedule" />
+
+
+        <activity
+            android:name=".FacultyMenu"
+            android:label="Faculty"
+            android:theme="@style/FacultyTheme" />
+        <activity
+            android:name=".FacultyCourseListDashboard"
+            android:theme="@style/FacultyTheme" />
+
+        <activity android:name=".FacultyCourseListAttendance"
+            android:theme="@style/FacultyTheme" />
     </application>
 
 </manifest>
