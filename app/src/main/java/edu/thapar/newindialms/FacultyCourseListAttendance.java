@@ -16,7 +16,7 @@ import java.util.List;
 
 public class FacultyCourseListAttendance extends AppCompatActivity {
 
-    String coursename;
+    String coursename,faculty_employeeid;
     TextView facultycourselist_program_title;
     Toolbar faculty_toolbar;
 
@@ -30,6 +30,7 @@ public class FacultyCourseListAttendance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_courselist_attendance);
         coursename = getIntent().getStringExtra("coursename");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -53,7 +54,7 @@ public class FacultyCourseListAttendance extends AppCompatActivity {
         FacultyCourseListDashboardListItems pglist= new FacultyCourseListDashboardListItems(coursename);
         pglist.setCoursename(coursename);
 
-        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance","See Attendance",pglist.getCoursename()));
+        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance","See Attendance",pglist.getCoursename(),faculty_employeeid));
 
         //creating the adapter
         FacultyCourseListAttendanceAdapter adapter = new FacultyCourseListAttendanceAdapter(this, R.layout.activity_faculty_courselist_attendance_listitems, heroList);

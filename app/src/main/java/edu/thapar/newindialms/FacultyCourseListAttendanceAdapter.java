@@ -65,6 +65,18 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
         faculty_courselist_rightarrow1.setImageResource(R.drawable.faculty_rightarrow);
         faculty_courselist_rightarrow2.setImageResource(R.drawable.faculty_rightarrow);
 
+        faculty_courselist_rightarrow1.setOnClickListener(new View.OnClickListener() {
+
+            String coursename=hero.getCoursename();
+            @Override
+            public void onClick(View view) {
+                Intent facultyintent = new Intent(context, FacultyCourseListTakeAttendance.class);
+                facultyintent.putExtra("coursename",coursename);
+                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(facultyintent);
+            }
+        });
         //finally returning the view
         return view;
     }

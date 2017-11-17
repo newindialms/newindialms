@@ -88,6 +88,8 @@
 
         <activity android:name=".FacultyCourseListAttendance"
             android:theme="@style/FacultyTheme" />
+        <activity android:name=".FacultyCourseListTakeAttendance"
+            android:theme="@style/FacultyTheme" />
     </application>
 
 </manifest>

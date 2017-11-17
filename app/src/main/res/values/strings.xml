@@ -283,6 +283,6 @@
     <string name="faculty_courselist_dashboard_feedback">Feedback</string>
     <string name="faculty_courselist_attendance_take">Take Attendance</string>
     <string name="faculty_courselist_attendance_see">See Attendance</string>
-
+    <string name="SubmitAttendance">Submit</string>
 
 </resources>

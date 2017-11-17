@@ -74,6 +74,7 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
             public void onClick(View view) {
                 Intent facultyintent = new Intent(context, FacultyCourseListDashboard.class);
                 facultyintent.putExtra("coursename",coursename);
+                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
             }

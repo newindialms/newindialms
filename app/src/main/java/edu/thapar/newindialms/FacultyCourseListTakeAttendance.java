@@ -1,0 +1,209 @@
+package edu.thapar.newindialms;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static android.R.attr.key;
+import static android.R.attr.password;
+import static android.R.id.list;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static edu.thapar.newindialms.R.id.Studentpic_programspecialization_title;
+import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
+import static edu.thapar.newindialms.RegistrationConfig.REGISTER_URL;
+import static java.security.AccessController.getContext;
+
+/**
+ * Created by kamalshree on 10/21/2017.
+ */
+
+public class FacultyCourseListTakeAttendance extends AppCompatActivity {
+    public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendance.php";
+    String coursename, faculty_employeeid;
+    TextView facultycourselist_program_title;
+    Toolbar faculty_toolbar;
+    LayoutInflater layoutinflater;
+    String[] arrayattendancelist;
+    AlertDialog.Builder builder;
+    //a List of type hero for holding list items
+    FacultyCourseListTakeAttendanceAdapter adapter;
+
+    List<FacultyCourseListTakeAttendanceListItems> heroList;
+    ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_faculty_courselist_takeattendance);
+        coursename = getIntent().getStringExtra("coursename");
+        faculty_employeeid = "2322";
+
+        faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        faculty_title.setText(coursename);
+        setSupportActionBar(faculty_toolbar);
+        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        facultycourselist_program_title = (TextView) findViewById(R.id.facultycourselist_takeattendance_title);
+        facultycourselist_program_title.setText(coursename + " Take Attendance");
+        listView = (ListView) findViewById(R.id.facultycourselisttakeattendancelist_ListView);
+        heroList = new ArrayList<>();
+        loadRecyclerViewData();
+
+        builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        layoutinflater = getLayoutInflater();
+
+        ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_faculty_takeattendance_footer, listView, false);
+        listView.addFooterView(footer);
+    }
+
+    public void showResult(View v) {
+        /*for (FacultyCourseListTakeAttendanceListItems p :adapter.getattendanceDetails()) {
+            Toast.makeText(this, p.getStudentrollno(), Toast.LENGTH_LONG).show();
+        }*/
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+
+        //Again creating the string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, saveattendance_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
+                        Toast.makeText(FacultyCourseListTakeAttendance.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                ArrayList<String> numbers = new ArrayList<String>();
+                arrayattendancelist = new String[adapter.getattendanceDetails().size()];
+                for (int i = 0; i < adapter.getattendanceDetails().size(); i++) {
+                    numbers.add(adapter.getattendanceDetails().get(i).getStudentrollno());
+                }
+                int j=0;
+                for(String object: numbers){
+                    params.put("student_rollnno["+(j++)+"]", object);
+                }
+
+                params.put("faculty_employeeid", faculty_employeeid);
+                params.put("course_details_name", coursename);
+                return params;
+
+            }
+        };
+
+        //Adding request the the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadRecyclerViewData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Refreshing Data");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolledstudent_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                JSONArray jsonArray = null;
+                try {
+                    JSONObject j = new JSONObject(response);
+                    JSONArray array = j.getJSONArray("studentlist");
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject jsonObject1 = array.getJSONObject(i);
+                        FacultyCourseListTakeAttendanceListItems listItemProgramList = new FacultyCourseListTakeAttendanceListItems(
+                                jsonObject1.getString("student_name"),
+                                jsonObject1.getString("student_rollnno")
+                        );
+                        heroList.add(listItemProgramList);
+                    }
+                    adapter = new FacultyCourseListTakeAttendanceAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_takeattendance_listitems, R.layout.activity_faculty_takeattendance_footer, heroList);
+                    listView.setAdapter(adapter);
+
+                } catch (JSONException e) {
+                    progressDialog.dismiss();
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_coursename", coursename);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert(final String code) {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+
+                if (code.equals("input_success")) {
+                    //
+                } else if (code.equals("input_error")) {
+                    //
+                }
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+}
