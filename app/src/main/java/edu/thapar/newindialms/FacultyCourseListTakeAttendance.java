@@ -69,7 +69,8 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_courselist_takeattendance);
         coursename = getIntent().getStringExtra("coursename");
-        faculty_employeeid = "2322";
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -89,7 +90,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         heroList = new ArrayList<>();
         loadRecyclerViewData();
 
-        builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        builder = new AlertDialog.Builder(this, R.style.MyFacultyAlertDialogStyle);
         layoutinflater = getLayoutInflater();
 
         ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_faculty_takeattendance_footer, listView, false);
@@ -109,6 +110,30 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         loading.dismiss();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            String code = jsonObject.getString("code");
+                            if (code.equals("Success")) {
+                                loading.dismiss();
+                                builder.setTitle("Success");
+                                builder.setMessage("Data saved successfully");
+                                displayAlert("input_success");
+
+                            } else {
+                                loading.dismiss();
+                                builder.setTitle("failed");
+                                builder.setMessage("Try again");
+                                displayAlert("input_error");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            builder.setTitle("Success");
+                            builder.setMessage("Data saved successfully");
+                            displayAlert("input_success");
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -123,9 +148,10 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> numbers = new ArrayList<String>();
                 arrayattendancelist = new String[adapter.getattendanceDetails().size()];
-                for (int i = 0; i < adapter.getattendanceDetails().size(); i++) {
-                    numbers.add(adapter.getattendanceDetails().get(i).getStudentrollno());
-                }
+                    for (int i = 0; i < adapter.getattendanceDetails().size(); i++) {
+                        numbers.add(adapter.getattendanceDetails().get(i).getStudentrollno());
+                    }
+
                 int j=0;
                 for(String object: numbers){
                     params.put("student_rollnno["+(j++)+"]", object);
@@ -196,6 +222,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
             public void onClick(DialogInterface dialoginterface, int i) {
 
                 if (code.equals("input_success")) {
+                    finish();
                     //
                 } else if (code.equals("input_error")) {
                     //

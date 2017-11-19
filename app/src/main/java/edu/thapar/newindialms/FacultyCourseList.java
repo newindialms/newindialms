@@ -48,6 +48,7 @@ public class FacultyCourseList extends Fragment{
     FacultyCourseListAdapter adapter;
     String faculty_employeeid;
     List<FacultyListItemCourseList> heroList;
+    FacultyListItemCourseList pglist;
     ListView listView;
     View rootView;
     @Override
@@ -57,6 +58,9 @@ public class FacultyCourseList extends Fragment{
         faculty_employeeid=activity.getEmployeeid();
         TextView studentpic_title=(TextView)rootView.findViewById(R.id.faculty_courselist_title);
         studentpic_title.setText("CourseList");
+
+        pglist= new FacultyListItemCourseList(faculty_employeeid);
+        pglist.setFaculty_employeeid(faculty_employeeid);
 
         heroList = new ArrayList<>();
         listView = (ListView) rootView.findViewById(R.id.faculty_courselist_ListView);
@@ -82,8 +86,7 @@ public class FacultyCourseList extends Fragment{
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyListItemCourseList listItemProgramList = new FacultyListItemCourseList(
-                                jsonObject1.getString("course_details_name"),faculty_employeeid
-
+                                jsonObject1.getString("course_details_name"),pglist.getFaculty_employeeid()
                         );
                         heroList.add(listItemProgramList);
 

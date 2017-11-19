@@ -45,9 +45,9 @@
 
     <!-- Styling for the Alert Dialog box-->
     <style name="MyFacultyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">#08C6C9</item>
+        <item name="colorAccent">#FFFF714A</item>
         <!-- Used for the title and text -->
-        <item name="android:textColorPrimary">#08C6C9</item>
+        <item name="android:textColorPrimary">#FFFF714A</item>
         <!-- Used for the background -->
         <item name="android:background">@color/textColor</item>
     </style>
