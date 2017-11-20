@@ -285,4 +285,6 @@
     <string name="faculty_courselist_attendance_see">See Attendance</string>
     <string name="SubmitAttendance">Submit</string>
 
+    <string name="facultycourselist_viewattendance_title">Select Date</string>
+    <string name="facultycourselist_viewattendance_courses">Select Course</string>
 </resources>

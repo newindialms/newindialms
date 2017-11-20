@@ -58,11 +58,15 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
     LayoutInflater layoutinflater;
     String[] arrayattendancelist;
     AlertDialog.Builder builder;
+    String attendance_status;
     //a List of type hero for holding list items
     FacultyCourseListTakeAttendanceAdapter adapter;
 
     List<FacultyCourseListTakeAttendanceListItems> heroList;
     ListView listView;
+
+    public static ArrayList<String> presentlist = new ArrayList<String>();
+    public static ArrayList<String> absentlist = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,12 +102,90 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
     }
 
     public void showResult(View v) {
-        /*for (FacultyCourseListTakeAttendanceListItems p :adapter.getattendanceDetails()) {
-            Toast.makeText(this, p.getStudentrollno(), Toast.LENGTH_LONG).show();
-        }*/
+        for (FacultyCourseListTakeAttendanceListItems p :adapter.getpresentattendanceDetails()) {
+            presentlist.add(p.getStudentrollno());
+        }
+        for (FacultyCourseListTakeAttendanceListItems p :adapter.getabsentattendanceDetails()) {
+            absentlist.add(p.getStudentrollno());
+            attendance_status="Absent";
+        }
+        savepresentDetails();
+
+    }
+
+public void savepresentDetails()
+    {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+        attendance_status="Present";
+        //Again creating the string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, saveattendance_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            String code = jsonObject.getString("code");
+                            if (code.equals("Success")) {
+                                saveabsentDetails();
+                            } else {
+                                loading.dismiss();
+                                builder.setTitle("failed");
+                                builder.setMessage("Try again");
+                                displayAlert("input_error");
+                            }
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            builder.setTitle("Success");
+                            builder.setMessage("Data saved successfully");
+                            displayAlert("input_success");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
+                        Toast.makeText(FacultyCourseListTakeAttendance.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                ArrayList<String> numbers = new ArrayList<String>();
+                arrayattendancelist = new String[adapter.getpresentattendanceDetails().size()];
+                for (int i = 0; i < adapter.getpresentattendanceDetails().size(); i++) {
+                    numbers.add(adapter.getpresentattendanceDetails().get(i).getStudentrollno());
+                }
+
+                int j=0;
+                for(String object: numbers){
+                    params.put("student_rollnno["+(j++)+"]", object);
+                }
+
+                params.put("faculty_employeeid", faculty_employeeid);
+                params.put("course_details_name", coursename);
+                params.put("attendance_status", attendance_status);
+                return params;
+
+            }
+        };
+
+        //Adding request the the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+
+    public void saveabsentDetails()
+    {
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+        attendance_status="Absent";
         //Again creating the string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, saveattendance_URL,
                 new Response.Listener<String>() {
@@ -147,10 +229,10 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> numbers = new ArrayList<String>();
-                arrayattendancelist = new String[adapter.getattendanceDetails().size()];
-                    for (int i = 0; i < adapter.getattendanceDetails().size(); i++) {
-                        numbers.add(adapter.getattendanceDetails().get(i).getStudentrollno());
-                    }
+                arrayattendancelist = new String[adapter.getabsentattendanceDetails().size()];
+                for (int i = 0; i < adapter.getabsentattendanceDetails().size(); i++) {
+                    numbers.add(adapter.getabsentattendanceDetails().get(i).getStudentrollno());
+                }
 
                 int j=0;
                 for(String object: numbers){
@@ -159,8 +241,8 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
 
                 params.put("faculty_employeeid", faculty_employeeid);
                 params.put("course_details_name", coursename);
+                params.put("attendance_status", attendance_status);
                 return params;
-
             }
         };
 
@@ -168,7 +250,6 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
-
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Refreshing Data");

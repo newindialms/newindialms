@@ -40,7 +40,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     //the layout resource file for the list items
     int resource, resource1;
     String status = "present";
-    List<String> absentlist;
+    List<String> absentlist,presentlist;
     View view;
     LayoutInflater layoutinflater;
     TextView faculty_courselist_attendance_take, faculty_courselist_attendance_take_roolno;
@@ -85,12 +85,14 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         faculty_courselist_attendance_take_roolno.setText(hero.getStudentrollno());
         attendance_switch.setChecked(true);
         absentlist = new ArrayList<>();
+        presentlist = new ArrayList<>();
         attendance_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
                     status = "Present";
+                    presentlist.add(hero.getStudentrollno().toString());
                 } else {
                     status = "Absent";//edit here
                     Toast.makeText(getContext(), hero.getStudentrollno().toString(), Toast.LENGTH_LONG).show();
@@ -105,7 +107,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         return view;
     }
 
-    ArrayList<FacultyCourseListTakeAttendanceListItems> getattendanceDetails() {
+    ArrayList<FacultyCourseListTakeAttendanceListItems> getabsentattendanceDetails() {
         ArrayList<FacultyCourseListTakeAttendanceListItems> attendance = new ArrayList<>();
         for (FacultyCourseListTakeAttendanceListItems attendancevalue : facultyCourseListTakeAttendanceListItems) {
             if (attendancevalue.isStatus())
@@ -114,6 +116,14 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         return attendance;
     }
 
+    ArrayList<FacultyCourseListTakeAttendanceListItems> getpresentattendanceDetails() {
+        ArrayList<FacultyCourseListTakeAttendanceListItems> attendance = new ArrayList<>();
+        for (FacultyCourseListTakeAttendanceListItems attendancevalue : facultyCourseListTakeAttendanceListItems) {
+            if (!attendancevalue.isStatus())
+                attendance.add(attendancevalue);
+        }
+        return attendance;
+    }
 
 
 }
