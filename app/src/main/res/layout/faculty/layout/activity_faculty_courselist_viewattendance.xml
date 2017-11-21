@@ -30,7 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/facultycourselist_viewattendance_title"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/CalenderViewCustom"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"/>
 
     <TextView
         android:id="@+id/facultycourselist_viewattendance_courses"
@@ -45,10 +48,15 @@
 
     <Spinner
         android:id="@+id/facultycourselistspinner"
-        android:layout_below="@+id/facultycourselist_viewattendance_courses"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_weight="1" />
+        android:layout_below="@+id/facultycourselist_viewattendance_courses"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:spinnerMode="dialog"
+        android:textColor="@color/Menu"
+        android:theme="@style/spinnerTheme" />
 
     <Button
         android:id="@+id/ChooseButton"
@@ -56,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show"
-        android:textColor="@color/Menu"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp" />

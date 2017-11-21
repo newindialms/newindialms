@@ -94,6 +94,8 @@
             android:theme="@style/FacultyTheme" />
         <activity android:name=".FacultyCourseListViewAttendanceDisplay"
             android:theme="@style/FacultyTheme" />
+        <activity android:name=".FacultyScheduleDisplay"
+            android:theme="@style/FacultyTheme" />
     </application>
 
 </manifest>

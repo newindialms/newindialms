@@ -2,6 +2,7 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -64,6 +65,13 @@ public class FacultyCourseListViewAttendanceDisplayAdapter extends ArrayAdapter<
 
         //adding values to the list item
         faculty_courselist_attendance_display_name.setText(hero.getStudent_details());
+        if (hero.getAttendance_status().equals("Present")) {
+
+            faculty_courselist_display_status.setTextColor(Color.GREEN);
+        }
+        else{
+            faculty_courselist_display_status.setTextColor(Color.RED);
+        }
         faculty_courselist_display_status.setText(hero.getAttendance_status());
         faculty_courselist_attendance_display_rollno.setText(hero.getStudent_name());
 

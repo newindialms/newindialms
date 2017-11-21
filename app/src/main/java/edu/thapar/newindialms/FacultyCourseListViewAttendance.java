@@ -10,6 +10,8 @@ import android.widget.*;
 import android.widget.CalendarView;
 import android.widget.Toolbar;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,6 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static edu.thapar.newindialms.AddCourseFragment.facultyspinner_URL;
 import static edu.thapar.newindialms.FacultyCourseListTakeAttendance.absentlist;
@@ -40,12 +44,13 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
     private Spinner coursespinner;
     private String datevalue;
     private String course_details_faculty;
-    private String coursename;
+    private String coursename,faculty_employeeid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_courselist_viewattendance);
         coursename = getIntent().getStringExtra("coursename");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
         faculty_toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
@@ -76,13 +81,16 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 course_details_faculty=coursespinner.getSelectedItem().toString();
-                Toast.makeText(FacultyCourseListViewAttendance.this," Selected date is "+datevalue,Toast.LENGTH_LONG).show();
-                Toast.makeText(FacultyCourseListViewAttendance.this," Selected course is "+course_details_faculty,Toast.LENGTH_LONG).show();
                 Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListViewAttendanceDisplay.class);
                 facultyintent.putExtra("attendance_date",datevalue);
                 facultyintent.putExtra("course_details_name",course_details_faculty);
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getApplicationContext().startActivity(facultyintent);
+                if (datevalue != null && !datevalue.isEmpty()) {
+                    getApplicationContext().startActivity(facultyintent);
+                }
+                else{
+                    Toast.makeText(FacultyCourseListViewAttendance.this,"Select Date",Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -100,7 +108,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
 
         coursespinner = (Spinner) findViewById(R.id.facultycourselistspinner);
         //Creating a string request
-        StringRequest stringRequest = new StringRequest(coursepsinner_URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, coursepsinner_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,7 +132,14 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
                     }
-                });
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("faculty_employeeid", faculty_employeeid);
+                return params;
+            }
+        };
 
         //Creating a request queue
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());

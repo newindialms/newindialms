@@ -287,4 +287,6 @@
 
     <string name="facultycourselist_viewattendance_title">Select Date</string>
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
+    <string name="faculty_schedule_title">My Schedule</string>
+    <string name="ScheduleButton">Show</string>
 </resources>

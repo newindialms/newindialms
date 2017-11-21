@@ -61,4 +61,20 @@
     <style name="mySpinnerItemStyle" parent="Base.Widget.AppCompat.Spinner">
         <item name="android:textColor">@color/textHintColor</item>
     </style>
+
+    <style name="spinnerTheme" parent="android:Theme">
+        <item name="android:textColor">@color/facultycolorPrimary</item>
+    </style>
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/Menu</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/facultycolorPrimary</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/Menu</item>
+    </style>
 </resources>
