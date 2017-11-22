@@ -24,8 +24,8 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_faculty_menu"
         app:itemBackground="@drawable/facultymenu_item_color"
-        app:itemIconTint="@color/textHintColor"
-        app:itemTextColor="@color/textHintColor"
+        app:itemIconTint="@color/Menu"
+        app:itemTextColor="@color/Menu"
         app:menu="@menu/activity_faculty_menu_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

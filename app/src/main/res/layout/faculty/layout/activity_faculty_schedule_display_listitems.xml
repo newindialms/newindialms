@@ -52,15 +52,18 @@
                 android:id="@+id/faculty_scheduledisplay_starttime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/faculty_scheduledisplay_endtime"
+                android:layout_alignBottom="@+id/faculty_scheduledisplay_endtime"
+                android:layout_alignLeft="@+id/schedulehyphen"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/faculty_scheduledisplay_program"
+                android:layout_toRightOf="@+id/faculty_scheduledisplay_program"
                 android:text="starttime"
                 android:textAllCaps="true"
                 android:textColor="@color/Menu"
-                android:textSize="18sp"
-                android:layout_alignBaseline="@+id/faculty_scheduledisplay_endtime"
-                android:layout_alignBottom="@+id/faculty_scheduledisplay_endtime"
-                android:layout_toRightOf="@+id/faculty_scheduledisplay_program"
-                android:layout_toEndOf="@+id/faculty_scheduledisplay_program" />
+                android:textSize="18sp" />
             <TextView
+                android:id="@+id/schedulehyphen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/Menu"
@@ -68,6 +71,7 @@
                 android:layout_alignBottom="@+id/faculty_scheduledisplay_endtime"
                 android:layout_toRightOf="@+id/faculty_scheduledisplay_endtime"
                 android:textSize="18sp"/>
+
             <TextView
                 android:id="@+id/faculty_scheduledisplay_endtime"
                 android:layout_width="wrap_content"
@@ -75,6 +79,7 @@
                 android:layout_alignLeft="@+id/faculty_scheduledisplay_course"
                 android:layout_alignStart="@+id/faculty_scheduledisplay_course"
                 android:layout_below="@+id/faculty_scheduledisplay_course"
+                android:layout_marginRight="10dp"
                 android:text="End time"
                 android:textAllCaps="true"
                 android:textColor="@color/Menu"
