@@ -55,81 +55,106 @@
             android:padding="10dp"
             android:text="Show Calendar"
             android:textColor="@color/textColor" />
+
     </RelativeLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView4"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Title"
-            android:textAlignment="center"
-            android:textColor="@color/textColor"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/title_notification"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/textView4"
-            android:layout_margin="10dp"
-            android:background="@drawable/white_background"
-            android:ems="10"
-            android:hint="Title"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:textColor="@color/textHintColor"
-            android:textColorHint="@color/textHintColor" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Title"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title_notification"
-            android:layout_margin="10dp"
-            android:text="Message"
-            android:textAlignment="center"
-            android:textColor="@color/textColor"
-            android:textSize="18sp" />
+            <EditText
+                android:id="@+id/title_notification"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textView4"
+                android:layout_margin="10dp"
+                android:background="@drawable/white_background"
+                android:ems="10"
+                android:hint="Title"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textHintColor"
+                android:textColorHint="@color/textHintColor" />
 
-        <EditText
-            android:id="@+id/message_notification"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
-            android:layout_margin="10dp"
-            android:background="@drawable/white_background"
-            android:hint="Message"
-            android:inputType="textMultiLine"
-            android:lines="8"
-            android:maxLines="10"
-            android:paddingLeft="10dp"
-            android:textColor="@color/textHintColor"
-            android:textColorHint="@color/textHintColor" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_notification"
+                android:layout_margin="10dp"
+                android:text="Message"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/sendnotification_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/message_notification"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="100dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="17dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:padding="5dp"
-            android:text="Send Notification"
-            android:textColor="@color/textColor" />
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/message_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView6"
+                android:layout_margin="10dp"
+                android:background="@drawable/white_background"
+                android:hint="Message"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="10"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textHintColor"
+                android:textColorHint="@color/textHintColor" />
+
+            <TextView
+                android:id="@+id/sendnotification_type"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/message_notification"
+                android:layout_margin="5dp"
+                android:text="@string/sendnotification_type"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/notificationspinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/sendnotification_type"
+                android:layout_weight="1"
+                android:entries="@array/notificationvalues" />
+
+            <Button
+                android:id="@+id/sendnotification_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/notificationspinner"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="114dp"
+                android:layout_marginTop="17dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:padding="5dp"
+                android:text="Send Notification"
+                android:textColor="@color/textColor" />
+        </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>

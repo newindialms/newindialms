@@ -14,9 +14,11 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static edu.thapar.newindialms.R.id.coursetypespinner;
+
 /**
  * Created by kamalshree on 10/8/2017.
  */
@@ -48,6 +52,8 @@ public class OpenCalendar extends AppCompatActivity {
     EditText message_notification,title_notification;
     String title,message;
     AlertDialog.Builder builder;
+    Spinner notificiationtypespinner;
+    String notification_type_value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +75,9 @@ public class OpenCalendar extends AppCompatActivity {
         SendNotification=(Button) findViewById(R.id.sendnotification_button);
         title_notification=(EditText)findViewById(R.id.title_notification);
         message_notification=(EditText)findViewById(R.id.message_notification);
+
+
+        addListenerOnNotificationTypeItemSelection();
 
 
         SendNotification.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +110,7 @@ public class OpenCalendar extends AppCompatActivity {
                         Map<String, String> params = new HashMap<String, String>();
                         params.put("title", title);
                         params.put("message", message);
+                        params.put("type", notification_type_value);
                         return params;
                     }
                 };
@@ -150,6 +160,23 @@ public class OpenCalendar extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    //Spinner for coursetype
+    public void addListenerOnNotificationTypeItemSelection() {
+        notificiationtypespinner = (Spinner)findViewById(R.id.notificationspinner);
+        notificiationtypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                notification_type_value=notificiationtypespinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(getApplicationContext(),"nothing selected", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void displayAlert() {

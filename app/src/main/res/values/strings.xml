@@ -172,6 +172,7 @@
     <!--  Calendar -->
     <string name="calendar_button">Go to Calendar</string>
     <string name="calendar_title">Accademic Calendar</string>
+    <string name="sendnotification_type">Select the Type</string>
 
     <!-- Feedbak -->
     <string name="feedbacktitle">Feedback Module</string>
@@ -289,4 +290,10 @@
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
     <string name="faculty_schedule_title">My Schedule</string>
     <string name="ScheduleButton">Show</string>
+
+    <string-array name="notificationvalues">
+        <item></item>
+        <item>Student</item>
+        <item>Faculty</item>
+    </string-array>
 </resources>
