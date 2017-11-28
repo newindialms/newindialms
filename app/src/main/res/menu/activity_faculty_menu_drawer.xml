@@ -17,9 +17,9 @@
         android:title="@string/navigation_program_schedule"
         android:checkable="true"/>
     <item
-        android:id="@+id/navigation_faculty_program_calendar"
+        android:id="@+id/navigation_faculty_program_accademic_calendar"
         android:icon="@drawable/faculty_calendar"
-        android:title="@string/navigation_program_calendar"
+        android:title="@string/navigation_faculty_program_accademic_calendar"
         android:checkable="true"/>
     <item
         android:id="@+id/navigation_faculty_program_notification"

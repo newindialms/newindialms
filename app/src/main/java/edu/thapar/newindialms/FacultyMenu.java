@@ -57,6 +57,10 @@ public class FacultyMenu extends AppCompatActivity
 
 
     }
+
+    public void homescreen_calendar_layout(View view){
+        displaySelectedScreen(R.id.navigation_faculty_program_accademic_calendar);
+    }
     public void homescreen_schedule_layout(View view){
         displaySelectedScreen(R.id.navigation_faculty_program_schedule);
     }
@@ -97,8 +101,8 @@ public class FacultyMenu extends AppCompatActivity
             case R.id.navigation_faculty_program_schedule:
                 fragment=new FacultySchedule();
                 break;
-            case R.id.navigation_program_calendar:
-                fragment=new ProgramManagerCalendar();
+            case R.id.navigation_faculty_program_accademic_calendar:
+                fragment=new FacultyAccademicCalendar();
                 break;
             case R.id.navigation_program_notification:
                 fragment=new ProgramManagerStudentPic();

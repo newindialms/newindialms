@@ -290,6 +290,7 @@
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
     <string name="faculty_schedule_title">My Schedule</string>
     <string name="ScheduleButton">Show</string>
+    <string name="navigation_faculty_program_accademic_calendar">Accademic Calendar</string>
 
     <string-array name="notificationvalues">
         <item></item>
