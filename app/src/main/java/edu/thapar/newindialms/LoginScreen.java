@@ -130,10 +130,13 @@ public class LoginScreen extends AppCompatActivity {
 
                                     if(jsonObject.getString("idtype").equals("student")) {
                                         //student dashboard
+                                        String studentname = jsonObject.getString("student_firstname");
+                                        String studentid = jsonObject.getString("student_rollnno");
                                         finish();
-                                        startActivity(new Intent(getApplicationContext(), StudentDashboard.class));
-                                        toast_text.setText("Student Dashboard");
-                                        customToast();
+                                        Intent studentintent=new Intent(getApplicationContext(), StudentMenu.class);
+                                        studentintent.putExtra("studentname",studentname);
+                                        studentintent.putExtra("studentid",studentid);
+                                        startActivity(studentintent);
 
                                     }
                                     else if(jsonObject.getString("idtype").equals("programmanager")){
