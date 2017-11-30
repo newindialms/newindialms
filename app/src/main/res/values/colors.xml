@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Program Manager -->
     <color name="colorPrimary">#FFB93867</color>
     <color name="colorPrimaryDark">#FF800980</color>
     <color name="colorAccent">#FFB93867</color>
@@ -8,7 +9,7 @@
     <color name="textHintColor">#FFB93867</color>
     <color name="Menu">#FFFF714A</color>
 
-
+    <!-- faculty Dashboard -->
     <color name="facultycolorPrimary">#06A2C9</color>
     <color name="facultycolorPrimaryDark">#06A2C9</color>
     <color name="facultycolorAccent">#06A2C9</color>
@@ -16,4 +17,15 @@
     <color name="facultytextColor">#FFFFFF</color>
     <color name="facultytextHintColor">#06A2C9</color>
     <color name="facultyMenu">@color/textHintColor</color>
+
+    <!-- Student Dashbaord -->
+    <color name="studentcolorPrimary">#f99716</color>
+    <color name="studentcolorPrimaryDark">#d63d0a</color>
+    <color name="studentcolorAccent">#d63d0a</color>
+    <color name="studentwindowBackground">#FFFFFF</color>
+    <color name="studenttextColor">#d63d0a</color>
+    <color name="studenttextHintColor">#d63d0a</color>
+    <color name="studentMenu">#d63d0a</color>
+
+
 </resources>

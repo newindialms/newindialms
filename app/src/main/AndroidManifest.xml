@@ -99,6 +99,11 @@
         <activity android:name=".CalendarViewFaculty"
             android:theme="@style/FacultyTheme"
             />
+
+        <activity
+            android:name=".StudentMenu"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
     </application>
 
 </manifest>

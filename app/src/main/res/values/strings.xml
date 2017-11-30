@@ -297,4 +297,12 @@
         <item>Student</item>
         <item>Faculty</item>
     </string-array>
+
+
+    <string name="navigation_program_mycourses">My Courses</string>
+    <string name="navigation_program_coursefeedback">Course Feedback</string>
+    <string name="navigation_program_Attendance">My Attendance</string>
+    <string name="navigation_program_myschedule">My Schedule</string>
+    <string name="navigation_program_academiccalendar">Academic Calendar</string>
+    <string name="navigation_program_myprofile">My Profile</string>
 </resources>

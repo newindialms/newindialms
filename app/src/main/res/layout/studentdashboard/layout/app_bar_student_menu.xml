@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/textColor"
-    tools:context="edu.thapar.newindialms.FacultyMenu">
+    tools:context="edu.thapar.newindialms.StudentMenu">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -14,14 +14,14 @@
         android:theme="@style/MyTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/faculty_toolbar"
+            android:id="@+id/student_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/facultycolorPrimary"
+            android:background="@color/studentcolorPrimary"
             app:popupTheme="@style/MyTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_faculty_menu" />
+    <include layout="@layout/content_student_menu" />
 
 </android.support.design.widget.CoordinatorLayout>

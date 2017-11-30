@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.thapar.newindialms.FacultyMenu"
-    tools:showIn="@layout/app_bar_faculty_menu"
+    tools:context="edu.thapar.newindialms.StudentMenu"
+    tools:showIn="@layout/app_bar_student_menu"
    >
 
 
@@ -29,12 +29,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/faculty_notification_layout"
+                android:id="@+id/student_myprofile_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
-                android:onClick="homescreen_notification_layout"
+                android:onClick="student_myprofile_layout"
                 android:orientation="vertical">
 
                 <ImageView
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.70"
-                    app:srcCompat="@drawable/faculty_notification" />
+                    app:srcCompat="@drawable/ic_student_profile" />
 
                 <TextView
 
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="0.74"
-                    android:text="@string/faculty_notification_layout"
+                    android:text="@string/navigation_program_myprofile"
                     android:textAlignment="center"
                     android:textColor="@color/Menu"
                     android:textSize="24sp" />
@@ -72,17 +72,17 @@
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
                 android:layout_centerHorizontal="true"
-                android:background="@color/facultycolorPrimary" />
+                android:background="@color/studentcolorPrimary" />
 
             <LinearLayout
-                android:id="@+id/faculty_courselist_layout"
+                android:id="@+id/student_mycourse_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="10dp"
-                android:onClick="homescreen_courselist_layout"
+                android:onClick="student_mycourse_layout"
                 android:orientation="vertical">
 
                 <ImageView
@@ -90,16 +90,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
-                    app:srcCompat="@drawable/faculty_courselist" />
+                    app:srcCompat="@drawable/ic_student_course"
+                    />
 
                 <TextView
 
-                    android:id="@+id/homescreen_courselist"
+                    android:id="@+id/homescreen_mycourse"
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="0.54"
-                    android:text="@string/homescreen_courselist"
+                    android:text="@string/navigation_program_mycourses"
                     android:textAlignment="center"
                     android:textColor="@color/Menu"
                     android:textSize="24sp" />
@@ -120,13 +121,13 @@
 
         </RelativeLayout>
         <View
-            android:background="@color/facultycolorPrimary"
+            android:background="@color/studentcolorPrimary"
             android:layout_width = "fill_parent"
             android:layout_height="1dp"
             android:layout_centerVertical ="true"
             android:layout_alignParentTop="true"/>
         <LinearLayout
-            android:id="@+id/faculty_calendar_layout"
+            android:id="@+id/student_calendar_layout"
             android:layout_width="match_parent"
             android:layout_height="168dp"
             android:layout_below="@+id/linearLayout"
@@ -139,7 +140,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/faculty_calendar" />
+                app:srcCompat="@drawable/ic_student_calendar" />
 
             <TextView
 
@@ -164,7 +165,7 @@
                 android:textColor="@color/Menu" />
         </LinearLayout>
         <View android:id="@+id/separator"
-            android:background="@color/facultycolorPrimary"
+            android:background="@color/studentcolorPrimary"
             android:layout_width = "fill_parent"
             android:layout_height="1dp"
             android:layout_centerVertical ="true"
@@ -179,12 +180,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/faculty_schedule_layout"
+                android:id="@+id/fstudent_schedule_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
-                android:onClick="homescreen_schedule_layout"
+                android:onClick="fstudent_schedule_layout"
                 android:orientation="vertical">
 
                 <ImageView
@@ -192,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.70"
-                    app:srcCompat="@drawable/faculty_schedule" />
+                    app:srcCompat="@drawable/ic_student_schedule" />
 
                 <TextView
 
@@ -240,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
-                    app:srcCompat="@drawable/faculty_signout" />
+                    app:srcCompat="@drawable/ic_student_logout" />
 
                 <TextView
 

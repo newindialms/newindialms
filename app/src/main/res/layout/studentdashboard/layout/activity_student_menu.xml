@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/faculty_drawer_layout"
+    android:id="@+id/student_drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/textColor"
@@ -11,22 +11,22 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_faculty_menu"
-        android:id="@+id/app_bar_faculty_menu"
+        layout="@layout/app_bar_student_menu"
+        android:id="@+id/app_bar_student_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/faculty_nav_view"
+        android:id="@+id/student_nav_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:background="@color/textColor"
+        android:background="@color/studentwindowBackground"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_faculty_menu"
-        app:itemBackground="@drawable/facultymenu_item_color"
-        app:itemIconTint="@color/Menu"
-        app:itemTextColor="@color/Menu"
-        app:menu="@menu/activity_faculty_menu_drawer" />
+        app:headerLayout="@layout/nav_header_student_menu"
+        app:itemBackground="@drawable/studentmenu_item_color"
+        app:itemIconTint="@color/studentcolorPrimaryDark"
+        app:itemTextColor="@color/studentcolorPrimaryDark"
+        app:menu="@menu/activity_student_manager_menu_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

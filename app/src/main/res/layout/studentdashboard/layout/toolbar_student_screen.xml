@@ -5,7 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:id="@+id/faculty_toolbar"
-android:background="@color/facultycolorPrimary"
+android:background="@color/studentcolorPrimary"
 app:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <RelativeLayout
@@ -30,7 +30,7 @@ app:theme="@style/ThemeOverlay.AppCompat.Dark">
             android:layout_below="@+id/faculty_toolbar_title"
             android:layout_marginBottom="5dp"
             android:text="Faculty Name"
-            android:textColor="@color/textColor"
+            android:textColor="@color/studenttextColor"
             android:textSize="18dp" />
 
         <TextView
@@ -41,7 +41,7 @@ app:theme="@style/ThemeOverlay.AppCompat.Dark">
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
             android:text="Employee Id"
-            android:textColor="@color/textColor"
+            android:textColor="@color/studenttextColor"
             android:textSize="18dp" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

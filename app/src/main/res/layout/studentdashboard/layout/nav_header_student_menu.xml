@@ -4,7 +4,7 @@
     android:id="@+id/nav_header_faculty_menu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/facultycolorPrimary"
+    android:background="@color/studentcolorPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
     >
@@ -16,36 +16,36 @@
         android:layout_margin="5dp">
 
         <TextView
-            android:id="@+id/faculty_toolbar_title"
+            android:id="@+id/student_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
             android:text="New India LMS APP"
-            android:textColor="@color/textColor"
+            android:textColor="@color/studentwindowBackground"
             android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/faculty_toolbar_name"
+            android:id="@+id/student_toolbar_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/faculty_toolbar_title"
+            android:layout_below="@+id/student_toolbar_title"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
-            android:text="Faculty Name"
-            android:textColor="@color/textColor"
+            android:text="Student Name"
+            android:textColor="@color/studentwindowBackground"
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/faculty_toolbar_id"
+            android:id="@+id/student_toolbar_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/faculty_toolbar_name"
+            android:layout_below="@+id/student_toolbar_name"
             android:layout_marginLeft="10dp"
-            android:text="Employee Id"
-            android:textColor="@color/textColor"
+            android:text="Student Id"
+            android:textColor="@color/studentwindowBackground"
             android:textSize="18dp" />
     </RelativeLayout>
 

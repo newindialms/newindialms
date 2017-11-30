@@ -3,6 +3,7 @@
     <!-- Base application theme. -->
     <style name="MyTheme" parent="MyTheme.base"></style>
     <style name="FacultyTheme" parent="FacultyTheme.base"></style>
+    <style name="StudentTheme" parent="StudentTheme.base"></style>
 
     <style name="MyTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -18,6 +19,14 @@
         <item name="colorPrimaryDark">@color/Menu</item>
         <item name="colorAccent">@color/textHintColor</item>
         <item name="android:windowBackground">@color/facultywindowBackground</item>
+    </style>
+
+    <style name="StudentTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. #32D9D6-->
+        <item name="colorPrimary">#f99716</item>
+        <item name="colorPrimaryDark">#d63d0a</item>
+        <item name="colorAccent">#d63d0a</item>
+        <item name="android:windowBackground">@color/studentcolorPrimaryDark</item>
     </style>
 
     <!-- Styling for the menu items in the Toolbar-->
