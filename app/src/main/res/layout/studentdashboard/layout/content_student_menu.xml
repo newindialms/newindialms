@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/faculty_courselist_fragment"
+    android:id="@+id/student_courselist_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="168dp"
             android:layout_below="@+id/linearLayout"
-            android:onClick="homescreen_calendar_layout"
+            android:onClick="student_calendar_layout"
             android:orientation="vertical">
 
             <ImageView
@@ -180,12 +180,12 @@
             android:weightSum="1">
 
             <LinearLayout
-                android:id="@+id/fstudent_schedule_layout"
+                android:id="@+id/student_schedule_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
-                android:onClick="fstudent_schedule_layout"
+                android:onClick="student_schedule_layout"
                 android:orientation="vertical">
 
                 <ImageView

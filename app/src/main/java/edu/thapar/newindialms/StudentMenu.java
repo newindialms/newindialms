@@ -54,6 +54,18 @@ public class StudentMenu extends AppCompatActivity
 
 
     }
+    public void student_myprofile_layout(View view){
+        displaySelectedScreen(R.id.navigation_program_myprofile);
+    }
+    public void student_mycourse_layout(View view){
+        displaySelectedScreen(R.id.navigation_program_mycourses);
+    }
+    public void student_calendar_layout(View view){
+        displaySelectedScreen(R.id.navigation_program_academiccalendar);
+    }
+    public void student_schedule_layout(View view){
+        displaySelectedScreen(R.id.navigation_program_myschedule);
+    }
 
     public void homescreen_logout_layout(View view){
         Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
@@ -76,31 +88,37 @@ public class StudentMenu extends AppCompatActivity
     private void displaySelectedScreen(int id){
         Fragment fragment=null;
         switch(id){
-            case R.id.navigation_faculty_program_home:
-                fragment=new FacultyHome();
+            case R.id.navigation_program_home:
+                fragment=new StudentHome();
                 break;
-            case R.id.navigation_faculty_program_courselist:
-                fragment=new FacultyCourseList();
+            case R.id.navigation_program_myprofile:
+                fragment=new StudentMyProfile();
                 break;
-            case R.id.navigation_faculty_program_schedule:
-                fragment=new FacultySchedule();
+            case R.id.navigation_program_mycourses:
+                fragment=new StudentMyCourse();
                 break;
-            case R.id.navigation_faculty_program_accademic_calendar:
-                fragment=new FacultyAccademicCalendar();
+            case R.id.navigation_program_coursefeedback:
+                fragment=new StudentCourseFeedback();
+                break;
+            case R.id.navigation_program_myschedule:
+                fragment=new StudentSchedule();
+                break;
+            case R.id.navigation_program_academiccalendar:
+                fragment=new StudentAcademicCalendar();
                 break;
             case R.id.navigation_program_notification:
-                fragment=new ProgramManagerStudentPic();
+                fragment=new StudentNotification();
                 break;
         }
 
         if(fragment!=null){
-            RelativeLayout layout = (RelativeLayout)findViewById(R.id.faculty_courselist_fragment);
+            RelativeLayout layout = (RelativeLayout)findViewById(R.id.student_courselist_fragment);
             layout.removeAllViewsInLayout();
             FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.faculty_courselist_fragment,fragment);
+            fragmentTransaction.replace(R.id.student_courselist_fragment,fragment);
             fragmentTransaction.commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
     @SuppressWarnings("StatementWithEmptyBody")
@@ -109,7 +127,7 @@ public class StudentMenu extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id!= R.id.navigation_faculty_program_logout) {
+        if(id!= R.id.navigation_program_logout) {
             displaySelectedScreen(id);
         }
         else{
