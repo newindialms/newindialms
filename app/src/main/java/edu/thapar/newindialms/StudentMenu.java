@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -25,7 +26,7 @@ import static edu.thapar.newindialms.R.id.faculty_toolbar_id;
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment=null;
-    String studentname,studentid;
+    String studentname,studentid,studentyear;
     TextView student_toolbar_name,student_toolbar_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,14 @@ public class StudentMenu extends AppCompatActivity
 
         studentname = getIntent().getStringExtra("studentname");
         studentid = getIntent().getStringExtra("studentid");
+        studentyear = getIntent().getStringExtra("studentyear");
+
+        if(studentyear.equals("2")) {
+            NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
+            Menu menu =navigationView.getMenu();
+            MenuItem target = menu.findItem(R.id.navigation_program_enrollcourse);
+            target.setVisible(true);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

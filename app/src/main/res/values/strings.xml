@@ -305,4 +305,5 @@
     <string name="navigation_program_myschedule">My Schedule</string>
     <string name="navigation_program_academiccalendar">Academic Calendar</string>
     <string name="navigation_program_myprofile">My Profile</string>
+    <string name="navigation_program_enrollcourse">Enroll Course</string>
 </resources>

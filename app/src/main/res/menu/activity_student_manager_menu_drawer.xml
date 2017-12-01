@@ -36,6 +36,12 @@
         android:title="@string/navigation_program_academiccalendar"
         android:checkable="true"/>
     <item
+        android:id="@+id/navigation_program_enrollcourse"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/navigation_program_enrollcourse"
+        android:visible="false"
+        android:checkable="true"/>
+    <item
         android:id="@+id/navigation_program_notification"
         android:icon="@drawable/ic_notifiication"
         android:title="@string/navigation_program_notification"
