@@ -28,7 +28,7 @@
         android:checkable="true"/>
     <item
         android:id="@+id/navigation_faculty_program_logout"
-        android:icon="@drawable/faculty_signout"
+        android:icon="@drawable/faculty_logout"
         android:title="@string/navigation_program_logout"
         android:checkable="true"/>
 </menu>

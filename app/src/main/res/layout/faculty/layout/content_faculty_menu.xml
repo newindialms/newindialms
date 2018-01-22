@@ -52,7 +52,7 @@
                     android:layout_weight="0.74"
                     android:text="@string/faculty_notification_layout"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu"
+                    android:textColor="@color/facultyMenu"
                     android:textSize="24sp" />
 
                 <TextView
@@ -64,7 +64,7 @@
                     android:layout_weight="1.38"
                     android:text="@string/homescreen_subnotification"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu" />
+                    android:textColor="@color/facultytextMenu" />
 
             </LinearLayout>
 
@@ -101,7 +101,7 @@
                     android:layout_weight="0.54"
                     android:text="@string/homescreen_courselist"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu"
+                    android:textColor="@color/facultyMenu"
                     android:textSize="24sp" />
 
                 <TextView
@@ -113,7 +113,7 @@
                     android:layout_weight="0.91"
                     android:text="@string/homescreen_subcourselist"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu" />
+                    android:textColor="@color/facultytextMenu" />
 
 
             </LinearLayout>
@@ -149,7 +149,7 @@
                 android:layout_weight="0.74"
                 android:text="@string/faculty_calendar_layout"
                 android:textAlignment="center"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="24sp" />
 
             <TextView
@@ -161,7 +161,7 @@
                 android:layout_weight="1.38"
                 android:text="@string/homescreen_subcalendar"
                 android:textAlignment="center"
-                android:textColor="@color/Menu" />
+                android:textColor="@color/facultytextMenu" />
         </LinearLayout>
         <View android:id="@+id/separator"
             android:background="@color/facultycolorPrimary"
@@ -202,7 +202,7 @@
                     android:layout_weight="0.74"
                     android:text="@string/faculty_schedule_layout"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu"
+                    android:textColor="@color/facultyMenu"
                     android:textSize="24sp" />
 
                 <TextView
@@ -214,7 +214,7 @@
                     android:layout_weight="1.38"
                     android:text="@string/homescreen_subfeedback"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu" />
+                    android:textColor="@color/facultytextMenu" />
 
             </LinearLayout>
 
@@ -240,7 +240,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
-                    app:srcCompat="@drawable/faculty_signout" />
+                    app:srcCompat="@drawable/faculty_logout" />
 
                 <TextView
 
@@ -251,7 +251,7 @@
                     android:layout_weight="0.54"
                     android:text="@string/faculty_logout_layout"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu"
+                    android:textColor="@color/facultyMenu"
                     android:textSize="24sp" />
 
                 <TextView
@@ -264,7 +264,7 @@
                     android:layout_weight="0.96"
                     android:text="@string/homescreen_sublogout"
                     android:textAlignment="center"
-                    android:textColor="@color/Menu" />
+                    android:textColor="@color/facultytextMenu" />
 
 
             </LinearLayout>

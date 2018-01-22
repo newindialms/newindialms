@@ -60,7 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="67dp"
             android:background="@drawable/rounded_button"
-            android:text="Send"
+            android:text="Submit"
             android:textColor="@color/textColor" />
 
     </RelativeLayout>

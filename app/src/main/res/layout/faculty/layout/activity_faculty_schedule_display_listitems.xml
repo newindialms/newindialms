@@ -33,7 +33,7 @@
                 android:layout_alignStart="@+id/faculty_scheduledisplay_course"
                 android:text="Program"
                 android:textAllCaps="true"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_marginStart="14dp"
                 android:text="course"
                 android:textAllCaps="true"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
 
             <TextView
@@ -60,13 +60,13 @@
                 android:layout_toRightOf="@+id/faculty_scheduledisplay_program"
                 android:text="starttime"
                 android:textAllCaps="true"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
             <TextView
                 android:id="@+id/schedulehyphen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:text="-"
                 android:layout_alignBottom="@+id/faculty_scheduledisplay_endtime"
                 android:layout_toRightOf="@+id/faculty_scheduledisplay_endtime"
@@ -82,7 +82,7 @@
                 android:layout_marginRight="10dp"
                 android:text="End time"
                 android:textAllCaps="true"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
 
 

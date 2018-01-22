@@ -17,7 +17,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/faculty_schedule_title"
         android:textAlignment="center"
-        android:textColor="@color/Menu"
+        android:textColor="@color/facultytextMenu"
         android:textSize="24sp" />
 
     <CalendarView
@@ -34,7 +34,8 @@
         android:id="@+id/ScheduleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/Menu"
+        android:background="@color/facultytextMenu"
+        android:textColor="@color/textColor"
         android:text="@string/ScheduleButton"
         android:layout_below="@+id/schedule_calendarView"
         android:layout_centerHorizontal="true"

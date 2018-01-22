@@ -32,7 +32,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/faculty_cardviewCourselistTitle"
                 android:textAllCaps="true"
-                android:textColor="@color/Menu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
 
             <ImageView

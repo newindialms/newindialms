@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/facultycourselist_viewattendance_title"
         android:textAlignment="center"
-        android:textColor="@color/Menu"
+        android:textColor="@color/facultytextMenu"
         android:textSize="24sp" />
 
     <CalendarView
@@ -43,7 +43,7 @@
         android:layout_below="@+id/calendarView"
         android:text="@string/facultycourselist_viewattendance_courses"
         android:textAlignment="center"
-        android:textColor="@color/Menu"
+        android:textColor="@color/facultytextMenu"
         android:textSize="18sp" />
 
     <Spinner
@@ -55,12 +55,14 @@
         android:layout_marginRight="15dp"
         android:layout_weight="1"
         android:spinnerMode="dialog"
-        android:textColor="@color/Menu"
+        android:textColor="@color/facultyMenu"
         android:theme="@style/spinnerTheme" />
 
     <Button
         android:id="@+id/ChooseButton"
         android:layout_below="@+id/facultycourselistspinner"
+        android:background="@color/facultytextMenu"
+        android:textColor="@color/textColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show"

@@ -17,8 +17,8 @@ public class FcmMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        String title=remoteMessage.getData().get("title");
-        String message=remoteMessage.getData().get("body");
+        String title=remoteMessage.getNotification().getTitle();
+        String message=remoteMessage.getNotification().getBody();
 
         Intent intent=new Intent(this,CalendarView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

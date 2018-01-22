@@ -16,7 +16,7 @@
     <style name="FacultyTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. #32D9D6-->
         <item name="colorPrimary">#08C6C9</item>
-        <item name="colorPrimaryDark">@color/Menu</item>
+        <item name="colorPrimaryDark">@color/facultyMenu</item>
         <item name="colorAccent">@color/textHintColor</item>
         <item name="android:windowBackground">@color/facultywindowBackground</item>
     </style>
@@ -42,7 +42,7 @@
     </style>
 
 
-    <!-- Styling for the Alert Dialog box-->
+    <!-- Styling for the Alert Dialog box Program manager-->
     <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Used for the title and text -->
@@ -52,11 +52,20 @@
     </style>
 
 
-    <!-- Styling for the Alert Dialog box-->
+    <!-- Styling for the Alert Dialog box Faculty -->
     <style name="MyFacultyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">#FFFF714A</item>
+        <item name="colorAccent">@color/facultyMenu</item>
         <!-- Used for the title and text -->
-        <item name="android:textColorPrimary">#FFFF714A</item>
+        <item name="android:textColorPrimary">@color/facultyMenu</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/textColor</item>
+    </style>
+
+    <!-- Styling for the Alert Dialog box Student-->
+    <style name="MyStudentAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/studentcolorPrimaryDark</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/studentcolorPrimaryDark</item>
         <!-- Used for the background -->
         <item name="android:background">@color/textColor</item>
     </style>
@@ -76,7 +85,7 @@
     </style>
 
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/Menu</item>
+        <item name="colorAccent">@color/facultyMenu</item>
     </style>
 
     <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
@@ -84,6 +93,6 @@
     </style>
 
     <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
-        <item name="android:textColor">@color/Menu</item>
+        <item name="android:textColor">@color/facultytextMenu</item>
     </style>
 </resources>

@@ -1,5 +1,6 @@
 package edu.thapar.newindialms;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -30,6 +32,8 @@ public class FacultyMenu extends AppCompatActivity
     Fragment fragment=null;
     String facultyname,facultyid;
     TextView faculty_toolbar_name,faculty_toolbar_id;
+    AlertDialog.Builder builder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +76,10 @@ public class FacultyMenu extends AppCompatActivity
     }
 
     public void homescreen_logout_layout(View view){
-        Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
-        SharedPrefManager.getInstance(FacultyMenu.this).logout();
-        this.finish();
-        this.startActivity(new Intent(this,LoginScreen.class));
+        builder=new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
+        builder.setTitle("Logout");
+        builder.setMessage("Do you want to Logout?");
+        displayAlert();
     }
 
 
@@ -129,11 +133,29 @@ public class FacultyMenu extends AppCompatActivity
             displaySelectedScreen(id);
         }
         else{
-            Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
-            SharedPrefManager.getInstance(FacultyMenu.this).logout();
-            this.finish();
-            this.startActivity(new Intent(this,LoginScreen.class));
+            builder=new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
+            builder.setTitle("Logout");
+            builder.setMessage("Do you want to Logout?");
+            displayAlert();
         }
         return true;
+    }
+
+    public void displayAlert() {
+        builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
+                SharedPrefManager.getInstance(FacultyMenu.this).logout();
+                finish();
+                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

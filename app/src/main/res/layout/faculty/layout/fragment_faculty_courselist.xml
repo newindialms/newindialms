@@ -18,7 +18,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/faculty_courselist_title"
         android:textAlignment="center"
-        android:textColor="@color/Menu"
+        android:textColor="@color/facultytextMenu"
         android:textSize="24sp" />
 
     <ListView

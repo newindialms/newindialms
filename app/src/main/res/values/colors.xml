@@ -8,15 +8,18 @@
     <color name="textColor">#FFFFFF</color>
     <color name="textHintColor">#FFB93867</color>
     <color name="Menu">#FFFF714A</color>
+    <!--FFFF714A-->
+    <!--#d63d0a-->
 
     <!-- faculty Dashboard -->
-    <color name="facultycolorPrimary">#06A2C9</color>
-    <color name="facultycolorPrimaryDark">#06A2C9</color>
-    <color name="facultycolorAccent">#06A2C9</color>
-    <color name="facultywindowBackground">#06A2C9</color>
-    <color name="facultytextColor">#FFFFFF</color>
-    <color name="facultytextHintColor">#06A2C9</color>
-    <color name="facultyMenu">@color/textHintColor</color>
+    <color name="facultycolorPrimary">#80bfdb</color>
+    <color name="facultycolorPrimaryDark">#80bfdb</color>
+    <color name="facultycolorAccent">#80bfdb</color>
+    <color name="facultywindowBackground">#80bfdb</color>
+    <color name="facultytextColor">#8fa4b5</color>
+    <color name="facultytextHintColor">#80bfdb</color>
+    <color name="facultyMenu">#237385</color>
+    <color name="facultytextMenu">#6d8008</color>
 
     <!-- Student Dashbaord -->
     <color name="studentcolorPrimary">#f99716</color>

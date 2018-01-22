@@ -21,7 +21,7 @@
     <string name="registration_passsword">Password</string>
     <string name="registration_select">Select One Type</string>
     <string name="registration_radio1">FacultyStaff</string>
-    <string name="registration_radio2">Student</string>
+    <string name="registration_radio2">student</string>
     <string name="registration_button">Register</string>
 
     <string name="registration_error_missingfields_title">Error</string>
