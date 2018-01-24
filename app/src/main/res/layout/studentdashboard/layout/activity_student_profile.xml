@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.AcademicCalendar">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/studentprofile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/studentcolorPrimary"
+        app:popupTheme="@style/MyTheme.PopupOverlay" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/studentprofile_toolbar">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/StudentImage">
+
+            <TextView
+                android:id="@+id/studentprofile_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.55"
+                android:text="My Profile"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/studentprofile_image"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_weight="0.55"
+                app:srcCompat="@drawable/image_upload" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.55"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/studentImageUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Upload"
+                    android:textColor="@color/studentcolorPrimaryDark" />
+
+                <Button
+                    android:id="@+id/studentImageChoose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="Choose"
+                    android:textColor="@color/studentcolorPrimaryDark" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textviewstudent_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/textviewstudent_rollno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:text="RollNo" />
+
+            <TextView
+                android:id="@+id/textviewstudent_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:text="EmailAddress" />
+
+            <TextView
+                android:id="@+id/textviewstudent_Program"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:text="Program" />
+
+            <TextView
+                android:id="@+id/textviewstudent_specialization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:text="Specialization" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
