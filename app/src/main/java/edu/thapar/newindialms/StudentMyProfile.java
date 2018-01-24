@@ -2,6 +2,7 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -17,6 +18,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -77,7 +79,7 @@ public class StudentMyProfile extends AppCompatActivity {
     private int PICK_IMAGE_REQUEST = 1;
     //storage permission code
     private static final int STORAGE_PERMISSION_CODE = 123;
-
+    AlertDialog.Builder builder;
     //Bitmap to get image from gallery
     private Bitmap bitmap;
 
@@ -191,6 +193,10 @@ public class StudentMyProfile extends AppCompatActivity {
                     .setNotificationConfig(new UploadNotificationConfig())
                     .setMaxRetries(2)
                     .startUpload(); //Starting the upload
+            builder=new AlertDialog.Builder(StudentMyProfile.this, R.style.MyStudentAlertDialogStyle);
+            builder.setTitle("Upload");
+            builder.setMessage("Image Uploaded Successfully");
+            displayAlert();
 
         } catch (Exception exc) {
             Toast.makeText(this, exc.getMessage(), Toast.LENGTH_SHORT).show();
@@ -389,6 +395,16 @@ public class StudentMyProfile extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
 
