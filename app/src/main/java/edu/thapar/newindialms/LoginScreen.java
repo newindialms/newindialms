@@ -133,11 +133,13 @@ public class LoginScreen extends AppCompatActivity {
                                         String studentname = jsonObject.getString("student_firstname");
                                         String studentid = jsonObject.getString("student_rollnno");
                                         String studentyear = jsonObject.getString("student_year");
+                                        String student_specialization = jsonObject.getString("student_specialization");
                                         finish();
                                         Intent studentintent=new Intent(getApplicationContext(), StudentMenu.class);
                                         studentintent.putExtra("studentname",studentname);
                                         studentintent.putExtra("studentid",studentid);
                                         studentintent.putExtra("studentyear",studentyear);
+                                        studentintent.putExtra("student_specialization",student_specialization);
                                         startActivity(studentintent);
 
                                     }

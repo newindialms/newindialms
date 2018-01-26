@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_background"
+    tools:context="edu.thapar.newindialms.StudentEnrollCourseTab">
+
+    <!-- TODO: Update blank fragment layout -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/enrollcourse_specialization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Enrollspecialization_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Enrolled Specialization"
+                    android:textAlignment="center"
+                    android:textColor="@color/studentcolorPrimaryDark"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/Enrollspecialization_textview_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Specialization Name"
+                    android:textAlignment="center"
+                    android:textColor="@color/studentcolorPrimaryDark"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/enrollcourse_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enrollcourse_specialization"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Studentpic_program_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select the Courses"
+                    android:textAlignment="center"
+                    android:textColor="@color/studentcolorPrimaryDark"
+                    android:textSize="24sp" />
+
+                <ListView
+                    android:id="@+id/enrollcourses_ListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/EnrollButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Enroll"
+                android:background="@color/studentcolorPrimaryDark"
+                android:textColor="@color/textColor"
+                android:layout_below="@+id/enrollcourse_listview"/>
+        </RelativeLayout>
+</FrameLayout>

@@ -28,7 +28,7 @@ import static edu.thapar.newindialms.R.id.faculty_toolbar_id;
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment=null;
-    String studentname,studentid,studentyear;
+    String studentname,studentid,studentyear,student_specialization;
     TextView student_toolbar_name,student_toolbar_id;
     AlertDialog.Builder builder;
 
@@ -42,6 +42,7 @@ public class StudentMenu extends AppCompatActivity
         studentname = getIntent().getStringExtra("studentname");
         studentid = getIntent().getStringExtra("studentid");
         studentyear = getIntent().getStringExtra("studentyear");
+        student_specialization = getIntent().getStringExtra("student_specialization");
 
         if(studentyear.equals("2")) {
             NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
@@ -120,6 +121,12 @@ public class StudentMenu extends AppCompatActivity
                 break;
             case R.id.navigation_program_academiccalendar:
                 fragment=new StudentAcademicCalendar();
+                break;
+            case R.id.navigation_program_enrollcourse:
+                Intent enrollcourseintent = new Intent(getApplicationContext(), StudentEnrollCourseTab.class);
+                enrollcourseintent.putExtra("openfragment", "0");
+                enrollcourseintent.putExtra("student_specialization",student_specialization);
+                startActivity(enrollcourseintent);
                 break;
             case R.id.navigation_program_notification:
                 fragment=new StudentNotification();
