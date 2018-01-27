@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +37,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.media.CamcorderProfile.get;
+import static edu.thapar.newindialms.R.id.enrollcourses_ListView;
+import static edu.thapar.newindialms.R.id.view;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EnrollCourseFragment extends Fragment {
+public class EnrollCourseFragment extends Fragment{
     View rootview;
     String student_specialization;
     TextView enrolled_specialization;
@@ -49,6 +54,10 @@ public class EnrollCourseFragment extends Fragment {
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
     ListView listView;
+    Button EnrollButton;
+    SparseBooleanArray sparseBooleanArray ;
+
+    String[] ListViewItems = new String[]{};
     public EnrollCourseFragment() {
         // Required empty public constructor
     }
@@ -66,12 +75,18 @@ public class EnrollCourseFragment extends Fragment {
         heroList = new ArrayList<>();
 
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
+        EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
-
+        EnrollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
 
         return rootview;
 
     }
+
 
 
     private void loadRecyclerViewData() {

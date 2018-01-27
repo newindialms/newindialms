@@ -63,7 +63,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/enrollcheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/studentenrollcourse_code"

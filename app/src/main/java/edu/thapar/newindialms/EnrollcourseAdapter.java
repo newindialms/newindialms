@@ -8,9 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentpic_programscreencoursemodulelist;
@@ -29,6 +34,7 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
 
     //the layout resource file for the list items
     int resource;
+    final ArrayList<String> selectedStrings = new ArrayList<String>();
 
     //constructor initializing the values
     public EnrollcourseAdapter(Context context, int resource, List<EnrollcourseListItems> enrollcourseListItemses) {
@@ -45,6 +51,7 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
 
         //we need to get the view of the xml for our list item
         //And for this we need a layoutinflater
+
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
         //getting the view
@@ -55,7 +62,8 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         TextView studentenrollcourse_code = (TextView)view.findViewById(R.id.studentenrollcourse_code);
         TextView studentenrollcourse_faculty = (TextView)view.findViewById(R.id.studentenrollcourse_faculty);
         TextView studentenrollcourse_credits = (TextView)view.findViewById(R.id.studentenrollcourse_credits);
-
+        CheckBox studentenrollcourse_checkbox = (CheckBox)view.findViewById(R.id.enrollcheckBox);
+        //Button enrollButton=(Button)view1.findViewById(R.id.EnrollButton);
         //getting the hero of the specified position
         final EnrollcourseListItems hero1 = enrollcourseListItemses.get(position);
 
@@ -65,6 +73,26 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         studentenrollcourse_faculty.setText(hero1.getCoursedetails_faculty());
         studentenrollcourse_credits.setText(hero1.getCoursedetails_credits());
 
+        studentenrollcourse_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
+                if(ischecked){
+                    selectedStrings.add(hero1.getCoursedetails_name());
+                }
+                if(!ischecked){
+                    selectedStrings.remove(hero1.getCoursedetails_name());
+                }
+
+                Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
+            }
+        });
+
+       /* enrollButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
+            }
+        });*/
 
         //finally returning the view
         return view;
