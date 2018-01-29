@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 import static android.media.CamcorderProfile.get;
 import static edu.thapar.newindialms.R.id.enrollcourses_ListView;
 import static edu.thapar.newindialms.R.id.view;
@@ -55,9 +57,7 @@ public class EnrollCourseFragment extends Fragment{
     EnrollcourseAdapter adapter;
     ListView listView;
     Button EnrollButton;
-    SparseBooleanArray sparseBooleanArray ;
-
-    String[] ListViewItems = new String[]{};
+    List<EnrollcourseListItems> courseList;
     public EnrollCourseFragment() {
         // Required empty public constructor
     }
@@ -73,21 +73,36 @@ public class EnrollCourseFragment extends Fragment{
         enrolled_specialization=(TextView)rootview.findViewById(R.id.Enrollspecialization_textview_value);
         enrolled_specialization.setText(student_specialization);
         heroList = new ArrayList<>();
-
+        courseList = new ArrayList<>();
+        courseList.clear();
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
         EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
         EnrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                onClickData(view);
             }
         });
 
         return rootview;
 
+
     }
 
-
+    public void onClickData ( View view ) {
+        List<EnrollcourseListItems> empData = adapter.enrollcourseListItemses;
+        String enrollist="";
+        for (EnrollcourseListItems employeeModel : empData) {
+            if ( employeeModel.isSelected() ) {
+                employeeModel.getCoursedetails_name();
+            }
+           // EnrollcourseListItems enrollList = new EnrollcourseListItems(employeeModel.getCoursedetails_name());
+          //  courseList.add(enrollList);
+            enrollist+=","+employeeModel.getCoursedetails_name();
+        }
+            Toast.makeText(getContext(), "Selected values " + enrollist, Toast.LENGTH_LONG).show();
+    }
 
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());

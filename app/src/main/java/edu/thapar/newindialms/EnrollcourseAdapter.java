@@ -44,6 +44,10 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         this.enrollcourseListItemses = enrollcourseListItemses;
     }
 
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
     //this will return the ListView Item as a View
     @NonNull
     @Override
@@ -77,22 +81,16 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
                 if(ischecked){
+                    hero1.setSelected(ischecked);
                     selectedStrings.add(hero1.getCoursedetails_name());
                 }
                 if(!ischecked){
+                    hero1.setSelected(!ischecked);
                     selectedStrings.remove(hero1.getCoursedetails_name());
                 }
-
-                Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
+               // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
             }
         });
-
-       /* enrollButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
-            }
-        });*/
 
         //finally returning the view
         return view;

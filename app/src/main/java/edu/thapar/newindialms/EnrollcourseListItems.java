@@ -7,12 +7,17 @@ package edu.thapar.newindialms;
 public class EnrollcourseListItems {
 
     private String coursedetails_name,coursedetails_code,coursedetails_credits,coursedetails_faculty;
+    private boolean selected;
 
     public EnrollcourseListItems(String coursedetails_name,String coursedetails_code,String coursedetails_credits,String coursedetails_faculty) {
         this.coursedetails_name=coursedetails_name;
         this.coursedetails_code=coursedetails_code;
         this.coursedetails_credits=coursedetails_credits;
         this.coursedetails_faculty=coursedetails_faculty;
+    }
+
+    public EnrollcourseListItems(String coursedetails_name){
+        this.coursedetails_name=coursedetails_name;
     }
 
     public String getCoursedetails_name() {
@@ -45,5 +50,13 @@ public class EnrollcourseListItems {
 
     public void setCoursedetails_faculty(String coursedetails_faculty) {
         this.coursedetails_faculty = coursedetails_faculty;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }

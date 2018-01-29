@@ -73,6 +73,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/studentcolorPrimaryDark"
                 android:text="Enroll"
+                android:onClick="onClickData"
                 android:textColor="@color/textColor" />
         </RelativeLayout>
 </FrameLayout>
