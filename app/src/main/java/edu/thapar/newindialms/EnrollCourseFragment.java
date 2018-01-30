@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -38,26 +39,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.media.CamcorderProfile.get;
-import static edu.thapar.newindialms.R.id.enrollcourses_ListView;
-import static edu.thapar.newindialms.R.id.view;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class EnrollCourseFragment extends Fragment{
     View rootview;
-    String student_specialization;
+    String student_specialization,studentid;
     TextView enrolled_specialization;
     String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
+    String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
     EnrollcourseListItems pglist;
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
     ListView listView;
     Button EnrollButton;
+    AlertDialog.Builder builder;
     List<EnrollcourseListItems> courseList;
+    String student_year="2";
+    String enrollist="";
     public EnrollCourseFragment() {
         // Required empty public constructor
     }
@@ -70,14 +70,14 @@ public class EnrollCourseFragment extends Fragment{
         rootview=inflater.inflate(R.layout.activity_new_enrollcourse, container, false);
 
         student_specialization =  getActivity().getIntent().getExtras().getString("student_specialization");
+        studentid =  getActivity().getIntent().getExtras().getString("studentid");
         enrolled_specialization=(TextView)rootview.findViewById(R.id.Enrollspecialization_textview_value);
         enrolled_specialization.setText(student_specialization);
         heroList = new ArrayList<>();
-        courseList = new ArrayList<>();
-        courseList.clear();
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
         EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
+
         EnrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,18 +92,53 @@ public class EnrollCourseFragment extends Fragment{
 
     public void onClickData ( View view ) {
         List<EnrollcourseListItems> empData = adapter.enrollcourseListItemses;
-        String enrollist="";
+        enrollist="";
+        int counter=0;
         for (EnrollcourseListItems employeeModel : empData) {
             if ( employeeModel.isSelected() ) {
-                employeeModel.getCoursedetails_name();
+                counter++;
+                if(counter==1) {
+                    enrollist = employeeModel.getCoursedetails_name();
+                }
+                else{
+                    enrollist +=","+employeeModel.getCoursedetails_name();
+                }
             }
-           // EnrollcourseListItems enrollList = new EnrollcourseListItems(employeeModel.getCoursedetails_name());
-          //  courseList.add(enrollList);
-            enrollist+=","+employeeModel.getCoursedetails_name();
+
         }
-            Toast.makeText(getContext(), "Selected values " + enrollist, Toast.LENGTH_LONG).show();
+
+        enrolRecyclerViewData();
     }
 
+    private void enrolRecyclerViewData() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, insertenroll_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                builder=new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
+                builder.setTitle("Enroll");
+                builder.setMessage("Courses Enrolled Succcessfully");
+                displayAlert();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_rollno", studentid);
+                params.put("student_year", student_year);
+                params.put("courses_enrolled", enrollist);
+                params.put("student_specialization", student_specialization);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+    }
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Refreshing Data");
@@ -153,6 +188,16 @@ public class EnrollCourseFragment extends Fragment{
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                getActivity().finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

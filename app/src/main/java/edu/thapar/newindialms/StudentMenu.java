@@ -126,6 +126,7 @@ public class StudentMenu extends AppCompatActivity
                 Intent enrollcourseintent = new Intent(getApplicationContext(), StudentEnrollCourseTab.class);
                 enrollcourseintent.putExtra("openfragment", "0");
                 enrollcourseintent.putExtra("student_specialization",student_specialization);
+                enrollcourseintent.putExtra("studentid", studentid);
                 startActivity(enrollcourseintent);
                 break;
             case R.id.navigation_program_notification:

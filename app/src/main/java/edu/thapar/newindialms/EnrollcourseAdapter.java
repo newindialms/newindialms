@@ -82,11 +82,11 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
             public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
                 if(ischecked){
                     hero1.setSelected(ischecked);
-                    selectedStrings.add(hero1.getCoursedetails_name());
+                    //selectedStrings.add(hero1.getCoursedetails_name());
                 }
                 if(!ischecked){
-                    hero1.setSelected(!ischecked);
-                    selectedStrings.remove(hero1.getCoursedetails_name());
+                    hero1.setSelected(false);
+                   // selectedStrings.remove(hero1.getCoursedetails_name());
                 }
                // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
             }
