@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class EnrolledCourseFragment extends Fragment {
     View rootview;
-    String removelist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
+    String enrolled_courselist = "https://newindialms.000webhostapp.com/get_courselist.php";
     RemoveCourseAdapter adapter;
 
     List<RemoveCourseListItems> heroList;
@@ -58,7 +58,7 @@ public class EnrolledCourseFragment extends Fragment {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, removelist_url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, enrolled_courselist, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
