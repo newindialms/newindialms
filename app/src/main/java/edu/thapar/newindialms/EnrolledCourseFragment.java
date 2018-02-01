@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,7 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -31,10 +34,10 @@ import java.util.List;
  */
 public class EnrolledCourseFragment extends Fragment {
     View rootview;
-    String enrolled_courselist = "https://newindialms.000webhostapp.com/get_courselist.php";
-    RemoveCourseAdapter adapter;
-
-    List<RemoveCourseListItems> heroList;
+    String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    EnrolledCourseAdapter adapter;
+    String studentid;
+    List<EnrolledCourseListItems> heroList;
     ListView listView;
 
     public EnrolledCourseFragment() {
@@ -45,10 +48,10 @@ public class EnrolledCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_remove_course, container, false);
-
+        rootview=inflater.inflate(R.layout.fragment_enrolled_course, container, false);
+        studentid =  getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
-        listView = (ListView) rootview.findViewById(R.id.removecourselistView);
+        listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
         return rootview;
     }
@@ -58,24 +61,22 @@ public class EnrolledCourseFragment extends Fragment {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, enrolled_courselist, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolled_courselist, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("Course_List");
+                    JSONArray array = j.getJSONArray("course_details");
 
                     for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        RemoveCourseListItems listItemProgramList = new RemoveCourseListItems(
-                                jsonObject1.getString("course_details_name"),
-                                jsonObject1.getString("course_details_code")
+                        EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
+                               array.getString(i)
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new RemoveCourseAdapter(getActivity(),R.layout.fragmet_remove_course_listitems,heroList);
+                    adapter = new EnrolledCourseAdapter(getActivity(),R.layout.fragment_enrolled_course_listitems,heroList);
                     listView.setAdapter(adapter);
 
 
@@ -90,11 +91,17 @@ public class EnrolledCourseFragment extends Fragment {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_rollno", studentid);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
-
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.navigation_program_picbook));
     }

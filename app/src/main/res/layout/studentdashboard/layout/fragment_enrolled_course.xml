@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.StudentEnrollCourseTab">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ListView
+        android:id="@+id/enrolledcourselistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" />
+
+</FrameLayout>
