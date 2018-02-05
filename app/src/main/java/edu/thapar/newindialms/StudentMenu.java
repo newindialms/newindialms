@@ -116,6 +116,11 @@ public class StudentMenu extends AppCompatActivity
             case R.id.navigation_program_coursefeedback:
                 fragment=new StudentCourseFeedback();
                 break;
+            case R.id.navigation_program_Attendance:
+                Intent attendanceactivity=new Intent(getApplicationContext(),EnrolledCourseAttendanceActivity.class);
+                attendanceactivity.putExtra("studentid", studentid);
+                startActivity(attendanceactivity);
+                break;
             case R.id.navigation_program_myschedule:
                 fragment=new StudentSchedule();
                 break;

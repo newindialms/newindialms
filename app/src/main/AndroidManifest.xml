@@ -114,6 +114,10 @@
             android:name=".StudentEnrollCourseTab"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseAttendanceActivity"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
     </application>
 
 </manifest>

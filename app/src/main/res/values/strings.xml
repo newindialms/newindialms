@@ -310,4 +310,6 @@
     <!-- enrolled courses -->
 
     <string name="enrolledcourses_title">Enrolled Courses</string>
+    <string name="enrolledcoursesattendance_title">My Attendance</string>
+
 </resources>

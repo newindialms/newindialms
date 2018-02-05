@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.AddCourseTab">
+
+    <include
+        android:id="@+id/toolbar_student_attendance"
+        layout="@layout/student_enroll_toolbar"></include>
+
+    <TextView
+        android:id="@+id/enrolledcourses_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_student_attendance"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/enrolledcoursesattendance_title"
+        android:textAlignment="center"
+        android:textColor="@color/studentcolorPrimaryDark"
+        android:textSize="24sp" />
+
+    <ListView
+        android:id="@+id/enrolledcourselistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/enrolledcourses_title" />
+
+    <!-- TODO: Update blank fragment layout -->
+
+</LinearLayout>
