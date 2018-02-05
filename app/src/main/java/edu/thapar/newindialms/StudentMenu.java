@@ -111,7 +111,7 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(studentmyprofileintent);
                 break;
             case R.id.navigation_program_mycourses:
-                fragment=new StudentMyCourse();
+                fragment=new EnrolledCourseFragment();
                 break;
             case R.id.navigation_program_coursefeedback:
                 fragment=new StudentCourseFeedback();

@@ -306,4 +306,8 @@
     <string name="navigation_program_academiccalendar">Academic Calendar</string>
     <string name="navigation_program_myprofile">My Profile</string>
     <string name="navigation_program_enrollcourse">Enroll Course</string>
+
+    <!-- enrolled courses -->
+
+    <string name="enrolledcourses_title">Enrolled Courses</string>
 </resources>

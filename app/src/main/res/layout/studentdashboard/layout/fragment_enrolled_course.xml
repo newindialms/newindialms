@@ -5,11 +5,23 @@
     android:background="@color/textColor"
     tools:context="edu.thapar.newindialms.StudentEnrollCourseTab">
 
+
+    <TextView
+        android:id="@+id/enrolledcourses_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/enrolledcourses_title"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/studentcolorPrimaryDark"/>
     <!-- TODO: Update blank fragment layout -->
     <ListView
         android:id="@+id/enrolledcourselistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="50dp"
+        />
 
 </FrameLayout>

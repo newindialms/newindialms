@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +40,7 @@ public class EnrolledCourseFragment extends Fragment {
     String studentid;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
+    TextView enrolledcourses_title;
 
     public EnrolledCourseFragment() {
         // Required empty public constructor
@@ -51,6 +53,7 @@ public class EnrolledCourseFragment extends Fragment {
         rootview=inflater.inflate(R.layout.fragment_enrolled_course, container, false);
         studentid =  getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
+        enrolledcourses_title=(TextView) rootview.findViewById(R.id.enrolledcourses_title);
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
         return rootview;
