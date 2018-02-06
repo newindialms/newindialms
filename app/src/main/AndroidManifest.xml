@@ -118,6 +118,10 @@
             android:name=".EnrolledCourseAttendanceActivity"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseAttendanceCommonScreen"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import static android.R.attr.id;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -64,7 +67,13 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
         enrollattendance_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String enrolledcoursename=hero.getEnrolledcoursename();
 
+                Intent yearintent = new Intent(context, EnrolledCourseAttendanceCommonScreen.class);
+                yearintent.putExtra("enrolledcoursename",enrolledcoursename);
+
+                yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(yearintent);
             }
         });
 
