@@ -50,6 +50,7 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
         //getting the view elements of the list from the view
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
+        TextView enrollcourse_daywise_display_day = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_day);
         TextView enrollcourse_daywise_display_status = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_status);
 
 
@@ -69,6 +70,7 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
         }
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
+        enrollcourse_daywise_display_day.setText(hero.getDaywise_day());
 
         //finally returning the view
         return view;

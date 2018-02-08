@@ -41,10 +41,21 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/enrollcourse_daywise_display_status"
+                android:id="@+id/enrollcourse_daywise_display_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@id/enrollcourse_daywise_display_time"
+                android:padding="10dp"
+                android:text="Day"
+                android:textAllCaps="true"
+                android:textColor="@color/studentcolorPrimaryDark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/enrollcourse_daywise_display_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/enrollcourse_daywise_display_day"
                 android:background="@color/textColor"
                 android:padding="10dp"
                 android:text="status"

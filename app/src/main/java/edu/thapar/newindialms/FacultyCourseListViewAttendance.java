@@ -72,7 +72,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int yearval, int monthval, int dateval) {
-                datevalue=(monthval+1)+"-"+dateval+"-"+yearval; //2-7-2018
+                datevalue=dateval+"-"+(monthval+1)+"-"+yearval; //date-month-year
               //  Toast.makeText(FacultyCourseListViewAttendance.this,"The selected Date is... "+datevalue,Toast.LENGTH_LONG).show();
             }
         });

@@ -86,6 +86,7 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
                         EnrolledCourseDaywiseAttendanceListItems listItemProgramList = new EnrolledCourseDaywiseAttendanceListItems(
                                 jsonObject1.getString("attendance_date"),
                                 jsonObject1.getString("attendance_time"),
+                                jsonObject1.getString("attendance_day"),
                                 jsonObject1.getString("attendance_status")
 
                         );
