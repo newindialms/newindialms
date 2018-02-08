@@ -33,7 +33,8 @@
         android:layout_centerHorizontal="true"
         android:theme="@style/CalenderViewCustom"
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
-        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"/>
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
+        />
 
     <TextView
         android:id="@+id/facultycourselist_viewattendance_courses"

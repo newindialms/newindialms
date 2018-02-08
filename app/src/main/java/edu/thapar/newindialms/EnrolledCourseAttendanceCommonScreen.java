@@ -19,7 +19,7 @@ import static edu.thapar.newindialms.R.id.Studentpic_program_title;
 
 public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
 
-    String enrolledcoursename;
+    String enrolledcoursename,student_rollnno;
 
     Toolbar student_toolbar;
     TextView student_toolbar_title,student_title;
@@ -34,6 +34,7 @@ public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enrolled_course_attendance_commonscreen);
         enrolledcoursename = getIntent().getStringExtra("enrolledcoursename");
+        student_rollnno=getIntent().getStringExtra("student_rollnno");
 
         student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -60,8 +61,9 @@ public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
 
         EnrolledCourseAttendanceCommonScreenListItems pglist= new EnrolledCourseAttendanceCommonScreenListItems(enrolledcoursename);
         pglist.setEnrolledcoursename(enrolledcoursename);
+        pglist.setStudentrollno(student_rollnno);
 
-        heroList.add(new EnrolledCourseAttendanceCommonScreenListItems("Daywise", "Cumulative",pglist.getEnrolledcoursename()));
+        heroList.add(new EnrolledCourseAttendanceCommonScreenListItems("Daywise", "Cumulative",pglist.getEnrolledcoursename(),pglist.getStudentrollno()));
 
         //creating the adapter
         EnrolledCourseAttendanceCommonScreenAdapter adapter = new EnrolledCourseAttendanceCommonScreenAdapter(this, R.layout.activity_enrolled_course_attendance_commonscreen_listitems, heroList);

@@ -1,16 +1,11 @@
 package edu.thapar.newindialms;
 
-
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,78 +21,77 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import android.support.v7.widget.Toolbar;
-
-import static edu.thapar.newindialms.R.id.container;
-
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by kamalshree on 11/19/2017.
  */
-public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
-    String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
-    EnrolledCourseAttendanceAdapter adapter;
-    String studentid;
-    List<EnrolledCourseListItems> heroList;
+
+public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
+    public static final String daywise_attendancedetails_url = "https://newindialms.000webhostapp.com/get_daywise_attendance.php";
+    String student_rollnno, course_details_name;
+    TextView daywise_toolbar_title;
+    Toolbar daywise_toolbar;
+    EnrolledCourseDaywiseAttendanceAdapter adapter;
+
+    List<EnrolledCourseDaywiseAttendanceListItems> heroList;
     ListView listView;
-    Toolbar student_toolbar;
-    TextView student_toolbar_title;
-    public EnrolledCourseAttendanceActivity() {
-        // Required empty public constructor
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enrolled_course_attendance);
+        setContentView(R.layout.activity_enrolled_course_daywise);
+        course_details_name = getIntent().getStringExtra("course_details_name");
+        student_rollnno = getIntent().getStringExtra("student_rollnno");
 
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
-        student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        setSupportActionBar(student_toolbar);
+        daywise_toolbar = (Toolbar) findViewById(R.id.enrollcoursetoolbar);
+        daywise_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        student_toolbar_title=(TextView) findViewById(R.id.student_enroll_toolbar_title);
-        student_toolbar_title.setText("My Attendance");
+        TextView daywise_title = (TextView) findViewById(R.id.enrolled_daywise_title);
+        daywise_title.setText(course_details_name+ " Daywise");
+        setSupportActionBar(daywise_toolbar);
 
-        student_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        daywise_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
-        Intent intent=getIntent();
-        studentid =  intent.getStringExtra("studentid");
-
+        daywise_toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        daywise_toolbar_title.setText("Daywise");
+        listView = (ListView) findViewById(R.id.enrolledcourse_daywise_list_ListView);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
+
     }
+
 
     private void loadRecyclerViewData() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolled_courselist, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, daywise_attendancedetails_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("course_details");
+                    JSONArray array = j.getJSONArray("attendancelist");
 
                     for (int i = 0; i < array.length(); i++) {
-                        EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
-                               array.getString(i),studentid
+                        JSONObject jsonObject1 = array.getJSONObject(i);
+                        EnrolledCourseDaywiseAttendanceListItems listItemProgramList = new EnrolledCourseDaywiseAttendanceListItems(
+                                jsonObject1.getString("attendance_date"),
+                                jsonObject1.getString("attendance_time"),
+                                jsonObject1.getString("attendance_status")
+
                         );
-                        listItemProgramList.setStudentid(studentid);
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new EnrolledCourseAttendanceAdapter(getApplicationContext(),R.layout.activity_enrolled_course_attendance_listitems,heroList);
+                    adapter = new EnrolledCourseDaywiseAttendanceAdapter(getApplicationContext(),R.layout.activity_enrolled_course_daywise_listitems,heroList);
                     listView.setAdapter(adapter);
 
 
@@ -114,7 +108,8 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("student_rollno", studentid);
+                params.put("course_details_name", course_details_name);
+                params.put("student_rollnno", student_rollnno);
                 return params;
             }
         };

@@ -84,7 +84,7 @@
         <item name="android:textColor">@color/facultycolorPrimary</item>
     </style>
 
-    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+    <style name="CalenderViewCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/facultyMenu</item>
     </style>
 

@@ -6,9 +6,14 @@ package edu.thapar.newindialms;
 
 public class EnrolledCourseListItems {
     private String enrolledcoursename;
+    private String studentid;
 
     public EnrolledCourseListItems(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
+    }
+    public EnrolledCourseListItems(String enrolledcoursename,String studentid) {
+        this.enrolledcoursename = enrolledcoursename;
+        this.studentid = studentid;
     }
 
     public String getEnrolledcoursename() {
@@ -18,4 +23,13 @@ public class EnrolledCourseListItems {
     public void setEnrolledcoursename(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
     }
+
+    public String getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(String studentid) {
+        this.studentid = studentid;
+    }
+
 }

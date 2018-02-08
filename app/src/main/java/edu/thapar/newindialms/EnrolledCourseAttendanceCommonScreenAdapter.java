@@ -72,6 +72,19 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         enrolledcourselist_cumulative.setText(hero.getCumulative());
         studentPicarrow2.setImageResource(R.drawable.ic_right);
 
+        studentPicarrow1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String course_details_name=hero.getEnrolledcoursename();
+                String student_rollnno=hero.getStudentrollno();
+
+                Intent daywiseintent = new Intent(context, EnrolledCourseDaywiseAttendanceActivity.class);
+                daywiseintent.putExtra("course_details_name",course_details_name);
+                daywiseintent.putExtra("student_rollnno",student_rollnno);
+                daywiseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(daywiseintent);
+            }
+        });
 
         //finally returning the view
         return view;

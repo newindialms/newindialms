@@ -68,9 +68,11 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
             @Override
             public void onClick(View view) {
                 String enrolledcoursename=hero.getEnrolledcoursename();
+                String studentid=hero.getStudentid();
 
                 Intent yearintent = new Intent(context, EnrolledCourseAttendanceCommonScreen.class);
                 yearintent.putExtra("enrolledcoursename",enrolledcoursename);
+                yearintent.putExtra("student_rollnno",studentid);
 
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
