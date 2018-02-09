@@ -126,6 +126,11 @@
             android:name=".EnrolledCourseDaywiseAttendanceActivity"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseCumulativeAttendanceActivity"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+
     </application>
 
 </manifest>

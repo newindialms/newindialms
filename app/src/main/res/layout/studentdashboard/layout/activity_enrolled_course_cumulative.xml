@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.EnrolledCourseAttendanceActivity">
+
+    <include
+        android:id="@+id/enrollcoursetoolbar"
+        layout="@layout/enrollcourse_toolbar"></include>
+
+    <TextView
+        android:id="@+id/enrolled_cumulative_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/enrollcoursetoolbar"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/studentcolorPrimaryDark"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enrolled_cumulative_title"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+
+        <TextView
+            android:id="@+id/totalnooflectures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Total Lectures"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/totalpresent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Present Count"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/totalabsent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Absent Count"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/percentageAttendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Percentage Attendance"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enrolled_cumulative_title"
+        android:layout_toEndOf="@+id/relativeLayout1"
+        android:layout_toRightOf="@+id/relativeLayout1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <ListView
+            android:id="@+id/enrolledcourse_cumulative_list_ListView"
+            android:layout_width="match_parent"
+            android:layout_height="297dp" />
+    </LinearLayout>
+</RelativeLayout>

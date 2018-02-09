@@ -61,7 +61,7 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
 
         //adding values to the list item
         enrolledcourselist_name.setText(hero.getEnrolledcoursename());
-        enrollattendance_arrow.setImageResource(R.drawable.ic_right);
+        enrollattendance_arrow.setImageResource(R.drawable.student_right_arrow);
 
 
         enrollattendance_arrow.setOnClickListener(new View.OnClickListener() {

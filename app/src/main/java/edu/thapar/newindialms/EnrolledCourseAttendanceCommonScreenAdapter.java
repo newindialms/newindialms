@@ -13,12 +13,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.studentPicarrow3;
-import static edu.thapar.newindialms.R.id.studentpic_programscreencorecourses;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenourse;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenspecialization;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyear;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
@@ -68,9 +62,9 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
 
         //adding values to the list item
         enrolledcourselist_daywise.setText(hero.getDaywise());
-        studentPicarrow1.setImageResource(R.drawable.ic_right);
+        studentPicarrow1.setImageResource(R.drawable.student_right_arrow);
         enrolledcourselist_cumulative.setText(hero.getCumulative());
-        studentPicarrow2.setImageResource(R.drawable.ic_right);
+        studentPicarrow2.setImageResource(R.drawable.student_right_arrow);
 
         studentPicarrow1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +73,20 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
                 String student_rollnno=hero.getStudentrollno();
 
                 Intent daywiseintent = new Intent(context, EnrolledCourseDaywiseAttendanceActivity.class);
+                daywiseintent.putExtra("course_details_name",course_details_name);
+                daywiseintent.putExtra("student_rollnno",student_rollnno);
+                daywiseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(daywiseintent);
+            }
+        });
+
+        studentPicarrow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String course_details_name=hero.getEnrolledcoursename();
+                String student_rollnno=hero.getStudentrollno();
+
+                Intent daywiseintent = new Intent(context, EnrolledCourseCumulativeAttendanceActivity.class);
                 daywiseintent.putExtra("course_details_name",course_details_name);
                 daywiseintent.putExtra("student_rollnno",student_rollnno);
                 daywiseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
