@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.StudentPicProgram">
+
+    <TextView
+        android:id="@+id/student_schedule_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/faculty_schedule_title"
+        android:textAlignment="center"
+        android:textColor="@color/studentcolorPrimary"
+        android:textSize="24sp" />
+
+    <CalendarView
+        android:id="@+id/schedule_calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student_schedule_title"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/StudentCalenderViewCustom"
+        android:dateTextAppearance="@style/StudentCalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/StudentCalenderViewWeekCustomText"/>
+
+    <Button
+        android:id="@+id/ScheduleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/studentcolorPrimary"
+        android:textColor="@color/textColor"
+        android:text="@string/ScheduleButton"
+        android:layout_below="@+id/schedule_calendarView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
+</RelativeLayout>

@@ -130,6 +130,10 @@
             android:name=".EnrolledCourseCumulativeAttendanceActivity"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".StudentScheduleDisplay"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
 
     </application>
 

@@ -95,4 +95,17 @@
     <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">@color/facultytextMenu</item>
     </style>
+
+    <!-- Student Calendar view -->
+    <style name="StudentCalenderViewCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/studentcolorPrimary</item>
+    </style>
+
+    <style name="StudentCalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/studentcolorPrimaryDark</item>
+    </style>
+
+    <style name="StudentCalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/studentcolorPrimary</item>
+    </style>
 </resources>

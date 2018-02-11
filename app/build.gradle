@@ -38,7 +38,7 @@ android {
                             'src/main/res/layout/commonscreen',
                             'src/main/res/layout',
                             'src/main/res'
-                    ]
+                            , 'src/main/res/anim']
         }
     }
 }
@@ -66,5 +66,6 @@ dependencies {
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'net.gotev:uploadservice:3.3'
     testCompile 'junit:junit:4.12'
+
 }
 apply plugin: 'com.google.gms.google-services'

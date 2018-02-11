@@ -1,16 +1,16 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,82 +35,46 @@ import java.util.Map;
 
 public class StudentSchedule extends Fragment{
 
-    TextView Studentpic_program_title;
+    TextView faculty_schedule_title;
     Toolbar studentpic_toolbar;
-    String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
-    FacultyCourseListAdapter adapter;
-    String faculty_employeeid;
-    List<FacultyListItemCourseList> heroList;
-    FacultyListItemCourseList pglist;
-    ListView listView;
+    String student_specialization;
     View rootView;
+    Button ScheduleButton;
+    private String datevalue;
+    private android.widget.CalendarView calendarView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_faculty_courselist, null);
-        FacultyMenu activity = (FacultyMenu) getActivity();
-        faculty_employeeid=activity.getEmployeeid();
-        TextView studentpic_title=(TextView)rootView.findViewById(R.id.faculty_courselist_title);
-        studentpic_title.setText("CourseList");
+        rootView = inflater.inflate(R.layout.fragment_student_schedule, null);
+        student_specialization = getArguments().getString("student_specialization");
+        calendarView= (android.widget.CalendarView)rootView.findViewById(R.id.schedule_calendarView);
+        ScheduleButton=(Button)rootView.findViewById(R.id.ScheduleButton);
 
-        pglist= new FacultyListItemCourseList(faculty_employeeid);
-        pglist.setFaculty_employeeid(faculty_employeeid);
-
-        heroList = new ArrayList<>();
-        listView = (ListView) rootView.findViewById(R.id.faculty_courselist_ListView);
-        loadRecyclerViewData();
-
-        return rootView;
-    }
-
-    private void loadRecyclerViewData() {
-        final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Refreshing Data");
-        progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, facultycourselist_url, new Response.Listener<String>() {
+        calendarView.setOnDateChangeListener(new android.widget.CalendarView.OnDateChangeListener() {
             @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                JSONArray jsonArray = null;
-                try {
-                    JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("course_details");
+            public void onSelectedDayChange(@NonNull android.widget.CalendarView calendarView, int yearval, int monthval, int dateval) {
+                datevalue=dateval+"-"+(monthval+1)+"-"+yearval;
+            }
+        });
 
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        FacultyListItemCourseList listItemProgramList = new FacultyListItemCourseList(
-                                jsonObject1.getString("course_details_name"),pglist.getFaculty_employeeid()
-                        );
-                        heroList.add(listItemProgramList);
+        ScheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplay.class);
+                facultyintent.putExtra("student_specialization",student_specialization);
+                facultyintent.putExtra("datevalue",datevalue);
+                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-
-                    }
-                    adapter = new FacultyCourseListAdapter(getContext(),R.layout.cardview_faculty_courselist,heroList);
-                    listView.setAdapter(adapter);
-
-
-                } catch (JSONException e) {
-                    progressDialog.dismiss();
-                    e.printStackTrace();
+                if (datevalue != null && !datevalue.isEmpty()) {
+                    Toast.makeText(getContext(),"selected Date is "+datevalue,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"student_specialization is "+student_specialization,Toast.LENGTH_LONG).show();
+                    getActivity().startActivity(facultyintent);
+                }
+                else{
+                    Toast.makeText(getActivity(),"Select Date",Toast.LENGTH_LONG).show();
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("faculty_employeeid", faculty_employeeid);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
+        });
+        return rootView;
     }
-
-
 }

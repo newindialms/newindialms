@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/student_scheduledisplay_starttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/studentcolorPrimary"
+                android:padding="10dp"
+                android:text="Program"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large.Inverse" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                app:srcCompat="@drawable/schedule_arrow_down"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp">
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="Course   " />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_program"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Program"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="Course   " />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_course"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="course"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="Start Time   " />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_starttimes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="starttime"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="End Time   " />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_endtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="endyime"
+                            android:textStyle="bold" />
+                    </TableRow>
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="Faculty   " />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_faculty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:text="Faculty"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

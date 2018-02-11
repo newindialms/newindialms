@@ -122,7 +122,10 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(attendanceactivity);
                 break;
             case R.id.navigation_program_myschedule:
+                Bundle bundle = new Bundle();
+                bundle.putString("student_specialization", student_specialization);
                 fragment=new StudentSchedule();
+                fragment.setArguments(bundle);
                 break;
             case R.id.navigation_program_academiccalendar:
                 fragment=new StudentAcademicCalendar();
