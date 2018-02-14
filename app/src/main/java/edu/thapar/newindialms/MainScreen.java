@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.onesignal.OneSignal;
+
 import edu.thapar.newindialms.R;
 
 import static edu.thapar.newindialms.R.id.view;
@@ -23,6 +25,11 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
+
         setContentView(R.layout.activity_main_screen);
 
         /*if(SharedPrefManager.getInstance(this).isLoggedIn()) {
