@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.onesignal.OneSignal;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import edu.thapar.newindialms.R;
 
@@ -25,11 +26,6 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
-
         setContentView(R.layout.activity_main_screen);
 
         /*if(SharedPrefManager.getInstance(this).isLoggedIn()) {

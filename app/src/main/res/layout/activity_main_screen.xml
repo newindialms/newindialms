@@ -104,6 +104,7 @@
                 android:textAllCaps="true"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/mainscreen_button" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

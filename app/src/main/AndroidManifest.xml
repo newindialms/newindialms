@@ -15,7 +15,6 @@
         <activity android:name=".MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,7 +51,12 @@
         <activity android:name=".ProgramScreenCourse" />
         <activity android:name=".ProgramScreenSpecializationModule" />
         <activity android:name=".ProgramScreenCourseModule" />
-        <activity android:name=".CalendarView" />
+        <activity android:name=".CalendarView" >
+            <intent-filter>
+                <action android:name="edu.thapar.CalendarNotification"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".NotificationTab" />
         <activity
             android:name=".FeedbackTab"
@@ -124,6 +128,16 @@
             android:label="Student"
             android:theme="@style/StudentTheme" />
 
+        <service android:name=".FcmMessagingService">
+                        <intent-filter>
+                           <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                       </intent-filter>
+        </service>
+       <service android:name=".FCMInstanceIdService">
+          <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
