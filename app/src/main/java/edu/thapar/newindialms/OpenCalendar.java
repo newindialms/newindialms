@@ -50,13 +50,11 @@ import static edu.thapar.newindialms.R.id.coursetypespinner;
 
 public class OpenCalendar extends AppCompatActivity {
     private static final String TAG = "OpenCalendar";
-    String app_server_url = "https://newindialms.000webhostapp.com/fcm_insert.php";
     Button open_calendar_details, SendNotification;
     String notification_url = "https://newindialms.000webhostapp.com/send_notification.php";
     EditText message_notification, title_notification;
     String title, message;
     AlertDialog.Builder builder;
-    APIService myService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,46 +76,18 @@ public class OpenCalendar extends AppCompatActivity {
         title_notification = (EditText) findViewById(R.id.title_notification);
         message_notification = (EditText) findViewById(R.id.message_notification);
 
-        /*
-            Push Notification using FCM
-         */
-        Common.currentToken = FirebaseInstanceId.getInstance().getToken();
-
-        FirebaseMessaging.getInstance().subscribeToTopic("Calendar");
-        Log.d("My Token", Common.currentToken);
-        myService = Common.getFCMClient();
-
 
         SendNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Notification notification = new Notification(message_notification.getText().toString(), title_notification.getText().toString());
-                Sender sender = new Sender("/topics/Calendar", notification);
-                Intent intent=new Intent(getApplicationContext(),MainScreen.class);
-                startActivity(intent);
-                myService.sendNotification(sender)
-                        .enqueue(new Callback<MyResponse>() {
-                            @Override
-                            public void onResponse(retrofit.Response<MyResponse> response, Retrofit retrofit) {
-                              /*  if (response.body().success == 1) {
-                                    Toast.makeText(OpenCalendar.this, "success", Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(OpenCalendar.this, "Failure", Toast.LENGTH_LONG).show();
-                                }*/
-                            }
-
-                            @Override
-                            public void onFailure(Throwable t) {
-                                Log.e("error", t.getMessage());
-                            }
-                        });
+                SendNotificationFunction();
             }
         });
 
         open_calendar_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent calendarintent= new Intent(getApplicationContext(), AcademicCalendar.class);
+                Intent calendarintent = new Intent(getApplicationContext(), AcademicCalendar.class);
                 startActivity(calendarintent);
             }
         });
@@ -139,6 +109,39 @@ public class OpenCalendar extends AppCompatActivity {
             view.loadUrl(url);
             return true;
         }
+    }
+
+    public void SendNotificationFunction() {
+
+        title = title_notification.getText().toString();
+        message = message_notification.getText().toString();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, notification_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("title", title);
+                params.put("message", message);
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
 }
