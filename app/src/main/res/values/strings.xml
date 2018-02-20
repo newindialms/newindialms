@@ -168,11 +168,26 @@
     <string name="FCM_PREF">edu.thapar.newindialms.fcm_pref</string>
     <string name="FCM_TOKEN">edu.thapar.newindialms.fcm_token</string>
 
+    <string name="calendar_notification">Send Academic Calendar</string>
+    <string name="faculty_notification">Send Faculty Notification</string>
+    <string name="student_notifications">Send Student Calendar</string>
+    <string name="send_faculty_notification_title">Faculty Notification</string>
+    <string name="send_faculty_notification_subtitle">Title</string>
+    <string name="send_faculty_notification_subtitle_hint">Enter Title Here</string>
+    <string name="send_faculty_notification_subtitle_message">Message</string>
+    <string name="send_faculty_notification_subtitle_message_hint">Enter Message Here</string>
+
+    <string name="send_student_notification_title">Student Notification</string>
+    <string name="send_student_notification_subtitle">Title</string>
+    <string name="send_student_notification_subtitle_hint">Enter Title Here</string>
+    <string name="send_student_notification_subtitle_message">Message</string>
+    <string name="send_student_notification_subtitle_message_hint">Enter Message Here</string>
 
     <!--  Calendar -->
+    <string name="notification_title">Notifications</string>
     <string name="calendar_button">Go to Calendar</string>
     <string name="calendar_title">Accademic Calendar</string>
-    <string name="sendnotification_type">Select the Type</string>
+    <string name="student_notification">Select the Type</string>
 
     <!-- Feedbak -->
     <string name="feedbacktitle">Feedback Module</string>

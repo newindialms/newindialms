@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar_all_notiifcation"
+        layout="@layout/notification_toolbar"></include>
+
+    <TextView
+        android:id="@+id/send_faculty_notification_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/send_faculty_notification_title"
+        android:textColor="@color/textColor"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/send_faculty_notification_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/send_faculty_notification_subtitle"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/send_faculty_notification_subtitle_hint"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/send_faculty_notification_subtitle"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:ems="10"
+            android:hint="@string/send_faculty_notification_subtitle_hint"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
+
+        <TextView
+            android:id="@+id/send_faculty_notification_subtitle_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/send_faculty_notification_subtitle_hint"
+            android:layout_margin="10dp"
+            android:text="@string/send_faculty_notification_subtitle_message"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/send_faculty_notification_subtitle_message_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/send_faculty_notification_subtitle_message"
+            android:layout_margin="10dp"
+            android:background="@drawable/white_background"
+            android:hint="@string/send_faculty_notification_subtitle_message_hint"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:maxLines="10"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textHintColor"
+            android:textColorHint="@color/textHintColor" />
+
+        <Button
+            android:id="@+id/sendnotification_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/send_faculty_notification_subtitle_message_hint"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="13dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:padding="5dp"
+            android:text="Send Notification"
+            android:textColor="@color/textColor" />
+
+    </RelativeLayout>
+
+</LinearLayout>

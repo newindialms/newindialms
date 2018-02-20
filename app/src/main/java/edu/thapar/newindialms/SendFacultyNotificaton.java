@@ -1,36 +1,23 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,19 +26,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import retrofit.Callback;
-import retrofit.Retrofit;
-
-import static edu.thapar.newindialms.R.id.coursetypespinner;
-
 /**
  * Created by kamalshree on 10/8/2017.
  */
 
-public class OpenCalendar extends AppCompatActivity {
-    private static final String TAG = "OpenCalendar";
-    Button open_calendar_details, SendNotification;
-    String notification_url = "https://newindialms.000webhostapp.com/send_notification.php";
+public class SendFacultyNotificaton extends AppCompatActivity {
+    Button SendNotification;
+    String notification_url = "https://newindialms.000webhostapp.com/send_faculty_notification.php";
     EditText message_notification, title_notification;
     String title, message;
     AlertDialog.Builder builder;
@@ -59,9 +40,9 @@ public class OpenCalendar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.academic_calendar_layout);
+        setContentView(R.layout.activity_facultynotification_layout);
 
-        Toolbar calendar_toolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
+        Toolbar calendar_toolbar = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
         calendar_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(calendar_toolbar);
         calendar_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -71,26 +52,18 @@ public class OpenCalendar extends AppCompatActivity {
             }
         });
 
-        open_calendar_details = (Button) findViewById(R.id.open_calendar_details);
         SendNotification = (Button) findViewById(R.id.sendnotification_button);
-        title_notification = (EditText) findViewById(R.id.title_notification);
-        message_notification = (EditText) findViewById(R.id.message_notification);
+        title_notification = (EditText) findViewById(R.id.send_faculty_notification_subtitle_hint);
+        message_notification = (EditText) findViewById(R.id.send_faculty_notification_subtitle_message_hint);
 
 
         SendNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendAccademicCalendarNotificationFunction();
+                SendFacultyNotificationFunction();
             }
         });
 
-        open_calendar_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent calendarintent = new Intent(getApplicationContext(), AcademicCalendar.class);
-                startActivity(calendarintent);
-            }
-        });
 
     }
 
@@ -111,7 +84,7 @@ public class OpenCalendar extends AppCompatActivity {
         }
     }
 
-    public void SendAccademicCalendarNotificationFunction() {
+    public void SendFacultyNotificationFunction() {
 
         title = title_notification.getText().toString();
         message = message_notification.getText().toString();

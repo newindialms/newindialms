@@ -58,7 +58,7 @@ public class ProgramManagerMenu extends AppCompatActivity
     }
 
     public void homescreen_notification_layout(View view){
-        Intent intent = new Intent(getApplicationContext(),NotificationTab.class);
+        Intent intent = new Intent(getApplicationContext(),NotificationScreen.class);
         startActivity(intent);
     }
     public void homescreen_courselist_layout(View view){
@@ -137,7 +137,7 @@ public class ProgramManagerMenu extends AppCompatActivity
                 startActivity(feedbackintent);
                 break;
             case R.id.navigation_program_notification:
-                Intent notificationintent = new Intent(getApplicationContext(), NotificationTab.class);
+                Intent notificationintent = new Intent(getApplicationContext(), NotificationScreen.class);
                 startActivity(notificationintent);
                 break;
         }

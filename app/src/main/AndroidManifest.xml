@@ -58,6 +58,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".NotificationTab" />
+        <activity android:name=".NotificationScreen" />
+        <activity android:name=".SendFacultyNotificaton" />
+        <activity android:name=".SendStudentNotificaton" />
         <activity
             android:name=".FeedbackTab"
             android:windowSoftInputMode="stateAlwaysHidden" />

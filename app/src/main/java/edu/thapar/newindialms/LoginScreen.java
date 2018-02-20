@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,14 +46,21 @@ public class LoginScreen extends AppCompatActivity {
     AlertDialog.Builder builder;
     String studentid, phonenumber;
     String login_url = "https://newindialms.000webhostapp.com/login.php";
+    public static final String token_url = "http://newindialms.000webhostapp.com/login_success_device_details.php";
     Context context;
     ProgressDialog progressDialog;
     public View layout;
+
+    private String deviceid,token,type,typeid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+
+        token = FirebaseInstanceId.getInstance().getToken();
+        deviceid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
         toolbar_login_screen = (Toolbar) findViewById(R.id.toolbar_login_screen);
         toolbar_login_screen.setNavigationIcon(R.drawable.ic_left);
@@ -141,14 +150,20 @@ public class LoginScreen extends AppCompatActivity {
                                         studentintent.putExtra("studentyear",studentyear);
                                         studentintent.putExtra("student_specialization",student_specialization);
                                         startActivity(studentintent);
-
+                                        type="student";
+                                        typeid=studentid;
+                                        AddDeviceDetailsFunction();
                                     }
                                     else if(jsonObject.getString("idtype").equals("programmanager")){
                                         //program manager dashboard
                                         finish();
                                         startActivity(new Intent(getApplicationContext(), ProgramManagerMenu.class));
+                                        String studentid = jsonObject.getString("studentid");
                                         toast_text.setText("ProgramManager Dashboard");
                                         customToast();
+                                        type="programmanager";
+                                        typeid=studentid;
+                                        AddDeviceDetailsFunction();
 
                                     }
                                     else{
@@ -164,6 +179,9 @@ public class LoginScreen extends AppCompatActivity {
                                         facultyintent.putExtra("facultyname",facultyname);
                                         facultyintent.putExtra("facultyid",facultyid);
                                         startActivity(facultyintent);
+                                        type="faculty";
+                                        typeid=facultyid;
+                                        AddDeviceDetailsFunction();
                                     }
                                 }
 
@@ -214,5 +232,32 @@ public class LoginScreen extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
+    }
+
+    public void AddDeviceDetailsFunction() {
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, token_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("deviceid", deviceid);
+                params.put("token", token);
+                params.put("type", type);
+                params.put("typeid", typeid);
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 }
