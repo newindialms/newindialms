@@ -71,6 +71,7 @@ public class FacultyMenu extends AppCompatActivity
     public String getEmployeeid() {
         return facultyid;
     }
+
     public void homescreen_courselist_layout(View view){
         displaySelectedScreen(R.id.navigation_faculty_program_courselist);
     }
@@ -82,6 +83,9 @@ public class FacultyMenu extends AppCompatActivity
         displayAlert();
     }
 
+    public void homescreen_notification_layout(View view){
+        displaySelectedScreen(R.id.navigation_faculty_program_notification);
+    }
 
     @Override
     public void onBackPressed() {
@@ -108,8 +112,8 @@ public class FacultyMenu extends AppCompatActivity
             case R.id.navigation_faculty_program_accademic_calendar:
                 fragment=new FacultyAccademicCalendar();
                 break;
-            case R.id.navigation_program_notification:
-                fragment=new ProgramManagerStudentPic();
+            case R.id.navigation_faculty_program_notification:
+                fragment=new FacultyNotificationScreen();
                 break;
         }
 

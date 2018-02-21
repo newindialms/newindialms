@@ -15,6 +15,7 @@
         <activity android:name=".MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,7 +34,6 @@
         <activity android:name=".OpenCalendar" />
         <activity android:name=".UpdateFeedback" />
         <activity android:name=".SpinnerStudentList" />
-
         <activity
             android:name=".ViewStudentsTab"
             android:label="@string/title_activity_student_view"
@@ -51,10 +51,15 @@
         <activity android:name=".ProgramScreenCourse" />
         <activity android:name=".ProgramScreenSpecializationModule" />
         <activity android:name=".ProgramScreenCourseModule" />
-        <activity android:name=".CalendarView" >
+        <activity android:name=".DetailedNotificationScreen"
+            android:theme="@style/FacultyTheme"/>
+        <activity android:name=".DetailedStudentNotificationScreen"
+            android:theme="@style/StudentTheme"/>
+        <activity android:name=".CalendarView">
             <intent-filter>
-                <action android:name="edu.thapar.CalendarNotification"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="edu.thapar.CalendarNotification" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".NotificationTab" />
@@ -73,8 +78,6 @@
         <activity android:name=".ProgramScreenCoreCourseStudent" />
         <activity android:name=".ProgramScreenAllCourses" />
         <activity android:name=".ProgramManagerCourseSchedule" />
-
-
         <activity
             android:name=".FacultyMenu"
             android:label="Faculty"
@@ -82,21 +85,24 @@
         <activity
             android:name=".FacultyCourseListDashboard"
             android:theme="@style/FacultyTheme" />
-
-        <activity android:name=".FacultyCourseListAttendance"
+        <activity
+            android:name=".FacultyCourseListAttendance"
             android:theme="@style/FacultyTheme" />
-        <activity android:name=".FacultyCourseListTakeAttendance"
+        <activity
+            android:name=".FacultyCourseListTakeAttendance"
             android:theme="@style/FacultyTheme" />
-        <activity android:name=".FacultyCourseListViewAttendance"
+        <activity
+            android:name=".FacultyCourseListViewAttendance"
             android:theme="@style/FacultyTheme" />
-        <activity android:name=".FacultyCourseListViewAttendanceDisplay"
+        <activity
+            android:name=".FacultyCourseListViewAttendanceDisplay"
             android:theme="@style/FacultyTheme" />
-        <activity android:name=".FacultyScheduleDisplay"
+        <activity
+            android:name=".FacultyScheduleDisplay"
             android:theme="@style/FacultyTheme" />
-        <activity android:name=".CalendarViewFaculty"
-            android:theme="@style/FacultyTheme"
-            />
-
+        <activity
+            android:name=".CalendarViewFaculty"
+            android:theme="@style/FacultyTheme" />
         <activity
             android:name=".StudentMenu"
             android:label="Student"
@@ -105,7 +111,6 @@
             android:name=".StudentMyProfile"
             android:label="Student"
             android:theme="@style/StudentTheme" />
-
         <activity
             android:name=".StudentEnrollCourseTab"
             android:label="Student"
@@ -132,12 +137,12 @@
             android:theme="@style/StudentTheme" />
 
         <service android:name=".FcmMessagingService">
-                        <intent-filter>
-                           <action android:name="com.google.firebase.MESSAGING_EVENT" />
-                       </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
         </service>
-       <service android:name=".FCMInstanceIdService">
-          <intent-filter>
+        <service android:name=".FCMInstanceIdService">
+            <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>

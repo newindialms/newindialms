@@ -183,6 +183,19 @@
     <string name="send_student_notification_subtitle_message">Message</string>
     <string name="send_student_notification_subtitle_message_hint">Enter Message Here</string>
 
+    <string name="faculty_notificationscreen_title">My Notification Screen</string>
+    <string name="faculty_notificationscreen_msgtitle">Notification Title</string>
+    <string name="faculty_notificationscreen_msg">Notification Message</string>
+    <string name="faculty_notificationscreen_msgtime">Notification Time</string>
+    <string name="faculty_notificationscreen_msgbutton">Details</string>
+
+    <string name="student_notificationscreen_title">My Notification Screen</string>
+    <string name="student_notificationscreen_msgtitle">Notification Title</string>
+    <string name="student_notificationscreen_msg">Notification Message</string>
+    <string name="student_notificationscreen_msgtime">Notification Time</string>
+    <string name="student_notificationscreen_msgbutton">Details</string>
+
+
     <!--  Calendar -->
     <string name="notification_title">Notifications</string>
     <string name="calendar_button">Go to Calendar</string>

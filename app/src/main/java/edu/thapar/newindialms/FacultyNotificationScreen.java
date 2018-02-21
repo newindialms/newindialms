@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -31,25 +33,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static edu.thapar.newindialms.R.color.facultyMenu;
+import static edu.thapar.newindialms.R.id.container;
+
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
-public class StudentNotification extends Fragment{
+public class FacultyNotificationScreen extends Fragment{
 
-    private TextView student_notificationscreen_title;
+    private TextView faculty_notificationscreen_title;
     private View rootView;
     private RecyclerView recyclerView;
     List<NotificationScreenDetails> notificationScreenDetails;
 
-    private static final String NOTIFICATION_URL = "http://newindialms.000webhostapp.com/get_student_notification.php";
+    private static final String NOTIFICATION_URL = "http://newindialms.000webhostapp.com/get_faculty_notification.php";
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_student_noticationscreen, null);
+        rootView = inflater.inflate(R.layout.fragment_faculty_noticationscreen, null);
 
-        student_notificationscreen_title = (TextView) rootView.findViewById(R.id.student_notificationscreen_title);
+        faculty_notificationscreen_title = (TextView) rootView.findViewById(R.id.faculty_notificationscreen_title);
 
-        recyclerView = (RecyclerView)rootView.findViewById(R.id.student_notification_recyclerview);
+        recyclerView = (RecyclerView)rootView.findViewById(R.id.faculty_notification_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -66,7 +71,7 @@ public class StudentNotification extends Fragment{
                         JSONArray jsonArray = null;
                         try {
                             JSONObject j = new JSONObject(response);
-                            JSONArray array = j.getJSONArray("student_notification_list");
+                            JSONArray array = j.getJSONArray("faculty_notification_list");
 
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject jsonObject1 = array.getJSONObject(i);
@@ -79,7 +84,7 @@ public class StudentNotification extends Fragment{
 
 
                             }
-                            StudentNotificationScreenAdapter adapter = new StudentNotificationScreenAdapter(getActivity(), notificationScreenDetails);
+                            NotificationScreenAdapter adapter = new NotificationScreenAdapter(getActivity(), notificationScreenDetails);
                             recyclerView.setAdapter(adapter);
 
 
