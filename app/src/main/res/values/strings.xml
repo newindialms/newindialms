@@ -215,6 +215,12 @@
     <string name="addfeedbacksubmit">ADD Feedback</string>
 
 
+    <string name="faculty_select_feedbackscreen_title">Select Feedback</string>
+    <string name="faculty_select_feedbackscreen_questions_title">Feedback Title</string>
+    <string name="faculty_select_feedbackscreen_questions_description">Feedback Descrption</string>
+    <string name="faculty_select_feedbackscreen_select">Type</string>
+    <string name="feedbacksubmit">Submit</string>
+
     <string-array name="feedbacktype">
         <item></item>
         <item>Star</item>

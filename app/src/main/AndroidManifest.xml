@@ -104,6 +104,11 @@
             android:name=".CalendarViewFaculty"
             android:theme="@style/FacultyTheme" />
         <activity
+            android:name=".FacultySelectFeedbackScreen"
+            android:theme="@style/FacultyTheme"
+            android:parentActivityName=".FacultyCourseListTakeAttendance"
+            />
+        <activity
             android:name=".StudentMenu"
             android:label="Student"
             android:theme="@style/StudentTheme" />

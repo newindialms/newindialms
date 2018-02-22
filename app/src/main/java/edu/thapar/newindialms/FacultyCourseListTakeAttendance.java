@@ -110,7 +110,8 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
             attendance_status="Absent";
         }
         savepresentDetails();
-
+        Intent feedbackScreenIntent=new Intent(FacultyCourseListTakeAttendance.this,FacultySelectFeedbackScreen.class);
+        startActivity(feedbackScreenIntent);
     }
 
 public void savepresentDetails()
