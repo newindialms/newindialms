@@ -111,6 +111,8 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         }
         savepresentDetails();
         Intent feedbackScreenIntent=new Intent(FacultyCourseListTakeAttendance.this,FacultySelectFeedbackScreen.class);
+        feedbackScreenIntent.putExtra("coursename",coursename);
+        feedbackScreenIntent.putExtra("faculty_employeeid",faculty_employeeid);
         startActivity(feedbackScreenIntent);
     }
 

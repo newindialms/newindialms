@@ -5,15 +5,33 @@ package edu.thapar.newindialms;
  */
 
 public class FacultySelectFeedbackScreenDetails {
-
+    private String feedbackId;
     private String feedbackQuestions;
     private String feedbackDescription;
     private String feedbackType;
+    private boolean status;
 
-    public FacultySelectFeedbackScreenDetails(String feedbackQuestions, String feedbackDescription, String feedbackType) {
+    public FacultySelectFeedbackScreenDetails(String feedbackId,String feedbackQuestions, String feedbackDescription, String feedbackType) {
+        this.feedbackId=feedbackId;
         this.feedbackQuestions = feedbackQuestions;
         this.feedbackDescription = feedbackDescription;
         this.feedbackType = feedbackType;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getFeedbackId() {
+        return feedbackId;
+    }
+
+    public void setFeedbackId(String feedbackId) {
+        this.feedbackId = feedbackId;
     }
 
     public String getFeedbackDescription() {

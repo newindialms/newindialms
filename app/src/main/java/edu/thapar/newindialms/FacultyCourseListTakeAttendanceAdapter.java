@@ -95,7 +95,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
                     presentlist.add(hero.getStudentrollno().toString());
                 } else {
                     status = "Absent";//edit here
-                    Toast.makeText(getContext(), hero.getStudentrollno().toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(), hero.getStudentrollno().toString(), Toast.LENGTH_LONG).show();
                     absentlist.add(hero.getStudentrollno().toString());
                     hero.setStatus(true);
                 }
