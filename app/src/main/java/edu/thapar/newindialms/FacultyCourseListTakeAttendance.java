@@ -52,7 +52,7 @@ import static java.security.AccessController.getContext;
 public class FacultyCourseListTakeAttendance extends AppCompatActivity {
     public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendance.php";
-    String coursename, faculty_employeeid;
+    String coursename, faculty_employeeid,course_date,course_time;
     TextView facultycourselist_program_title;
     Toolbar faculty_toolbar;
     LayoutInflater layoutinflater;
@@ -110,10 +110,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
             attendance_status="Absent";
         }
         savepresentDetails();
-        Intent feedbackScreenIntent=new Intent(FacultyCourseListTakeAttendance.this,FacultySelectFeedbackScreen.class);
-        feedbackScreenIntent.putExtra("coursename",coursename);
-        feedbackScreenIntent.putExtra("faculty_employeeid",faculty_employeeid);
-        startActivity(feedbackScreenIntent);
+        saveabsentDetails();
     }
 
 public void savepresentDetails()
@@ -131,20 +128,27 @@ public void savepresentDetails()
                             JSONArray jsonArray = new JSONArray(response);
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
                             String code = jsonObject.getString("code");
+                            String message = jsonObject.getString("message");
+                            String message_time = jsonObject.getString("message_time");
+                            String message_date = jsonObject.getString("message_date");
                             if (code.equals("Success")) {
-                                saveabsentDetails();
+                                loading.dismiss();
+                                builder.setTitle(code);
+                                builder.setMessage("Now Select the Feedback's");
+                                displayAlert(message_time,message_date);
+
                             } else {
                                 loading.dismiss();
                                 builder.setTitle("failed");
                                 builder.setMessage("Try again");
-                                displayAlert("input_error");
+                               // displayAlert("input_error");
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             builder.setTitle("Success");
                             builder.setMessage("Data saved successfully");
-                            displayAlert("input_success");
+                           // displayAlert("input_success");
                         }
 
                     }
@@ -201,22 +205,21 @@ public void savepresentDetails()
                             String code = jsonObject.getString("code");
                             if (code.equals("Success")) {
                                 loading.dismiss();
-                                builder.setTitle("Success");
-                                builder.setMessage("Data saved successfully");
-                                displayAlert("input_success");
+                                builder.setTitle(code);
+                                builder.setMessage("Now Select the Feedback's");
 
                             } else {
                                 loading.dismiss();
                                 builder.setTitle("failed");
                                 builder.setMessage("Try again");
-                                displayAlert("input_error");
+                               // displayAlert("input_error");
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            builder.setTitle("Success");
-                            builder.setMessage("Data saved successfully");
-                            displayAlert("input_success");
+                            //builder.setTitle("Success");
+                           // builder.setMessage("Data saved successfully");
+                            //displayAlert("input_success");
                         }
 
                     }
@@ -301,16 +304,19 @@ public void savepresentDetails()
         requestQueue.add(stringRequest);
     }
 
-    public void displayAlert(final String code) {
+    public void displayAlert(final String code_time,final String code_date) {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
+                course_date=code_date;
+                course_time=code_time;
+                finish();
+                Intent feedbackScreenIntent=new Intent(FacultyCourseListTakeAttendance.this,FacultySelectFeedbackScreen.class);
+                feedbackScreenIntent.putExtra("coursename",coursename);
+                feedbackScreenIntent.putExtra("faculty_employeeid",faculty_employeeid);
+                feedbackScreenIntent.putExtra("course_date",course_date);
+                feedbackScreenIntent.putExtra("course_time",course_time);
+                startActivity(feedbackScreenIntent);
 
-                if (code.equals("input_success")) {
-                    finish();
-                    //
-                } else if (code.equals("input_error")) {
-                    //
-                }
             }
         });
         AlertDialog alertDialog = builder.create();

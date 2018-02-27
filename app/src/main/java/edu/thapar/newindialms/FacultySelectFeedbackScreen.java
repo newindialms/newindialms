@@ -53,7 +53,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
     List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;
     FacultySelectFeedbackScreenAdapter adapter;
     public static ArrayList<String> feedbacklist = new ArrayList<String>();
-    private String coursename,faculty_employeeid;
+    private String coursename,faculty_employeeid,course_time,course_date;
     String currentDate;
     Date date = new Date();
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -75,6 +75,8 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         myFeedbackselect=getIntent();
         coursename = myFeedbackselect.getStringExtra("coursename");
         faculty_employeeid = myFeedbackselect.getStringExtra("faculty_employeeid");
+        course_date = myFeedbackselect.getStringExtra("course_date");
+        course_time = myFeedbackselect.getStringExtra("course_time");
         currentDate=sdf.format(date);
 
         setSupportActionBar(facultyToolbar);
@@ -188,7 +190,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
                             if (code.equals("Success")) {
                                 builder.setTitle("Success");
                                 builder.setMessage("Notification sent Successfully");
-                                displayAlert("input_error");
+                                displayAlert("input_success");
                             } else {
                                 loading.dismiss();
                                 builder.setTitle("failed");
@@ -198,9 +200,6 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            builder.setTitle("Success");
-                            builder.setMessage("Data saved successfully");
-                            displayAlert("input_success");
                         }
 
                     }
@@ -228,7 +227,8 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
                 params.put("faculty_rollno", faculty_employeeid);
                 params.put("course_details", coursename);
-                params.put("course_date", currentDate);
+                params.put("course_date", course_date);
+                params.put("course_time", course_time);
                 return params;
 
             }
