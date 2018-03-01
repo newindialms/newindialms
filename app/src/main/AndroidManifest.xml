@@ -115,7 +115,18 @@
         <activity
             android:name=".StudentMyProfile"
             android:label="Student"
-            android:theme="@style/StudentTheme" />
+            android:theme="@style/StudentTheme">
+        </activity>
+        <activity
+            android:name=".StudentMyFeedback"
+            android:label="Student"
+            android:theme="@style/StudentTheme">
+            <intent-filter>
+                <action android:name="edu.thapar.StudentMyFeedback" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".StudentEnrollCourseTab"
             android:label="Student"

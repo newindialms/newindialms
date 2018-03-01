@@ -48,6 +48,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
     Toolbar facultyToolbar;
     private static final String FEEDBACK_URL = "http://newindialms.000webhostapp.com/get_feedback.php";
     private static final String SELECTED_FEEDBACK_URL = "http://newindialms.000webhostapp.com/insert_selected_feedback.php";
+    String notification_url = "https://newindialms.000webhostapp.com/send_selected_feedback_notification.php";
     private RecyclerView recyclerView;
     TextView facultyToolbarTitle;
     List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;
@@ -59,6 +60,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Intent myFeedbackselect;
     String[] feedbacklistarray;
+    private String title,message;
 
     AlertDialog.Builder builder;
 
@@ -161,6 +163,8 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
     private void sendFeedbackQuestions() {
         showFeedback();
         InsertSelectedFeedback();
+        //send notification to present list
+        SendNotificationToPresentList();
     }
 
 
@@ -255,5 +259,44 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         alertDialog.show();
     }
 
+
+    /* Send Notification to the present lsit
+     *
+     */
+
+    public void SendNotificationToPresentList() {
+
+        title = "Submit Feedback";
+        message = "Please submit your feedback for "+coursename;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, notification_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("title", title);
+                params.put("message", message);
+                params.put("course_date", course_date);
+                params.put("course_time", course_time);
+                return params;
+            }
+        };
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
 
 }
