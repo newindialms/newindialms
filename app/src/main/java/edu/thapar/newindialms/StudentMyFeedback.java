@@ -33,12 +33,9 @@ import java.util.Map;
 
 public class StudentMyFeedback  extends AppCompatActivity {
     String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
-    EnrolledCourseAttendanceAdapter adapter;
-    String studentid;
-    List<EnrolledCourseListItems> heroList;
-    ListView listView;
+
     Toolbar student_toolbar;
-    TextView student_toolbar_title;
+
     public StudentMyFeedback() {
         // Required empty public constructor
     }
@@ -53,9 +50,6 @@ public class StudentMyFeedback  extends AppCompatActivity {
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(student_toolbar);
 
-        student_toolbar_title=(TextView) findViewById(R.id.student_enroll_toolbar_title);
-        student_toolbar_title.setText("My Attendance");
-
         student_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -63,56 +57,6 @@ public class StudentMyFeedback  extends AppCompatActivity {
             }
         });
 
-        Intent intent=getIntent();
-        studentid =  intent.getStringExtra("studentid");
 
-        heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.enrolledcourselistView);
-        loadRecyclerViewData();
     }
-
-    private void loadRecyclerViewData() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolled_courselist, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                JSONArray jsonArray = null;
-                try {
-                    JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("course_details");
-
-                    for (int i = 0; i < array.length(); i++) {
-                        EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
-                                array.getString(i),studentid
-                        );
-                        listItemProgramList.setStudentid(studentid);
-                        heroList.add(listItemProgramList);
-                    }
-                    adapter = new EnrolledCourseAttendanceAdapter(getApplicationContext(),R.layout.activity_enrolled_course_attendance_listitems,heroList);
-                    listView.setAdapter(adapter);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("student_rollno", studentid);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
-    }
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-    }
-
 }
