@@ -67,6 +67,11 @@
         <activity android:name=".SendFacultyNotificaton" />
         <activity android:name=".SendStudentNotificaton" />
         <activity
+            android:name=".SubmitFeedBackScreen"
+            android:label="Student"
+            android:theme="@style/StudentTheme">
+        </activity>
+        <activity
             android:name=".FeedbackTab"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
@@ -118,12 +123,16 @@
             android:theme="@style/StudentTheme">
         </activity>
         <activity
-            android:name=".StudentMyFeedback"
+            android:name=".MyFeedbackEnrolledCourse"
+            android:label="Student"
+            android:theme="@style/StudentTheme">
+        </activity>
+        <activity
+            android:name=".MyFeedbackScreen"
             android:label="Student"
             android:theme="@style/StudentTheme">
             <intent-filter>
-                <action android:name="edu.thapar.StudentMyFeedback" />
-
+                <action android:name="edu.thapar.MyFeedbackScreen" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

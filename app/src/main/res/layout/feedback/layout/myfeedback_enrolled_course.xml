@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.MyFeedbackEnrolledCourse">
+
+    <include
+        android:id="@+id/student_enroll_toolbar"
+        layout="@layout/student_enroll_toolbar"></include>
+
+    <TextView
+        android:id="@+id/myfeedbackenrolledcourses_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student_enroll_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="26dp"
+        android:text="@string/enrolledcourses_title"
+        android:textAlignment="center"
+        android:textColor="@color/studentcolorPrimaryDark"
+        android:textSize="24sp" />
+
+    <ListView
+        android:id="@+id/myfeedbackenrolledcourselistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/myfeedbackenrolledcourses_title"
+        android:layout_marginTop="30dp" />
+
+</RelativeLayout>

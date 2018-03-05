@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textColor"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/student_rounded_button">
+
+        <TextView
+            android:id="@+id/myfeedbackenrolledcourselist_name"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Enrolled Course"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/myfeedback_rightarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/textColor"
+            app:srcCompat="@drawable/student_right_arrow" />
+    </RelativeLayout>
+
+
+</LinearLayout>

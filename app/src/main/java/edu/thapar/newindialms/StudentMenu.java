@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -114,7 +116,7 @@ public class StudentMenu extends AppCompatActivity
                 fragment=new EnrolledCourseFragment();
                 break;
             case R.id.navigation_program_coursefeedback:
-                Intent myfeedback=new Intent(getApplicationContext(),StudentMyFeedback.class);
+                Intent myfeedback=new Intent(getApplicationContext(),MyFeedbackEnrolledCourse.class);
                 myfeedback.putExtra("studentid", studentid);
                 startActivity(myfeedback);
                 break;

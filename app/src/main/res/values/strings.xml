@@ -195,12 +195,15 @@
     <string name="student_notificationscreen_msgtime">Notification Time</string>
     <string name="student_notificationscreen_msgbutton">Details</string>
 
-
+    <string name="myfeedback_screen_title">Ready to submit Feedback</string>
+    <string name="myfeedback_screen_button">Start</string>
+    <string name="myfeedback_screen_title_rollno">Roll No</string>
     <!--  Calendar -->
     <string name="notification_title">Notifications</string>
     <string name="calendar_button">Go to Calendar</string>
     <string name="calendar_title">Accademic Calendar</string>
     <string name="student_notification">Select the Type</string>
+
 
     <!-- Feedbak -->
     <string name="feedbacktitle">Feedback Module</string>
@@ -229,6 +232,7 @@
         <item>Text</item>
     </string-array>
 
+    <string name="submitfeedbackscreen_title">Submit your Feedback</string>
     <string name="title_activity_student_view">StudentViewActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
