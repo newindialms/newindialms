@@ -2,6 +2,7 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -9,8 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.hsalf.smilerating.SmileRating;
 
 import java.util.List;
 
@@ -52,10 +57,23 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
         //getting the view elements of the list from the view
         TextView feedbackquestion = (TextView) view.findViewById(R.id.submitfeedbackscreenlist_question);
-
+        EditText feedbackanswer=(EditText)view.findViewById(R.id.submitfeedbackscreenlist_editext);
+        RatingBar feedbackrate=(RatingBar)view.findViewById(R.id.submitfeedbackscreenlist_ratebar);
+        SmileRating smileRating = (SmileRating) view.findViewById(R.id.smile_rating);
 
         //getting the hero of the specified position
         final SubmitFeedbackScreenListItems hero = submitFeedbackScreenListItems.get(position);
+
+        if(hero.getFeedbacktype().equals("Rate")){
+            feedbackrate.setVisibility(View.VISIBLE);
+        }
+        if(hero.getFeedbacktype().equals("Text")){
+            feedbackanswer.setVisibility(View.VISIBLE);
+            feedbackanswer.setTextColor(Color.parseColor("#d63d0a"));
+        }
+        if(hero.getFeedbacktype().equals("Smiley")){
+            smileRating.setVisibility(View.VISIBLE);
+        }
 
         //adding values to the list item
         feedbackquestion.setText(hero.getFeedbackquestion());

@@ -24,8 +24,38 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:text="Feedback Question"
+            android:textAlignment="center"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/submitfeedbackscreenlist_editext"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Enter the feedback"
+            android:textAlignment="center"
+            android:textColorHint="@color/studenttextColor"
+            android:layout_below="@id/submitfeedbackscreenlist_question"
+            android:visibility="gone"
+            />
+
+        <RatingBar
+            android:id="@+id/submitfeedbackscreenlist_ratebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/submitfeedbackscreenlist_editext"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:progressTint="@color/studenttextColor"
+            />
+
+        <com.hsalf.smilerating.SmileRating
+            android:id="@+id/smile_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/submitfeedbackscreenlist_ratebar"
+            android:visibility="gone"
+            />
 
     </RelativeLayout>
 
