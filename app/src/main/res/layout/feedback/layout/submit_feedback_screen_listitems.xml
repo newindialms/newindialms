@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/submitfeedbackscreenlist_editext"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
             android:progressTint="@color/studenttextColor"
             />
