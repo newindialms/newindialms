@@ -72,6 +72,11 @@
             android:theme="@style/StudentTheme">
         </activity>
         <activity
+            android:name=".Thankyou_feedback_screen"
+            android:label="Student"
+            android:theme="@style/StudentTheme">
+        </activity>
+        <activity
             android:name=".FeedbackTab"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity

@@ -57,6 +57,17 @@
             android:visibility="gone"
             />
 
+        <com.like.LikeButton
+            android:id="@+id/submitfeedbackscreenlist_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smile_rating"
+            android:visibility="gone"
+            app:icon_size="25dp"
+            app:icon_type="thumb"
+            />
+
+
     </RelativeLayout>
 
 
