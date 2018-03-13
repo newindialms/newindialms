@@ -86,6 +86,19 @@ public class FacultyCourseListDashboardAdapter extends ArrayAdapter<FacultyCours
                 context.startActivity(facultyintent);
             }
         });
+
+        faculty_courselist_rightarrow2.setOnClickListener(new View.OnClickListener() {
+
+            String coursename=hero.getCoursename();
+            @Override
+            public void onClick(View view) {
+                Intent facultyintent = new Intent(context, FacultyFeedbackDashboard.class);
+                facultyintent.putExtra("coursename",coursename);
+                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(facultyintent);
+            }
+        });
         //finally returning the view
         return view;
     }
