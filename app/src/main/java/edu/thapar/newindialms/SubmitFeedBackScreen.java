@@ -206,8 +206,10 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
 
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
-                params.put("feedback_date", course_date);
-                params.put("feedback_time", course_time);
+                params.put("feedback_sent_date", course_date);
+                params.put("feedback_sent_time", course_time);
+                params.put("feedback_submit_date", course_date);
+                params.put("feedback_submit_time", course_time);
                 params.put("student_id", student_id);
                 return params;
 
