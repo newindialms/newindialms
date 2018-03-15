@@ -81,6 +81,8 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         course_time = myFeedbackselect.getStringExtra("course_time");
         currentDate=sdf.format(date);
 
+        FacultySelectFeedbackScreenDetails storefacultyid=new FacultySelectFeedbackScreenDetails(faculty_employeeid);
+        storefacultyid.setFacultyid(faculty_employeeid);
         setSupportActionBar(facultyToolbar);
         facultyToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -291,6 +293,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("title", title);
                 params.put("message", message);
+                params.put("faculty_employeeid", faculty_employeeid);
                 params.put("course_date", course_date);
                 params.put("course_time", course_time);
                 return params;

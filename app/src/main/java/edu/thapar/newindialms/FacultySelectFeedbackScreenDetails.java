@@ -10,12 +10,25 @@ public class FacultySelectFeedbackScreenDetails {
     private String feedbackDescription;
     private String feedbackType;
     private boolean status;
+    private String facultyid;
 
-    public FacultySelectFeedbackScreenDetails(String feedbackId,String feedbackQuestions, String feedbackDescription, String feedbackType) {
+    public FacultySelectFeedbackScreenDetails(String facultyid) {
+        this.facultyid = facultyid;
+    }
+
+    public FacultySelectFeedbackScreenDetails(String feedbackId, String feedbackQuestions, String feedbackDescription, String feedbackType) {
         this.feedbackId=feedbackId;
         this.feedbackQuestions = feedbackQuestions;
         this.feedbackDescription = feedbackDescription;
         this.feedbackType = feedbackType;
+    }
+
+    public String getFacultyid() {
+        return facultyid;
+    }
+
+    public void setFacultyid(String facultyid) {
+        this.facultyid = facultyid;
     }
 
     public boolean isStatus() {

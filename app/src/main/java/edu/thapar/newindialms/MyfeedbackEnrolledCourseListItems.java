@@ -9,15 +9,25 @@ public class MyfeedbackEnrolledCourseListItems {
     private String studentid;
     private String course_date;
     private String course_time;
+    private String faculty_employeeid;
 
     public MyfeedbackEnrolledCourseListItems(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
     }
-    public MyfeedbackEnrolledCourseListItems(String enrolledcoursename, String studentid,String course_date,String course_time) {
+    public MyfeedbackEnrolledCourseListItems(String enrolledcoursename, String studentid,String course_date,String course_time,String faculty_employeeid) {
         this.enrolledcoursename = enrolledcoursename;
         this.studentid = studentid;
         this.course_date = course_date;
         this.course_time = course_time;
+        this.faculty_employeeid=faculty_employeeid;
+    }
+
+    public String getFaculty_employeeid() {
+        return faculty_employeeid;
+    }
+
+    public void setFaculty_employeeid(String faculty_employeeid) {
+        this.faculty_employeeid = faculty_employeeid;
     }
 
     public String getEnrolledcoursename() {

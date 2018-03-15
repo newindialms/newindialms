@@ -49,7 +49,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     ListView listView;
     TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    String course_name,student_id,course_date,course_time;
+    String course_name,student_id,course_date,course_time,faculty_id;
     AlertDialog.Builder builder;
     String[] feedbacklistarray;
     LayoutInflater layoutinflater;
@@ -71,8 +71,10 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         student_id=getIntent().getStringExtra("studentid");
         course_date=getIntent().getStringExtra("course_date");
         course_time=getIntent().getStringExtra("course_time");
+        faculty_id=getIntent().getStringExtra("faculty_employeeid");
 
-        Toast.makeText(SubmitFeedBackScreen.this,"Submitfeedback"+course_name+course_date+course_time,Toast.LENGTH_LONG).show();
+
+        Toast.makeText(SubmitFeedBackScreen.this,"Submitfeedback"+course_name+course_date+course_time+faculty_id,Toast.LENGTH_LONG).show();
 
         myfeedbackenrolledcourses_title.setText("My Feedback");
         setSupportActionBar(studentpic_toolbar);
@@ -202,11 +204,11 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     params.put("feedback_response["+(j++)+"]", object);
                 }
 
-                params.put("faculty_id", "999");
-                params.put("coursename", "dfdsfds");
-                params.put("feedback_date", "jhgjj");
-                params.put("feedback_time", "hjghjgj");
-                params.put("student_id", "gfhgfg");
+                params.put("faculty_id", faculty_id);
+                params.put("coursename", course_name);
+                params.put("feedback_date", course_date);
+                params.put("feedback_time", course_time);
+                params.put("student_id", student_id);
                 return params;
 
             }

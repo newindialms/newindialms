@@ -40,7 +40,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
     ListView listView;
     TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    String studentid,course_date,course_time;
+    String studentid,course_date,course_time,faculty_employeeid;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
         studentid=getIntent().getStringExtra("studentid");
         course_date=getIntent().getStringExtra("course_date");
         course_time=getIntent().getStringExtra("course_time");
+        faculty_employeeid=getIntent().getStringExtra("faculty_employeeid");
 
         myfeedbackenrolledcourses_title.setText("My Feedback");
         setSupportActionBar(studentpic_toolbar);
@@ -86,7 +87,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         MyfeedbackEnrolledCourseListItems listItemProgramList = new MyfeedbackEnrolledCourseListItems(
-                                array.getString(i),studentid,course_date,course_time
+                                array.getString(i),studentid,course_date,course_time,faculty_employeeid
                         );
                         heroList.add(listItemProgramList);
                     }

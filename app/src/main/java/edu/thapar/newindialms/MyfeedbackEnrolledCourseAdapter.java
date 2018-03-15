@@ -68,6 +68,8 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
             String studentid=hero.getStudentid();
             String course_date=hero.getCourse_date();
             String course_time=hero.getCourse_time();
+            String faculty_employeeid=hero.getFaculty_employeeid();
+
             @Override
             public void onClick(View view) {
 
@@ -77,6 +79,7 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
                 submitfeedbackitent.putExtra("studentid",studentid);
                 submitfeedbackitent.putExtra("course_date",course_date);
                 submitfeedbackitent.putExtra("course_time",course_time);
+                submitfeedbackitent.putExtra("faculty_employeeid",faculty_employeeid);
                 submitfeedbackitent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(submitfeedbackitent);
             }

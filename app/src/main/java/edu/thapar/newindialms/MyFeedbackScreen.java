@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class MyFeedbackScreen extends AppCompatActivity {
     private static final String TAG=MyFeedbackScreen.class.getSimpleName();
     private Toolbar studentpic_toolbar;
-    String studentid,course_date,course_time;
+    String studentid,course_date,course_time,faculty_employeeid;
     TextView myfeedbackenrolledcourses_title,myfeedback_rollno;
     Button myfeedback_button;
 
@@ -52,6 +52,10 @@ public class MyFeedbackScreen extends AppCompatActivity {
                     course_time=getIntent().getExtras().getString(key);
                     //Toast.makeText(MyFeedbackScreen.this,"Student Roll no"+studentid,Toast.LENGTH_LONG).show();
                 }
+                if(key.equals("faculty_employeeid")){
+                    faculty_employeeid=getIntent().getExtras().getString(key);
+                    //Toast.makeText(MyFeedbackScreen.this,"Student Roll no"+studentid,Toast.LENGTH_LONG).show();
+                }
                 else{
                     //Toast.makeText(MyFeedbackScreen.this,"no key value",Toast.LENGTH_LONG).show();
                 }
@@ -80,6 +84,7 @@ public class MyFeedbackScreen extends AppCompatActivity {
                 feedbackintent.putExtra("studentid",studentid);
                 feedbackintent.putExtra("course_date",course_date);
                 feedbackintent.putExtra("course_time",course_time);
+                feedbackintent.putExtra("faculty_employeeid",faculty_employeeid);
                 startActivity(feedbackintent);
             }
         });
