@@ -108,4 +108,9 @@
     <style name="StudentCalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">@color/studentcolorPrimary</item>
     </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/studentcolorPrimary</item>
+        <item name="colorControlActivated">@color/studentcolorPrimary</item>
+    </style>
 </resources>

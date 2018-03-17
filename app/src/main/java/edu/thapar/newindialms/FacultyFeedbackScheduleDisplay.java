@@ -3,13 +3,9 @@ package edu.thapar.newindialms;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
@@ -69,19 +65,24 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackDisplay.class);
-                facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
-                facultyintent.putExtra("coursename", coursename);
-                facultyintent.putExtra("datevalue", datevalue);
-                facultyintent.putExtra("feedback_type", feedback_type);
-                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if(feedback_type.equals("Rate")) {
+                    Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackRateDisplay.class);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("datevalue", datevalue);
+                    facultyintent.putExtra("feedback_type", feedback_type);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                if (datevalue != null && !datevalue.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
-                    //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
-                   startActivity(facultyintent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
+                        startActivity(facultyintent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    //
                 }
             }
         });
@@ -108,7 +109,7 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent facultyintent = new Intent(getActivity(), FacultyFeedbackDisplay.class);
+                Intent facultyintent = new Intent(getActivity(), FacultyFeedbackRateDisplay.class);
                 facultyintent.putExtra("faculty_employeeid",faculty_employeeid);
                 facultyintent.putExtra("coursename",coursename);
                 facultyintent.putExtra("datevalue",datevalue);
