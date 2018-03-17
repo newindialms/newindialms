@@ -44,8 +44,10 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
     //the layout resource file for the list items
     int resource;
-    List<String> feedbacklist = new ArrayList<>();
-
+    List<String> feedbackratelist = new ArrayList<>();
+    List<String> feedbacktextlist = new ArrayList<>();
+    List<String> feedbacksmileylist = new ArrayList<>();
+    List<String> feedbacklikelist = new ArrayList<>();
 
     //constructor initializing the values
     public SubmitFeedBackScreenAdapter(Context context, int resource, List<SubmitFeedbackScreenListItems> submitFeedbackScreenListItems) {
@@ -86,7 +88,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     feedbackrate.setRating(rating);
                     hero.setRateval(rateVal);
                     hero.setRateStatus(true);
-                    feedbacklist.add(rateVal);
+                    feedbackratelist.add(rateVal);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -120,7 +122,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
                                 public void onClick(DialogInterface arg0,
                                                     int arg1) {
-                                    feedbacklist.add(userInput.getText().toString());
+                                    feedbacktextlist.add(userInput.getText().toString());
                                     submitFeedbackScreenListItems.remove(position);
                                 }
                             });
@@ -154,7 +156,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     }
                     hero.setSmileyval(smileyVal);
                     hero.setSmileyStatus(true);
-                    feedbacklist.add(smileyVal);
+                    feedbacksmileylist.add(smileyVal);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -173,7 +175,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "Liked";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                    feedbacklist.add(likeVal);
+                    feedbacklikelist.add(likeVal);
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -188,7 +190,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "none";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                    feedbacklist.add(likeVal);
+                    feedbacklikelist.add(likeVal);
                 }
             });
         }
@@ -199,36 +201,27 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         return view;
     }
 
-    public void displayAlert(View v) {
-
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder( context,R.style.MyStudentAlertDialogStyle);
-        LayoutInflater li = LayoutInflater.from(context);
-        View promptsView = li.inflate(R.layout.textview_dialog_layout, null,false);
-        alertDialog.setView(promptsView);
-        alertDialog.setTitle("Enter your feedback");
-        final EditText userInput = (EditText) promptsView
-                .findViewById(R.id.editTextDialogUserInput);
-
-        alertDialog.setPositiveButton(
-                "Add",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        feedbacklist.add(userInput.getText().toString());
-                    }
-                }
-        );
-        alertDialog.create();
-        alertDialog.show();
-    }
-
 
     public int getItemCount() {
         return submitFeedbackScreenListItems.size();
     }
 
-    List<String> getSubmittedFeedbackDetails() {
+    List<String> getRateSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
-        return feedbacklist;
+        return feedbackratelist;
+    }
+
+    List<String> getLikeSubmittedFeedbackDetails() {
+        //  ArrayList<String> feedback = new ArrayList<>();
+        return feedbacklikelist;
+    }
+    List<String> getSmileySubmittedFeedbackDetails() {
+        //  ArrayList<String> feedback = new ArrayList<>();
+        return feedbacksmileylist;
+    }
+    List<String> getTextSubmittedFeedbackDetails() {
+        //  ArrayList<String> feedback = new ArrayList<>();
+        return feedbacktextlist;
     }
 
 

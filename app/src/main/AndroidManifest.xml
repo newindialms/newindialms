@@ -102,6 +102,12 @@
             android:name=".FacultyFeedbackDashboard"
             android:theme="@style/FacultyTheme" />
         <activity
+            android:name=".FacultyFeedbackScheduleDisplay"
+            android:theme="@style/FacultyTheme" />
+        <activity
+            android:name=".FacultyFeedbackDisplay"
+            android:theme="@style/FacultyTheme" />
+        <activity
             android:name=".FacultyCourseListTakeAttendance"
             android:theme="@style/FacultyTheme" />
         <activity

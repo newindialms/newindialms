@@ -2,14 +2,17 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
 
     //the list values in the List of type hero
     List<FacultyFeedbackDashboardListItems> facultyFeedbackDashboardListItems;
-
+    Fragment fragment=null;
     //activity context
     Context context;
 
@@ -65,7 +68,16 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
         faculty_feedback_rightarrow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String faculty_employeeid=hero.getFaculty_employeeid();
+                String coursename=hero.getCoursename();
+                String feedback_type=hero.getFeedbackType();
+                Intent feedbackintent = new Intent(context, FacultyFeedbackScheduleDisplay.class);
+                feedbackintent.putExtra("feedback_type",hero.getFeedbackType());
+                feedbackintent.putExtra( "coursename", hero.getCoursename());
+                feedbackintent.putExtra( "faculty_employeeid", hero.getFaculty_employeeid());
+                //Toast.makeText(getContext(), "adapter"  + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
 
+                context.startActivity(feedbackintent);
             }
         });
 

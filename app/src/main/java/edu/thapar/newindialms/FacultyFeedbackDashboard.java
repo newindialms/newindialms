@@ -38,7 +38,6 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
 
     //a List of type hero for holding list items
     FacultyFeedbackDashboardAdapter adapter;
-
     List<FacultyFeedbackDashboardListItems> heroList;
 
     //the listview
@@ -69,7 +68,7 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.facultyfeedbackdashboardlist_ListView);
 
-        heroList = new ArrayList<>();
+
         LoadFeedbackType();
 
     }
@@ -91,10 +90,9 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
                         JSONObject obj = jsonArray.getJSONObject(i);
 
                         FacultyFeedbackDashboardListItems listItemProgramList = new FacultyFeedbackDashboardListItems(
-                                obj.getString("feedback_type")
+                                obj.getString("feedback_type"),coursename,faculty_employeeid
                         );
                         heroList.add(listItemProgramList);
-
 
                     }
                     adapter = new FacultyFeedbackDashboardAdapter(FacultyFeedbackDashboard.this,R.layout.activity_faculty_feedback_dashboard_listitems,heroList);

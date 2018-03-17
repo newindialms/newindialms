@@ -43,7 +43,11 @@ import java.util.Map;
 public class SubmitFeedBackScreen extends AppCompatActivity {
 
     String feedbacklist = "https://newindialms.000webhostapp.com/getFeedbacklist.php";
-    String submitfeedbacklist = "https://newindialms.000webhostapp.com/submitFeedbacklist.php";
+
+    String submitratefeedbacklist = "https://newindialms.000webhostapp.com/submitRateFeedbacklist.php";
+    String submitlikefeedbacklist = "https://newindialms.000webhostapp.com/submitLikeFeedbacklist.php";
+    String submittextfeedbacklist = "https://newindialms.000webhostapp.com/submitTextFeedbacklist.php";
+    String submitsmileyfeedbacklist = "https://newindialms.000webhostapp.com/submitSmileyFeedbacklist.php";
     SubmitFeedBackScreenAdapter adapter;
     List<SubmitFeedbackScreenListItems> heroList;
     ListView listView;
@@ -97,7 +101,11 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     }
 
     public void submitfeedbackfunction(View v) {
-        SubmitFeedBack();
+        //SubmitFeedBack();
+        SubmitRateFeedBack();
+        SubmitLikeFeedBack();
+        SubmitSmileyFeedBack();
+        SubmitTextFeedBack();
         Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
         startActivity(thankyoufeedbackintent);
     }
@@ -152,12 +160,12 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     }
 
 
-    public void SubmitFeedBack()
+    public void SubmitRateFeedBack()
     {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, submitfeedbacklist,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, submitratefeedbacklist,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -194,9 +202,216 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> feedbackresponses = new ArrayList<String>();
-               // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
-                for (int i = 0; i < adapter.getSubmittedFeedbackDetails().size(); i++) {
-                    feedbackresponses.add(adapter.getSubmittedFeedbackDetails().get(i));
+                // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
+                for (int i = 0; i < adapter.getRateSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getRateSubmittedFeedbackDetails().get(i));
+                }
+
+                int j=0;
+                for(String object: feedbackresponses){
+                    params.put("feedback_response["+(j++)+"]", object);
+                }
+
+                params.put("faculty_id", faculty_id);
+                params.put("coursename", course_name);
+                params.put("feedback_sent_date", course_date);
+                params.put("feedback_sent_time", course_time);
+                params.put("feedback_submit_date", course_date);
+                params.put("feedback_submit_time", course_time);
+                params.put("student_id", student_id);
+                return params;
+
+            }
+        };
+
+        //Adding request the the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    public void SubmitLikeFeedBack()
+    {
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+        //Again creating the string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, submitlikefeedbacklist,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            String code = jsonObject.getString("code");
+                            if (code.equals("Success")) {
+                                builder.setTitle("Success");
+                                builder.setMessage("Feedback Submitted Successfully");
+                                displayAlert("input_success");
+                            } else {
+                                loading.dismiss();
+                                builder.setTitle("failed");
+                                builder.setMessage("Try again");
+                                displayAlert("input_error");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
+                        Toast.makeText(SubmitFeedBackScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                ArrayList<String> feedbackresponses = new ArrayList<String>();
+                // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
+                for (int i = 0; i < adapter.getLikeSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getLikeSubmittedFeedbackDetails().get(i));
+                }
+
+                int j=0;
+                for(String object: feedbackresponses){
+                    params.put("feedback_response["+(j++)+"]", object);
+                }
+
+                params.put("faculty_id", faculty_id);
+                params.put("coursename", course_name);
+                params.put("feedback_sent_date", course_date);
+                params.put("feedback_sent_time", course_time);
+                params.put("feedback_submit_date", course_date);
+                params.put("feedback_submit_time", course_time);
+                params.put("student_id", student_id);
+                return params;
+
+            }
+        };
+
+        //Adding request the the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    public void SubmitSmileyFeedBack()
+    {
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+        //Again creating the string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, submitsmileyfeedbacklist,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            String code = jsonObject.getString("code");
+                            if (code.equals("Success")) {
+                                builder.setTitle("Success");
+                                builder.setMessage("Feedback Submitted Successfully");
+                                displayAlert("input_success");
+                            } else {
+                                loading.dismiss();
+                                builder.setTitle("failed");
+                                builder.setMessage("Try again");
+                                displayAlert("input_error");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
+                        Toast.makeText(SubmitFeedBackScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                ArrayList<String> feedbackresponses = new ArrayList<String>();
+                // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
+                for (int i = 0; i < adapter.getSmileySubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getSmileySubmittedFeedbackDetails().get(i));
+                }
+
+                int j=0;
+                for(String object: feedbackresponses){
+                    params.put("feedback_response["+(j++)+"]", object);
+                }
+
+                params.put("faculty_id", faculty_id);
+                params.put("coursename", course_name);
+                params.put("feedback_sent_date", course_date);
+                params.put("feedback_sent_time", course_time);
+                params.put("feedback_submit_date", course_date);
+                params.put("feedback_submit_time", course_time);
+                params.put("student_id", student_id);
+                return params;
+
+            }
+        };
+
+        //Adding request the the queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    public void SubmitTextFeedBack()
+    {
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
+        //Again creating the string request
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, submittextfeedbacklist,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
+                            String code = jsonObject.getString("code");
+                            if (code.equals("Success")) {
+                                builder.setTitle("Success");
+                                builder.setMessage("Feedback Submitted Successfully");
+                                displayAlert("input_success");
+                            } else {
+                                loading.dismiss();
+                                builder.setTitle("failed");
+                                builder.setMessage("Try again");
+                                displayAlert("input_error");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.dismiss();
+                        Toast.makeText(SubmitFeedBackScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                ArrayList<String> feedbackresponses = new ArrayList<String>();
+                // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
+                for (int i = 0; i < adapter.getTextSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getTextSubmittedFeedbackDetails().get(i));
                 }
 
                 int j=0;
