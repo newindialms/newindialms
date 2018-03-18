@@ -138,19 +138,19 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     switch (smiley) {
 
                         case SmileRating.BAD:
-                            smileyVal = "BAD";
+                            smileyVal = "1";
                             break;
                         case SmileRating.GOOD:
-                            smileyVal = "GOOD";
+                            smileyVal = "3";
                             break;
                         case SmileRating.GREAT:
-                            smileyVal = "GREAT";
+                            smileyVal = "4";
                             break;
                         case SmileRating.OKAY:
-                            smileyVal = "OKAY";
+                            smileyVal = "2";
                             break;
                         case SmileRating.TERRIBLE:
-                            smileyVal = "TERRIBLE";
+                            smileyVal = "0";
                             break;
 
                     }
