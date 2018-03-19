@@ -97,8 +97,40 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
                     }
                 }
-                else{
+                if(feedback_type.equals("Text")){
+                    Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackTextDisplay.class);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("datevalue", datevalue);
+                    facultyintent.putExtra("feedback_type", feedback_type);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
+                        startActivity(facultyintent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                    }
+                }
+                if(feedback_type.equals("Like")){
+                    Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackLikeDisplay.class);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("datevalue", datevalue);
+                    facultyintent.putExtra("feedback_type", feedback_type);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
+                        startActivity(facultyintent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    //
                 }
             }
         });

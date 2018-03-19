@@ -52,7 +52,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="70dp"
                 android:padding="10dp"
-                android:text="Smiley"
+                android:text="Text"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/facultytextMenu"
                 android:textSize="24sp" />
@@ -80,7 +80,7 @@
         </TableRow>
     </RelativeLayout>
     <ListView
-        android:id="@+id/smiley_list_ListView"
+        android:id="@+id/text_list_ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

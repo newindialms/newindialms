@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:background="@drawable/student_rounded_button">
 
         <TextView
@@ -32,41 +32,52 @@
             android:id="@+id/submitfeedbackscreenlist_editext"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_below="@id/submitfeedbackscreenlist_question"
             android:hint="Enter the feedback"
             android:textAlignment="center"
             android:textColorHint="@color/studenttextColor"
-            android:layout_below="@id/submitfeedbackscreenlist_question"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <RatingBar
             android:id="@+id/submitfeedbackscreenlist_ratebar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/submitfeedbackscreenlist_editext"
-            android:visibility="gone"
             android:layout_centerHorizontal="true"
             android:progressTint="@color/studenttextColor"
-            />
+            android:visibility="gone" />
 
         <com.hsalf.smilerating.SmileRating
             android:id="@+id/smile_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/submitfeedbackscreenlist_ratebar"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
-        <com.like.LikeButton
-            android:id="@+id/submitfeedbackscreenlist_like"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/smile_rating"
-            android:visibility="gone"
-            app:icon_size="25dp"
-            app:icon_type="thumb"
-            />
+            android:orientation="horizontal">
 
+            <com.like.LikeButton
+                android:id="@+id/submitfeedbackscreenlist_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                app:icon_size="25dp"
+                app:icon_type="thumb"></com.like.LikeButton>
+
+            <ImageView
+                android:id="@+id/dislikeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/dislike_grey"
+                android:visibility="gone" />
+        </LinearLayout>
 
     </RelativeLayout>
 

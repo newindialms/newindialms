@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/textColor"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:paddingBottom="10dp">
+
+
+        <com.like.LikeButton
+            android:id="@+id/like_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:icon_size="25dp"
+            android:layout_below="@id/enrollcourse_daywise_display_date"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            app:icon_type="thumb"></com.like.LikeButton>
+
+        <ImageView
+            android:id="@+id/dislikeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_below="@id/enrollcourse_daywise_display_date"
+            android:src="@drawable/dislike_grey"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/enrollcourse_daywise_display_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/like_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/like_button"
+            android:padding="10dp"
+            android:text="Date"
+            android:textAllCaps="true"
+            android:textColor="@color/facultytextMenu"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/enrollcourse_daywise_display_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
+            android:padding="10dp"
+            android:text="Time"
+            android:textAllCaps="true"
+            android:textColor="@color/facultytextMenu"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

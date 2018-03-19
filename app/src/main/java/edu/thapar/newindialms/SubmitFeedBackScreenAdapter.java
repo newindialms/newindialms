@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -75,6 +77,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         final RatingBar feedbackrate = (RatingBar) view.findViewById(R.id.submitfeedbackscreenlist_ratebar);
         final SmileRating smileRating = (SmileRating) view.findViewById(R.id.smile_rating);
         final LikeButton likerating = (LikeButton) view.findViewById(R.id.submitfeedbackscreenlist_like);
+        final ImageView dislikeButton = (ImageView) view.findViewById(R.id.dislikeButton);
 
         //getting the hero of the specified position
         final SubmitFeedbackScreenListItems hero = submitFeedbackScreenListItems.get(position);
@@ -169,10 +172,14 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         }
         if (hero.getFeedbacktype().equals("Like")) {
             likerating.setVisibility(View.VISIBLE);
+            dislikeButton.setVisibility(View.VISIBLE);
+
             likerating.setOnLikeListener(new OnLikeListener() {
+
                 @Override
                 public void liked(LikeButton likeButton) {
-                    likeVal = "Liked";
+                    dislikeButton.setVisibility(View.INVISIBLE);
+                    likeVal = "Like";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
                     feedbacklikelist.add(likeVal);
@@ -191,6 +198,24 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
                     feedbacklikelist.add(likeVal);
+                }
+            });
+            dislikeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    likerating.setVisibility(View.INVISIBLE);
+                    dislikeButton.setImageResource(R.drawable.dislike_color);
+                    likeVal = "Dislike";
+                    hero.setLikeval(likeVal);
+                    hero.setLikeStatus(true);
+                    feedbacklikelist.add(likeVal);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        public void run() {
+                            submitFeedbackScreenListItems.remove(position);
+                            notifyDataSetChanged();
+                        }
+                    }, 1000);
                 }
             });
         }

@@ -111,6 +111,12 @@
             android:name=".FacultyFeedbackSmileyDisplay"
             android:theme="@style/FacultyTheme" />
         <activity
+            android:name=".FacultyFeedbackTextDisplay"
+            android:theme="@style/FacultyTheme" />
+        <activity
+            android:name=".FacultyFeedbackLikeDisplay"
+            android:theme="@style/FacultyTheme" />
+        <activity
             android:name=".FacultyCourseListTakeAttendance"
             android:theme="@style/FacultyTheme" />
         <activity
