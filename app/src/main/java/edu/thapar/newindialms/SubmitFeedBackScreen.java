@@ -101,11 +101,23 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     }
 
     public void submitfeedbackfunction(View v) {
+        /*Toast.makeText(this,"Rate array"+adapter.getRateSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Like array"+adapter.getLikeSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Smiley array"+adapter.getSmileySubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Text array"+adapter.getTextSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();*/
         //SubmitFeedBack();
-        SubmitRateFeedBack();
-        SubmitLikeFeedBack();
-        SubmitSmileyFeedBack();
-        SubmitTextFeedBack();
+        if(adapter.getRateSubmittedFeedbackDetails().size()!=0){
+            SubmitRateFeedBack();
+        }
+        if(adapter.getLikeSubmittedFeedbackDetails().size()!=0){
+            SubmitLikeFeedBack();
+        }
+        if(adapter.getSmileySubmittedFeedbackDetails().size()!=0){
+            SubmitSmileyFeedBack();
+        }
+        if(adapter.getTextSubmittedFeedbackDetails().size()!=0){
+            SubmitTextFeedBack();
+        }
         Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
         startActivity(thankyoufeedbackintent);
     }
