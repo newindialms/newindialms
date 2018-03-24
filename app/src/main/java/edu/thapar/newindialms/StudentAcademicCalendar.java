@@ -180,7 +180,7 @@ public class StudentAcademicCalendar extends Fragment{
                     public void onErrorResponse(VolleyError error) {
                         if(error != null){
 
-                            Toast.makeText(getContext(), "Something went wrong.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "Something went wrong.Try again", Toast.LENGTH_LONG).show();
                         }
                     }
                 }

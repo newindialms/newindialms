@@ -90,7 +90,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
                     getApplicationContext().startActivity(facultyintent);
                 }
                 else{
-                    Toast.makeText(FacultyCourseListViewAttendance.this,"Select Date",Toast.LENGTH_LONG).show();
+                    Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
                 }
 
             }

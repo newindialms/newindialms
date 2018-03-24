@@ -78,7 +78,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         faculty_id=getIntent().getStringExtra("faculty_employeeid");
 
 
-        Toast.makeText(SubmitFeedBackScreen.this,"Submitfeedback"+course_name+course_date+course_time+faculty_id,Toast.LENGTH_LONG).show();
+        //Toast.makeText(SubmitFeedBackScreen.this,"Submitfeedback"+course_name+course_date+course_time+faculty_id,Toast.LENGTH_LONG).show();
 
         myfeedbackenrolledcourses_title.setText("My Feedback");
         setSupportActionBar(studentpic_toolbar);
@@ -153,7 +153,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override

@@ -73,7 +73,7 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getContext(),"Adapter"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"Adapter"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
                 Intent submitfeedbackitent = new Intent(context, SubmitFeedBackScreen.class);
                 submitfeedbackitent.putExtra("corecoursename",corecoursename);
                 submitfeedbackitent.putExtra("studentid",studentid);

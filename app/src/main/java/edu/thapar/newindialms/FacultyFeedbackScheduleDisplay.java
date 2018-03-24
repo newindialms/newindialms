@@ -74,11 +74,11 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                     facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     if (datevalue != null && !datevalue.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
                         //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                         startActivity(facultyintent);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
                 if(feedback_type.equals("Smiley")){
@@ -90,11 +90,11 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                     facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     if (datevalue != null && !datevalue.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
                         //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                         startActivity(facultyintent);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
                 if(feedback_type.equals("Text")){
@@ -106,11 +106,11 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                     facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     if (datevalue != null && !datevalue.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
                         //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                         startActivity(facultyintent);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
                 if(feedback_type.equals("Like")){
@@ -122,11 +122,11 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                     facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     if (datevalue != null && !datevalue.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
                         //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                         startActivity(facultyintent);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Select Date", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
                 else{
@@ -165,12 +165,12 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 if (datevalue != null && !datevalue.isEmpty()) {
-                    Toast.makeText(getContext(),"selected Date is "+datevalue+faculty_employeeid+coursename+feedback_type,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"selected Date is "+datevalue+faculty_employeeid+coursename+feedback_type,Toast.LENGTH_LONG).show();
                     //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                     getActivity().startActivity(facultyintent);
                 }
                 else{
-                    Toast.makeText(getActivity(),"Select Date",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity(),"Select Date",Toast.LENGTH_LONG).show();
                 }
             }
         });

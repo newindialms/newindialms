@@ -183,6 +183,10 @@
             android:name=".StudentScheduleDisplay"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".StudentScheduleDisplayFirstYear"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
 
         <service android:name=".FcmMessagingService">
             <intent-filter>

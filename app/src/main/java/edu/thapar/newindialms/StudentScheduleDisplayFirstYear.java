@@ -7,10 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,21 +31,22 @@ import java.util.Map;
  * Created by kamalshree on 11/20/2017.
  */
 
-public class StudentScheduleDisplay extends AppCompatActivity {
-    String datevalue,student_specialization;
+public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
+    String datevalue,student_specialization,studentid;
     TextView Studentpic_program_title;
     Toolbar studentpic_toolbar;
-    String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
-    StudentScheduleDisplayAdapter adapter;
+    String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
+    StudentScheduleDisplayFirstYearAdapter adapter;
 
-    List<StudentScheduleDisplayListItems> heroList;
+    List<StudentScheduleDisplayFirstYearListItems> heroList;
     RecyclerView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_schedule_display);
+        setContentView(R.layout.activity_student_schedule_display_firstyear);
         student_specialization = getIntent().getStringExtra("student_specialization");
+        studentid = getIntent().getStringExtra("studentid");
         datevalue = getIntent().getStringExtra("datevalue");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
@@ -68,7 +65,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
         Studentpic_program_title = (TextView) findViewById(R.id.studentschedule_display_title);
         Studentpic_program_title.setText("My schedule on "+datevalue);
         heroList = new ArrayList<>();
-        listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylist_ListView);
+        listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylistfirstyear_ListView);
         listView.setHasFixedSize(true);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -92,16 +89,16 @@ public class StudentScheduleDisplay extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
-                        StudentScheduleDisplayListItems listItemProgramList = new StudentScheduleDisplayListItems(
-                                jsonObject1.getString("course_schedule_program"),
-                                jsonObject1.getString("course_schedule_starttime"),
-                                jsonObject1.getString("course_schedule_endtime"),
-                                jsonObject1.getString("course_schedule_course"),
-                                jsonObject1.getString("course_schedule_faculty")
+                        StudentScheduleDisplayFirstYearListItems listItemProgramList = new StudentScheduleDisplayFirstYearListItems(
+                                jsonObject1.getString("course_code"),
+                                jsonObject1.getString("course_name"),
+                                jsonObject1.getString("faculty_code"),
+                                jsonObject1.getString("course_schedule_time"),
+                                jsonObject1.getString("course_classroom")
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new StudentScheduleDisplayAdapter(heroList,getApplicationContext());
+                    adapter = new StudentScheduleDisplayFirstYearAdapter(heroList,getApplicationContext());
                     listView.setAdapter(adapter);
 
 
@@ -120,7 +117,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("student_specialization", student_specialization);
+                params.put("studentid", studentid);
                 params.put("datevalue", datevalue);
                 return params;
             }
@@ -130,3 +127,4 @@ public class StudentScheduleDisplay extends AppCompatActivity {
     }
 
 }
+

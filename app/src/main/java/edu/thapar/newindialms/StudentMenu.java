@@ -127,6 +127,8 @@ public class StudentMenu extends AppCompatActivity
                 break;
             case R.id.navigation_program_myschedule:
                 Bundle bundle = new Bundle();
+                bundle.putString("studentyear", studentyear);
+                bundle.putString("studentid", studentid);
                 bundle.putString("student_specialization", student_specialization);
                 fragment=new StudentSchedule();
                 fragment.setArguments(bundle);

@@ -67,12 +67,12 @@ public class FacultySchedule extends Fragment {
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 if (datevalue != null && !datevalue.isEmpty()) {
-                    Toast.makeText(getContext(),"selected Date is "+datevalue,Toast.LENGTH_LONG).show();
-                    Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"selected Date is "+datevalue,Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
                     getActivity().startActivity(facultyintent);
                 }
                 else{
-                    Toast.makeText(getActivity(),"Select Date",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Please Select a Date",Toast.LENGTH_LONG).show();
                 }
             }
         });

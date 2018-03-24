@@ -104,7 +104,7 @@ public class AddCourseFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getActivity(),"nothing selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Nothing selected, Please choose one item", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -119,7 +119,7 @@ public class AddCourseFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getActivity(),"nothing selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Nothing selected, Please choose one item", Toast.LENGTH_SHORT).show();
             }
         });
     }

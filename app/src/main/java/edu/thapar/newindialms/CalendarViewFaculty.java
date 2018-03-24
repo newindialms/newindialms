@@ -176,7 +176,7 @@ public class CalendarViewFaculty extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         if(error != null){
 
-                            Toast.makeText(getApplicationContext(), "Something went wrong.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Something went wrong.Try again", Toast.LENGTH_LONG).show();
                         }
                     }
                 }

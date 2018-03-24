@@ -79,7 +79,7 @@ public class MyFeedbackScreen extends AppCompatActivity {
         myfeedback_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MyFeedbackScreen.this,"Myfeedback"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
+                //Toast.makeText(MyFeedbackScreen.this,"Myfeedback"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
                 Intent feedbackintent=new Intent(MyFeedbackScreen.this,MyFeedbackEnrolledCourse.class);
                 feedbackintent.putExtra("studentid",studentid);
                 feedbackintent.putExtra("course_date",course_date);

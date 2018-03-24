@@ -103,7 +103,7 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
 
                 progressDialog2.dismiss();
 
-                Toast.makeText(ShowStudentSingleRecordActivity.this, httpResponseMsg.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(ShowStudentSingleRecordActivity.this, httpResponseMsg.toString(), Toast.LENGTH_LONG).show();
 
                 finish();
 

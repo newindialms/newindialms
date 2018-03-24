@@ -76,7 +76,7 @@ public class AddFeedbackFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getActivity(),"nothing selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Nothing selected. Please select one", Toast.LENGTH_SHORT).show();
             }
         });
 

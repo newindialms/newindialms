@@ -37,7 +37,7 @@ public class StudentSchedule extends Fragment{
 
     TextView faculty_schedule_title;
     Toolbar studentpic_toolbar;
-    String student_specialization;
+    String student_specialization,studentyear,studentid;
     View rootView;
     Button ScheduleButton;
     private String datevalue;
@@ -46,7 +46,10 @@ public class StudentSchedule extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_student_schedule, null);
+        studentyear = getArguments().getString("studentyear");
+        studentid = getArguments().getString("studentid");
         student_specialization = getArguments().getString("student_specialization");
+        //Toast.makeText(getContext(),"student year"+studentyear,Toast.LENGTH_LONG).show();
         calendarView= (android.widget.CalendarView)rootView.findViewById(R.id.schedule_calendarView);
         ScheduleButton=(Button)rootView.findViewById(R.id.ScheduleButton);
 
@@ -60,18 +63,36 @@ public class StudentSchedule extends Fragment{
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplay.class);
-                facultyintent.putExtra("student_specialization",student_specialization);
-                facultyintent.putExtra("datevalue",datevalue);
-                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if(studentyear.equals("1")) {
+                    Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplayFirstYear.class);
+                    facultyintent.putExtra("datevalue", datevalue);
+                    facultyintent.putExtra("studentid", studentid);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                if (datevalue != null && !datevalue.isEmpty()) {
-                    Toast.makeText(getContext(),"selected Date is "+datevalue,Toast.LENGTH_LONG).show();
-                    Toast.makeText(getContext(),"student_specialization is "+student_specialization,Toast.LENGTH_LONG).show();
-                    getActivity().startActivity(facultyintent);
+
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        //Toast.makeText(getContext(), "selected Date is " + datevalue, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getContext(), "student_specialization is " + student_specialization, Toast.LENGTH_LONG).show();
+                        getActivity().startActivity(facultyintent);
+                    } else {
+                        Toast.makeText(getActivity(), "Please Select a Date", Toast.LENGTH_LONG).show();
+                    }
+
                 }
                 else{
-                    Toast.makeText(getActivity(),"Select Date",Toast.LENGTH_LONG).show();
+                    Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplay.class);
+                    facultyintent.putExtra("student_specialization", student_specialization);
+                    facultyintent.putExtra("datevalue", datevalue);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        Toast.makeText(getContext(), "selected Date is " + datevalue, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "student_specialization is " + student_specialization, Toast.LENGTH_LONG).show();
+                        getActivity().startActivity(facultyintent);
+                    } else {
+                        Toast.makeText(getActivity(), "Select Date", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
