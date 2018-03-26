@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/smile_rating"
             android:padding="10dp"
-            android:text="Date"
+            android:text="@string/date"
             android:textAllCaps="true"
             android:textColor="@color/facultytextMenu"
             android:textSize="18sp" />
@@ -48,7 +48,7 @@
             android:layout_marginEnd="45dp"
             android:layout_marginRight="45dp"
             android:padding="10dp"
-            android:text="Time"
+            android:text="@string/time"
             android:textAllCaps="true"
             android:textColor="@color/facultytextMenu"
             android:textSize="18sp" />

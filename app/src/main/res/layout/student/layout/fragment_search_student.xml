@@ -1,23 +1,19 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context="edu.thapar.newindialms.ViewStudentsTab$PlaceholderFragment">
-
-    <LinearLayout
+ <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/background"
+        tools:context="edu.thapar.newindialms.ViewStudentsTab$PlaceholderFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/studentview_title">
+        >
 
         <RelativeLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -30,8 +26,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="53dp"
-                android:layout_weight="0.34"
-                android:text="Select the Specialization"
+                android:text="@string/select_specialization"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
@@ -44,14 +39,14 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/student_spinner_specialization"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -62,8 +57,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="53dp"
-                android:layout_weight="0.34"
-                android:text="Select the Program"
+                android:text="@string/select_program"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
@@ -77,6 +71,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/student_spinner_program"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="14dp"
                 android:spinnerMode="dropdown" />
         </RelativeLayout>
@@ -85,7 +80,6 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
@@ -96,8 +90,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="53dp"
-                android:layout_weight="0.34"
-                android:text="Select the Year"
+                android:text="@string/select_year"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
@@ -110,6 +103,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/student_spinner_year"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="14dp"
                 android:spinnerMode="dropdown" />
         </RelativeLayout>
@@ -123,11 +117,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
-            android:text="Show"
+            android:text="@string/ScheduleButton"
             android:textColor="@color/textColor"
             android:layout_gravity="center_horizontal"
-            android:onClick="SpinnerStudentList"/>
+            />
     </LinearLayout>
-
-
-</RelativeLayout>

@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/student_enroll_toolbar"
-        layout="@layout/student_enroll_toolbar"></include>
+        layout="@layout/student_enroll_toolbar"/>
 
     <TextView
         android:id="@+id/myfeedbackenrolledcourses_title"
@@ -48,11 +48,7 @@
             android:id="@+id/myfeedback_rollno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/myfeedbackenrolledcourses_title"
             android:layout_weight="1"
-            android:editable="false"
             android:hint=""
             android:padding="10dp"
             android:textAlignment="center"

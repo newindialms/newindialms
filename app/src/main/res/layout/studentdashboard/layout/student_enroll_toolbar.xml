@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:id="@+id/student_enroll_toolbar_title"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="@color/textColor"
             android:textStyle="bold"/>
     </RelativeLayout>

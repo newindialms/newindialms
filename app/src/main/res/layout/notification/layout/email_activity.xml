@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/toolbar_all_notiifcation"
-        layout="@layout/notification_toolbar"></include>
+        layout="@layout/notification_toolbar"/>
 
     <TextView
         android:id="@+id/notification_email_title"
@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="@string/notification_email_title"
         android:textColor="@color/textColor"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,13 +44,13 @@
 
             <EditText
                 android:id="@+id/emailid"
+                android:inputType="textEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="0.58"
                 android:background="@drawable/white_background"
                 android:ems="10"
                 android:hint="@string/emailid"
-                android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:textColor="@color/textHintColor"
                 android:textColorHint="@color/textHintColor" />
@@ -79,7 +79,7 @@
                 android:layout_weight="1.32"
                 android:background="@drawable/white_background"
                 android:ems="10"
-                android:hint="subject"
+                android:hint="@string/subject"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:textColor="@color/textHintColor"
@@ -97,7 +97,6 @@
                 android:id="@+id/message"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"
                 android:background="@drawable/white_background"
                 android:ems="10"
                 android:hint="@string/message"

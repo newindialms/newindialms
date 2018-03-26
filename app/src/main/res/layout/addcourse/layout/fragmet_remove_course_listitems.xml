@@ -19,11 +19,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_weight="1"
             android:width="0dp"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:paddingTop="10dp"
-            android:text="name"
+            android:text="@string/removecourse_name"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
 
@@ -32,11 +32,11 @@
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/removecourselist_name"
-            android:layout_weight="1"
             android:width="0dp"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:paddingTop="10dp"
-            android:text="Code"
+            android:text="@string/removecourse_code"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
 
@@ -47,6 +47,7 @@
             android:layout_alignEnd="@+id/removecourselist_name"
             android:layout_alignRight="@+id/removecourselist_name"
             android:layout_alignTop="@+id/removecourselist_name"
+            android:contentDescription="@string/buttonDelete"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="40dp"

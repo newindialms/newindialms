@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/facultycourselist_toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp">
@@ -24,10 +22,9 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/calendar_toolbar"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Accademic Calendar Fall"
+                android:text="@string/accademic_calendar_fall"
                 android:textAlignment="center"
                 android:textColor="@color/facultytextMenu"
                 android:textSize="24sp"
@@ -37,10 +34,7 @@
                 android:id="@+id/accademic_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView5"
-                android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:text=""
                 android:textAlignment="center"
                 android:textColor="@color/facultyMenu"
@@ -50,9 +44,7 @@
                 android:id="@+id/fallscroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/accademic_calendar">
+               >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -76,7 +68,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_weight="1"
                             android:padding="5dp"
-                            android:text="Fall"
+                            android:text="@string/fall"
                             android:textAlignment="center"
                             android:textColor="@color/facultyMenu"
                             android:textSize="18sp"
@@ -110,7 +102,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="(Full Semester Session:)"
+                            android:text="@string/full_semester"
                             android:layout_gravity="center_horizontal"
                             android:textAlignment="center"
                             android:textColor="@color/facultyMenu"
@@ -136,7 +128,7 @@
                         android:id="@+id/textViewClassesBegin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Classes Begin"
+                        android:text="@string/classes_begin"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:textSize="18sp"
@@ -158,7 +150,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester III"
+                            android:text="@string/semester_3"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -171,7 +163,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -193,7 +184,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester I (Orientation Program)"
+                            android:text="@string/semester_1"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -205,7 +196,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -228,7 +218,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester I"
+                            android:text="@string/semester_1_text"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -241,7 +231,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -255,7 +244,7 @@
                         android:id="@+id/textViewteachingsession"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1st teaching session"
+                        android:text="@string/semester_1_teaching"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:textSize="18sp"
@@ -276,7 +265,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester III"
+                            android:text="@string/semester_3"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -289,7 +278,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -311,7 +299,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester I"
+                            android:text="@string/semester_1"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -323,7 +311,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -336,7 +323,7 @@
                         android:id="@+id/textViewmidsemestertest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mid/End Semester Test"
+                        android:text="@string/mid_semester"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:gravity="center"
@@ -358,7 +345,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Semester I and III"
+                            android:text="@string/semester_13"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -370,7 +357,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -418,7 +404,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -466,7 +451,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -512,7 +496,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -559,7 +542,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -687,7 +669,6 @@
                 android:id="@+id/sringcalendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fallscroll"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Accademic Calendar Spring"
@@ -700,9 +681,6 @@
                 android:id="@+id/springscroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/fallscroll"
                 android:visibility="visible">
 
                 <LinearLayout
@@ -775,7 +753,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -820,7 +797,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -866,7 +843,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -913,7 +890,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -959,7 +936,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -1004,7 +981,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:textColor="@color/facultyMenu"
                             android:padding="5dp"/>
                     </LinearLayout>
@@ -1126,7 +1103,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
+
                             android:padding="5dp"
                             android:gravity="center"
                             android:textColor="@color/facultyMenu" />
@@ -1174,7 +1151,6 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-
 
         <LinearLayout
             android:id="@+id/showfeedback_linearlayout"
@@ -21,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                android:text="Title"
+                android:text="@string/send_faculty_notification_subtitle"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="24sp" />
@@ -32,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                android:text="Question"
+                android:text="@string/question"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
@@ -43,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="5dp"
-                android:text="Type"
+                android:text="@string/faculty_select_feedbackscreen_select"
                 android:textAlignment="center"
                 android:textColor="@color/textColor" />
         </LinearLayout>

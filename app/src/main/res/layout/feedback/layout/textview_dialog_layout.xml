@@ -10,11 +10,12 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type Your Message : "
+        android:text="@string/type_feedback"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/editTextDialogUserInput"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >

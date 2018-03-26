@@ -24,7 +24,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp"
-                    android:text="Specialization -->"
+                    android:text="@string/specialization_arrow"
                     android:textAlignment="center"
                     android:textColor="@color/studentcolorPrimaryDark"
                     android:textSize="18sp" />
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:layout_weight="0.51"
-                    android:text="Specialization Name"
+                    android:text="@string/specialization_name"
                     android:textAlignment="center"
                     android:textColor="@color/studentcolorPrimaryDark"
                     android:textSize="18sp" />
@@ -52,7 +52,7 @@
                     android:id="@+id/Studentpic_program_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Select the Courses"
+                    android:text="@string/select_the_course"
                     android:textAlignment="center"
                     android:textColor="@color/studentcolorPrimaryDark"
                     android:textSize="24sp" />
@@ -72,8 +72,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="10dp"
                 android:background="@color/studentcolorPrimaryDark"
-                android:text="Enroll"
-                android:onClick="onClickData"
+                android:text="@string/enroll"
                 android:textColor="@color/textColor" />
         </RelativeLayout>
 </FrameLayout>

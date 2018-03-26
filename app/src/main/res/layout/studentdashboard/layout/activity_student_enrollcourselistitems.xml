@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -20,8 +19,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:text="Coursename"
+            android:text="@string/coursename"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -33,7 +34,9 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/studentenrollcourse_name"
             android:paddingLeft="10dp"
-            android:text="CourseCode"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:text="@string/coursecode"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -45,7 +48,9 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/studentenrollcourse_code"
             android:paddingLeft="10dp"
-            android:text="CourseFaculty"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:text="@string/coursefaculty"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -58,7 +63,9 @@
             android:layout_below="@+id/studentenrollcourse_faculty"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:text="CourseCredits"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:text="@string/coursecredits"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -71,6 +78,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
             android:text="" />
 
 

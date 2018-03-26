@@ -18,18 +18,21 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:padding="10dp"
-            android:text="Items"
+            android:text="@string/items"
             android:textColor="@color/textColor"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/listview_arrow"
+            android:contentDescription="@string/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignRight="@id/student_text_view"
+            android:layout_alignEnd="@id/student_text_view"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_right" />

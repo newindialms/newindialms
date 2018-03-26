@@ -19,11 +19,12 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_weight="1"
             android:width="0dp"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="10dp"
             android:paddingTop="10dp"
-            android:text="Feedback Question"
+            android:text="@string/addfeedbackdescription"
             android:textAlignment="center"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@id/submitfeedbackscreenlist_question"
-            android:hint="Enter the feedback"
+            android:hint="@string/enter_feedback"
             android:textAlignment="center"
             android:textColorHint="@color/studenttextColor"
             android:visibility="gone" />
@@ -44,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/submitfeedbackscreenlist_editext"
             android:layout_centerHorizontal="true"
-            android:progressTint="@color/studenttextColor"
             android:visibility="gone" />
 
         <com.hsalf.smilerating.SmileRating
@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:visibility="gone"
                 app:icon_size="25dp"
-                app:icon_type="thumb"></com.like.LikeButton>
+                app:icon_type="thumb"/>
 
             <ImageView
                 android:id="@+id/dislikeButton"
@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/dislike"
                 android:src="@drawable/dislike_grey"
                 android:visibility="gone" />
         </LinearLayout>

@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/student_enroll_toolbar"
-        layout="@layout/student_enroll_toolbar"></include>
+        layout="@layout/student_enroll_toolbar"/>
 
     <TextView
         android:id="@+id/myfeedbackenrolledcourses_title"

@@ -36,7 +36,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.55"
-                android:text="My Profile"
+                android:text="@string/my_profile"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
                 android:textSize="24sp"
@@ -47,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:layout_weight="0.55"
+                android:contentDescription="@string/my_profile"
                 app:srcCompat="@drawable/image_upload" />
 
             <LinearLayout
@@ -62,7 +63,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Upload"
+                    android:text="@string/upload"
                     android:textColor="@color/studentcolorPrimaryDark" />
 
                 <Button
@@ -72,7 +73,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="Choose"
+                    android:text="@string/choose"
                     android:textColor="@color/studentcolorPrimaryDark" />
             </LinearLayout>
 
@@ -84,7 +85,7 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
-                android:text="Name" />
+                android:text="@string/removecourse_name" />
 
             <TextView
                 android:id="@+id/textviewstudent_rollno"
@@ -94,7 +95,7 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
-                android:text="RollNo" />
+                android:text="@string/myfeedback_screen_title_rollno" />
 
             <TextView
                 android:id="@+id/textviewstudent_email"
@@ -104,7 +105,7 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
-                android:text="EmailAddress" />
+                android:text="@string/registration_email" />
 
             <TextView
                 android:id="@+id/textviewstudent_Program"
@@ -114,7 +115,7 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
-                android:text="Program" />
+                android:text="@string/enrollprogram" />
 
             <TextView
                 android:id="@+id/textviewstudent_specialization"
@@ -124,7 +125,7 @@
                 android:padding="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimaryDark"
-                android:text="Specialization" />
+                android:text="@string/specialization" />
 
         </LinearLayout>
     </ScrollView>

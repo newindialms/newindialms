@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/toolbar_all_students"
-        layout="@layout/enroll_toolbar"></include>
+        layout="@layout/enroll_toolbar"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"

@@ -15,9 +15,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="EnrollStudent"
+            android:text="@string/enrollstudent"
             android:id="@+id/itemsselected"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="@color/textColor"
             android:textStyle="bold"/>
     </RelativeLayout>

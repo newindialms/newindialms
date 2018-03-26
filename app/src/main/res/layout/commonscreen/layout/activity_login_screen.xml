@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
     <!--Custom Toolbar for MainScreen-->
     <include
         android:id="@+id/toolbar_login_screen"
-        layout="@layout/toolbar_login_screen"></include>
+        layout="@layout/toolbar_login_screen"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +19,8 @@
         android:layout_below="@+id/toolbar_login_screen"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <TextView
             android:id="@+id/login_heading"
@@ -31,12 +31,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="22dp"
-            android:elevation="2dp"
             android:padding="10dp"
             android:text="@string/login_heading"
             android:textAlignment="center"
             android:textColor="@color/textColor"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/login_id"
@@ -54,6 +53,7 @@
             android:hint="@string/login_id"
             android:inputType="phone"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/textHintColor"
             android:textColorHint="@color/textHintColor" />
 
@@ -72,6 +72,7 @@
             android:hint="@string/login_phone"
             android:inputType="phone"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/textHintColor"
             android:textColorHint="@color/textHintColor" />
 

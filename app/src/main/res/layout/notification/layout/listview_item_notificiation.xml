@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:orientation="vertical"
     android:padding="15dp">
 
@@ -19,8 +17,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:paddingTop="10dp"
-            android:text="title"
+            android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -34,7 +34,9 @@
             android:layout_below="@+id/notification_title"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:text="Message"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/send_faculty_notification_subtitle_message"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -47,8 +49,10 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/notification_message"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:paddingTop="10dp"
-            android:text="Date"
+            android:text="@string/date"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />

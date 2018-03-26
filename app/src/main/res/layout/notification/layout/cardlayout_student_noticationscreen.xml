@@ -29,11 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/student_notificationscreen_msgtitle"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="20sp" />
@@ -45,10 +45,10 @@
             android:layout_below="@+id/student_notificationscreen_msgtitle"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/student_notificationscreen_msgtime"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textStyle="bold" />
@@ -60,6 +60,7 @@
             android:layout_below="@+id/student_notificationscreen_msgtime"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:background="@color/studentcolorPrimary"
             android:text="@string/student_notificationscreen_msgbutton" />

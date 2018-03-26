@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/feedback_toolbar"
-        layout="@layout/feedback_toolbar"></include>
+        layout="@layout/feedback_toolbar"/>
 
 
     <android.support.design.widget.TabLayout

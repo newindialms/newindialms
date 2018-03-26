@@ -29,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/faculty_cardviewCourselistTitle"
                 android:textAllCaps="true"
@@ -45,6 +46,7 @@
                 android:layout_marginEnd="13dp"
                 android:layout_marginRight="13dp"
                 android:layout_marginTop="20dp"
+                android:contentDescription="@string/next"
                 android:background="@color/textColor"
                 app:srcCompat="@drawable/faculty_rightarrow" />
 

@@ -25,7 +25,6 @@
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.27"
-            android:elevation="1dp"
             android:weightSum="1">
 
             <LinearLayout
@@ -34,6 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:onClick="student_myprofile_layout"
                 android:orientation="vertical">
 
@@ -42,6 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.70"
+                    android:contentDescription="@string/navigation_program_myprofile"
                     app:srcCompat="@drawable/ic_student_profile" />
 
                 <TextView
@@ -82,6 +83,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:onClick="student_mycourse_layout"
                 android:orientation="vertical">
 
@@ -90,6 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
+                    android:contentDescription="@string/course"
                     app:srcCompat="@drawable/ic_student_course"
                     />
 
@@ -124,13 +127,11 @@
             android:background="@color/studentcolorPrimary"
             android:layout_width = "fill_parent"
             android:layout_height="1dp"
-            android:layout_centerVertical ="true"
-            android:layout_alignParentTop="true"/>
+            />
         <LinearLayout
             android:id="@+id/student_calendar_layout"
             android:layout_width="match_parent"
             android:layout_height="168dp"
-            android:layout_below="@+id/linearLayout"
             android:onClick="student_calendar_layout"
             android:orientation="vertical">
 
@@ -140,6 +141,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
+                android:contentDescription="@string/faculty_calendar_layout"
                 app:srcCompat="@drawable/ic_student_calendar" />
 
             <TextView
@@ -168,15 +170,13 @@
             android:background="@color/studentcolorPrimary"
             android:layout_width = "fill_parent"
             android:layout_height="1dp"
-            android:layout_centerVertical ="true"
-            android:layout_alignParentTop="true"/>
+            />
         <RelativeLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0.27"
-            android:elevation="1dp"
             android:weightSum="1">
 
             <LinearLayout
@@ -185,6 +185,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:onClick="student_schedule_layout"
                 android:orientation="vertical">
 
@@ -193,6 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.70"
+                    android:contentDescription="@string/faculty_schedule_layout"
                     app:srcCompat="@drawable/ic_student_schedule" />
 
                 <TextView
@@ -233,6 +235,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:onClick="homescreen_logout_layout"
                 android:orientation="vertical">
 
@@ -241,6 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
+                    android:contentDescription="@string/faculty_logout_layout"
                     app:srcCompat="@drawable/ic_student_logout" />
 
                 <TextView

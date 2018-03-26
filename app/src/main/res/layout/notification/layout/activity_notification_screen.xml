@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
     <include
         android:id="@+id/toolbar_all_notiifcation"
-        layout="@layout/notification_toolbar"></include>
+        layout="@layout/notification_toolbar"/>
 
     <TextView
         android:id="@+id/notification_title"

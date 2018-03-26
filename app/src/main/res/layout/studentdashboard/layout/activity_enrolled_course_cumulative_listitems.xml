@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -19,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Total"
+            android:text="@string/total"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -28,16 +27,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Present"
+            android:text="@string/present_status"
             android:textColor="@color/studentcolorPrimaryDark"
-            android:textSize="18sp" />s
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/enrollcourse_cumulative_display_absent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Absent"
+            android:text="@string/absent_status"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -49,7 +48,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="18dp"
-            android:text="Percentage"
+            android:text="@string/percentage"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 

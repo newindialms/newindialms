@@ -56,6 +56,7 @@
                     android:hint="@string/addcourse_name"
                     android:inputType="textPersonName"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:textColor="@color/textHintColor"
                     android:textColorHint="@color/textHintColor" />
 
@@ -72,6 +73,7 @@
                     android:hint="@string/addcourse_code"
                     android:inputType="textPersonName"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:textColor="@color/textHintColor"
                     android:textColorHint="@color/textHintColor" />
                 <TextView
@@ -79,7 +81,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
                     android:paddingTop="5dp"
                     android:text="@string/addcourse_specializationtype"
                     android:textAlignment="center"
@@ -90,7 +91,6 @@
                     android:id="@+id/specialization_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:entries="@array/specialization"
                     />
                 <EditText
@@ -106,6 +106,7 @@
                     android:hint="@string/addcourse_credits"
                     android:inputType="textPersonName"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:textColor="@color/textHintColor"
                     android:textColorHint="@color/textHintColor" />
                 <TextView
@@ -113,7 +114,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
                     android:paddingTop="5dp"
                     android:text="@string/addcourse_coursetype"
                     android:textAlignment="center"
@@ -124,7 +124,6 @@
                     android:id="@+id/coursetypespinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:entries="@array/coursetype"
                     />
                 <EditText
@@ -140,6 +139,7 @@
                     android:hint="@string/addcourse_abbr"
                     android:inputType="textPersonName"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:textColor="@color/textHintColor"
                     android:textColorHint="@color/textHintColor" />
 
@@ -148,9 +148,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:elevation="0dp"
                     android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:paddingTop="5dp"
                     android:text="@string/addcourse_faculty"
                     android:textAlignment="center"
@@ -160,8 +159,7 @@
                 <Spinner
                     android:id="@+id/facultyspinner"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1" />
+                    android:layout_height="50dp" />
 
             </LinearLayout>
 
@@ -171,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/rounded_button"
-                android:text="ADD" />
+                android:text="@string/addcourse_addbutton" />
 
         </LinearLayout>
     </ScrollView>

@@ -21,8 +21,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:text="Daywise"
+            android:text="@string/daywise"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -36,6 +38,7 @@
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="@string/next"
             app:srcCompat="@drawable/student_right_arrow" />
     </RelativeLayout>
     <RelativeLayout
@@ -52,8 +55,10 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:text="Cumulative"
+            android:text="@string/cumulative"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
@@ -67,6 +72,7 @@
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="@string/next"
             app:srcCompat="@drawable/student_right_arrow" />
     </RelativeLayout>
 </LinearLayout>

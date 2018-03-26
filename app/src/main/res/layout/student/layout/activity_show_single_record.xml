@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_show_single_record"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
         android:id="@+id/toolbar_delete_students"
         layout="@layout/enroll_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></include>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/delete_student_records"
@@ -22,7 +21,7 @@
         android:text="@string/delete_student_records"
         android:textAlignment="center"
         android:textColor="@color/textColor"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +45,7 @@
                 android:text="@string/textRollno"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textFirstName"
@@ -55,7 +54,7 @@
                 android:text="@string/textFirstName"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textPhone"
@@ -64,7 +63,7 @@
                 android:text="@string/textPhone"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
         <Button

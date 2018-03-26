@@ -11,6 +11,7 @@
     <string name="mainscreen_details">NewIndiaLMS is an university based android Application project designed to track feedback on daily basis.</string>
     <string name="mainscreen_register">Register</string>
     <string name="mainscreen_Login">Login</string>
+    <string name="new_india_lms">New India LMS APP</string>
 
     <!-- Registration Screen -->
 
@@ -23,6 +24,8 @@
     <string name="registration_radio1">FacultyStaff</string>
     <string name="registration_radio2">student</string>
     <string name="registration_button">Register</string>
+    <string name="one_time_password">One Time Password</string>
+    <string name="enter_otp">Enter the OTP</string>
 
     <string name="registration_error_missingfields_title">Error</string>
     <string name="registration_error_missingfields_text">Please fill in all the fields</string>
@@ -35,6 +38,9 @@
     <string name="login_phone">Phone Number</string>
     <string name="login_button">SignIn</string>
     <string name="login_signup">New User Signup?</string>
+    <string name="thankyou_logo">Thank you</string>
+    <string name="welcome">Welcome</string>
+    <string name="success_verification">Congragulations,You have successfully verified your phone number</string>
 
     <string name="menu_logout">Logout</string>
     <string name="menu_studentid">StudentId</string>
@@ -49,11 +55,14 @@
     <string name="navigation_program_addcourse">Add Course</string>
     <string name="navigation_program_removecourse">Remove Course</string>
     <string name="navigation_program_enrollstudent">Student View</string>
-    <string name="navigation_program_enrollfaculty">faculty View</string>
+    <string name="navigation_program_enrollfaculty">Faculty View</string>
     <string name="navigation_program_feedback">Feedback Module</string>
     <string name="navigation_program_notification">Notification</string>
     <string name="navigation_program_logout">Logout</string>
 
+
+    <string name="removecourse_name">Name</string>
+    <string name="removecourse_code">Code</string>
 
     <string name="homescreen_notification">Notification</string>
     <string name="homescreen_subnotification">View Notifications</string>
@@ -131,7 +140,7 @@
         <item>2017</item>
         <item>2018</item>
         <item>2019</item>
-        <item>2020s</item>
+        <item>2020</item>
     </string-array>
 
 
@@ -149,6 +158,9 @@
     <string name="all_faculty_records">Faculty Records </string>
     <string name="delete_faculty_records">Delete Record </string>
     <string name="textDesignation">Phone Show Here</string>
+
+    <string name="faculty_program">Faculty Program</string>
+    <string name="faculty_name">Faculty Name</string>
 
     <!-- Notificiation -->
     <string name="notificiation_Title">Notification</string>
@@ -188,6 +200,8 @@
     <string name="faculty_notificationscreen_msg">Notification Message</string>
     <string name="faculty_notificationscreen_msgtime">Notification Time</string>
     <string name="faculty_notificationscreen_msgbutton">Details</string>
+    <string name="faculty_notificationscreen_sendnotification">Send Notification</string>
+    <string name="faculty_notifications">Faculty notification</string>
 
     <string name="student_notificationscreen_title">My Notification Screen</string>
     <string name="student_notificationscreen_msgtitle">Notification Title</string>
@@ -198,11 +212,23 @@
     <string name="myfeedback_screen_title">Ready to submit Feedback</string>
     <string name="myfeedback_screen_button">Start</string>
     <string name="myfeedback_screen_title_rollno">Roll No</string>
+
     <!--  Calendar -->
     <string name="notification_title">Notifications</string>
     <string name="calendar_button">Go to Calendar</string>
-    <string name="calendar_title">Accademic Calendar</string>
+    <string name="calendar_title">Academic Calendar</string>
     <string name="student_notification">Select the Type</string>
+    <string name="show_calendar">Show Calendar</string>
+    <string name="accademic_calendar_fall">Aademic Calendar Fall</string>
+    <string name="fall">Fall</string>
+    <string name="full_semester">(Full Semester Session:)</string>
+    <string name="classes_begin">Classes Begin</string>
+    <string name="semester_3">Semester III</string>
+    <string name="semester_1">Semester I (Orientation Program)</string>
+    <string name="semester_1_text">Semester I</string>
+    <string name="semester_1_teaching">1st teaching session</string>
+    <string name="mid_semester">Mid/End Semester Test</string>
+    <string name="semester_13">Semester I and III</string>
 
 
     <!-- Feedbak -->
@@ -213,6 +239,7 @@
     <string name="addfeedbacktitle">New FeedBack</string>
     <string name="addfeedbackmaintitle"> Feedback Title</string>
     <string name="addfeedbackdescription">Feedback Question</string>
+    <string name="question">Question</string>
 
     <string name="addfeedbacktypetext">Select the Feedback Type</string>
     <string name="addfeedbacksubmit">ADD Feedback</string>
@@ -223,6 +250,7 @@
     <string name="faculty_select_feedbackscreen_questions_description">Feedback Descrption</string>
     <string name="faculty_select_feedbackscreen_select">Type</string>
     <string name="feedbacksubmit">Submit</string>
+    <string name="status">status</string>
 
     <string-array name="feedbacktype">
         <item></item>
@@ -323,12 +351,16 @@
     <string name="faculty_courselist_attendance_take">Take Attendance</string>
     <string name="faculty_courselist_attendance_see">See Attendance</string>
     <string name="SubmitAttendance">Submit</string>
+    <string name="student_name">studentname</string>
+    <string name="studentrollno">studentrollno</string>
+    <string name="present_status">Absent</string>
+    <string name="absent_status">Present</string>
 
     <string name="facultycourselist_viewattendance_title">Select Date</string>
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
     <string name="faculty_schedule_title">My Schedule</string>
     <string name="ScheduleButton">Show</string>
-    <string name="navigation_faculty_program_accademic_calendar">Accademic Calendar</string>
+    <string name="navigation_faculty_program_accademic_calendar">Academic Calendar</string>
 
     <string-array name="notificationvalues">
         <item></item>
@@ -349,5 +381,70 @@
 
     <string name="enrolledcourses_title">Enrolled Courses</string>
     <string name="enrolledcoursesattendance_title">My Attendance</string>
+
+
+    <string name="update_feedback">Udpate Feedback</string>
+    <string name="enter_feedback">Enter the feedback</string>
+    <string name="type_feedback">Type Your Message : </string>
+    <string name="thanks_feedback">Thanks for submitting Feedback</string>
+    <string name="feedback_list">Feedback List</string>
+    <string name="submit_feedback">Now submit the feedback</string>
+    <string name="next">Next</string>
+    <string name="like">Like</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="dislike">Dislike</string>
+    <string name="stars">Stars</string>
+    <string name="course">Course</string>
+    <string name="starttime">starttime</string>
+    <string name="endtime">End time</string>
+    <string name="dash">-</string>
+    <string name="smiley">Smiley</string>
+    <string name="text">Text</string>
+    <string name="update">Update</string>
+    <string name="id">id</string>
+    <string name="close">Close</string>
+
+    <string name="subject">Subject</string>
+    <string name="title">title</string>
+    <string name="select_program">Select the Program</string>
+    <string name="select_year">Select the Year</string>
+    <string name="select_specialization">Select the Specialization</string>
+    <string name="student_list">Student List</string>
+    <string name="search_result">Search Result</string>
+    <string name="send_all">Send All</string>
+    <string name="items">Items</string>
+    <string name="studentlist">StudentList</string>
+    <string name="daywise">Daywise</string>
+    <string name="cumulative">Cumulative</string>
+
+
+    <string name="total_lectures">Total Lectures</string>
+    <string name="present_count">Present Count</string>
+    <string name="absent_count">Absent Count</string>
+    <string name="percentage_attendance">Percentage Attendance</string>
+
+    <string name="total">Total</string>
+    <string name="percentage">Percentage</string>
+    <string name="day">Day</string>
+
+    <string name="enroll">Enroll</string>
+    <string name="select_the_course">Select the Courses</string>
+
+    <string name="specialization_name">Specialization Name</string>
+    <string name="specialization_arrow">Specialization --></string>
+    <string name="coursename">Coursename</string>
+    <string name="coursecode">CourseCode</string>
+    <string name="coursefaculty">CourseFaculty</string>
+    <string name="coursecredits">CourseCredits</string>
+
+    <string name="specialization">Specialization</string>
+    <string name="choose">Choose</string>
+    <string name="upload">Upload</string>
+    <string name="my_profile">My Profile</string>
+    <string name="classroom">classroom</string>
+    <string name="faculty">Faculty</string>
+
+
 
 </resources>

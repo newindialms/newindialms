@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/toolbar_enroll_course"
-        layout="@layout/enrollcourse_toolbar"></include>
+        layout="@layout/enrollcourse_toolbar"/>
 
 
     <android.support.design.widget.TabLayout

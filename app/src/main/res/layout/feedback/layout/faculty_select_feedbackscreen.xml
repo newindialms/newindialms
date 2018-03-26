@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/facultycourselist_toolbar"
-        layout="@layout/facultycourselist_toolbar"></include>
+        layout="@layout/facultycourselist_toolbar"/>
 
     <TextView
         android:id="@+id/faculty_select_feedbackscreen_title"

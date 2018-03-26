@@ -18,9 +18,9 @@ app:theme="@style/ThemeOverlay.AppCompat.Dark">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="New India LMS APP"
+            android:text="@string/new_india_lms"
             android:textColor="@color/textColor"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,19 +29,21 @@ app:theme="@style/ThemeOverlay.AppCompat.Dark">
             android:layout_height="wrap_content"
             android:layout_below="@+id/faculty_toolbar_title"
             android:layout_marginBottom="5dp"
-            android:text="Faculty Name"
+            android:text="@string/faculty_name"
             android:textColor="@color/studenttextColor"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/faculty_toolbar_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="20dp"
-            android:text="Employee Id"
+            android:text="@string/enrollemployeeid"
             android:textColor="@color/studenttextColor"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
