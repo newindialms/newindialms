@@ -2,7 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,10 +24,10 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
     List<FacultyFeedbackDashboardListItems> facultyFeedbackDashboardListItems;
     Fragment fragment=null;
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public FacultyFeedbackDashboardAdapter(Context context, int resource, List<FacultyFeedbackDashboardListItems> feedbackDashboardListItems) {

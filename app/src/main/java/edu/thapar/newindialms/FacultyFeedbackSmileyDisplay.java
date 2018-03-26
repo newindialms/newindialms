@@ -33,8 +33,8 @@ import java.util.Map;
 public class FacultyFeedbackSmileyDisplay extends AppCompatActivity {
 
     public static final String rate_url = "https://newindialms.000webhostapp.com/get_all_smiley_feedback.php";
-    String faculty_id,coursename,feedback_sent_date,feedback_type;
-    Toolbar rate_toolbar;
+    private String faculty_id,coursename,feedback_sent_date,feedback_type;
+    private Toolbar rate_toolbar;
     FacultyFeedackSmileyDisplayAdapter adapter;
 
     List<FacultyFeedbackSmileyDisplayListItems> heroList;

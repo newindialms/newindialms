@@ -1,20 +1,15 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,15 +31,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.R.attr.key;
-import static android.R.attr.password;
-import static android.R.id.list;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static edu.thapar.newindialms.R.id.Studentpic_programspecialization_title;
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
-import static edu.thapar.newindialms.RegistrationConfig.REGISTER_URL;
-import static java.security.AccessController.getContext;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
@@ -52,13 +38,13 @@ import static java.security.AccessController.getContext;
 public class FacultyCourseListTakeAttendance extends AppCompatActivity {
     public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendance.php";
-    String coursename, faculty_employeeid,course_date,course_time;
-    TextView facultycourselist_program_title;
-    Toolbar faculty_toolbar;
+    private String coursename, faculty_employeeid,course_date,course_time;
+    private TextView facultycourselist_program_title;
+    private Toolbar faculty_toolbar;
     LayoutInflater layoutinflater;
     String[] arrayattendancelist;
-    AlertDialog.Builder builder;
-    String attendance_status;
+    private AlertDialog.Builder builder;
+    private String attendance_status;
     //a List of type hero for holding list items
     FacultyCourseListTakeAttendanceAdapter adapter;
 

@@ -13,15 +13,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.faculty_courselist_rightarrow;
-import static edu.thapar.newindialms.R.id.studentPicarrow1;
-import static edu.thapar.newindialms.R.id.studentPicarrow2;
-import static edu.thapar.newindialms.R.id.studentPicarrow3;
-import static edu.thapar.newindialms.R.id.studentpic_programscreencorecourses;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenourse;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenspecialization;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyear;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
@@ -32,10 +23,10 @@ public class FacultyCourseListDashboardAdapter extends ArrayAdapter<FacultyCours
     List<FacultyCourseListDashboardListItems> facultyCourseListDashboardListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public FacultyCourseListDashboardAdapter(Context context, int resource, List<FacultyCourseListDashboardListItems> facultyCourseListDashboardListItems) {

@@ -1,24 +1,18 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static edu.thapar.newindialms.R.id.studentpic_programscreencoursemodulelist;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -27,14 +21,14 @@ import static edu.thapar.newindialms.R.id.studentpic_programscreencoursemoduleli
 public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
 
     //the list values in the List of type hero
-    List<EnrollcourseListItems> enrollcourseListItemses;
+     List<EnrollcourseListItems> enrollcourseListItemses;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
-    final ArrayList<String> selectedStrings = new ArrayList<String>();
+    private int resource;
+    private final ArrayList<String> selectedStrings = new ArrayList<String>();
 
     //constructor initializing the values
     public EnrollcourseAdapter(Context context, int resource, List<EnrollcourseListItems> enrollcourseListItemses) {

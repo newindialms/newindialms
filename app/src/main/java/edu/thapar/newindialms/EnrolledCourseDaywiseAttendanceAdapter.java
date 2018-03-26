@@ -22,10 +22,10 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
     List<EnrolledCourseDaywiseAttendanceListItems> enrolledCourseDaywiseAttendanceListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public EnrolledCourseDaywiseAttendanceAdapter(Context context, int resource, List<EnrolledCourseDaywiseAttendanceListItems> enrolledCourseDaywiseAttendanceListItems) {

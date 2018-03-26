@@ -1,34 +1,19 @@
 package edu.thapar.newindialms;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Locale;
-import android.app.DatePickerDialog.OnDateSetListener;
-import android.app.DatePickerDialog;
+
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.text.InputType;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -44,30 +29,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-
-import static android.R.attr.data;
-import static android.app.Activity.RESULT_OK;
-import static edu.thapar.newindialms.R.id.coursetypespinner;
-import static edu.thapar.newindialms.R.id.semesterspinner;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AddCourseFragment extends Fragment {
-    View rootview;
+    private View rootview;
     private Spinner facultyspinner,coursetypespinner,specializationtypespinner;
     private Button btnSubmit;
     private ArrayList<String> facultylist;
     private JSONArray resultfaculty;
     public static final String facultyspinner_URL = "https://newindialms.000webhostapp.com/get_facultyname.php";
     public static final String  newcourse_url = "https://newindialms.000webhostapp.com/new_course.php";
-    AlertDialog.Builder builder;
-    ProgressDialog progressDialog;
+    private AlertDialog.Builder builder;
+    private ProgressDialog progressDialog;
 
-    EditText coursename,coursecode,coursecredits,courseabbr;
-    String course_details_name,course_details_code,course_details_credits,course_details_abbr,course_details_category,course_details_faculty,course_details_specialization;
+    private EditText coursename,coursecode,coursecredits,courseabbr;
+    private String course_details_name,course_details_code,course_details_credits,course_details_abbr,course_details_category,course_details_faculty,course_details_specialization;
     public AddCourseFragment() {
         // Required empty public constructor
     }

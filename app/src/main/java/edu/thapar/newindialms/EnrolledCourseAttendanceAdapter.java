@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static android.R.attr.id;
-
 /**
  * Created by kamalshree on 10/22/2017.
  */
@@ -24,9 +22,9 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
 
     //the list values in the List of type hero
     List<EnrolledCourseListItems> enrolledCourseListItemses;
-    AlertDialog.Builder builder;
+    private AlertDialog.Builder builder;
     //activity context
-    Context context;
+    private  Context context;
 
     //the layout resource file for the list items
     int resource;

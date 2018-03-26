@@ -1,16 +1,13 @@
 package edu.thapar.newindialms;
 
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,28 +23,24 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import android.support.v7.widget.Toolbar;
-
-import static edu.thapar.newindialms.R.id.container;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
-    String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
     EnrolledCourseAttendanceAdapter adapter;
-    String studentid;
+    private  String studentid;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
-    Toolbar student_toolbar;
-    TextView student_toolbar_title;
+    private Toolbar student_toolbar;
+    private TextView student_toolbar_title;
     public EnrolledCourseAttendanceActivity() {
         // Required empty public constructor
     }

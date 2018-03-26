@@ -1,19 +1,9 @@
 package edu.thapar.newindialms;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,27 +26,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.R.attr.id;
-import static android.R.attr.value;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static edu.thapar.newindialms.R.id.view;
-
 /**
  * Created by kamalshree on 11/2/2017.
  */
 
 public class ProgramScreenStudentFullList extends AppCompatActivity {
-    Toolbar studentpic_toolbar;
-    String coursesname;
-    TextView Studentpic_programspecialization_title;
+    private Toolbar studentpic_toolbar;
+    private String coursesname;
+    private TextView Studentpic_programspecialization_title;
 
-    String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    private String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     ProgramScreenStudentFullListAdapter adapter;
     List<ProgramScreenStudentFullListListItems> heroList;
     ListView listView;
-    int Student_size;
+    private int Student_size;
     ProgramScreenStudentFullListListItems arraycount=new ProgramScreenStudentFullListListItems();
-    TextView Studentpic_programstudentfulllist_total;
+    private TextView Studentpic_programstudentfulllist_total;
 
 
     @Override

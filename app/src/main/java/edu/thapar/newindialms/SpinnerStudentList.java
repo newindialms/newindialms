@@ -2,14 +2,13 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,15 +29,15 @@ import java.util.List;
 import java.util.Map;
 
 public class SpinnerStudentList extends AppCompatActivity {
-    String program,specialization;
-   String year;
-    Toolbar studentlist_toolbar;
+    private String program,specialization;
+    private String year;
+    private Toolbar studentlist_toolbar;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
     private List<SpinnerListItem> listItems;
     private List<String> EmaillistItems;
-    Button Send_Email_All;
+    private Button Send_Email_All;
     private static final String spinnerlisturl="https://newindialms.000webhostapp.com/spinner_studentlist.php";
 
     @Override

@@ -1,24 +1,16 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
-
-import static android.content.Context.MODE_PRIVATE;
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
 
 
 /**
@@ -29,11 +21,11 @@ public class ProgramScreenStudentFullListAdapter extends ArrayAdapter<ProgramScr
 
     //the list values in the List of type hero
     List<ProgramScreenStudentFullListListItems> programScreenStudentFullListListItems;
-    int rowvalue;
+    private int rowvalue;
     ListView lv;
     //activity context
-    Context context;
-    TextView Studentpic_programstudentfulllist_total;
+    private Context context;
+    private TextView Studentpic_programstudentfulllist_total;
 
     //the layout resource file for the list items
     int resource;

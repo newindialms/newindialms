@@ -25,10 +25,10 @@ import java.util.List;
 
 
 public class ShowAllFacultyActivity extends AppCompatActivity {
-    Toolbar toolbar_all_faculty;
+    private Toolbar toolbar_all_faculty;
     ListView FacultyListView;
-    ProgressBar progressBar;
-    String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
+    private ProgressBar progressBar;
+    private String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
 
     @Override

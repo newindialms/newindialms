@@ -21,7 +21,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,10 +32,10 @@ import java.util.Map;
  */
 
 public class ProgramScreenCourseModule extends AppCompatActivity {
-    String specializationname;
-    TextView Studentpic_programycoursemodule_title;
-    Toolbar studentpic_toolbar;
-    String coursemodulelist_url = "https://newindialms.000webhostapp.com/get_coursemodule.php";
+    private String specializationname;
+    private TextView Studentpic_programycoursemodule_title;
+    private Toolbar studentpic_toolbar;
+    private String coursemodulelist_url = "https://newindialms.000webhostapp.com/get_coursemodule.php";
     ProgramScreenCourseModuleAdapter adapter;
     ProgramScreenCourseModuleListItems pglist;
     List<ProgramScreenCourseModuleListItems> heroList;

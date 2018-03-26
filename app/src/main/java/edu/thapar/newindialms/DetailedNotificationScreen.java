@@ -6,8 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 /**
  * Created by kamalshree on 2/20/2018.
  */

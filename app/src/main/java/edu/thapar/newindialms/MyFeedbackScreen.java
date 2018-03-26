@@ -1,18 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.media.session.MediaButtonReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by kamalshree on 3/3/2018.
@@ -21,9 +17,9 @@ import android.widget.Toast;
 public class MyFeedbackScreen extends AppCompatActivity {
     private static final String TAG=MyFeedbackScreen.class.getSimpleName();
     private Toolbar studentpic_toolbar;
-    String studentid,course_date,course_time,faculty_employeeid;
-    TextView myfeedbackenrolledcourses_title,myfeedback_rollno;
-    Button myfeedback_button;
+    private String studentid,course_date,course_time,faculty_employeeid;
+    private TextView myfeedbackenrolledcourses_title,myfeedback_rollno;
+    private Button myfeedback_button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

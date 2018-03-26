@@ -7,19 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,22 +29,17 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.thapar.newindialms.MySingleton;
-import edu.thapar.newindialms.R;
-
-import static android.provider.Telephony.Carriers.PASSWORD;
-
 public class RegisterScreen extends AppCompatActivity implements View.OnClickListener {
 
-    Context context;
-    EditText register_id, register_phone, register_email, register_password,editTextConfirmOtp;
-    CheckBox register_checkbox1, register_checkbox2;
-    String EMAIL,PASSWORD;
-    String studentid, emailaddress, phonenumber, password, idtype;
-    Button register_button, otp_button;
+    private Context context;
+    private EditText register_id, register_phone, register_email, register_password,editTextConfirmOtp;
+    private CheckBox register_checkbox1, register_checkbox2;
+    private String EMAIL,PASSWORD;
+    private String studentid, emailaddress, phonenumber, password, idtype;
+    private Button register_button, otp_button;
     private RequestQueue requestQueue;
-    AlertDialog.Builder builder;
-    ProgressDialog progressDialog;
+    private AlertDialog.Builder builder;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

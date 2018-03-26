@@ -1,20 +1,15 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-
-import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyearlist;
 
 /**
  * Created by kamalshree on 10/28/2017.
@@ -26,10 +21,10 @@ public class NotificationTabAdapter extends ArrayAdapter<NotificationTabListItem
     List<NotificationTabListItems> notificationTabListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public NotificationTabAdapter(Context context, int resource, List<NotificationTabListItems> notificationTabListItems) {

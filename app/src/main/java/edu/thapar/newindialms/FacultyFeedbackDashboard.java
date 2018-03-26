@@ -7,11 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -22,9 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by kamalshree on 10/21/2017.
@@ -32,9 +27,9 @@ import java.util.Map;
 
 public class FacultyFeedbackDashboard extends AppCompatActivity {
     public static final String feedack_type_url = "http://newindialms.000webhostapp.com/get_feedbacktype.php";
-    String coursename,faculty_employeeid;
-    TextView facultycourselist_program_title;
-    Toolbar faculty_toolbar;
+    private String coursename,faculty_employeeid;
+    private TextView facultycourselist_program_title;
+    private Toolbar faculty_toolbar;
 
     //a List of type hero for holding list items
     FacultyFeedbackDashboardAdapter adapter;

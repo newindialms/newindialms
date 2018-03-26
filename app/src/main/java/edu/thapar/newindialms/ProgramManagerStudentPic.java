@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class ProgramManagerStudentPic extends Fragment {
         View rootview;
-      TextView studentPicProgram;
+    private TextView studentPicProgram;
 
     public ProgramManagerStudentPic() {
         // Required empty public constructor

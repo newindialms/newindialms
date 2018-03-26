@@ -2,7 +2,6 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,19 +21,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by kamalshree on 11/8/2017.
  */
 
 public class ProgramScreenCoreCourse extends AppCompatActivity {
-    String ProgramName;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String corecourselist_url = "https://newindialms.000webhostapp.com/get_corecourses.php";
+    private String ProgramName;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String corecourselist_url = "https://newindialms.000webhostapp.com/get_corecourses.php";
     ProgramScreenCoreCourseAdapter adapter;
 
     List<ProgramScreenCoreCourseListItems> heroList;

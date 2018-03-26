@@ -16,9 +16,9 @@ import java.util.List;
 
 public class FacultyCourseListDashboard extends AppCompatActivity {
 
-    String coursename,faculty_employeeid;
-    TextView facultycourselist_program_title;
-    Toolbar faculty_toolbar;
+    private String coursename,faculty_employeeid;
+    private TextView facultycourselist_program_title;
+    private Toolbar faculty_toolbar;
 
     //a List of type hero for holding list items
     List<FacultyCourseListDashboardListItems> heroList;

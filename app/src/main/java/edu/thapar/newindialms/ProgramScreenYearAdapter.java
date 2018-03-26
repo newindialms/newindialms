@@ -10,13 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentpic_programlist;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyear;
 
 /**
  * Created by kamalshree on 10/21/2017.
@@ -31,7 +28,7 @@ public class ProgramScreenYearAdapter extends ArrayAdapter<ProgramScreenYearList
     Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public ProgramScreenYearAdapter(Context context, int resource, List<ProgramScreenYearListItems> programScreenYearListItems) {

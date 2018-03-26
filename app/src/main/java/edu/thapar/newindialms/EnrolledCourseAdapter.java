@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -9,26 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static edu.thapar.newindialms.R.id.removecourselist_name;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -38,9 +20,9 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
 
     //the list values in the List of type hero
     List<EnrolledCourseListItems> enrolledCourseListItemses;
-    AlertDialog.Builder builder;
+   private AlertDialog.Builder builder;
     //activity context
-    Context context;
+   private Context context;
 
     //the layout resource file for the list items
     int resource;

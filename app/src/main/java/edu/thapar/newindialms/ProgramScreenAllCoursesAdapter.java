@@ -12,9 +12,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_name;
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_rollno;
-
 /**
  * Created by kamalshree on 11/8/2017.
  */
@@ -23,11 +20,11 @@ public class ProgramScreenAllCoursesAdapter extends ArrayAdapter<ProgramScreenAl
 
     //the list values in the List of type hero
     List<ProgramScreenAllCoursesListItems> programScreenAllCoursesListItems;
-    int rowvalue;
+    private int rowvalue;
     ListView lv;
     //activity context
-    Context context;
-    TextView Studentpic_programstudentfulllist_total;
+    private Context context;
+    private TextView Studentpic_programstudentfulllist_total;
 
     //the layout resource file for the list items
     int resource;

@@ -1,6 +1,5 @@
 package edu.thapar.newindialms;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,9 +17,9 @@ import java.util.List;
 
 public class ProgramScreen extends AppCompatActivity {
 
-    String ProgramName;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
+    private String ProgramName;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
 
     //a List of type hero for holding list items
     List<ProgramScreenListItems> heroList;

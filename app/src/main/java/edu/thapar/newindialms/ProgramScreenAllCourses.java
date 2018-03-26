@@ -26,25 +26,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.Studentpic_programspecialization_title;
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentallcourselist_total;
-
 /**
  * Created by kamalshree on 11/2/2017.
  */
 
 public class ProgramScreenAllCourses extends AppCompatActivity {
-    Toolbar studentpic_toolbar;
-    String coursesname;
-    TextView Studentpic_programstudentallcourselist_title;
+    private Toolbar studentpic_toolbar;
+    private String coursesname;
+    private TextView Studentpic_programstudentallcourselist_title;
 
-    String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    private String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     ProgramScreenAllCoursesAdapter adapter;
     List<ProgramScreenAllCoursesListItems> heroList;
     ListView listView;
-    int Student_size;
+    private int Student_size;
     ProgramScreenAllCoursesListItems arraycount=new ProgramScreenAllCoursesListItems();
-    TextView Studentpic_programstudentallcourselist_total;
+    private TextView Studentpic_programstudentallcourselist_total;
 
 
     @Override

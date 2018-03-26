@@ -1,30 +1,19 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static edu.thapar.newindialms.R.id.faculty_courselist_attendance_take_roolno;
-import static edu.thapar.newindialms.R.id.faculty_courselist_rightarrow1;
-import static edu.thapar.newindialms.R.id.faculty_courselist_rightarrow2;
-import static edu.thapar.newindialms.R.id.linearLayout;
 
 /**
  * Created by kamalshree on 10/21/2017.
@@ -39,13 +28,13 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     Context context;
     //the layout resource file for the list items
     int resource, resource1;
-    String status = "present";
+    private String status = "present";
     List<String> absentlist,presentlist;
     View view;
     LayoutInflater layoutinflater;
     TextView faculty_courselist_attendance_take, faculty_courselist_attendance_take_roolno;
     Switch attendance_switch;
-    Button submitbutton;
+    private Button submitbutton;
 
     //constructor initializing the values
     public FacultyCourseListTakeAttendanceAdapter(Context context, int resource, int resource1, List<FacultyCourseListTakeAttendanceListItems> facultyCourseListTakeAttendanceListItems) {

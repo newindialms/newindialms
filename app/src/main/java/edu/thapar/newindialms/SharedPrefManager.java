@@ -3,10 +3,6 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-
 /**
  * Created by kamalshree on 9/21/2017.
  */

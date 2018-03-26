@@ -1,14 +1,10 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,9 +25,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static edu.thapar.newindialms.FacultyCourseListTakeAttendance.enrolledstudent_url;
-import static edu.thapar.newindialms.FacultyCourseListTakeAttendance.saveattendance_URL;
 
 /**
  * Created by kamalshree on 11/19/2017.

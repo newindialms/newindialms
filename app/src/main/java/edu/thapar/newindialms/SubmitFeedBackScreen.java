@@ -9,12 +9,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,18 +38,18 @@ import java.util.Map;
 
 public class SubmitFeedBackScreen extends AppCompatActivity {
 
-    String feedbacklist = "https://newindialms.000webhostapp.com/getFeedbacklist.php";
+    private String feedbacklist = "https://newindialms.000webhostapp.com/getFeedbacklist.php";
 
-    String submitratefeedbacklist = "https://newindialms.000webhostapp.com/submitRateFeedbacklist.php";
-    String submitlikefeedbacklist = "https://newindialms.000webhostapp.com/submitLikeFeedbacklist.php";
-    String submittextfeedbacklist = "https://newindialms.000webhostapp.com/submitTextFeedbacklist.php";
-    String submitsmileyfeedbacklist = "https://newindialms.000webhostapp.com/submitSmileyFeedbacklist.php";
+    private String submitratefeedbacklist = "https://newindialms.000webhostapp.com/submitRateFeedbacklist.php";
+    private String submitlikefeedbacklist = "https://newindialms.000webhostapp.com/submitLikeFeedbacklist.php";
+    private String submittextfeedbacklist = "https://newindialms.000webhostapp.com/submitTextFeedbacklist.php";
+    private String submitsmileyfeedbacklist = "https://newindialms.000webhostapp.com/submitSmileyFeedbacklist.php";
     SubmitFeedBackScreenAdapter adapter;
     List<SubmitFeedbackScreenListItems> heroList;
     ListView listView;
-    TextView myfeedbackenrolledcourses_title;
+    private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    String course_name,student_id,course_date,course_time,faculty_id;
+    private String course_name,student_id,course_date,course_time,faculty_id;
     AlertDialog.Builder builder;
     String[] feedbacklistarray;
     LayoutInflater layoutinflater;

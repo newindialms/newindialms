@@ -5,17 +5,12 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -28,9 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -38,7 +31,7 @@ import java.util.Map;
  */
 public class RemoveCourseFragment extends Fragment {
     View rootview;
-    String removelist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
+    private String removelist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
     RemoveCourseAdapter adapter;
 
     List<RemoveCourseListItems> heroList;

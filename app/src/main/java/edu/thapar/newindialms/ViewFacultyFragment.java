@@ -1,18 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -29,7 +25,7 @@ import java.util.List;
 public class ViewFacultyFragment extends Fragment {
     View rootview;
     ListView FacultyListView;
-    String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
+    private String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
     SwipeRefreshLayout swipeRefreshLayout;
     List<Faculty> facultyList;

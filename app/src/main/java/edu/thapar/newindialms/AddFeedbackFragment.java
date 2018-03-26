@@ -1,42 +1,29 @@
 package edu.thapar.newindialms;
 
-import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
-import android.app.TimePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,17 +32,17 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class AddFeedbackFragment extends Fragment {
-    View rootview;
+    private View rootview;
 
-    Spinner feedbackspinner;
-    Button addfeedback;
-    EditText feedbacktitle,feedbackquestion;
-    String feedback_title,feedback_question;
+    private Spinner feedbackspinner;
+    private Button addfeedback;
+    private EditText feedbacktitle,feedbackquestion;
+    private String feedback_title,feedback_question;
 
-    String feedback_type;
-    ProgressDialog progressDialog;
-    AlertDialog.Builder builder;
-    String feedback_url = "https://newindialms.000webhostapp.com/add_feedback.php";
+    private String feedback_type;
+    private ProgressDialog progressDialog;
+    private AlertDialog.Builder builder;
+    private String feedback_url = "https://newindialms.000webhostapp.com/add_feedback.php";
 
     public AddFeedbackFragment() {
         // Required empty public constructor

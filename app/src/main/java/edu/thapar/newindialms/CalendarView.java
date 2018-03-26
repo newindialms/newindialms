@@ -3,7 +3,6 @@ package edu.thapar.newindialms;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,7 +11,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,9 +21,9 @@ import org.json.JSONObject;
  */
 
 public class CalendarView extends AppCompatActivity {
-    Toolbar calendar_toolbar;
-    String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
-    TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
+    private Toolbar calendar_toolbar;
+    private String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
+    private TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
             spring_semester_sesion,
             fall_classes_semester3,
             sprig_classes_semester24,

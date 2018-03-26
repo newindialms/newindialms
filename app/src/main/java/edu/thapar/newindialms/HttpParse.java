@@ -18,8 +18,8 @@ import java.util.Map;
 
 public class HttpParse {
 
-    String FinalHttpData = "";
-    String Result ;
+    private String FinalHttpData = "";
+    private String Result ;
     BufferedWriter bufferedWriter ;
     OutputStream outputStream ;
     BufferedReader bufferedReader ;

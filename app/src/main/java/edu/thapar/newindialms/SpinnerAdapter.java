@@ -1,6 +1,5 @@
 package edu.thapar.newindialms;
 
-import android.app.LauncherActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * Created by kamalshree on 10/19/2017.

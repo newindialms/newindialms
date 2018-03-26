@@ -1,6 +1,5 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -33,9 +32,9 @@ import java.util.Map;
 
 public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
     public static final String daywise_attendancedetails_url = "https://newindialms.000webhostapp.com/get_daywise_attendance.php";
-    String student_rollnno, course_details_name;
-    TextView daywise_toolbar_title;
-    Toolbar daywise_toolbar;
+    private String student_rollnno, course_details_name;
+    private TextView daywise_toolbar_title;
+    private Toolbar daywise_toolbar;
     EnrolledCourseDaywiseAttendanceAdapter adapter;
 
     List<EnrolledCourseDaywiseAttendanceListItems> heroList;

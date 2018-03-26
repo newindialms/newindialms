@@ -1,11 +1,9 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
@@ -25,14 +23,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.security.AccessController.getContext;
-
 public class StudentPicProgram extends AppCompatActivity {
 
     List<StudentPicListItems> heroList;
     ListView listView;
-    String programlist_url = "https://newindialms.000webhostapp.com/get_program.php";
-    Toolbar studentpic_toolbar;
+    private String programlist_url = "https://newindialms.000webhostapp.com/get_program.php";
+    private Toolbar studentpic_toolbar;
     StudentPicProgramAdapter adapter;
 
 

@@ -16,10 +16,10 @@ import android.widget.Toast;
  */
 
 public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
-    TextView faculty_schedule_title;
-    Toolbar faculty_toolbar;
-    String faculty_employeeid, feedback_type, coursename;
-    Button ScheduleButton;
+    private TextView faculty_schedule_title;
+    private Toolbar faculty_toolbar;
+    private String faculty_employeeid, feedback_type, coursename;
+    private Button ScheduleButton;
     private String datevalue;
     private CalendarView calendarView;
 

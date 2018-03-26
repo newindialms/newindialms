@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -25,9 +24,9 @@ import org.json.JSONObject;
 
 public class FacultyAccademicCalendar extends Fragment{
 
-    Toolbar calendar_toolbar;
-    String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
-    TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
+    private Toolbar calendar_toolbar;
+    private String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
+    private TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
             spring_semester_sesion,
             fall_classes_semester3,
             sprig_classes_semester24,
@@ -52,7 +51,7 @@ public class FacultyAccademicCalendar extends Fragment{
             backlog_dates,
             fall_winter_break,
             spring_summer_break;
-    View rootview;
+    private View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

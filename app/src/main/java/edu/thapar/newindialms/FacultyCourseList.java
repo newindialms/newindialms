@@ -4,10 +4,6 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,24 +29,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.color.facultyMenu;
-import static edu.thapar.newindialms.R.id.container;
-
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
 public class FacultyCourseList extends Fragment{
 
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
     FacultyCourseListAdapter adapter;
-    String faculty_employeeid;
+    private String faculty_employeeid;
     List<FacultyListItemCourseList> heroList;
     FacultyListItemCourseList pglist;
     ListView listView;
-    View rootView;
+    private View rootView;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_courselist, null);

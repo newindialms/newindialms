@@ -33,8 +33,8 @@ import java.util.Map;
 public class FacultyFeedbackRateDisplay extends AppCompatActivity {
 
     public static final String rate_url = "https://newindialms.000webhostapp.com/get_all_rate_feedback.php";
-    String faculty_id,coursename,feedback_sent_date,feedback_type;
-    Toolbar rate_toolbar;
+    private String faculty_id,coursename,feedback_sent_date,feedback_type;
+    private Toolbar rate_toolbar;
     FacultyFeedackRateDisplayAdapter adapter;
 
     List<FacultyFeedbackRateDisplayListItems> heroList;

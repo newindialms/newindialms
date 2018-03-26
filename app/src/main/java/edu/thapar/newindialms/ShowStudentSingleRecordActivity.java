@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,21 +26,21 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
     ProgressDialog pDialog;
 
     // Http Url For Filter Student Data from Id Sent from previous activity.
-    String HttpURL = "https://newindialms.000webhostapp.com/FilterStudentData.php";
+    private String HttpURL = "https://newindialms.000webhostapp.com/FilterStudentData.php";
 
     // Http URL for delete Already Open Student Record.
-    String HttpUrlDeleteRecord = "https://newindialms.000webhostapp.com/DeleteStudent.php";
-    Toolbar toolbar_delete_students;
-    String finalResult ;
+    private String HttpUrlDeleteRecord = "https://newindialms.000webhostapp.com/DeleteStudent.php";
+    private Toolbar toolbar_delete_students;
+    private String finalResult ;
     HashMap<String,String> hashMap = new HashMap<>();
-    String ParseResult ;
+    private String ParseResult ;
     HashMap<String,String> ResultHash = new HashMap<>();
-    String FinalJSonObject ;
-    TextView FIRSTNAME,PHONE_NUMBER,ROLLNO;
-    String FirstNameHolder, PhoneHolder, RollnoHolder;
-    Button DeleteButton;
-    String TempItem;
-    ProgressDialog progressDialog2;
+    private String FinalJSonObject ;
+    private TextView FIRSTNAME,PHONE_NUMBER,ROLLNO;
+    private String FirstNameHolder, PhoneHolder, RollnoHolder;
+    private Button DeleteButton;
+    private String TempItem;
+    private ProgressDialog progressDialog2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

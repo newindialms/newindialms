@@ -1,50 +1,30 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static edu.thapar.newindialms.R.id.backlog_dates;
-import static edu.thapar.newindialms.R.id.fall_closing_days;
-import static edu.thapar.newindialms.R.id.fall_weekend_days;
-import static edu.thapar.newindialms.R.id.fall_winter_break;
-import static edu.thapar.newindialms.R.id.spring_summer_break;
 
 /**
  * Created by kamalshree on 10/23/2017.
  */
 
 public class AcademicCalendar extends AppCompatActivity{
-    Toolbar calendarToolbar;
-    String calendarDetails_Url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
-    TextView accademicCalendar,fallYear,fallSemesterSesion,springYear,
-      springSemesterSesion,
+    private Toolbar calendarToolbar;
+    private String calendarDetails_Url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
+    private TextView accademicCalendar,fallYear,fallSemesterSesion,springYear,
+    springSemesterSesion,
       fallClassesSemester3,
       sprigClassesSemester24,
       fallClassesSemester2,

@@ -32,10 +32,10 @@ import java.util.Map;
  */
 
 public class ProgramScreenSpecialization extends AppCompatActivity {
-    String ProgramName,SpecializationList;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
+    private String ProgramName,SpecializationList;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
     ProgramScreenSpecializationAdapter adapter;
 
     List<ProgramScreenSpecializationListItems> heroList;

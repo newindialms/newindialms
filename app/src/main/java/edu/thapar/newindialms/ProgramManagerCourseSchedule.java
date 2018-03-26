@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -32,20 +31,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
-import static edu.thapar.newindialms.R.id.textView;
-
 /**
  * Created by kamalshree on 11/9/2017.
  */
 
 public class ProgramManagerCourseSchedule extends AppCompatActivity {
 String issue_details,day_details,semester_details;
-    Toolbar studentpic_toolbar;
-    TextView timetable_title3,timetable_title2,timetable_title5,timetable_title6,timetable_title4;
+    private Toolbar studentpic_toolbar;
+    private TextView timetable_title3,timetable_title2,timetable_title5,timetable_title6,timetable_title4;
 
-    String course_schedule_issue_url = "https://newindialms.000webhostapp.com/get_course_schedule_issue.php";
-    String time_table_issue_url = "https://newindialms.000webhostapp.com/get_timetable.php";
+    private String course_schedule_issue_url = "https://newindialms.000webhostapp.com/get_course_schedule_issue.php";
+    private String time_table_issue_url = "https://newindialms.000webhostapp.com/get_timetable.php";
     List<ProgramScreenCourseScheduleListItems> heroList;
     ProgramScreenCourseScheduleAdapter adapter;
     ListView listView;

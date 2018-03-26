@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,21 +22,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
 
 /**
  * Created by kamalshree on 10/25/2017.
  */
 
 public class ProgramScreenCourse  extends AppCompatActivity {
-    String ProgramName;
-    TextView Studentpic_programCourse_title;
-    Toolbar studentpic_toolbar;
-    String coursespecificlist_url = "https://newindialms.000webhostapp.com/get_course_specific.php";
+    private String ProgramName;
+    private TextView Studentpic_programCourse_title;
+    private Toolbar studentpic_toolbar;
+    private String coursespecificlist_url = "https://newindialms.000webhostapp.com/get_course_specific.php";
     ProgramScreenCourseAdapter adapter;
 
     List<ProgramScreenCourseListItems> heroList;

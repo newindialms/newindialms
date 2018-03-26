@@ -7,10 +7,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +32,10 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplay extends AppCompatActivity {
-    String datevalue,student_specialization;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
+    private String datevalue,student_specialization;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
     StudentScheduleDisplayAdapter adapter;
 
     List<StudentScheduleDisplayListItems> heroList;

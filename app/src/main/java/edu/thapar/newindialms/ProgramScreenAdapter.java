@@ -13,13 +13,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
-import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentPicarrow1;
-import static edu.thapar.newindialms.R.id.studentPicarrow2;
-import static edu.thapar.newindialms.R.id.studentPicarrow3;
-import static edu.thapar.newindialms.R.id.studentpic_programlist;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
@@ -30,10 +23,10 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
     List<ProgramScreenListItems> programScreenListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public ProgramScreenAdapter(Context context, int resource, List<ProgramScreenListItems> programScreenListItems) {

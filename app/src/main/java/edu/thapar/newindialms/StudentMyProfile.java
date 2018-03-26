@@ -1,6 +1,5 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,72 +13,57 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
 
-import org.apache.http.util.ByteArrayBuffer;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
-
-import static edu.thapar.newindialms.R.id.view;
 
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
 public class StudentMyProfile extends AppCompatActivity {
-    String HttpURL = "https://newindialms.000webhostapp.com/student_profile.php";
+    private String HttpURL = "https://newindialms.000webhostapp.com/student_profile.php";
 
-   String UPLOAD_URL = "http://newindialms.000webhostapp.com/student_upload_image.php";
-    String IMAGES_URL = "http://newindialms.000webhostapp.com/getImages.php";
+    private String UPLOAD_URL = "http://newindialms.000webhostapp.com/student_upload_image.php";
+    private  String IMAGES_URL = "http://newindialms.000webhostapp.com/getImages.php";
 
-    TextView studentprofile_name,studentprofile_rollno,studentprofile_email,studentprofile_program,studentprofile_specialization;
-    String studentid;
-    String FinalJSonObject ;
-    String TempItem;
-    HashMap<String,String> ResultHash = new HashMap<>();
-    String ParseResult ;
+    private TextView studentprofile_name,studentprofile_rollno,studentprofile_email,studentprofile_program,studentprofile_specialization;
+    private String studentid;
+    private String FinalJSonObject ;
+    private String TempItem;
+    private HashMap<String,String> ResultHash = new HashMap<>();
+    private String ParseResult ;
     HttpParse httpParse = new HttpParse();
-    String studentprofilename,studentprofilerollno,studentprofileemail,studentprofileprogram,studentprofilespecialization,studentprofileurl;
-    Toolbar studentprofile_toolbar;
+    private String studentprofilename,studentprofilerollno,studentprofileemail,studentprofileprogram,studentprofilespecialization,studentprofileurl;
+    private Toolbar studentprofile_toolbar;
     ImageView imageView;
     //Image request code
     private int PICK_IMAGE_REQUEST = 1;
     //storage permission code
     private static final int STORAGE_PERMISSION_CODE = 123;
-    AlertDialog.Builder builder;
+    private AlertDialog.Builder builder;
     //Bitmap to get image from gallery
     private Bitmap bitmap;
 

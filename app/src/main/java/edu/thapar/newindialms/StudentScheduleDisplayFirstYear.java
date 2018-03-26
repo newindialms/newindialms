@@ -32,10 +32,10 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
-    String datevalue,student_specialization,studentid;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
+    private String datevalue,student_specialization,studentid;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
     StudentScheduleDisplayFirstYearAdapter adapter;
 
     List<StudentScheduleDisplayFirstYearListItems> heroList;

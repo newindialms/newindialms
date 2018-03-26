@@ -11,18 +11,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
 
 public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
 
-    String enrolledcoursename,student_rollnno;
+    private String enrolledcoursename,student_rollnno;
 
-    Toolbar student_toolbar;
-    TextView student_toolbar_title,student_title;
+    private Toolbar student_toolbar;
+    private TextView student_toolbar_title,student_title;
 
     //a List of type hero for holding list items
     List<EnrolledCourseAttendanceCommonScreenListItems> heroList;

@@ -10,12 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyearlist;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -27,10 +25,10 @@ public class ProgramScreenSpecializationAdapter extends ArrayAdapter<ProgramScre
     List<ProgramScreenSpecializationListItems> programScreenSpecializationListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public ProgramScreenSpecializationAdapter(Context context, int resource, List<ProgramScreenSpecializationListItems> programScreenSpecializationListItems) {

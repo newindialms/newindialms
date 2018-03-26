@@ -345,7 +345,6 @@
 
     <string name="faculty_courselist_title">Course List</string>
     <string name="faculty_cardviewCourselistTitle">Course List</string>
-    <string name="facultydashboard_toolbar_title"></string>
     <string name="faculty_courselist_dashboard_attendance">Attendance</string>
     <string name="faculty_courselist_dashboard_feedback">Feedback</string>
     <string name="faculty_courselist_attendance_take">Take Attendance</string>
@@ -444,6 +443,12 @@
     <string name="my_profile">My Profile</string>
     <string name="classroom">classroom</string>
     <string name="faculty">Faculty</string>
+    <string name="core_course">CoreCourse</string>
+    <string name="issue">issue</string>
+    <string name="duration">Duration</string>
+    <string name="to">to</string>
+    <string name="from">from</string>
+    <string name="core_courses">Core Courses</string>
 
 
 

@@ -1,12 +1,6 @@
 package edu.thapar.newindialms;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.Serializable;
-
-import static android.R.attr.id;
-import static android.R.attr.name;
 
 /**
  * Created by kamalshree on 10/21/2017.

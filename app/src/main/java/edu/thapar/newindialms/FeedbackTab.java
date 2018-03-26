@@ -32,8 +32,8 @@ public class FeedbackTab extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    Toolbar addcoursetoolbar;
-    String pagefragment;
+    private Toolbar addcoursetoolbar;
+    private String pagefragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

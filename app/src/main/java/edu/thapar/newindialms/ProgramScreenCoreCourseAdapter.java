@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import static edu.thapar.newindialms.R.id.studentPicarrow;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenspecializationlist;
 
 /**
  * Created by kamalshree on 11/8/2017.
@@ -26,10 +25,10 @@ public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCo
     List<ProgramScreenCoreCourseListItems> programScreenCoreCourseListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public ProgramScreenCoreCourseAdapter(Context context, int resource, List<ProgramScreenCoreCourseListItems> programScreenCoreCourseListItems) {

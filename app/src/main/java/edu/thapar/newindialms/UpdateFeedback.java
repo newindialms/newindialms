@@ -29,19 +29,16 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.array.feedbacktype;
-import static edu.thapar.newindialms.R.id.coursetypespinner;
-
 public class UpdateFeedback extends AppCompatActivity {
-    Toolbar showfeedback_toolbar;
-    EditText feedback_udpate_title,feedback_udpate_question;
-    TextView showfeedback_id;
-    Button udpateButton,deleteButton;
-    Spinner feedbackspinner;
+    private Toolbar showfeedback_toolbar;
+    private EditText feedback_udpate_title,feedback_udpate_question;
+    private TextView showfeedback_id;
+    private Button udpateButton,deleteButton;
+    private Spinner feedbackspinner;
     ArrayAdapter<String> feedbacktype;
-    String feedback_title,feedback_question,feedback_type,id;
-    String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
-    String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";
+    private String feedback_title,feedback_question,feedback_type,id;
+    private String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
+    private String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";
 
     AlertDialog.Builder builder;
 

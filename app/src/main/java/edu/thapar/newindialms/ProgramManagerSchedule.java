@@ -1,10 +1,8 @@
 package edu.thapar.newindialms;
 
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -28,23 +25,18 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static edu.thapar.newindialms.AddCourseFragment.facultyspinner_URL;
-import static edu.thapar.newindialms.R.id.coursetypespinner;
-import static edu.thapar.newindialms.R.id.facultyspinner;
-import static edu.thapar.newindialms.R.id.semesterspinner;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProgramManagerSchedule extends Fragment {
-    String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
-    String day_url = "https://newindialms.000webhostapp.com/get_days.php";
+    private String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
+    private String day_url = "https://newindialms.000webhostapp.com/get_days.php";
     private Spinner issuespinner,dayspinner,semesterspinner;
     private ArrayList<String> issuelist,daylist;
     private JSONArray resultissue,resultday;
-    Button gobutton;
-    String issue_details,day_details,semester_details;
+    private Button gobutton;
+    private String issue_details,day_details,semester_details;
     View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

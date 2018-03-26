@@ -27,17 +27,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
-
 /**
  * Created by kamalshree on 10/21/2017.
  */
 
 public class ProgramScreenYearStudentName extends AppCompatActivity {
-    String ProgramName,YearList;
-    Toolbar studentpic_toolbar;
-    TextView Studentpic_programstudentname_title;
-    String yearlist_url = "https://newindialms.000webhostapp.com/get_student_name.php";
+    private String ProgramName,YearList;
+    private Toolbar studentpic_toolbar;
+    private TextView Studentpic_programstudentname_title;
+    private String yearlist_url = "https://newindialms.000webhostapp.com/get_student_name.php";
     ProgramScreenYearAdapterStudentName adapter;
 
     List<ProgramScreenYearStudentNameListItems> heroList;

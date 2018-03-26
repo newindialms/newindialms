@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +8,7 @@
 
     <include
         android:id="@+id/studentpic_toolbar"
-        layout="@layout/studentpic_toolbar"></include>
-
+        layout="@layout/studentpic_toolbar"/>
     <TextView
         android:id="@+id/Studentpic_programcorecourses_title"
         android:layout_width="match_parent"

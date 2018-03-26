@@ -28,8 +28,8 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    Toolbar enrollcoursetoolbar;
-    String pagefragment;
+    private Toolbar enrollcoursetoolbar;
+    private String pagefragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

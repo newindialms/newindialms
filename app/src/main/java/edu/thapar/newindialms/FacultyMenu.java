@@ -3,7 +3,6 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -19,10 +18,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static edu.thapar.newindialms.R.id.faculty_toolbar_id;
-import static edu.thapar.newindialms.R.id.faculty_toolbar_name;
-import static edu.thapar.newindialms.R.layout.nav_header_faculty_menu;
-
 /**
  * Created by kamalshree on 11/13/2017.
  */
@@ -30,9 +25,9 @@ import static edu.thapar.newindialms.R.layout.nav_header_faculty_menu;
 public class FacultyMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment=null;
-    String facultyname,facultyid;
-    TextView faculty_toolbar_name,faculty_toolbar_id;
-    AlertDialog.Builder builder;
+    private String facultyname,facultyid;
+    private TextView faculty_toolbar_name,faculty_toolbar_id;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

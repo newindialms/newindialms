@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
-
 import java.util.List;
 
 /**
@@ -23,10 +21,10 @@ public class FacultyFeedackTextDisplayAdapter extends ArrayAdapter<FacultyFeedba
     List<FacultyFeedbackTextDisplayListItems> facultyFeedbackTextDisplayListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public FacultyFeedackTextDisplayAdapter(Context context, int resource, List<FacultyFeedbackTextDisplayListItems> facultyFeedbackTextDisplayListItems) {

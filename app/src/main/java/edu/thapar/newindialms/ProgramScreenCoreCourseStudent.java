@@ -9,7 +9,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,27 +21,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static edu.thapar.newindialms.R.id.Studentpic_programstudentfulllist_total;
 
 /**
  * Created by kamalshree on 11/8/2017.
  */
 
 public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
-    Toolbar studentpic_toolbar;
-    TextView Studentpic_programcorecourselist_title;
-    String corecoursename;
-    String corecoursestudent_url = "https://newindialms.000webhostapp.com//get_corecourse_student.php";
+    private Toolbar studentpic_toolbar;
+    private TextView Studentpic_programcorecourselist_title;
+    private String corecoursename;
+    private String corecoursestudent_url = "https://newindialms.000webhostapp.com//get_corecourse_student.php";
     ProgramScreenCoreCourseStudentAdapter adapter;
     List<ProgramScreenCoreCourseStudentListItems> heroList;
     ListView listView;
-    int Student_size;
+    private int Student_size;
     ProgramScreenCoreCourseStudentListItems arraycount=new ProgramScreenCoreCourseStudentListItems();
-    TextView Studentpic_programstudentcorecourselist_total;
+    private TextView Studentpic_programstudentcorecourselist_total;
 
 
     @Override

@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,13 +33,13 @@ import java.util.Map;
 
 public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
-    String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
     MyfeedbackEnrolledCourseAdapter adapter;
     List<MyfeedbackEnrolledCourseListItems> heroList;
     ListView listView;
-    TextView myfeedbackenrolledcourses_title;
+    private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    String studentid,course_date,course_time,faculty_employeeid;
+    private String studentid,course_date,course_time,faculty_employeeid;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

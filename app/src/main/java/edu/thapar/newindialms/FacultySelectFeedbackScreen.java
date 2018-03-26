@@ -29,14 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -45,17 +43,17 @@ import java.util.Map;
 
 public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
-    Toolbar facultyToolbar;
+    private Toolbar facultyToolbar;
     private static final String FEEDBACK_URL = "http://newindialms.000webhostapp.com/get_feedback.php";
     private static final String SELECTED_FEEDBACK_URL = "http://newindialms.000webhostapp.com/insert_selected_feedback.php";
-    String notification_url = "https://newindialms.000webhostapp.com/send_selected_feedback_notification.php";
+    private String notification_url = "https://newindialms.000webhostapp.com/send_selected_feedback_notification.php";
     private RecyclerView recyclerView;
-    TextView facultyToolbarTitle;
+    private TextView facultyToolbarTitle;
     List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;
     FacultySelectFeedbackScreenAdapter adapter;
     public static ArrayList<String> feedbacklist = new ArrayList<String>();
     private String coursename,faculty_employeeid,course_time,course_date;
-    String currentDate;
+    private String currentDate;
     Date date = new Date();
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Intent myFeedbackselect;

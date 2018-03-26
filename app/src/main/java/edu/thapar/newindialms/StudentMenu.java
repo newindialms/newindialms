@@ -1,9 +1,7 @@
 package edu.thapar.newindialms;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -21,8 +19,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static edu.thapar.newindialms.R.id.faculty_toolbar_id;
-
 /**
  * Created by kamalshree on 11/13/2017.
  */
@@ -30,9 +26,9 @@ import static edu.thapar.newindialms.R.id.faculty_toolbar_id;
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment=null;
-    String studentname,studentid,studentyear,student_specialization;
-    TextView student_toolbar_name,student_toolbar_id;
-    AlertDialog.Builder builder;
+    private String studentname,studentid,studentyear,student_specialization;
+    private TextView student_toolbar_name,student_toolbar_id;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

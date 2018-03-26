@@ -1,17 +1,11 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,17 +26,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.security.AccessController.getContext;
-
 /**
  * Created by kamalshree on 11/20/2017.
  */
 
 public class FacultyScheduleDisplay  extends AppCompatActivity {
-    String datevalue,faculty_employeeid;
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String schedule_url = "https://newindialms.000webhostapp.com/get_faculty_schedule.php";
+    private String datevalue,faculty_employeeid;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String schedule_url = "https://newindialms.000webhostapp.com/get_faculty_schedule.php";
     FacultyScheduleDisplayAdapter adapter;
 
     List<FacultyScheduleDisplayListItems> heroList;

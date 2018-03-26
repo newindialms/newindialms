@@ -4,17 +4,12 @@ package edu.thapar.newindialms;
  * Created by kamalshree on 10/4/2017.
  */
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,19 +22,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-
-import static android.provider.Telephony.Carriers.PASSWORD;
-
 
 public class EmailActivity extends AppCompatActivity {
 
-    Toolbar toolbar_all_notification;
-    String email_address;
-    EditText editTextEmail,editTextSubject,editTextMessage;
-    Button buttonSend;
-    String EMAIL,PASSWORD;
-    String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
+    private Toolbar toolbar_all_notification;
+    private String email_address;
+    private EditText editTextEmail,editTextSubject,editTextMessage;
+    private Button buttonSend;
+    private String EMAIL,PASSWORD;
+    private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

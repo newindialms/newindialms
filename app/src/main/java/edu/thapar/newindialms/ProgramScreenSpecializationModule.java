@@ -11,17 +11,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static edu.thapar.newindialms.R.id.Studentpic_program_title;
-
 /**
  * Created by kamalshree on 10/25/2017.
  */
 
 public class ProgramScreenSpecializationModule extends AppCompatActivity {
 
-    String SpecializationName;
-    TextView Studentpic_program_specialization_title;
-    Toolbar studentpic_toolbar;
+    private String SpecializationName;
+    private TextView Studentpic_program_specialization_title;
+    private Toolbar studentpic_toolbar;
     //a List of type hero for holding list items
     List<ProgramScreenSpecializationModuleListItems> heroList;
 

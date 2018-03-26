@@ -1,26 +1,18 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
-import static android.media.CamcorderProfile.get;
-import static edu.thapar.newindialms.R.id.imageView;
 import static edu.thapar.newindialms.R.id.studentPicarrow;
 
 /**
@@ -34,10 +26,10 @@ public class StudentPicProgramAdapter extends ArrayAdapter<StudentPicListItems> 
     List<StudentPicListItems> studentPicListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public StudentPicProgramAdapter(Context context, int resource, List<StudentPicListItems> studentPicListItems) {

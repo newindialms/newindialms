@@ -1,20 +1,16 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.support.v7.app.AlertDialog;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -32,12 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static edu.thapar.newindialms.R.id.studentPicarrow1;
-import static edu.thapar.newindialms.R.id.studentPicarrow2;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenourse;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenspecialization;
-import static edu.thapar.newindialms.R.id.studentpic_programscreenyear;
-
 /**
  * Created by kamalshree on 10/22/2017.
  */
@@ -46,14 +36,14 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
 
     //the list values in the List of type hero
     List<RemoveCourseListItems> removeCourseListItems;
-    AlertDialog.Builder builder;
+    private AlertDialog.Builder builder;
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
-    String removecourselist_url = "https://newindialms.000webhostapp.com/get_removecourselist.php";
+    private String removecourselist_url = "https://newindialms.000webhostapp.com/get_removecourselist.php";
     RemoveCourseAdapter adapter;
 
 

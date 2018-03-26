@@ -29,7 +29,7 @@ import java.util.List;
 public class ShowAllStudentFragment extends Fragment {
 
     ListView StudentListView;
-    String HttpUrl = "https://newindialms.000webhostapp.com/AllStudentData.php";
+    private String HttpUrl = "https://newindialms.000webhostapp.com/AllStudentData.php";
     List<String> IdList = new ArrayList<>();
     public SwipeRefreshLayout swipeRefreshLayout;
     public ShowAllStudentFragment() {

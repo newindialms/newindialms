@@ -21,10 +21,10 @@ public class EnrolledCourseCumulativeAttendanceAdapter extends ArrayAdapter<Enro
     List<EnrolledCourseCumulativeAttendanceListItems> enrolledCourseCumulativeAttendanceListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public EnrolledCourseCumulativeAttendanceAdapter(Context context, int resource, List<EnrolledCourseCumulativeAttendanceListItems> enrolledCourseCumulativeAttendanceListItems) {

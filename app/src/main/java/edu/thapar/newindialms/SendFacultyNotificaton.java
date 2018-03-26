@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -31,11 +30,11 @@ import java.util.Map;
  */
 
 public class SendFacultyNotificaton extends AppCompatActivity {
-    Button SendNotification;
-    String notification_url = "https://newindialms.000webhostapp.com/send_faculty_notification.php";
-    EditText message_notification, title_notification;
-    String title, message;
-    AlertDialog.Builder builder;
+    private Button SendNotification;
+    private String notification_url = "https://newindialms.000webhostapp.com/send_faculty_notification.php";
+    private EditText message_notification, title_notification;
+    private String title, message;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

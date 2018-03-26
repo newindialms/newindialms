@@ -2,15 +2,12 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,17 +20,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by kamalshree on 10/28/2017.
  */
 
 public class NotificationTab extends AppCompatActivity {
-    Toolbar toolbar_all_notiifcation;
-    String notification_url = "https://newindialms.000webhostapp.com/get_notification.php";
+    private Toolbar toolbar_all_notiifcation;
+    private String notification_url = "https://newindialms.000webhostapp.com/get_notification.php";
     NotificationTabAdapter adapter;
 
     List<NotificationTabListItems> heroList;

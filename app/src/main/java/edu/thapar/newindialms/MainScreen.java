@@ -1,18 +1,12 @@
 package edu.thapar.newindialms;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,16 +23,12 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.thapar.newindialms.R;
-
-import static edu.thapar.newindialms.R.id.view;
-
 
 public class MainScreen extends AppCompatActivity implements View.OnClickListener {
-    Context context;
-    Button register_button;
-    Button login_button;
-    String deviceid, token;
+    private Context context;
+    private Button register_button;
+    private Button login_button;
+    private String deviceid, token;
     public static final String token_url = "http://newindialms.000webhostapp.com/device_details.php";
 
     @Override

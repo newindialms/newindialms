@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.*;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.Toolbar;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,10 +27,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static edu.thapar.newindialms.AddCourseFragment.facultyspinner_URL;
-import static edu.thapar.newindialms.FacultyCourseListTakeAttendance.absentlist;
-import static edu.thapar.newindialms.R.id.facultyspinner;
 
 /**
  * Created by kamalshree on 11/18/2017.

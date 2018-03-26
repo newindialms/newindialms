@@ -32,23 +32,21 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.thapar.newindialms.R;
-
 /**
  * Created by kamalshree on 10/14/2017.
  */
 
 public class LoginScreen extends AppCompatActivity {
-    Toolbar toolbar_login_screen;
-    EditText login_id, login_phone;
-    TextView login_signup;
-    Button login_button;
-    AlertDialog.Builder builder;
-    String studentid, phonenumber;
-    String login_url = "https://newindialms.000webhostapp.com/login.php";
+    private Toolbar toolbar_login_screen;
+    private EditText login_id, login_phone;
+    private TextView login_signup;
+    private Button login_button;
+    private AlertDialog.Builder builder;
+    private String studentid, phonenumber;
+    private String login_url = "https://newindialms.000webhostapp.com/login.php";
     public static final String token_url = "http://newindialms.000webhostapp.com/login_success_device_details.php";
-    Context context;
-    ProgressDialog progressDialog;
+    private Context context;
+    private ProgressDialog progressDialog;
     public View layout;
 
     private String deviceid,token,type,typeid;

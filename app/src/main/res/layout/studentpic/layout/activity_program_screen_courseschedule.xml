@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,8 +8,7 @@
 
     <include
         android:id="@+id/studentpic_toolbar"
-        layout="@layout/studentpic_toolbar"></include>
-
+        layout="@layout/studentpic_toolbar"/>
     <TextView
         android:id="@+id/timetable_title1"
         android:layout_width="match_parent"
@@ -45,7 +43,7 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/timetable_title3"
             android:layout_toRightOf="@+id/timetable_title3"
-            android:text="Fall"
+            android:text="@string/fall"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -57,7 +55,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:text="issue"
+            android:text="@string/issue"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -71,7 +69,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/relativeLayout1"
         android:layout_marginBottom="10dp"
-        android:text="Duration"
+        android:text="@string/duration"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="18sp" />
@@ -93,7 +91,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
-            android:text="to"
+            android:text="@string/to"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
@@ -104,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
-            android:text="from"
+            android:text="@string/from"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />

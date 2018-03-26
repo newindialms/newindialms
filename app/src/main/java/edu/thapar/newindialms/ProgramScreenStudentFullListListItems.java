@@ -7,7 +7,7 @@ package edu.thapar.newindialms;
 public class ProgramScreenStudentFullListListItems {
 
     private String Name,Rollno;
-    int Rowcount;
+    private int Rowcount;
 
 
     public ProgramScreenStudentFullListListItems() {

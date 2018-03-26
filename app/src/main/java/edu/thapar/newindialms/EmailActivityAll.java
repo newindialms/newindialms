@@ -26,12 +26,12 @@ import java.util.ArrayList;
 
 public class EmailActivityAll extends AppCompatActivity {
 
-    Toolbar toolbar_all_notification;
-    String email_address;
-    EditText editTextEmail,editTextSubject,editTextMessage;
-    Button buttonSend;
-    String EMAIL,PASSWORD;
-    String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
+    private Toolbar toolbar_all_notification;
+    private String email_address;
+    private EditText editTextEmail,editTextSubject,editTextMessage;
+    private Button buttonSend;
+    private String EMAIL,PASSWORD;
+    private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

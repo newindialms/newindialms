@@ -11,11 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
-
-import static edu.thapar.newindialms.R.id.studentPicarrow;
 
 /**
  * Created by kamalshree on 10/22/2017.
@@ -25,12 +22,12 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
 
     //the list values in the List of type hero
     List<MyfeedbackEnrolledCourseListItems> myfeedbackEnrolledCourseListItems;
-    AlertDialog.Builder builder;
+    private AlertDialog.Builder builder;
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
 
     //constructor initializing the values

@@ -33,7 +33,7 @@ import java.util.List;
 public class ProgramManagerCourseList extends Fragment{
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    String menucourselist_url = "https://newindialms.000webhostapp.com/menu_courselist.php";
+    private String menucourselist_url = "https://newindialms.000webhostapp.com/menu_courselist.php";
 
     private List<ListItemCourseList> listItemCourseLists;
     public SwipeRefreshLayout swipeRefreshLayout;

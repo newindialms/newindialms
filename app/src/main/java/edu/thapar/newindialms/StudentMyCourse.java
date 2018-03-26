@@ -35,15 +35,15 @@ import java.util.Map;
 
 public class StudentMyCourse extends Fragment{
 
-    TextView Studentpic_program_title;
-    Toolbar studentpic_toolbar;
-    String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
-    FacultyCourseListAdapter adapter;
-    String faculty_employeeid;
+    private TextView Studentpic_program_title;
+    private Toolbar studentpic_toolbar;
+    private String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
+    private FacultyCourseListAdapter adapter;
+    private String faculty_employeeid;
     List<FacultyListItemCourseList> heroList;
     FacultyListItemCourseList pglist;
     ListView listView;
-    View rootView;
+    private View rootView;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_courselist, null);

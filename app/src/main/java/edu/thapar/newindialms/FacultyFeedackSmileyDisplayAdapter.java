@@ -3,16 +3,12 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.hsalf.smilerating.BaseRating;
 import com.hsalf.smilerating.SmileRating;
 
 import java.util.List;
@@ -27,10 +23,10 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
     List<FacultyFeedbackSmileyDisplayListItems> facultyFeedbackSmileyDisplayListItems;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public FacultyFeedackSmileyDisplayAdapter(Context context, int resource, List<FacultyFeedbackSmileyDisplayListItems> facultyFeedbackSmileyDisplayListItems) {

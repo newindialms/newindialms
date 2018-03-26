@@ -1,9 +1,7 @@
 package edu.thapar.newindialms;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,15 +10,11 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hsalf.smilerating.SmileRating;
 import com.like.LikeButton;
@@ -39,13 +33,13 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
     List<SubmitFeedbackScreenListItems> submitFeedbackScreenListItems;
     AlertDialog.Builder builder;
     //activity context
-    Context context;
+    private Context context;
 
-    String textVal, rateVal, smileyVal, likeVal;
-    EditText feedbackanswer;
+    private String textVal, rateVal, smileyVal, likeVal;
+    private EditText feedbackanswer;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
     List<String> feedbackratelist = new ArrayList<>();
     List<String> feedbacktextlist = new ArrayList<>();
     List<String> feedbacksmileylist = new ArrayList<>();

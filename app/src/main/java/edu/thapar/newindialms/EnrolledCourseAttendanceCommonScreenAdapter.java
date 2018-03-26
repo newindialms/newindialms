@@ -23,10 +23,10 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
     List<EnrolledCourseAttendanceCommonScreenListItems> enrolledCourseAttendanceCommonScreenListItemses;
 
     //activity context
-    Context context;
+    private Context context;
 
     //the layout resource file for the list items
-    int resource;
+    private int resource;
 
     //constructor initializing the values
     public EnrolledCourseAttendanceCommonScreenAdapter(Context context, int resource, List<EnrolledCourseAttendanceCommonScreenListItems> enrolledCourseAttendanceCommonScreenListItems) {

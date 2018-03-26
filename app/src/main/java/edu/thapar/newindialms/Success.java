@@ -13,7 +13,7 @@ import android.widget.Button;
 public class Success  extends AppCompatActivity implements View.OnClickListener{
 
 
-    Button login_button;
+    private Button login_button;
 
 
     @Override
