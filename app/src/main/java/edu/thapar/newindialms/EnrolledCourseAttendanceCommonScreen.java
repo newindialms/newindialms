@@ -69,7 +69,4 @@ public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
         //attaching adapter to the listview
         listView.setAdapter(adapter);
     }
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
-    }
 }

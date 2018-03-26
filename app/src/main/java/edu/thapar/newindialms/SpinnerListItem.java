@@ -21,23 +21,14 @@ public class SpinnerListItem {
         return firstname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
 
     public String getRollno() {
         return rollno;
     }
 
-    public void setRollno(String rollno) {
-        this.rollno = rollno;
-    }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

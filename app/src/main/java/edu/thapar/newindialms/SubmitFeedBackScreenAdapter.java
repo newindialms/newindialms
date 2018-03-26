@@ -35,7 +35,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
     //activity context
     private Context context;
 
-    private String textVal, rateVal, smileyVal, likeVal;
+    private String rateVal, smileyVal, likeVal;
     private EditText feedbackanswer;
 
     //the layout resource file for the list items
@@ -220,10 +220,6 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         return view;
     }
 
-
-    public int getItemCount() {
-        return submitFeedbackScreenListItems.size();
-    }
 
     List<String> getRateSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();

@@ -31,7 +31,6 @@ import java.util.Map;
 
 public class RegisterScreen extends AppCompatActivity implements View.OnClickListener {
 
-    private Context context;
     private EditText register_id, register_phone, register_email, register_password,editTextConfirmOtp;
     private CheckBox register_checkbox1, register_checkbox2;
     private String EMAIL,PASSWORD;
@@ -239,7 +238,6 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         StringRequest stringRequest = new StringRequest(Request.Method.GET, RegistrationConfig.EMAILPROFILE_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray array = jsonObject.getJSONArray("email_profile");

@@ -16,7 +16,4 @@ public class ProgramScreenCoreCourseListItems {
         return coursedetails;
     }
 
-    public void setCoursedetails(String coursedetails) {
-        this.coursedetails = coursedetails;
-    }
 }

@@ -21,9 +21,6 @@ public class ProgramScreenCourseModuleListItems {
         return coursemodulelist;
     }
 
-    public void setCoursemodulelist(String coursemodulelist) {
-        this.coursemodulelist = coursemodulelist;
-    }
 
     public String getSpecializationname() {
         return specializationname;

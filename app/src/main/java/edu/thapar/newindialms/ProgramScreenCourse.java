@@ -75,7 +75,6 @@ public class ProgramScreenCourse  extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("courses");

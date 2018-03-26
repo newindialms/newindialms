@@ -31,16 +31,8 @@ public class FacultyCourseListTakeAttendanceListItems implements Serializable {
         return studentname;
     }
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname;
-    }
-
     public String getStudentrollno() {
         return studentrollno;
-    }
-
-    public void setStudentrollno(String studentrollno) {
-        this.studentrollno = studentrollno;
     }
 
     public boolean isStatus() {

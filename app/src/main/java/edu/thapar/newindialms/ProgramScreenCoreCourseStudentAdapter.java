@@ -20,11 +20,9 @@ public class ProgramScreenCoreCourseStudentAdapter extends ArrayAdapter<ProgramS
 
     //the list values in the List of type hero
     List<ProgramScreenCoreCourseStudentListItems> programScreenCoreCourseStudentListItems;
-    private int rowvalue;
-    ListView lv;
+
     //activity context
     private Context context;
-    private TextView Studentpic_programstudentfulllist_total;
 
     //the layout resource file for the list items
     int resource;
@@ -35,7 +33,6 @@ public class ProgramScreenCoreCourseStudentAdapter extends ArrayAdapter<ProgramS
         this.context = context;
         this.resource = resource;
         this.programScreenCoreCourseStudentListItems = programScreenCoreCourseStudentListItems;
-        this.rowvalue=rowcount;
     }
 
     //this will return the ListView Item as a View

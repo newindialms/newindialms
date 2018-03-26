@@ -29,7 +29,7 @@ import java.util.List;
 
 public class FacultyNotificationScreen extends Fragment{
 
-    private TextView faculty_notificationscreen_title;
+
     private View rootView;
     private RecyclerView recyclerView;
     List<NotificationScreenDetails> notificationScreenDetails;
@@ -38,8 +38,6 @@ public class FacultyNotificationScreen extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_noticationscreen, null);
-
-        faculty_notificationscreen_title = (TextView) rootView.findViewById(R.id.faculty_notificationscreen_title);
 
         recyclerView = (RecyclerView)rootView.findViewById(R.id.faculty_notification_recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -55,7 +53,6 @@ public class FacultyNotificationScreen extends Fragment{
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        JSONArray jsonArray = null;
                         try {
                             JSONObject j = new JSONObject(response);
                             JSONArray array = j.getJSONArray("faculty_notification_list");

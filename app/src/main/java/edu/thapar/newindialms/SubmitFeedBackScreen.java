@@ -51,9 +51,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     private Toolbar studentpic_toolbar;
     private String course_name,student_id,course_date,course_time,faculty_id;
     AlertDialog.Builder builder;
-    String[] feedbacklistarray;
     LayoutInflater layoutinflater;
-    public static ArrayList<String> submittedfeedbacklist = new ArrayList<String>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -123,7 +121,6 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, feedbacklist, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("feedback");

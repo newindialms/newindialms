@@ -40,13 +40,11 @@ public class EnrollCourseFragment extends Fragment{
     TextView enrolled_specialization;
     String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
     String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
-    EnrollcourseListItems pglist;
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
     ListView listView;
     Button EnrollButton;
     AlertDialog.Builder builder;
-    List<EnrollcourseListItems> courseList;
     String student_year="2";
     String enrollist="";
     public EnrollCourseFragment() {
@@ -139,7 +137,6 @@ public class EnrollCourseFragment extends Fragment{
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("course_details");

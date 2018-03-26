@@ -78,7 +78,6 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolled_courselist, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("course_details");
@@ -113,8 +112,6 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
-    }
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     }
 
 }

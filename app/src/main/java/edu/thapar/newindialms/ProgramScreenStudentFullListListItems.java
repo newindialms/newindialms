@@ -18,10 +18,6 @@ public class ProgramScreenStudentFullListListItems {
         Rollno = rollno;
     }
 
-    public int getRowcount() {
-        return Rowcount;
-    }
-
     public void setRowcount(int rowcount) {
         Rowcount = rowcount;
     }

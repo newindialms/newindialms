@@ -5,7 +5,7 @@ package edu.thapar.newindialms;
  */
 
 public class ProgramScreenYearStudentNameListItems {
-    private String Yeardetails,Programname,studentname;
+    private String studentname;
 
     public ProgramScreenYearStudentNameListItems(String studentname) {
         this.studentname=studentname;
@@ -16,7 +16,4 @@ public class ProgramScreenYearStudentNameListItems {
         return studentname;
     }
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname;
-    }
 }

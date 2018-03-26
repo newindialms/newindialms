@@ -32,7 +32,7 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
-    private String datevalue,student_specialization,studentid;
+    private String datevalue,studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
@@ -45,7 +45,6 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_schedule_display_firstyear);
-        student_specialization = getIntent().getStringExtra("student_specialization");
         studentid = getIntent().getStringExtra("studentid");
         datevalue = getIntent().getStringExtra("datevalue");
 
@@ -82,7 +81,6 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");

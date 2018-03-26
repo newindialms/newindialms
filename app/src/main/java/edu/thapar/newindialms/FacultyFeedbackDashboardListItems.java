@@ -28,10 +28,6 @@ public class FacultyFeedbackDashboardListItems {
         return feedbackType;
     }
 
-    public void setFeedbackType(String feedbackType) {
-        this.feedbackType = feedbackType;
-    }
-
     public String getFaculty_employeeid() {
         return faculty_employeeid;
     }

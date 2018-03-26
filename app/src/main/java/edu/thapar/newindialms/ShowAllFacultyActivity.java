@@ -25,7 +25,6 @@ import java.util.List;
 
 
 public class ShowAllFacultyActivity extends AppCompatActivity {
-    private Toolbar toolbar_all_faculty;
     ListView FacultyListView;
     private ProgressBar progressBar;
     private String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";

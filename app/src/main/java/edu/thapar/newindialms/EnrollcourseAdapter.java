@@ -28,7 +28,6 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
 
     //the layout resource file for the list items
     private int resource;
-    private final ArrayList<String> selectedStrings = new ArrayList<String>();
 
     //constructor initializing the values
     public EnrollcourseAdapter(Context context, int resource, List<EnrollcourseListItems> enrollcourseListItemses) {

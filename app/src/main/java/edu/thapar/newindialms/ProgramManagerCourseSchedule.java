@@ -100,7 +100,6 @@ String issue_details,day_details,semester_details;
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("Issue");
@@ -157,7 +156,6 @@ String issue_details,day_details,semester_details;
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("timetable");

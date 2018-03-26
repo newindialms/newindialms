@@ -35,8 +35,7 @@ import java.util.Map;
 
 public class FacultyCourseList extends Fragment{
 
-    private TextView Studentpic_program_title;
-    private Toolbar studentpic_toolbar;
+
     private String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
     FacultyCourseListAdapter adapter;
     private String faculty_employeeid;
@@ -71,7 +70,6 @@ public class FacultyCourseList extends Fragment{
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("course_details");

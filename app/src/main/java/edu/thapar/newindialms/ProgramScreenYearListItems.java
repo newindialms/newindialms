@@ -16,10 +16,6 @@ public class ProgramScreenYearListItems{
         return Yeardetails;
     }
 
-    public void setYeardetails(String yeardetails) {
-        Yeardetails = yeardetails;
-    }
-
     public String getProgramname() {
         return Programname;
     }

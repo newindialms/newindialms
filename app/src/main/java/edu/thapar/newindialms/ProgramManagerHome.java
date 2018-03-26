@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
  */
 
 public class ProgramManagerHome extends Fragment{
-    LinearLayout homescreen_notification_layout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

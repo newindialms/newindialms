@@ -47,12 +47,10 @@ public class StudentMyProfile extends AppCompatActivity {
     private String HttpURL = "https://newindialms.000webhostapp.com/student_profile.php";
 
     private String UPLOAD_URL = "http://newindialms.000webhostapp.com/student_upload_image.php";
-    private  String IMAGES_URL = "http://newindialms.000webhostapp.com/getImages.php";
 
     private TextView studentprofile_name,studentprofile_rollno,studentprofile_email,studentprofile_program,studentprofile_specialization;
     private String studentid;
     private String FinalJSonObject ;
-    private String TempItem;
     private HashMap<String,String> ResultHash = new HashMap<>();
     private String ParseResult ;
     HttpParse httpParse = new HttpParse();

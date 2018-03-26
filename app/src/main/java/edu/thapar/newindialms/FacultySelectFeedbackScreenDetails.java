@@ -23,9 +23,6 @@ public class FacultySelectFeedbackScreenDetails {
         this.feedbackType = feedbackType;
     }
 
-    public String getFacultyid() {
-        return facultyid;
-    }
 
     public void setFacultyid(String facultyid) {
         this.facultyid = facultyid;
@@ -43,31 +40,19 @@ public class FacultySelectFeedbackScreenDetails {
         return feedbackId;
     }
 
-    public void setFeedbackId(String feedbackId) {
-        this.feedbackId = feedbackId;
-    }
 
     public String getFeedbackDescription() {
         return feedbackDescription;
     }
 
-    public void setFeedbackDescription(String feedbackDescription) {
-        this.feedbackDescription = feedbackDescription;
-    }
 
     public String getFeedbackType() {
         return feedbackType;
     }
 
-    public void setFeedbackType(String feedbackType) {
-        this.feedbackType = feedbackType;
-    }
 
     public String getFeedbackQuestions() {
         return feedbackQuestions;
     }
 
-    public void setFeedbackQuestions(String feedbackQuestions) {
-        this.feedbackQuestions = feedbackQuestions;
-    }
 }

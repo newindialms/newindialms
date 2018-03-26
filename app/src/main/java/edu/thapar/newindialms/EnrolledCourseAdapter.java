@@ -20,7 +20,6 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
 
     //the list values in the List of type hero
     List<EnrolledCourseListItems> enrolledCourseListItemses;
-   private AlertDialog.Builder builder;
     //activity context
    private Context context;
 

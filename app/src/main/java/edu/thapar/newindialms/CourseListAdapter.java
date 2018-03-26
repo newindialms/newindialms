@@ -16,11 +16,9 @@ import java.util.List;
 public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.ViewHolder> {
 
     private List<ListItemCourseList> listItemsCourseLists;
-    private Context context;
 
     public CourseListAdapter(List<ListItemCourseList> listItemsCourseLists, Context context) {
         this.listItemsCourseLists = listItemsCourseLists;
-        this.context = context;
     }
 
     @Override

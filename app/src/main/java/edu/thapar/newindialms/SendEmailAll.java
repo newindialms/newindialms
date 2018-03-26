@@ -28,7 +28,6 @@ public class SendEmailAll extends AsyncTask<Void,Void,Void> {
     private Session session;
 
     //Information to send email
-    private String email;
     private String subject;
     private String message;
 

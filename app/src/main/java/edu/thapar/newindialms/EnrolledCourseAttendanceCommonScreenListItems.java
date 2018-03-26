@@ -15,11 +15,11 @@ public class EnrolledCourseAttendanceCommonScreenListItems {
         this.enrolledcoursename = enrolledcoursename;
     }
 
-    public EnrolledCourseAttendanceCommonScreenListItems(String daywise,String cumulative,String enrolledcoursename,String studentrollno) {
+    public EnrolledCourseAttendanceCommonScreenListItems(String daywise, String cumulative, String enrolledcoursename, String studentrollno) {
         this.enrolledcoursename = enrolledcoursename;
-        this.daywise=daywise;
-        this.cumulative=cumulative;
-        this.studentrollno=studentrollno;
+        this.daywise = daywise;
+        this.cumulative = cumulative;
+        this.studentrollno = studentrollno;
     }
 
     public String getEnrolledcoursename() {
@@ -34,17 +34,11 @@ public class EnrolledCourseAttendanceCommonScreenListItems {
         return cumulative;
     }
 
-    public void setCumulative(String cumulative) {
-        this.cumulative = cumulative;
-    }
 
     public String getDaywise() {
         return daywise;
     }
 
-    public void setDaywise(String daywise) {
-        this.daywise = daywise;
-    }
 
     public String getStudentrollno() {
         return studentrollno;

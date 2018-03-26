@@ -33,7 +33,7 @@ import java.util.Map;
 public class FacultyFeedbackTextDisplay extends AppCompatActivity {
 
     public static final String rate_url = "https://newindialms.000webhostapp.com/get_all_text_feedback.php";
-    private String faculty_id,coursename,feedback_sent_date,feedback_type;
+    private String faculty_id,coursename,feedback_sent_date;
     private Toolbar rate_toolbar;
     FacultyFeedackTextDisplayAdapter adapter;
 
@@ -48,8 +48,6 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
         faculty_id  = getIntent().getStringExtra("faculty_employeeid");
         coursename = getIntent().getStringExtra("coursename");
         feedback_sent_date = getIntent().getStringExtra("datevalue");
-        feedback_type = getIntent().getStringExtra("feedback_type");
-
 
 
         rate_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
@@ -78,7 +76,6 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, rate_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("Textfeedback");

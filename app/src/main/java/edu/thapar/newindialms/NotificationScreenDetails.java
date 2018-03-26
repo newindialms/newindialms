@@ -20,23 +20,15 @@ public class NotificationScreenDetails {
         return notificationmsg;
     }
 
-    public void setNotificationmsg(String notificationmsg) {
-        this.notificationmsg = notificationmsg;
-    }
 
     public String getNotificationtitle() {
         return notificationtitle;
     }
 
-    public void setNotificationtitle(String notificationtitle) {
-        this.notificationtitle = notificationtitle;
-    }
 
     public String getNotificationtime() {
         return notificationtime;
     }
 
-    public void setNotificationtime(String notificationtime) {
-        this.notificationtime = notificationtime;
-    }
+
 }

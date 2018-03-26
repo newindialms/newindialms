@@ -74,6 +74,4 @@ public class ListAdapterClass extends BaseAdapter {
 class ViewItem
 {
     TextView TextViewStudentName;
-    TextView TextViewStudentEmail;
-
 }

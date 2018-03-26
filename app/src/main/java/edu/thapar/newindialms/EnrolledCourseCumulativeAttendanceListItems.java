@@ -25,31 +25,19 @@ public class EnrolledCourseCumulativeAttendanceListItems {
         return total_count;
     }
 
-    public void setTotal_count(String total_count) {
-        this.total_count = total_count;
-    }
 
     public String getPresent_count() {
         return present_count;
     }
 
-    public void setPresent_count(String present_count) {
-        this.present_count = present_count;
-    }
 
     public String getAbsent_count() {
         return absent_count;
     }
 
-    public void setAbsent_count(String absent_count) {
-        this.absent_count = absent_count;
-    }
 
     public String getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(String percentage) {
-        this.percentage = percentage;
-    }
 }

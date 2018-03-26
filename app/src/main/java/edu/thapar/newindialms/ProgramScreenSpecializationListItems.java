@@ -16,7 +16,4 @@ public class ProgramScreenSpecializationListItems {
         return specializationdetails;
     }
 
-    public void setSpecializationdetails(String specializationdetails) {
-        this.specializationdetails = specializationdetails;
-    }
 }

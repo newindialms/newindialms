@@ -34,10 +34,6 @@ public class FacultyCourseListDashboardListItems {
         return attendance;
     }
 
-    public void setAttendance(String attendance) {
-        this.attendance = attendance;
-    }
-
     public String getFeedback() {
         return feedback;
     }

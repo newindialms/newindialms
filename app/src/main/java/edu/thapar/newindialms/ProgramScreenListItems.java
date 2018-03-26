@@ -25,37 +25,21 @@ public class ProgramScreenListItems {
         this.programname = programname;
     }
 
-    public String getYearofcorecourses() {
-        return yearofcorecourses;
-    }
-
-    public void setYearofcorecourses(String yearofcorecourses) {
-        this.yearofcorecourses = yearofcorecourses;
-    }
 
     public String getYearofjoining() {
         return yearofjoining;
     }
 
-    public void setYearofjoining(String yearofjoining) {
-        this.yearofjoining = yearofjoining;
-    }
 
     public String getYearofcourses() {
         return yearofcourses;
     }
 
-    public void setYearofcourses(String yearofcourses) {
-        this.yearofcourses = yearofcourses;
-    }
 
     public String getYearofspecialization() {
         return yearofspecialization;
     }
 
-    public void setYearofspecialization(String yearofspecialization) {
-        this.yearofspecialization = yearofspecialization;
-    }
 
     public String getProgramname() {
         return programname;

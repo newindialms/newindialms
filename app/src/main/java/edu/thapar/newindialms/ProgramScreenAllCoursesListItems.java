@@ -18,10 +18,6 @@ public class ProgramScreenAllCoursesListItems {
         Rollno = rollno;
     }
 
-    public int getRowcount() {
-        return Rowcount;
-    }
-
     public void setRowcount(int rowcount) {
         Rowcount = rowcount;
     }
@@ -38,7 +34,4 @@ public class ProgramScreenAllCoursesListItems {
         return Rollno;
     }
 
-    public void setRollno(String rollno) {
-        Rollno = rollno;
-    }
 }

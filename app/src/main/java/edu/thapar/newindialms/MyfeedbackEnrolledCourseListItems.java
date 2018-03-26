@@ -11,9 +11,6 @@ public class MyfeedbackEnrolledCourseListItems {
     private String course_time;
     private String faculty_employeeid;
 
-    public MyfeedbackEnrolledCourseListItems(String enrolledcoursename) {
-        this.enrolledcoursename = enrolledcoursename;
-    }
     public MyfeedbackEnrolledCourseListItems(String enrolledcoursename, String studentid,String course_date,String course_time,String faculty_employeeid) {
         this.enrolledcoursename = enrolledcoursename;
         this.studentid = studentid;
@@ -34,10 +31,6 @@ public class MyfeedbackEnrolledCourseListItems {
         return enrolledcoursename;
     }
 
-    public void setEnrolledcoursename(String enrolledcoursename) {
-        this.enrolledcoursename = enrolledcoursename;
-    }
-
     public String getStudentid() {
         return studentid;
     }
@@ -50,15 +43,9 @@ public class MyfeedbackEnrolledCourseListItems {
         return course_date;
     }
 
-    public void setCourse_date(String course_date) {
-        this.course_date = course_date;
-    }
 
     public String getCourse_time() {
         return course_time;
     }
 
-    public void setCourse_time(String course_time) {
-        this.course_time = course_time;
-    }
 }

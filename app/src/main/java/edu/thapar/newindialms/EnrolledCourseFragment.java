@@ -40,7 +40,6 @@ public class EnrolledCourseFragment extends Fragment {
     private String studentid;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
-    private TextView enrolledcourses_title;
 
     public EnrolledCourseFragment() {
         // Required empty public constructor
@@ -53,7 +52,6 @@ public class EnrolledCourseFragment extends Fragment {
         rootview=inflater.inflate(R.layout.fragment_enrolled_course, container, false);
         studentid =  getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
-        enrolledcourses_title=(TextView) rootview.findViewById(R.id.enrolledcourses_title);
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
         return rootview;
@@ -68,7 +66,6 @@ public class EnrolledCourseFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("course_details");

@@ -75,7 +75,6 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, daywise_attendancedetails_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("attendancelist");

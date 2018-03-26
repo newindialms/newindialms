@@ -22,13 +22,11 @@ import javax.mail.internet.MimeMessage;
 public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
 
     //Declaring Variables
-    private Context context;
     private Session session;
 
     //Information to send email
     private String email;
-    private String subject;
-    private String message;
+
 
     private String Email_Address;
     private String Password;
@@ -39,7 +37,6 @@ public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
     //Class Constructor
     public SendEmailRegistration(Context context, String email,String Email_Address, String Password){
         //Initializing variables
-        this.context = context;
         this.email = email;
         this.Email_Address=Email_Address;
         this.Password=Password;

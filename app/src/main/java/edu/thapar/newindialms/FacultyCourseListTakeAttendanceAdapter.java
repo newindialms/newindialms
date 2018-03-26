@@ -34,7 +34,6 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     LayoutInflater layoutinflater;
     TextView faculty_courselist_attendance_take, faculty_courselist_attendance_take_roolno;
     Switch attendance_switch;
-    private Button submitbutton;
 
     //constructor initializing the values
     public FacultyCourseListTakeAttendanceAdapter(Context context, int resource, int resource1, List<FacultyCourseListTakeAttendanceListItems> facultyCourseListTakeAttendanceListItems) {

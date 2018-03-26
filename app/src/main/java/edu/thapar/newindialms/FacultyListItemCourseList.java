@@ -22,10 +22,6 @@ public class FacultyListItemCourseList {
         return CourseListTitle;
     }
 
-    public void setCourseListTitle(String courseListTitle) {
-        CourseListTitle = courseListTitle;
-    }
-
     public String getFaculty_employeeid() {
         return faculty_employeeid;
     }

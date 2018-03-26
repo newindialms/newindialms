@@ -66,7 +66,6 @@ public class EmailActivity extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, emailprofile_url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        JSONArray jsonArray = null;
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray array = jsonObject.getJSONArray("email_profile");

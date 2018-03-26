@@ -35,7 +35,6 @@ public class UpdateFeedback extends AppCompatActivity {
     private TextView showfeedback_id;
     private Button udpateButton,deleteButton;
     private Spinner feedbackspinner;
-    ArrayAdapter<String> feedbacktype;
     private String feedback_title,feedback_question,feedback_type,id;
     private String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
     private String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";

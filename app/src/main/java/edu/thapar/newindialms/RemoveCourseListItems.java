@@ -16,15 +16,10 @@ public class RemoveCourseListItems {
         return removecoursecode;
     }
 
-    public void setRemovecoursecode(String removecoursecode) {
-        this.removecoursecode = removecoursecode;
-    }
 
     public String getRemovecoursename() {
         return removecoursename;
     }
 
-    public void setRemovecoursename(String removecoursename) {
-        this.removecoursename = removecoursename;
-    }
+
 }

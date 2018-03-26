@@ -19,8 +19,6 @@ import android.widget.Toast;
 
 public class StudentSchedule extends Fragment{
 
-    private TextView faculty_schedule_title;
-    private Toolbar studentpic_toolbar;
     private String student_specialization,studentyear,studentid;
     View rootView;
     private Button ScheduleButton;

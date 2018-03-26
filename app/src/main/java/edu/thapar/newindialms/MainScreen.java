@@ -25,7 +25,6 @@ import java.util.Map;
 
 
 public class MainScreen extends AppCompatActivity implements View.OnClickListener {
-    private Context context;
     private Button register_button;
     private Button login_button;
     private String deviceid, token;

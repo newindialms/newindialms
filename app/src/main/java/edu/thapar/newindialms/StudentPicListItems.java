@@ -15,8 +15,4 @@ public class StudentPicListItems {
     public String getProgramName() {
         return programName;
     }
-
-    public void setProgramName(String programName) {
-        this.programName = programName;
-    }
 }

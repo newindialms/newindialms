@@ -26,23 +26,12 @@ public class Feedback {
         return feedback_type;
     }
 
-    public void setFeedback_type(String feedback_type) {
-        this.feedback_type = feedback_type;
-    }
-
     public String getFeedback_title() {
         return feedback_title;
-    }
-
-    public void setFeedback_title(String feedback_title) {
-        this.feedback_title = feedback_title;
     }
 
     public String getFeedback_question() {
         return feedback_question;
     }
 
-    public void setFeedback_question(String feedback_question) {
-        this.feedback_question = feedback_question;
-    }
 }

@@ -34,17 +34,11 @@ public class FacultyCourseListAttendanceListItems {
         return takeattendance;
     }
 
-    public void setTakeattendance(String takeattendance) {
-        this.takeattendance = takeattendance;
-    }
 
     public String getSeeattendance() {
         return seeattendance;
     }
 
-    public void setSeeattendance(String seeattendance) {
-        this.seeattendance = seeattendance;
-    }
 
     public String getFaculty_employeeid() {
         return faculty_employeeid;

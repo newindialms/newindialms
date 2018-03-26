@@ -22,7 +22,6 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
     private List<Feedback> feedbackList;
     private Context context;
 
-    private static int currentPosition = 0;
 
     public FeedbackAdapter(List<Feedback> feedbackList, Context context) {
         this.feedbackList = feedbackList;

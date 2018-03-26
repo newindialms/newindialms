@@ -21,23 +21,14 @@ public class FacultyCourseListViewAttendanceDisplayListItems {
         return student_details;
     }
 
-    public void setStudent_details(String student_details) {
-        this.student_details = student_details;
-    }
 
     public String getAttendance_status() {
         return attendance_status;
     }
 
-    public void setAttendance_status(String attendance_status) {
-        this.attendance_status = attendance_status;
-    }
 
     public String getStudent_name() {
         return student_name;
     }
 
-    public void setStudent_name(String student_name) {
-        this.student_name = student_name;
-    }
 }

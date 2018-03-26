@@ -7,10 +7,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class StudentDashboard extends AppCompatActivity {
-    private Toolbar toolbar_main_screen;
-    private MenuItem menuItem;
-    private String facultyname,facultyid;
-    private TextView faculty_toolbar_name,faculty_toolbar_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

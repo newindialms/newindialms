@@ -22,7 +22,6 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
 
     //the list values in the List of type hero
     List<MyfeedbackEnrolledCourseListItems> myfeedbackEnrolledCourseListItems;
-    private AlertDialog.Builder builder;
     //activity context
     private Context context;
 

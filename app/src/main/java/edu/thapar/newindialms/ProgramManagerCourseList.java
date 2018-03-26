@@ -73,7 +73,6 @@ public class ProgramManagerCourseList extends Fragment{
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray array = jsonObject.getJSONArray("Course_List");

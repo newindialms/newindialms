@@ -27,8 +27,7 @@ import java.util.ArrayList;
 public class EmailActivityAll extends AppCompatActivity {
 
     private Toolbar toolbar_all_notification;
-    private String email_address;
-    private EditText editTextEmail,editTextSubject,editTextMessage;
+   private EditText editTextSubject,editTextMessage;
     private Button buttonSend;
     private String EMAIL,PASSWORD;
     private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
@@ -50,7 +49,6 @@ public class EmailActivityAll extends AppCompatActivity {
         });
 
         //Receiving the ListView Clicked item value send by previous activity.
-        email_address = getIntent().getStringExtra("email_address");
 
 
         editTextSubject = (EditText) findViewById(R.id.subject);
@@ -65,7 +63,6 @@ public class EmailActivityAll extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, emailprofile_url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        JSONArray jsonArray = null;
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray array = jsonObject.getJSONArray("email_profile");

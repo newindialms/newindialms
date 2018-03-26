@@ -28,8 +28,7 @@ import java.util.List;
  */
 
 public class ProgramScreenCoreCourse extends AppCompatActivity {
-    private String ProgramName;
-    private TextView Studentpic_program_title;
+
     private Toolbar studentpic_toolbar;
     private String corecourselist_url = "https://newindialms.000webhostapp.com/get_corecourses.php";
     ProgramScreenCoreCourseAdapter adapter;
@@ -41,8 +40,6 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_screen_corecourses);
-        ProgramName = getIntent().getStringExtra("programname");
-
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
@@ -71,7 +68,6 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("corelist");

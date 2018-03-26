@@ -62,7 +62,6 @@ public class RemoveCourseFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
-                JSONArray jsonArray = null;
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("Course_List");

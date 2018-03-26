@@ -20,9 +20,6 @@ public class EnrolledCourseListItems {
         return enrolledcoursename;
     }
 
-    public void setEnrolledcoursename(String enrolledcoursename) {
-        this.enrolledcoursename = enrolledcoursename;
-    }
 
     public String getStudentid() {
         return studentid;
