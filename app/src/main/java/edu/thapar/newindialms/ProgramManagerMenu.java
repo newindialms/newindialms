@@ -39,9 +39,6 @@ public class ProgramManagerMenu extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-
-
     }
 
     public void homescreen_notification_layout(View view){
@@ -78,7 +75,8 @@ public class ProgramManagerMenu extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+           // super.onBackPressed();
+            drawer.openDrawer(GravityCompat.START);
         }
     }
 

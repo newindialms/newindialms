@@ -89,11 +89,11 @@ public class StudentMenu extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            drawer.openDrawer(GravityCompat.START);
         }
     }
 

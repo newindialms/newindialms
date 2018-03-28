@@ -1,12 +1,19 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,22 +33,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit.http.PUT;
+
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
-public class ProgramManagerCourseList extends Fragment{
+public class ProgramManagerCourseList extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private String menucourselist_url = "https://newindialms.000webhostapp.com/menu_courselist.php";
 
+    private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private List<ListItemCourseList> listItemCourseLists;
     public SwipeRefreshLayout swipeRefreshLayout;
-
+    View rootView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_program_manager_courselist, null);
+        rootView = inflater.inflate(R.layout.fragment_program_manager_courselist, null);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.courselistRecyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -49,8 +59,22 @@ public class ProgramManagerCourseList extends Fragment{
         swipeRefreshLayout=(SwipeRefreshLayout)rootView.findViewById(R.id.showfeedback_swipe);
 
         listItemCourseLists = new ArrayList<>();
-
         loadRecyclerViewDatafirstyear();
+
+       /* rootView.setFocusableInTouchMode(true);
+        rootView.requestFocus();
+        rootView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                Log.i(TAG_FRAGMENT, "keyCode: " + keyCode);
+                if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                    Log.i(TAG_FRAGMENT, "onKey Back listener is working!!!");
+                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    return true;
+                }
+                return false;
+            }
+        });*/
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
