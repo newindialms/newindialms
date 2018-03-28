@@ -13,6 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -77,6 +78,7 @@ public class StudentMyProfile extends AppCompatActivity {
         studentprofile_toolbar = (Toolbar) findViewById(R.id.studentprofile_toolbar);
         studentprofile_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentprofile_toolbar);
+        studentprofile_toolbar.setTitle(getResources().getString(R.string.navigation_program_myprofile));
         studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

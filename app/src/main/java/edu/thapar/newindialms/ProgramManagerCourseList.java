@@ -114,4 +114,8 @@ public class ProgramManagerCourseList extends Fragment{
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_program_courselist));
+    }
 }

@@ -22,7 +22,7 @@
             android:paddingEnd="10dp"
             android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:text="Course"
+            android:text="@string/coursename"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
 

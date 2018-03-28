@@ -87,6 +87,10 @@ public class FacultyNotificationScreen extends Fragment{
         //adding our stringrequest to queue
         Volley.newRequestQueue(getActivity()).add(stringRequest);
     }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_program_notification));
 
+    }
 
 }

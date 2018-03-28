@@ -18,7 +18,7 @@
             android:text="@string/calendar_title"
             android:id="@+id/Feedback_toolbar"
             android:textSize="18sp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/textColor"
             android:textStyle="bold"/>
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

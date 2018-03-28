@@ -139,7 +139,8 @@
         <activity
             android:name=".StudentMenu"
             android:label="Student"
-            android:theme="@style/StudentTheme" />
+            android:theme="@style/StudentTheme" >
+        </activity>
         <activity
             android:name=".StudentMyProfile"
             android:label="Student"
@@ -148,8 +149,7 @@
         <activity
             android:name=".MyFeedbackEnrolledCourse"
             android:label="Student"
-            android:theme="@style/StudentTheme">
-        </activity>
+            android:theme="@style/StudentTheme"/>
         <activity
             android:name=".MyFeedbackScreen"
             android:label="Student"
@@ -162,11 +162,12 @@
         <activity
             android:name=".StudentEnrollCourseTab"
             android:label="Student"
-            android:theme="@style/StudentTheme" />
+            android:theme="@style/StudentTheme">
+        </activity>
         <activity
             android:name=".EnrolledCourseAttendanceActivity"
             android:label="Student"
-            android:theme="@style/StudentTheme" />
+            android:theme="@style/StudentTheme"/>
         <activity
             android:name=".EnrolledCourseAttendanceCommonScreen"
             android:label="Student"

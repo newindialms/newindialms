@@ -80,4 +80,7 @@ public class StudentSchedule extends Fragment{
         });
         return rootView;
     }
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.faculty_schedule_title));
+    }
 }

@@ -1,5 +1,6 @@
 package edu.thapar.newindialms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -44,6 +45,7 @@ public class AddCourseTab extends AppCompatActivity {
         addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                startActivity(new Intent(AddCourseTab.this, ProgramManagerMenu.class));
                 finish();
             }
         });

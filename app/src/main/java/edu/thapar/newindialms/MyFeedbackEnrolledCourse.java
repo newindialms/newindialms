@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -57,9 +58,11 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
         myfeedbackenrolledcourses_title.setText("My Feedback");
         setSupportActionBar(studentpic_toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //startActivity(new Intent(MyFeedbackEnrolledCourse.this, StudentHome.class));
                 finish();
             }
         });

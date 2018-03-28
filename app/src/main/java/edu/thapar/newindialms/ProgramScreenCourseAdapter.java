@@ -59,7 +59,7 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
         studentpic_programscreencourselist.setText(hero.getCoursename());
         studentPicarrow.setImageResource(R.drawable.ic_right);
 
-        studentpic_programscreencourselist.setOnClickListener(new View.OnClickListener() {
+        studentPicarrow.setOnClickListener(new View.OnClickListener() {
 
             String allcoursename=hero.getCoursename();
             @Override

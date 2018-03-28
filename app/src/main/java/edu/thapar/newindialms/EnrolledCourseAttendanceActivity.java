@@ -54,6 +54,7 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(student_toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         student_toolbar_title=(TextView) findViewById(R.id.student_enroll_toolbar_title);
         student_toolbar_title.setText("My Attendance");
@@ -61,6 +62,7 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         student_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                //Intent intent = new Intent(EnrolledCourseAttendanceActivity.this, StudentMenu.class);
                 finish();
             }
         });

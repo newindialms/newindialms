@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -178,5 +179,7 @@ public class StudentAcademicCalendar extends Fragment{
 
         MySingleton.getInstance(getContext()).addToRequestQueue(stringRequest);
     }
-
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_faculty_program_accademic_calendar));
+    }
 }

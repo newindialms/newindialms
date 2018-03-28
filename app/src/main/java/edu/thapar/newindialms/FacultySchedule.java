@@ -61,4 +61,9 @@ public class FacultySchedule extends Fragment {
         });
         return rootView;
     }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.faculty_schedule_title));
+
+    }
 }

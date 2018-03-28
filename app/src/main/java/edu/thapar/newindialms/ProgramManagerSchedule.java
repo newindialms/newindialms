@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -210,6 +211,9 @@ public class ProgramManagerSchedule extends Fragment {
         //Setting adapter to show the items in the spinner
         dayspinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, daylist));
     }
-
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.course_schedule_title));
+    }
 
 }

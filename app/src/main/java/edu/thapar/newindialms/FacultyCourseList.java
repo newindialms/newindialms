@@ -110,5 +110,9 @@ public class FacultyCourseList extends Fragment{
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_program_courselist));
 
+    }
 }

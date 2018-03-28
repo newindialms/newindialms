@@ -42,7 +42,7 @@ public class StudentMenu extends AppCompatActivity
         studentyear = getIntent().getStringExtra("studentyear");
         student_specialization = getIntent().getStringExtra("student_specialization");
 
-        if(studentyear.equals("2")) {
+       if(studentyear.equals("2")) {
             NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
             Menu menu =navigationView.getMenu();
             MenuItem target = menu.findItem(R.id.navigation_program_enrollcourse);
@@ -106,6 +106,7 @@ public class StudentMenu extends AppCompatActivity
             case R.id.navigation_program_myprofile:
                 Intent studentmyprofileintent = new Intent(getApplicationContext(), StudentMyProfile.class);
                 studentmyprofileintent.putExtra("studentid", studentid);
+                studentmyprofileintent.putExtra("studentyear", studentyear);
                 startActivity(studentmyprofileintent);
                 break;
             case R.id.navigation_program_mycourses:
@@ -114,11 +115,13 @@ public class StudentMenu extends AppCompatActivity
             case R.id.navigation_program_coursefeedback:
                 Intent myfeedback=new Intent(getApplicationContext(),MyFeedbackEnrolledCourse.class);
                 myfeedback.putExtra("studentid", studentid);
+                myfeedback.putExtra("studentyear", studentyear);
                 startActivity(myfeedback);
                 break;
             case R.id.navigation_program_Attendance:
                 Intent attendanceactivity=new Intent(getApplicationContext(),EnrolledCourseAttendanceActivity.class);
                 attendanceactivity.putExtra("studentid", studentid);
+                attendanceactivity.putExtra("studentyear", studentyear);
                 startActivity(attendanceactivity);
                 break;
             case R.id.navigation_program_myschedule:

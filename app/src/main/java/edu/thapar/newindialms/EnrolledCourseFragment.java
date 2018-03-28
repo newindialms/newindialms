@@ -103,7 +103,7 @@ public class EnrolledCourseFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.navigation_program_picbook));
+        getActivity().setTitle(getResources().getString(R.string.enrolledcourses_title));
     }
 
 }

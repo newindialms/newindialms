@@ -87,5 +87,7 @@ public class StudentNotification extends Fragment{
         Volley.newRequestQueue(getActivity()).add(stringRequest);
     }
 
-
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        getActivity().setTitle(getResources().getString(R.string.navigation_program_notification));
+    }
 }

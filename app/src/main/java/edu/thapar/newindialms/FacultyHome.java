@@ -20,7 +20,7 @@ public class FacultyHome extends Fragment{
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.navigation_program_notification));
+        getActivity().setTitle(getResources().getString(R.string.faculty));
 
     }
 
