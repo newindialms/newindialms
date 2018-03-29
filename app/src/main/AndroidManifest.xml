@@ -58,14 +58,25 @@
         <activity android:name=".CalendarView">
             <intent-filter>
                 <action android:name="edu.thapar.CalendarNotification" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".NotificationTab" />
         <activity android:name=".NotificationScreen" />
-        <activity android:name=".SendFacultyNotificaton" />
-        <activity android:name=".SendStudentNotificaton" />
+        <activity android:name=".SendFacultyNotificaton"/>
+        <activity android:name=".FacultyNotificationScreen">
+            <intent-filter>
+                <action android:name="edu.thapar.FacultyNotificationScreen" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SendStudentNotificaton"/>
+        <activity android:name=".StudentNotification">
+            <intent-filter>
+                <action android:name="edu.thapar.StudentNotification" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SubmitFeedBackScreen"
             android:label="Student"

@@ -41,6 +41,7 @@ public class StudentMenu extends AppCompatActivity
         studentid = getIntent().getStringExtra("studentid");
         studentyear = getIntent().getStringExtra("studentyear");
         student_specialization = getIntent().getStringExtra("student_specialization");
+        //Toast.makeText(StudentMenu.this,"Specialization"+student_specialization,Toast.LENGTH_LONG).show();
 
        if(studentyear.equals("2")) {
             NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
@@ -143,7 +144,8 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(enrollcourseintent);
                 break;
             case R.id.navigation_program_notification:
-                fragment=new StudentNotification();
+                Intent notificationitent = new Intent(getApplicationContext(), StudentNotification.class);
+                startActivity(notificationitent);
                 break;
         }
 

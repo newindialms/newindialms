@@ -5,24 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_circle"
-        android:layout_margin="5dp">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/facultycolorPrimary"
-            android:padding="8dp">
+            android:background="@drawable/faculty_rounded_button"
+            android:padding="8dp"
+            android:layout_margin="10dp">
 
-           <!-- <ImageView
-                android:id="@+id/notification_screenicon"
-                android:layout_width="100dp"
-                android:layout_height="90dp"
-                android:padding="4dp"
-                app:srcCompat="@drawable/notification_screen_faculty_icon" />-->
 
             <TextView
                 android:id="@+id/faculty_notificationscreen_msgtitle"
@@ -34,6 +23,7 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="@string/faculty_notificationscreen_msgtitle"
+                android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/facultytextMenu"
                 android:textSize="20sp" />
@@ -49,6 +39,7 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="@string/faculty_notificationscreen_msgtime"
+                android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/facultytextMenu"
                 android:textStyle="bold" />
@@ -66,8 +57,5 @@
                 android:text="@string/faculty_notificationscreen_msgbutton" />
 
         </RelativeLayout>
-
-
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>

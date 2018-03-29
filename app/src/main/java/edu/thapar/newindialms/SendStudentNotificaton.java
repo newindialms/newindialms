@@ -60,6 +60,10 @@ public class SendStudentNotificaton extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SendStudentNotificationFunction();
+                builder=new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyStudentAlertDialogStyle);
+                builder.setTitle("Success");
+                builder.setMessage("Notification was sent successfully");
+                displayAlert();
             }
         });
 
@@ -69,6 +73,7 @@ public class SendStudentNotificaton extends AppCompatActivity {
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
+                finish();
             }
         });
         AlertDialog alertDialog = builder.create();

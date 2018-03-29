@@ -20,18 +20,8 @@
                 android:weightSum="1">
 
                 <TextView
-                    android:id="@+id/Enrollspecialization_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:text="@string/specialization_arrow"
-                    android:textAlignment="center"
-                    android:textColor="@color/studentcolorPrimaryDark"
-                    android:textSize="18sp" />
-
-                <TextView
                     android:id="@+id/Enrollspecialization_textview_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:layout_weight="0.51"
@@ -57,6 +47,20 @@
                     android:textColor="@color/studentcolorPrimaryDark"
                     android:textSize="24sp" />
 
+                <Button
+                    android:id="@+id/EnrollButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Studentpic_program_title"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/studentcolorPrimaryDark"
+                    android:text="@string/enroll"
+                    android:textColor="@color/textColor" />
+
                 <ListView
                     android:id="@+id/enrollcourses_ListView"
                     android:layout_width="match_parent"
@@ -64,15 +68,6 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/EnrollButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/enrollcourse_listview"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="10dp"
-                android:background="@color/studentcolorPrimaryDark"
-                android:text="@string/enroll"
-                android:textColor="@color/textColor" />
+
         </RelativeLayout>
 </FrameLayout>

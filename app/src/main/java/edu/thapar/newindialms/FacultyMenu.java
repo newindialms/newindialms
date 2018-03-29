@@ -108,7 +108,8 @@ public class FacultyMenu extends AppCompatActivity
                 fragment=new FacultyAccademicCalendar();
                 break;
             case R.id.navigation_faculty_program_notification:
-                fragment=new FacultyNotificationScreen();
+                Intent notificationitent = new Intent(getApplicationContext(), FacultyNotificationScreen.class);
+                startActivity(notificationitent);
                 break;
         }
 

@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_circle"
-        android:layout_margin="5dp">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/facultycolorPrimary"
-        android:padding="8dp">
-
-    <!-- <ImageView
-                android:id="@+id/notification_screenicon"
-                android:layout_width="100dp"
-                android:layout_height="90dp"
-                android:padding="4dp"
-                app:srcCompat="@drawable/notification_screen_faculty_icon" />-->
+        android:background="@drawable/student_rounded_button"
+        android:padding="8dp"
+        android:layout_margin="10dp">
 
         <TextView
             android:id="@+id/student_notificationscreen_msgtitle"
@@ -34,6 +21,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/student_notificationscreen_msgtitle"
+            android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="20sp" />
@@ -44,11 +32,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_notificationscreen_msgtitle"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/student_notificationscreen_msgtime"
+            android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textStyle="bold" />
@@ -58,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_notificationscreen_msgtime"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
@@ -66,8 +55,5 @@
             android:text="@string/student_notificationscreen_msgbutton" />
 
     </RelativeLayout>
-
-
-    </android.support.v7.widget.CardView>
 
 </LinearLayout>

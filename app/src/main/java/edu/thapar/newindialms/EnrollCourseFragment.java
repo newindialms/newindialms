@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,7 +39,7 @@ import java.util.Map;
  */
 public class EnrollCourseFragment extends Fragment{
     View rootview;
-    String student_specialization,studentid;
+    String student_specialization,studentid,student_rollnno;
     TextView enrolled_specialization;
     String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
     String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
@@ -60,6 +63,7 @@ public class EnrollCourseFragment extends Fragment{
 
         student_specialization =  getActivity().getIntent().getExtras().getString("student_specialization");
         studentid =  getActivity().getIntent().getExtras().getString("studentid");
+        student_rollnno =  getActivity().getIntent().getExtras().getString("studentid");
         enrolled_specialization=(TextView)rootview.findViewById(R.id.Enrollspecialization_textview_value);
         enrolled_specialization.setText(student_specialization);
         heroList = new ArrayList<>();
@@ -74,11 +78,12 @@ public class EnrollCourseFragment extends Fragment{
             }
         });
 
+
+
         return rootview;
 
 
     }
-
     public void onClickData ( View view ) {
         List<EnrollcourseListItems> empData = adapter.enrollcourseListItemses;
         enrollist="";
@@ -170,7 +175,7 @@ public class EnrollCourseFragment extends Fragment{
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("student_specialization", student_specialization);
+                params.put("student_rollnno", student_rollnno);
                 return params;
             }
         };

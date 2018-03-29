@@ -84,7 +84,7 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
                // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
             }
         });
-
+        studentenrollcourse_checkbox.setChecked(hero1.isSelected());
         //finally returning the view
         return view;
     }

@@ -5,6 +5,9 @@
     android:background="@color/textColor"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/facultycourselist_toolbar"
+        layout="@layout/facultycourselist_toolbar"/>
 
     <TextView
         android:id="@+id/faculty_notificationscreen_title"
@@ -19,7 +22,7 @@
         android:id="@+id/faculty_notification_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp">
+        android:layout_margin="15dp">
 
     </android.support.v7.widget.RecyclerView>
 
