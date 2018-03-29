@@ -60,7 +60,7 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
         studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
 
 
-        studentpic_programscreencoursemodulelist.setOnClickListener(new View.OnClickListener() {
+        studentpic_programlistarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //we will call this method to remove the selected value from the list

@@ -1,10 +1,12 @@
 package edu.thapar.newindialms;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,7 @@ public class ProgramManagerSchedule extends Fragment {
     private JSONArray resultissue,resultday;
     private Button gobutton;
     private String issue_details,day_details,semester_details;
+    private AlertDialog.Builder builder;
     View rootview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,12 +67,20 @@ public class ProgramManagerSchedule extends Fragment {
                 semesterspinner = (Spinner) rootview.findViewById(R.id.course_schedule_semesterspinner);
                 semester_details=semesterspinner.getSelectedItem().toString();
 
-                Intent scheduleintent = new Intent(getActivity(), ProgramManagerCourseSchedule.class);
-                scheduleintent.putExtra("issue_details",issue_details);
-                scheduleintent.putExtra("day_details",day_details);
-                scheduleintent.putExtra("semester_details",semester_details);
-                scheduleintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getActivity().startActivity(scheduleintent);
+                if(semester_details.equals("")||day_details.equals("")||issue_details.equals("")){
+                    builder=new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
+                    builder.setTitle("Missing");
+                    builder.setMessage("Please choose the Issue,Day and Semester ");
+                    displayAlert();
+                }
+                else {
+                    Intent scheduleintent = new Intent(getActivity(), ProgramManagerCourseSchedule.class);
+                    scheduleintent.putExtra("issue_details", issue_details);
+                    scheduleintent.putExtra("day_details", day_details);
+                    scheduleintent.putExtra("semester_details", semester_details);
+                    scheduleintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getActivity().startActivity(scheduleintent);
+                }
             }
         });
         return rootview;
@@ -214,6 +225,16 @@ public class ProgramManagerSchedule extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.course_schedule_title));
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

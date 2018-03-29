@@ -63,15 +63,6 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         //Calling register method on register button click
-        register();
-    }
-
-    private void register() {
-
-        //Displaying a progress dialog
-        final ProgressDialog loading = ProgressDialog.show(this, "Registering", "Please wait...", false, false);
-
-
         //Getting user data
         studentid = register_id.getText().toString();
         phonenumber = register_phone.getText().toString();
@@ -84,6 +75,24 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
             idtype = register_checkbox2.getText().toString();
         }
 
+        if (studentid.equals("") || phonenumber.equals("") || emailaddress.equals("") || password.equals("") || (!register_checkbox1.isChecked() && !register_checkbox2.isChecked())) {
+            builder = new AlertDialog.Builder(RegisterScreen.this, R.style.MyAlertDialogStyle);
+            builder.setTitle("Error");
+            builder.setMessage("Please fill in all fields");
+            displayAlert("missingfields");
+        }
+        else{
+            register();
+        }
+    }
+
+    private void register() {
+
+        //Displaying a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this, "Registering", "Please wait...", false, false);
+
+
+
         //Again creating the string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, RegistrationConfig.REGISTER_URL,
                 new Response.Listener<String>() {
@@ -93,9 +102,6 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                         try {
                             if (studentid.equals("") || phonenumber.equals("") || emailaddress.equals("") || password.equals("") || (!register_checkbox1.isChecked() && !register_checkbox2.isChecked())) {
                                 progressDialog.dismiss();
-                                builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
-                                builder.setMessage(getResources().getString(R.string.registration_error_missingfields_text));
-                                displayAlert("input_error");
                             } else {
                                 confirmOtp(emailaddress);
                             }
@@ -109,7 +115,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
-                        Toast.makeText(RegisterScreen.this, error.getMessage(),Toast.LENGTH_LONG).show();
+                       // Toast.makeText(RegisterScreen.this, error.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -226,6 +232,8 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                     register_password.setText("");
                     register_checkbox1.setChecked(false);
                     register_checkbox2.setChecked(false);
+                }else if (code.equals("missingfields")){
+                    dialoginterface.dismiss();
                 }
 
             }

@@ -59,11 +59,21 @@ public class SendStudentNotificaton extends AppCompatActivity {
         SendNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendStudentNotificationFunction();
-                builder=new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyStudentAlertDialogStyle);
-                builder.setTitle("Success");
-                builder.setMessage("Notification was sent successfully");
-                displayAlert();
+                title = title_notification.getText().toString();
+                message = message_notification.getText().toString();
+                if(title.equals("")||message.equals("")){
+                    builder=new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyAlertDialogStyle);
+                    builder.setTitle("Missing");
+                    builder.setMessage("Please enter the Title and Message ");
+                    displayAlert();
+                }
+                else {
+                    SendStudentNotificationFunction();
+                    builder = new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyStudentAlertDialogStyle);
+                    builder.setTitle("Success");
+                    builder.setMessage("Notification was sent successfully");
+                    displayAlert();
+                }
             }
         });
 
@@ -73,7 +83,7 @@ public class SendStudentNotificaton extends AppCompatActivity {
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                finish();
+                dialoginterface.dismiss();
             }
         });
         AlertDialog alertDialog = builder.create();

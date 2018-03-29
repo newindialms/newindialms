@@ -62,7 +62,21 @@ public class OpenCalendar extends AppCompatActivity {
         SendNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendAccademicCalendarNotificationFunction();
+                title = title_notification.getText().toString();
+                message = message_notification.getText().toString();
+                if(title.equals("")||message.equals("")){
+                    builder=new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
+                    builder.setTitle("Missing");
+                    builder.setMessage("Please enter the Title and Message ");
+                    displayAlert();
+                }
+                else {
+                    SendAccademicCalendarNotificationFunction();
+                    builder=new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
+                    builder.setTitle("Success");
+                    builder.setMessage("Notification sent successfully ");
+                    displayAlert();
+                }
             }
         });
 
@@ -79,6 +93,7 @@ public class OpenCalendar extends AppCompatActivity {
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
             }
         });
         AlertDialog alertDialog = builder.create();

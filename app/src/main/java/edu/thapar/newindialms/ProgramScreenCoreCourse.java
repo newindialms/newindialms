@@ -2,6 +2,7 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -30,6 +31,7 @@ import java.util.List;
 public class ProgramScreenCoreCourse extends AppCompatActivity {
 
     private Toolbar studentpic_toolbar;
+    private TextView screen_title;
     private String corecourselist_url = "https://newindialms.000webhostapp.com/get_corecourses.php";
     ProgramScreenCoreCourseAdapter adapter;
 
@@ -44,6 +46,8 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
         studentpic_title.setText("Core courses");
+        screen_title=(TextView)findViewById(R.id.Studentpic_programcorecourses_title);
+        screen_title.setText("Core courses");
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +101,9 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        this.setTitle("Core courses");
     }
 
 }

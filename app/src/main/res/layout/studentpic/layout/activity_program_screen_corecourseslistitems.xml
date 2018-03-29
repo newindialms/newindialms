@@ -3,40 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:background="@drawable/rounded_button"
+    android:orientation="horizontal"
     android:padding="15dp">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/studentpic_programcorecourse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="@string/coursename"
+        android:textColor="@color/textColor"
+        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/studentpic_programcorecourse"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/rounded_button"
-            android:paddingLeft="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="10dp"
-            android:text="@string/core_course"
-            android:textColor="@color/textColor"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/studentPicarrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/studentpic_programcorecourse"
-            android:layout_alignRight="@+id/studentpic_programcorecourse"
-            android:layout_alignTop="@+id/studentpic_programcorecourse"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/ic_right" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/studentPicarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/next"
+        app:srcCompat="@drawable/ic_right"  />
 </LinearLayout>

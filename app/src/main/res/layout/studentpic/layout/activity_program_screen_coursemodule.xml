@@ -25,11 +25,13 @@
         android:textSize="24sp" />
 
     <ListView
+        android:id="@+id/studentpic_programscreencoursemodulelist_ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/studentpic_programscreencoursemodulelist_ListView"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/Studentpic_programycoursemodule_title" />
+        android:layout_below="@+id/Studentpic_programycoursemodule_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 </RelativeLayout>
