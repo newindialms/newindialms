@@ -1,8 +1,10 @@
 package edu.thapar.newindialms;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,6 +45,8 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
     private String datevalue;
     private String course_details_faculty;
     private String coursename,faculty_employeeid;
+    private AlertDialog.Builder builder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,12 +92,26 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
                     getApplicationContext().startActivity(facultyintent);
                 }
                 else{
-                    Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
+                    builder = new AlertDialog.Builder(FacultyCourseListViewAttendance.this, R.style.MyFacultyAlertDialogStyle);
+                    builder.setTitle("Missing");
+                    builder.setMessage("Please choose a Date.");
+                    displayAlert();
                 }
 
             }
         });
 
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void addListenerOnCourseSpinnerItemSelection() {

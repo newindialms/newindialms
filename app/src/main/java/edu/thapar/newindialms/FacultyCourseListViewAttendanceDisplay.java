@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -36,6 +38,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
     TextView facultycourselist_attendancedisplay_title;
     Toolbar faculty_toolbar;
     FacultyCourseListViewAttendanceDisplayAdapter adapter;
+    private AlertDialog.Builder builder;
 
     List<FacultyCourseListViewAttendanceDisplayListItems> heroList;
     ListView listView;
@@ -81,6 +84,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("attendancelist");
 
+                    if (array != null&& array.length()>0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         String rollno=jsonObject1.getString("student_rollnno");
@@ -98,6 +102,13 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
                     }
                     adapter = new FacultyCourseListViewAttendanceDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_attendancedisplay_listitems, heroList);
                     listView.setAdapter(adapter);
+                    }else{
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyCourseListViewAttendanceDisplay.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Records");
+                        builder.setMessage("No Records avaliable for the selected Day.");
+                        displayAlert();
+                    }
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
@@ -121,6 +132,17 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

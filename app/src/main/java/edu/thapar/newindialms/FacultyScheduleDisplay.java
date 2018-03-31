@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -36,6 +38,7 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_faculty_schedule.php";
     FacultyScheduleDisplayAdapter adapter;
+    private AlertDialog.Builder builder;
 
     List<FacultyScheduleDisplayListItems> heroList;
     ListView listView;
@@ -82,18 +85,27 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");
 
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        FacultyScheduleDisplayListItems listItemProgramList = new FacultyScheduleDisplayListItems(
-                                jsonObject1.getString("course_schedule_program"),
-                                jsonObject1.getString("course_schedule_starttime"),
-                                jsonObject1.getString("course_schedule_endtime"),
-                                jsonObject1.getString("course_schedule_course")
-                        );
-                        heroList.add(listItemProgramList);
+                    if (array != null&& array.length()>0) {
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside if "+array,Toast.LENGTH_LONG).show();
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject jsonObject1 = array.getJSONObject(i);
+                            FacultyScheduleDisplayListItems listItemProgramList = new FacultyScheduleDisplayListItems(
+                                    jsonObject1.getString("course_schedule_program"),
+                                    jsonObject1.getString("course_schedule_starttime"),
+                                    jsonObject1.getString("course_schedule_endtime"),
+                                    jsonObject1.getString("course_schedule_course")
+                            );
+                            heroList.add(listItemProgramList);
+                        }
+                        adapter = new FacultyScheduleDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_schedule_display_listitems, heroList);
+                        listView.setAdapter(adapter);
+                    }else{
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyScheduleDisplay.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Records");
+                        builder.setMessage("No Records avaliable for the selected Day.");
+                        displayAlert();
                     }
-                    adapter = new FacultyScheduleDisplayAdapter(getApplicationContext(),R.layout.activity_faculty_schedule_display_listitems,heroList);
-                    listView.setAdapter(adapter);
 
 
                 } catch (JSONException e) {
@@ -118,6 +130,17 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

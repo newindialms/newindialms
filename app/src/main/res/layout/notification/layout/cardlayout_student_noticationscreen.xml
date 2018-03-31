@@ -47,12 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_notificationscreen_msgtime"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
             android:background="@color/studentcolorPrimary"
-            android:text="@string/student_notificationscreen_msgbutton" />
+            android:gravity="center"
+            android:text="@string/faculty_notificationscreen_msgbutton" />
 
     </RelativeLayout>
 

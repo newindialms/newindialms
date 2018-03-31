@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,12 +34,12 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplay extends AppCompatActivity {
-    private String datevalue,student_specialization;
+    private String datevalue,student_specialization,studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
     StudentScheduleDisplayAdapter adapter;
-
+    private AlertDialog.Builder builder;
     List<StudentScheduleDisplayListItems> heroList;
     RecyclerView listView;
 
@@ -47,6 +49,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_student_schedule_display);
         student_specialization = getIntent().getStringExtra("student_specialization");
         datevalue = getIntent().getStringExtra("datevalue");
+        studentid = getIntent().getStringExtra("studentid");
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -85,6 +88,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");
 
+                    if (array != null&& array.length()>0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         StudentScheduleDisplayListItems listItemProgramList = new StudentScheduleDisplayListItems(
@@ -98,7 +102,13 @@ public class StudentScheduleDisplay extends AppCompatActivity {
                     }
                     adapter = new StudentScheduleDisplayAdapter(heroList,getApplicationContext());
                     listView.setAdapter(adapter);
-
+                    }else{
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(StudentScheduleDisplay.this, R.style.MyStudentAlertDialogStyle);
+                        builder.setTitle("Records");
+                        builder.setMessage("No Records avaliable for the selected Day.");
+                        displayAlert();
+                    }
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
@@ -116,12 +126,24 @@ public class StudentScheduleDisplay extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("student_specialization", student_specialization);
+                params.put("studentid", studentid);
                 params.put("datevalue", datevalue);
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

@@ -64,14 +64,16 @@
         <activity android:name=".NotificationTab" />
         <activity android:name=".NotificationScreen" />
         <activity android:name=".SendFacultyNotificaton"/>
-        <activity android:name=".FacultyNotificationScreen">
+        <activity android:name=".FacultyNotificationScreen"
+            android:theme="@style/FacultyTheme" >
             <intent-filter>
                 <action android:name="edu.thapar.FacultyNotificationScreen" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SendStudentNotificaton"/>
-        <activity android:name=".StudentNotification">
+        <activity android:name=".StudentNotification"
+            android:theme="@style/StudentTheme">
             <intent-filter>
                 <action android:name="edu.thapar.StudentNotification" />
                 <category android:name="android.intent.category.DEFAULT" />
