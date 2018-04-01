@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -37,7 +38,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
     private Toolbar studentpic_toolbar;
     private String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
     ProgramScreenSpecializationAdapter adapter;
-
+    public SwipeRefreshLayout swipeRefreshLayout;
     List<ProgramScreenSpecializationListItems> heroList;
     ListView listView;
 
@@ -66,6 +67,18 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.studentpic_programscreenspecializationlist_ListView);
 
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
 
     }
 

@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -40,6 +41,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
     ProgramScreenCourseModuleListItems pglist;
     List<ProgramScreenCourseModuleListItems> heroList;
     ListView listView;
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,18 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
         pglist= new ProgramScreenCourseModuleListItems(specializationname);
         pglist.setSpecializationname(specializationname);
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
 
     }
 

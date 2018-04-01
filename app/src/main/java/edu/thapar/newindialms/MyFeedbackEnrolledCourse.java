@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -40,6 +41,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
     ListView listView;
     private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
+    public SwipeRefreshLayout swipeRefreshLayout;
     private String studentid,course_date,course_time,faculty_employeeid;
 
     @Override
@@ -71,6 +73,19 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.myfeedbackenrolledcourselistView);
 
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
+
 
     }
     private void loadRecyclerViewData() {

@@ -22,11 +22,17 @@
         android:textColor="@color/studentcolorPrimaryDark"
         android:textSize="24sp" />
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/showfeedback_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/myfeedbackenrolledcourses_title"
+        >
     <ListView
         android:id="@+id/myfeedbackenrolledcourselistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/myfeedbackenrolledcourses_title"
         android:layout_marginTop="30dp" />
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

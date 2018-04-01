@@ -2,6 +2,7 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -40,6 +41,7 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
     List<ProgramScreenStudentFullListListItems> heroList;
     ListView listView;
     private int Student_size;
+    public SwipeRefreshLayout swipeRefreshLayout;
     ProgramScreenStudentFullListListItems arraycount=new ProgramScreenStudentFullListListItems();
     private TextView Studentpic_programstudentfulllist_total;
 
@@ -69,6 +71,18 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.studentpic_programscreenstudentfulllist_ListView);
 
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
 
     }
 

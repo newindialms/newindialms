@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -41,6 +42,8 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
     ListView listView;
     private Toolbar student_toolbar;
     private TextView student_toolbar_title;
+    public SwipeRefreshLayout swipeRefreshLayout;
+
     public EnrolledCourseAttendanceActivity() {
         // Required empty public constructor
     }
@@ -73,6 +76,19 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
+
     }
 
     private void loadRecyclerViewData() {

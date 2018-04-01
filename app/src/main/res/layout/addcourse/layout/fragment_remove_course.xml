@@ -5,10 +5,16 @@
     tools:context="edu.thapar.newindialms.RemoveCourseFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/showfeedback_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <ListView
         android:id="@+id/removecourselistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>

@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -39,6 +40,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
     Toolbar faculty_toolbar;
     FacultyCourseListViewAttendanceDisplayAdapter adapter;
     private AlertDialog.Builder builder;
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     List<FacultyCourseListViewAttendanceDisplayListItems> heroList;
     ListView listView;
@@ -67,6 +69,17 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.facultycourselistattendancedisplaylist_ListView);
         heroList = new ArrayList<>();
         loadRecyclerViewData();
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
 
     }
 

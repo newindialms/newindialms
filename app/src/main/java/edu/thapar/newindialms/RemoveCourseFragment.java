@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class RemoveCourseFragment extends Fragment {
     View rootview;
     private String removelist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
     RemoveCourseAdapter adapter;
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     List<RemoveCourseListItems> heroList;
     ListView listView;
@@ -50,6 +52,18 @@ public class RemoveCourseFragment extends Fragment {
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.removecourselistView);
         loadRecyclerViewData();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+
+                loadRecyclerViewData();
+            }
+        });
         return rootview;
     }
 

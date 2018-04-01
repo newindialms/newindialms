@@ -17,6 +17,12 @@
         android:textAlignment="center"
         android:textColor="@color/facultytextMenu"
         android:textSize="24sp" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/showfeedback_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/faculty_notificationscreen_title"
+        >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/faculty_notification_recyclerview"
@@ -25,5 +31,6 @@
         android:layout_margin="15dp">
 
     </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

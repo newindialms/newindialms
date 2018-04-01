@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,6 +45,7 @@ public class StudentNotification extends AppCompatActivity {
     List<NotificationScreenDetails> notificationScreenDetails;
     private Toolbar student_toolbar;
     private static final String NOTIFICATION_URL = "http://newindialms.000webhostapp.com/get_student_notification.php";
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,18 @@ public class StudentNotification extends AppCompatActivity {
 
         LoadNotifications();
         notificationScreenDetails = new ArrayList<>();
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                notificationScreenDetails.clear();
+
+                LoadNotifications();
+            }
+        });
 
     }
 
