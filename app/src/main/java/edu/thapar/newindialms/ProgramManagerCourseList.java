@@ -106,7 +106,8 @@ public class ProgramManagerCourseList extends Fragment {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ListItemCourseList listItemCourseList = new ListItemCourseList(
                                 jsonObject1.getString("course_details_name"),
-                                jsonObject1.getString("course_details_faculty")
+                                jsonObject1.getString("course_details_faculty"),
+                                jsonObject1.getString("course_details_code")
                         );
                         listItemCourseLists.add(listItemCourseList);
                     }
@@ -114,7 +115,8 @@ public class ProgramManagerCourseList extends Fragment {
                         JSONObject jsonObject1 = array1.getJSONObject(i);
                         ListItemCourseList listItemCourseList = new ListItemCourseList(
                                 jsonObject1.getString("first_year_course_list_name"),
-                                jsonObject1.getString("first_year_course_list_faculty")
+                                jsonObject1.getString("first_year_course_list_faculty"),
+                                jsonObject1.getString("first_year_course_list_code")
                         );
                         listItemCourseLists.add(listItemCourseList);
                     }

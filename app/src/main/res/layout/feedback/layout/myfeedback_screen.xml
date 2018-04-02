@@ -13,17 +13,17 @@
         android:id="@+id/myfeedbackenrolledcourses_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/student_enroll_toolbar"
+        android:layout_above="@+id/myfeedback_button"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
+        android:layout_marginBottom="24dp"
         android:padding="10dp"
         android:text="@string/myfeedback_screen_title"
         android:textAlignment="center"
         android:textColor="@color/studentcolorPrimaryDark"
         android:textSize="24sp" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/myfeedback_rollno_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textAlignment="center"
             android:textColorHint="@color/studentcolorPrimaryDark"
             android:background="@android:color/transparent"/>
-    </LinearLayout>
+    </LinearLayout> -->
 
     <Button
         android:id="@+id/myfeedback_button"

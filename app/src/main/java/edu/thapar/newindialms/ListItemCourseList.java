@@ -8,11 +8,21 @@ public class ListItemCourseList {
 
     private String CourseListTitle;
     private String CourseListFaculty;
+    private String CourseListCode;
 
-    public ListItemCourseList(String courseListTitle, String courseListFaculty) {
+    public ListItemCourseList(String courseListTitle, String courseListFaculty,String courseListCode) {
         CourseListTitle = courseListTitle;
         CourseListFaculty = courseListFaculty;
+        CourseListCode = courseListCode;
 
+    }
+
+    public String getCourseListCode() {
+        return CourseListCode;
+    }
+
+    public void setCourseListCode(String courseListCode) {
+        CourseListCode = courseListCode;
     }
 
     public String getCourseListTitle() {

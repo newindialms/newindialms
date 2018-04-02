@@ -92,7 +92,8 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenCoreCourseListItems listItemProgramList = new ProgramScreenCoreCourseListItems(
-                                jsonObject1.getString("core_course")
+                                jsonObject1.getString("core_course"),
+                                jsonObject1.getString("core_code")
                         );
                         heroList.add(listItemProgramList);
                     }

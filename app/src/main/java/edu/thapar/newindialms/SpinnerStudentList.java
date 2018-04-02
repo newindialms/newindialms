@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,7 +40,6 @@ public class SpinnerStudentList extends AppCompatActivity {
 
     private List<SpinnerListItem> listItems;
     private List<String> EmaillistItems;
-    private Button Send_Email_All;
     private static final String spinnerlisturl="https://newindialms.000webhostapp.com/spinner_studentlist.php";
 
     @Override
@@ -70,17 +72,28 @@ public class SpinnerStudentList extends AppCompatActivity {
         listItems=new ArrayList<>();
         EmaillistItems=new ArrayList<>();
         loadSpinnerData();
-        Send_Email_All= (Button)findViewById(R.id.Send_Email_All);
-        Send_Email_All.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),EmailActivityAll.class);
-                intent.putStringArrayListExtra("emaillist", (ArrayList<String>) EmaillistItems);
-                startActivity(intent);
-            }
-        });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_feedback_screen, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.feedbacksubmit) {
+            Intent intent = new Intent(getApplicationContext(),EmailActivityAll.class);
+            intent.putStringArrayListExtra("emaillist", (ArrayList<String>) EmaillistItems);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     private void loadSpinnerData(){
         final ProgressDialog progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Loading Data");

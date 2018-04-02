@@ -133,6 +133,7 @@ public class ShowAllStudentFragment extends Fragment {
 
                                 //Adding Student Name.
                                 student.StudentName = jsonObject.getString("student_firstname").toString();
+                                student.Studentrollno = jsonObject.getString("student_rollnno").toString();
 
                                 studentList.add(student);
 

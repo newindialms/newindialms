@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,10 +26,12 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
     List<MyfeedbackEnrolledCourseListItems> myfeedbackEnrolledCourseListItems;
     //activity context
     private Context context;
+    private AlertDialog.Builder builder;
+    String coursename;
 
     //the layout resource file for the list items
     private int resource;
-
+    TextView enrolledcourselist_name;
 
     //constructor initializing the values
     public MyfeedbackEnrolledCourseAdapter(Context context, int resource, List<MyfeedbackEnrolledCourseListItems> myenrolledCourseListItems) {
@@ -50,7 +54,7 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.myfeedbackenrolledcourselist_name);
+        enrolledcourselist_name = (TextView) view.findViewById(R.id.myfeedbackenrolledcourselist_name);
         ImageView studentpic_programlistarrow = (ImageView)view.findViewById(R.id.myfeedback_rightarrow);
 
         //getting the hero of the specified position
@@ -68,16 +72,26 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
 
             @Override
             public void onClick(View view) {
-
+                coursename=hero.getCoursename();
+               // Toast.makeText(getContext(),coursename+","+corecoursename,Toast.LENGTH_LONG).show();
+                if(coursename.equals(corecoursename)){
+                    Intent submitfeedbackitent = new Intent(context, SubmitFeedBackScreen.class);
+                    submitfeedbackitent.putExtra("corecoursename",corecoursename);
+                    submitfeedbackitent.putExtra("studentid",studentid);
+                    submitfeedbackitent.putExtra("course_date",course_date);
+                    submitfeedbackitent.putExtra("course_time",course_time);
+                    submitfeedbackitent.putExtra("faculty_employeeid",faculty_employeeid);
+                    submitfeedbackitent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(submitfeedbackitent);
+                }
+                else{
+                    builder=new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
+                    builder.setTitle("Feedback");
+                    builder.setMessage("Feedback is not avaliable,Try again later");
+                    displayAlert();
+                }
                 //Toast.makeText(getContext(),"Adapter"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
-                Intent submitfeedbackitent = new Intent(context, SubmitFeedBackScreen.class);
-                submitfeedbackitent.putExtra("corecoursename",corecoursename);
-                submitfeedbackitent.putExtra("studentid",studentid);
-                submitfeedbackitent.putExtra("course_date",course_date);
-                submitfeedbackitent.putExtra("course_time",course_time);
-                submitfeedbackitent.putExtra("faculty_employeeid",faculty_employeeid);
-                submitfeedbackitent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(submitfeedbackitent);
+
             }
         });
 
@@ -85,5 +99,15 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
 
         //finally returning the view
         return view;
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getContext().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

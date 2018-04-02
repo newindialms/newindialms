@@ -48,12 +48,16 @@ public class ProgramScreenYearAdapterStudentName extends ArrayAdapter<ProgramScr
 
         //getting the view elements of the list from the view
         TextView studentpic_programscreenyearlist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentnamelist);
+        TextView studentpic_programscreenstudentrollnolist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentrollnolist);
+        TextView studentpic_programscreenstudentspecializationlist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentspecializationlist);
 
         //getting the hero of the specified position
         final ProgramScreenYearStudentNameListItems hero = programScreenYearStudentNameListItems.get(position);
 
         //adding values to the list item
         studentpic_programscreenyearlist.setText(hero.getStudentname());
+        studentpic_programscreenstudentrollnolist.setText(hero.getStudentrollno());
+        studentpic_programscreenstudentspecializationlist.setText(hero.getStudentspecialization());
 
         //finally returning the view
         return view;

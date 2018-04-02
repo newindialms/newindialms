@@ -27,7 +27,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/facultyprogram_text_view"
+            android:id="@+id/facultyrollno_text_view"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
@@ -35,18 +35,46 @@
             android:layout_below="@+id/faculty_text_view"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:text="Faculty Program"
+            android:text="Faculty Rollno"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
+        <TextView
+            android:id="@+id/facultyCode_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/facultyrollno_text_view"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Faculty Code"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/facultyspecialization_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/facultyCode_text_view"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Faculty Specialization"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="18sp" />
+
+
 
         <ImageView
             android:id="@+id/facultydeletebin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/facultyprogram_text_view"
-            android:layout_alignRight="@+id/facultyprogram_text_view"
-            android:layout_alignTop="@+id/facultyprogram_text_view"
+            android:layout_alignEnd="@+id/facultyrollno_text_view"
+            android:layout_alignRight="@+id/facultyrollno_text_view"
+            android:layout_alignTop="@+id/facultyrollno_text_view"
             android:layout_marginEnd="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"

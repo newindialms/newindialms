@@ -254,10 +254,10 @@
 
     <string-array name="feedbacktype">
         <item></item>
-        <item>Star</item>
-        <item>Vote</item>
+        <item>Smiley</item>
         <item>Rate</item>
         <item>Text</item>
+        <item>Like</item>
     </string-array>
 
     <string name="submitfeedbackscreen_title">Submit your Feedback</string>

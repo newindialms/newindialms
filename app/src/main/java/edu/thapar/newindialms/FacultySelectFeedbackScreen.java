@@ -164,6 +164,8 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         showFeedback();
         InsertSelectedFeedback();
         //send notification to present list
+        myFeedbackselect=getIntent();
+        coursename = myFeedbackselect.getStringExtra("coursename");
         SendNotificationToPresentList();
     }
 
@@ -265,7 +267,6 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
      */
 
     public void SendNotificationToPresentList() {
-
         title = "Submit Feedback";
         message = "Please submit your feedback for "+coursename;
 
@@ -294,6 +295,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
                 params.put("faculty_employeeid", faculty_employeeid);
                 params.put("course_date", course_date);
                 params.put("course_time", course_time);
+                params.put("feedback_course_details", coursename);
                 return params;
             }
         };

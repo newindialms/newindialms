@@ -127,6 +127,7 @@ public class UpdateFeedback extends AppCompatActivity {
                   builder.setTitle(code);
                   builder.setMessage(message);
                   //displayAlert(message);
+                  Toast.makeText(UpdateFeedback.this,"Feedback Updated Successfully",Toast.LENGTH_LONG).show();
                   UpdateFeedback.this.finish();
               }
               catch (JSONException e){
@@ -170,6 +171,7 @@ public class UpdateFeedback extends AppCompatActivity {
                     builder.setTitle(code);
                     builder.setMessage(message);
                    // displayAlert(message);
+                    Toast.makeText(UpdateFeedback.this,"Feedback Deleted Successfully",Toast.LENGTH_LONG).show();
                     UpdateFeedback.this.finish();
                 }
                 catch (JSONException e){

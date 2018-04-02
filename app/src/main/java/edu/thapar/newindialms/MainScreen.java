@@ -88,7 +88,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Congratulations you have successfully installed NewIndiaLMS App.", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override

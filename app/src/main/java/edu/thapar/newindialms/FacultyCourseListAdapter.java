@@ -50,6 +50,7 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
 
         //getting the view elements of the list from the view
         TextView faculty_cardviewCourselistTitle = (TextView)view.findViewById(R.id.faculty_cardviewCourselistTitle);
+        TextView faculty_cardviewCourselistCode = (TextView)view.findViewById(R.id.faculty_cardviewCourselistCode);
         ImageView faculty_courselist_rightarrow = (ImageView)view.findViewById(R.id.faculty_courselist_rightarrow);
 
         //getting the hero of the specified position
@@ -57,6 +58,7 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
 
         //adding values to the list item
         faculty_cardviewCourselistTitle.setText(hero.getCourseListTitle());
+        faculty_cardviewCourselistCode.setText(hero.getCoursecode());
         faculty_courselist_rightarrow.setImageResource(R.drawable.faculty_rightarrow);
 
 

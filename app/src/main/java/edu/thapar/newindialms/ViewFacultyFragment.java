@@ -108,6 +108,8 @@ public class ViewFacultyFragment extends Fragment {
                                 faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
                                 faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
                                 faculty.FacultyID = jsonObject.getString("faculty_employeeid").toString();
+                                faculty.FacultyCode = jsonObject.getString("faculty_code").toString();
+                                faculty.FacultySpecialization = jsonObject.getString("faculty_specialization").toString();
                                 facultyList.add(faculty);
 
                             }

@@ -5,7 +5,7 @@ package edu.thapar.newindialms;
  */
 
 public class Faculty {
-    String FacultyName,FacultyProgram,FacultyID ;
+    String FacultyName,FacultyProgram,FacultyID,FacultyCode,FacultySpecialization,FacultyRollno ;
 
 }
 

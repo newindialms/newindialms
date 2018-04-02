@@ -57,6 +57,8 @@ public class ListFacultyAdapterClass extends BaseAdapter {
 
             viewItem.TextViewFacultyName = (TextView)convertView.findViewById(R.id.faculty_text_view);
             viewItem.TextViewFacultyProgram = (TextView)convertView.findViewById(R.id.facultyprogram_text_view);
+            viewItem.TextViewFacultyCode = (TextView)convertView.findViewById(R.id.facultyprogram_code);
+            viewItem.TextViewFacultySpecialization = (TextView)convertView.findViewById(R.id.facultyprogram_specialization);
 
             convertView.setTag(viewItem);
         }
@@ -66,7 +68,9 @@ public class ListFacultyAdapterClass extends BaseAdapter {
         }
 
         viewItem.TextViewFacultyName.setText(valueList.get(position).FacultyName);
-        viewItem.TextViewFacultyProgram.setText(valueList.get(position).FacultyProgram);
+        viewItem.TextViewFacultyProgram.setText(valueList.get(position).FacultyID);
+        viewItem.TextViewFacultyCode.setText(valueList.get(position).FacultyCode);
+        viewItem.TextViewFacultySpecialization.setText(valueList.get(position).FacultySpecialization);
 
         return convertView;
     }
@@ -74,6 +78,6 @@ public class ListFacultyAdapterClass extends BaseAdapter {
 
 class ViewItemFaculty
 {
-    TextView TextViewFacultyName,TextViewFacultyProgram;
+    TextView TextViewFacultyName,TextViewFacultyProgram,TextViewFacultyCode,TextViewFacultySpecialization;
 
 }

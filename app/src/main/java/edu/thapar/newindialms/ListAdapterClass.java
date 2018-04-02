@@ -57,6 +57,7 @@ public class ListAdapterClass extends BaseAdapter {
             convertView = layoutInfiater.inflate(R.layout.listview_item, null);
 
             viewItem.TextViewStudentName = (TextView)convertView.findViewById(R.id.student_text_view);
+            viewItem.TextViewStudentRollno = (TextView)convertView.findViewById(R.id.student_text_view_rollnno);
 
             convertView.setTag(viewItem);
         }
@@ -66,6 +67,7 @@ public class ListAdapterClass extends BaseAdapter {
         }
 
         viewItem.TextViewStudentName.setText(valueList.get(position).StudentName);
+        viewItem.TextViewStudentRollno.setText(valueList.get(position).Studentrollno);
 
         return convertView;
     }
@@ -73,5 +75,5 @@ public class ListAdapterClass extends BaseAdapter {
 
 class ViewItem
 {
-    TextView TextViewStudentName;
+    TextView TextViewStudentName,TextViewStudentRollno;
 }

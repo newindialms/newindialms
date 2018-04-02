@@ -74,7 +74,9 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
             convertView = layoutInfiater.inflate(R.layout.listview_removefaculty_item, null);
 
             viewItem.TextViewFacultyName = (TextView)convertView.findViewById(R.id.faculty_text_view);
-            viewItem.TextViewFacultyProgram = (TextView)convertView.findViewById(R.id.facultyprogram_text_view);
+            viewItem.TextViewFacultyRollno = (TextView)convertView.findViewById(R.id.facultyrollno_text_view);
+            viewItem.TextViewFacultyCode= (TextView)convertView.findViewById(R.id.facultyCode_text_view);
+            viewItem.TextViewFacultyspecialization = (TextView)convertView.findViewById(R.id.facultyspecialization_text_view);
             viewItem.FacultyBin = (ImageView) convertView.findViewById(R.id.facultydeletebin);
             convertView.setTag(viewItem);
         }
@@ -84,7 +86,9 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
         }
 
         viewItem.TextViewFacultyName.setText(valueList.get(position).FacultyName);
-        viewItem.TextViewFacultyProgram.setText(valueList.get(position).FacultyProgram);
+        viewItem.TextViewFacultyRollno.setText(valueList.get(position).FacultyRollno);
+        viewItem.TextViewFacultyCode.setText(valueList.get(position).FacultyCode);
+        viewItem.TextViewFacultyspecialization.setText(valueList.get(position).FacultySpecialization);
         viewItem.FacultyBin.setImageResource(R.drawable.ic_delete);
 
         viewItem.FacultyBin.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +178,7 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
             public void onClick(DialogInterface dialoginterface, int i) {
 
                 if (code.equals("Deleted")) {
-
+                    dialoginterface.dismiss();
                 }
             }
         });
@@ -185,7 +189,7 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
 
 class ViewItemRemoveFaculty
 {
-    TextView TextViewFacultyName,TextViewFacultyProgram;
+    TextView TextViewFacultyName,TextViewFacultyProgram,TextViewFacultyRollno,TextViewFacultyCode,TextViewFacultyspecialization;
     ImageView FacultyBin;
 
 }

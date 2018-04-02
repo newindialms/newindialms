@@ -15,11 +15,11 @@
         android:icon="@drawable/ic_course"
         android:title="@string/navigation_program_mycourses"
         android:checkable="true"/>
-    <item
+    <!--<item
         android:id="@+id/navigation_program_coursefeedback"
         android:icon="@drawable/ic_feedback"
         android:title="@string/navigation_program_coursefeedback"
-        android:checkable="true"/>
+        android:checkable="true"/>-->
     <item
         android:id="@+id/navigation_program_Attendance"
         android:icon="@drawable/ic_student_attendance"

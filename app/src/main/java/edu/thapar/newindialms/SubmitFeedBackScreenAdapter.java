@@ -67,6 +67,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
         //getting the view elements of the list from the view
         final TextView feedbackquestion = (TextView) view.findViewById(R.id.submitfeedbackscreenlist_question);
+        final TextView feedbackquestionclick = (TextView) view.findViewById(R.id.submitfeedbackscreenlist_clickme);
         feedbackanswer = (EditText) view.findViewById(R.id.submitfeedbackscreenlist_editext);
         final RatingBar feedbackrate = (RatingBar) view.findViewById(R.id.submitfeedbackscreenlist_ratebar);
         final SmileRating smileRating = (SmileRating) view.findViewById(R.id.smile_rating);
@@ -98,8 +99,10 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         }
 
         if (hero.getFeedbacktype().equals("Text")) {
+
             feedbackanswer.setTextColor(Color.parseColor("#d63d0a"));
-            feedbackquestion.setOnClickListener(new View.OnClickListener() {
+            feedbackquestionclick.setVisibility(View.VISIBLE);
+            feedbackquestionclick.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(final View view) {

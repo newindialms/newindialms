@@ -7,15 +7,25 @@ package edu.thapar.newindialms;
 public class FacultyListItemCourseList {
 
     private String CourseListTitle;
+    private String Coursecode;
     private String faculty_employeeid;
 
     public FacultyListItemCourseList(String faculty_employeeid) {
         this.faculty_employeeid=faculty_employeeid;
     }
 
-    public FacultyListItemCourseList(String courseListTitle,String faculty_employeeid) {
-        CourseListTitle = courseListTitle;
+    public FacultyListItemCourseList(String courseListTitle,String coursecode,String faculty_employeeid) {
+        this.CourseListTitle = courseListTitle;
+        this.Coursecode=coursecode;
         this.faculty_employeeid=faculty_employeeid;
+    }
+
+    public String getCoursecode() {
+        return Coursecode;
+    }
+
+    public void setCoursecode(String coursecode) {
+        Coursecode = coursecode;
     }
 
     public String getCourseListTitle() {

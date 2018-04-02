@@ -32,6 +32,7 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
         ListItemCourseList listItemCourseList=listItemsCourseLists.get(position);
         holder.textViewTitle.setText(listItemCourseList.getCourseListTitle());
         holder.textViewFaculty.setText(listItemCourseList.getCourseListFaculty());
+        holder.textViewCode.setText(listItemCourseList.getCourseListCode());
     }
 
     @Override
@@ -43,11 +44,13 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
         public TextView textViewTitle;
         public TextView textViewFaculty;
+        public TextView textViewCode;
 
         public ViewHolder(View itemView) {
             super(itemView);
             textViewTitle=(TextView) itemView.findViewById(R.id.cardviewCourselistTitle);
             textViewFaculty=(TextView) itemView.findViewById(R.id.cardviewCourselistFaculty);
+            textViewCode=(TextView) itemView.findViewById(R.id.cardviewCourselistCode);
         }
     }
 }

@@ -35,6 +35,18 @@
                 android:textAllCaps="true"
                 android:textColor="@color/facultyMenu"
                 android:textSize="18sp" />
+            <TextView
+                android:id="@+id/faculty_cardviewCourselistCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/faculty_cardviewCourselistTitle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/coursecode"
+                android:textAllCaps="true"
+                android:textColor="@color/facultyMenu"
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/faculty_courselist_rightarrow"

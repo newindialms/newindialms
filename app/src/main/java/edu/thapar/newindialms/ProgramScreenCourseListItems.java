@@ -5,14 +5,23 @@ package edu.thapar.newindialms;
  */
 
 public class ProgramScreenCourseListItems {
-    private String coursename;
+    private String coursename,coursecode;
 
-    public ProgramScreenCourseListItems(String coursename) {
+    public ProgramScreenCourseListItems(String coursename,String coursecode) {
         this.coursename = coursename;
+        this.coursecode = coursecode;
     }
 
     public String getCoursename() {
         return coursename;
+    }
+
+    public String getCoursecode() {
+        return coursecode;
+    }
+
+    public void setCoursecode(String coursecode) {
+        this.coursecode = coursecode;
     }
 
     public void setCoursename(String coursename) {

@@ -100,6 +100,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenCourseModuleListItems listItemProgramList = new ProgramScreenCourseModuleListItems(
                                 jsonObject1.getString("addcourse_name"),
+                                jsonObject1.getString("addcourse_code"),
                                 pglist.getSpecializationname()
                         );
                         heroList.add(listItemProgramList);

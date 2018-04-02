@@ -52,6 +52,7 @@ public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCo
 
         //getting the view elements of the list from the view
         TextView studentpic_programcorecourse = (TextView)view.findViewById(R.id.studentpic_programcorecourse);
+        TextView studentpic_programcorecoursecode = (TextView)view.findViewById(R.id.studentpic_programcorecoursecode);
         ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
@@ -59,6 +60,7 @@ public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCo
 
         //adding values to the list item
         studentpic_programcorecourse.setText(hero.getCoursedetails());
+        studentpic_programcorecoursecode.setText(hero.getCore_code());
         studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
 
         studentpic_programlistarrow.setOnClickListener(new View.OnClickListener() {

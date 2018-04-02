@@ -29,6 +29,16 @@
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/submitfeedbackscreenlist_clickme"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/submitfeedbackscreenlist_question"
+            android:text="Click here to add the feedback"
+            android:textAlignment="center"
+            android:textColor="@color/studenttextColor"
+            android:visibility="gone" />
+
         <EditText
             android:id="@+id/submitfeedbackscreenlist_editext"
             android:layout_width="match_parent"

@@ -33,24 +33,23 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/cardviewCourselistCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:layout_below="@id/cardviewCourselistTitle"
+                android:text="@string/coursecode"
+                android:textAllCaps="true"
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/cardviewCourselistFaculty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cardviewCourselistTitle"
+                android:layout_below="@id/cardviewCourselistCode"
                 android:text="@string/cardviewCourselistFaculty"
                 android:textColor="@color/textColor" />
-
-         <!--   <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignRight="@id/cardviewCourselistTitle"
-                android:layout_marginTop="20dp"
-                android:background="@color/textHintColor"
-                app:srcCompat="@drawable/ic_right" /> -->
-
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

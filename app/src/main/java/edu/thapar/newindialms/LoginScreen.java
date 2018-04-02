@@ -157,8 +157,6 @@ public class LoginScreen extends AppCompatActivity {
                                         finish();
                                         startActivity(new Intent(getApplicationContext(), ProgramManagerMenu.class));
                                         String studentid = jsonObject.getString("studentid");
-                                        toast_text.setText("ProgramManager Dashboard");
-                                        customToast();
                                         type="programmanager";
                                         typeid=studentid;
                                         AddDeviceDetailsFunction();
@@ -191,8 +189,10 @@ public class LoginScreen extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            toast_text.setText("Unable to Connect Check your Network Connection");
-                            customToast();
+                            progressDialog.dismiss();
+                            builder.setTitle("Failure");
+                            builder.setMessage("Unable to connect. Check your network connection");
+                            displayAlert("network_error");
                             error.printStackTrace();
                         }
                     }) {
@@ -217,6 +217,12 @@ public class LoginScreen extends AppCompatActivity {
                 if (code.equals("input_error")) {
                     login_id.setText("");
                     login_phone.setText("");
+                }
+                if (code.equals("network_error")) {
+                   dialoginterface.dismiss();
+                }
+                if (code.equals("welcome")) {
+                    dialoginterface.dismiss();
                 }
             }
         });

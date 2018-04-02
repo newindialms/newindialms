@@ -76,7 +76,7 @@ public class StudentCourseFeedback extends Fragment{
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyListItemCourseList listItemProgramList = new FacultyListItemCourseList(
-                                jsonObject1.getString("course_details_name"),pglist.getFaculty_employeeid()
+                                jsonObject1.getString("course_details_name"),jsonObject1.getString("course_details_code"),pglist.getFaculty_employeeid()
                         );
                         heroList.add(listItemProgramList);
 

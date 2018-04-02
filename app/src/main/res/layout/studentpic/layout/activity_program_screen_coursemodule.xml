@@ -29,15 +29,16 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/Studentpic_programycoursemodule_title"
         >
-    <ListView
-        android:id="@+id/studentpic_programscreencoursemodulelist_ListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Studentpic_programycoursemodule_title"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+
+        <ListView
+            android:id="@+id/studentpic_programscreencoursemodulelist_ListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Studentpic_programycoursemodule_title"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
     </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>
