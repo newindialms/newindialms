@@ -52,6 +52,7 @@ public class FacultyFeedackLikeDisplayAdapter extends ArrayAdapter<FacultyFeedba
         //getting the view elements of the list from the view
         LikeButton like_button=(LikeButton) view.findViewById(R.id.like_button);
         ImageView dislike_button=(ImageView) view.findViewById(R.id.dislikeButton);
+        TextView text_rating_questions = (TextView) view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
 
@@ -63,6 +64,7 @@ public class FacultyFeedackLikeDisplayAdapter extends ArrayAdapter<FacultyFeedba
         final FacultyFeedbackLikeDisplayListItems hero = facultyFeedbackLikeDisplayListItems.get(position);
 
         //adding values to the list item
+        text_rating_questions.setText(hero.getQuestion());
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
 

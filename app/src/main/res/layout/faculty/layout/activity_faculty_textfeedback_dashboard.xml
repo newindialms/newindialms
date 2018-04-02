@@ -9,6 +9,7 @@
     <include
         android:id="@+id/facultycourselist_toolbar"
         layout="@layout/facultycourselist_toolbar"/>
+
     <TextView
         android:id="@+id/enrolled_daywise_title"
         android:layout_width="match_parent"
@@ -18,67 +19,12 @@
         android:layout_below="@+id/facultycourselist_toolbar"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
+        android:paddingBottom="15dp"
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/facultytextMenu"
         android:textSize="24sp" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/enrolled_daywise_title"
-        android:layout_marginBottom="5dp"
-
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:paddingBottom="20dp">
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/faculty_rounded_button"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginEnd="70dp"
-                android:padding="10dp"
-                android:text="@string/text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/facultytextMenu"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/date"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/facultytextMenu"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/time"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/facultytextMenu"
-                android:textSize="24sp" />
-
-        </TableRow>
-    </RelativeLayout>
     <ListView
         android:id="@+id/text_list_ListView"
         android:layout_width="match_parent"
@@ -86,5 +32,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/relativeLayout1" />
+        android:layout_below="@+id/enrolled_daywise_title" />
 </RelativeLayout>

@@ -54,6 +54,8 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
         rate_toolbar.setNavigationIcon(R.drawable.ic_left);
 
         TextView daywise_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView enrolled_daywise_title = (TextView) findViewById(R.id.enrolled_daywise_title);
+        enrolled_daywise_title.setText("Text Feedback");
         daywise_title.setText("Text");
         setSupportActionBar(rate_toolbar);
 
@@ -84,6 +86,7 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyFeedbackTextDisplayListItems listItemProgramList = new FacultyFeedbackTextDisplayListItems(
                                 jsonObject1.getString("feedback_response"),
+                                jsonObject1.getString("feedback_question"),
                                 jsonObject1.getString("feedback_sent_date"),
                                 jsonObject1.getString("feedback_sent_time")
 

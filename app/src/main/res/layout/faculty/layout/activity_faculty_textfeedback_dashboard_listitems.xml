@@ -13,16 +13,28 @@
         android:paddingBottom="10dp">
 
         <TextView
+            android:id="@+id/text_rating_questions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/facultycolorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/text_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/enrollcourse_daywise_display_date"
-
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
+            android:layout_below="@+id/text_rating_questions"
             android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/facultytextMenu"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -30,7 +42,11 @@
             android:id="@+id/enrollcourse_daywise_display_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/text_rating"
+            android:layout_alignStart="@+id/text_rating"
+            android:layout_below="@+id/text_rating"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:padding="10dp"
             android:text="@string/date"
             android:textAllCaps="true"
@@ -41,11 +57,11 @@
             android:id="@+id/enrollcourse_daywise_display_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
+            android:layout_below="@+id/text_rating"
+            android:layout_marginLeft="74dp"
+            android:layout_marginStart="74dp"
+            android:layout_toEndOf="@+id/enrollcourse_daywise_display_date"
+            android:layout_toRightOf="@+id/enrollcourse_daywise_display_date"
             android:padding="10dp"
             android:text="@string/time"
             android:textAllCaps="true"

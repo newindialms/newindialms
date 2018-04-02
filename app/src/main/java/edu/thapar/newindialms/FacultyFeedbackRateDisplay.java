@@ -85,6 +85,7 @@ public class FacultyFeedbackRateDisplay extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyFeedbackRateDisplayListItems listItemProgramList = new FacultyFeedbackRateDisplayListItems(
                                 jsonObject1.getDouble("feedback_response"),
+                                jsonObject1.getString("feedback_question"),
                                 jsonObject1.getString("feedback_sent_date"),
                                 jsonObject1.getString("feedback_sent_time")
 

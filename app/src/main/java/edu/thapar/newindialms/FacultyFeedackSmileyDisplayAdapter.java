@@ -50,6 +50,7 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
 
         //getting the view elements of the list from the view
         SmileRating smileybar=(SmileRating)view.findViewById(R.id.smile_rating);
+        TextView smileyquestion=(TextView)view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
 
@@ -61,6 +62,7 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
         final FacultyFeedbackSmileyDisplayListItems hero = facultyFeedbackSmileyDisplayListItems.get(position);
 
         //adding values to the list item
+        smileyquestion.setText(hero.getQuestion());
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
 

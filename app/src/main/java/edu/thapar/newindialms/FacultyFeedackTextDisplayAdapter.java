@@ -48,6 +48,7 @@ public class FacultyFeedackTextDisplayAdapter extends ArrayAdapter<FacultyFeedba
 
         //getting the view elements of the list from the view
         TextView textbar=(TextView)view.findViewById(R.id.text_rating);
+        TextView feedback_question=(TextView)view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
 
@@ -63,6 +64,7 @@ public class FacultyFeedackTextDisplayAdapter extends ArrayAdapter<FacultyFeedba
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
 
         textbar.setText(hero.getText());
+        feedback_question.setText(hero.getQuestion());
         //finally returning the view
         return view;
     }

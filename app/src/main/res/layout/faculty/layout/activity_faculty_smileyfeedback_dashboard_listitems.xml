@@ -13,25 +13,33 @@
         android:layout_margin="3dp"
         android:paddingBottom="10dp">
 
+        <TextView
+            android:id="@+id/text_rating_questions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/facultycolorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <com.hsalf.smilerating.SmileRating
             android:id="@+id/smile_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/enrollcourse_daywise_display_date"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            app:isIndicator="true"
-            />
+            android:layout_below="@+id/text_rating_questions"
+            app:isIndicator="true" />
 
         <TextView
             android:id="@+id/enrollcourse_daywise_display_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/smile_rating"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/smile_rating"
+            android:layout_below="@+id/smile_rating"
             android:padding="10dp"
             android:text="@string/date"
             android:textAllCaps="true"
@@ -42,11 +50,11 @@
             android:id="@+id/enrollcourse_daywise_display_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
+            android:layout_below="@+id/smile_rating"
+            android:layout_marginLeft="115dp"
+            android:layout_marginStart="115dp"
+            android:layout_toEndOf="@+id/enrollcourse_daywise_display_date"
+            android:layout_toRightOf="@+id/enrollcourse_daywise_display_date"
             android:padding="10dp"
             android:text="@string/time"
             android:textAllCaps="true"

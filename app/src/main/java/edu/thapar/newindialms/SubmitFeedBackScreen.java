@@ -29,8 +29,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by kamalshree on 3/3/2018.
@@ -207,15 +209,29 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> feedbackresponses = new ArrayList<String>();
+                ArrayList<String> feedbackquestions = new ArrayList<String>();
                 // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
-                for (int i = 0; i < adapter.getRateSubmittedFeedbackDetails().size(); i++) {
-                    feedbackresponses.add(adapter.getRateSubmittedFeedbackDetails().get(i));
+
+                Set set2 = adapter.getRateSubmittedFeedbackDetails().entrySet();
+                Iterator iterator2 = set2.iterator();
+                while(iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                    feedbackresponses.add(mentry2.getKey().toString());
+                    feedbackquestions.add(mentry2.getValue().toString());
                 }
+               /* for (int i = 0; i < adapter.getRateSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getRateSubmittedFeedbackDetails().get(i));
+                }*/
 
                 int j=0;
                 for(String object: feedbackresponses){
                     params.put("feedback_response["+(j++)+"]", object);
                 }
+                int k=0;
+                for(String object: feedbackquestions){
+                    params.put("feedback_question["+(k++)+"]", object);
+                }
+
 
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
@@ -276,15 +292,28 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> feedbackresponses = new ArrayList<String>();
+                ArrayList<String> feedbackquestions = new ArrayList<String>();
                 // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
-                for (int i = 0; i < adapter.getLikeSubmittedFeedbackDetails().size(); i++) {
-                    feedbackresponses.add(adapter.getLikeSubmittedFeedbackDetails().get(i));
+                Set set2 = adapter.getLikeSubmittedFeedbackDetails().entrySet();
+                Iterator iterator2 = set2.iterator();
+                while(iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                    feedbackresponses.add(mentry2.getKey().toString());
+                    feedbackquestions.add(mentry2.getValue().toString());
                 }
+              /*  for (int i = 0; i < adapter.getLikeSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getLikeSubmittedFeedbackDetails().get(i));
+                }*/
 
                 int j=0;
                 for(String object: feedbackresponses){
                     params.put("feedback_response["+(j++)+"]", object);
                 }
+                int k=0;
+                for(String object: feedbackquestions){
+                    params.put("feedback_question["+(k++)+"]", object);
+                }
+
 
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
@@ -345,14 +374,27 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> feedbackresponses = new ArrayList<String>();
+                ArrayList<String> feedbackquestions = new ArrayList<String>();
                 // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
-                for (int i = 0; i < adapter.getSmileySubmittedFeedbackDetails().size(); i++) {
+
+                Set set2 = adapter.getSmileySubmittedFeedbackDetails().entrySet();
+                Iterator iterator2 = set2.iterator();
+                while(iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                    feedbackresponses.add(mentry2.getKey().toString());
+                    feedbackquestions.add(mentry2.getValue().toString());
+                }
+              /*  for (int i = 0; i < adapter.getSmileySubmittedFeedbackDetails().size(); i++) {
                     feedbackresponses.add(adapter.getSmileySubmittedFeedbackDetails().get(i));
                 }
-
+*/
                 int j=0;
                 for(String object: feedbackresponses){
                     params.put("feedback_response["+(j++)+"]", object);
+                }
+                int k=0;
+                for(String object: feedbackquestions){
+                    params.put("feedback_question["+(k++)+"]", object);
                 }
 
                 params.put("faculty_id", faculty_id);
@@ -414,14 +456,28 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> feedbackresponses = new ArrayList<String>();
+                ArrayList<String> feedbackquestions = new ArrayList<String>();
                 // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
-                for (int i = 0; i < adapter.getTextSubmittedFeedbackDetails().size(); i++) {
-                    feedbackresponses.add(adapter.getTextSubmittedFeedbackDetails().get(i));
+
+                Set set2 = adapter.getTextSubmittedFeedbackDetails().entrySet();
+                Iterator iterator2 = set2.iterator();
+                while(iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                    feedbackresponses.add(mentry2.getKey().toString());
+                    feedbackquestions.add(mentry2.getValue().toString());
                 }
+               /* for (int i = 0; i < adapter.getTextSubmittedFeedbackDetails().size(); i++) {
+                    feedbackresponses.add(adapter.getTextSubmittedFeedbackDetails().get(i));
+                }*/
 
                 int j=0;
                 for(String object: feedbackresponses){
                     params.put("feedback_response["+(j++)+"]", object);
+                }
+
+                int k=0;
+                for(String object: feedbackquestions){
+                    params.put("feedback_question["+(k++)+"]", object);
                 }
 
                 params.put("faculty_id", faculty_id);

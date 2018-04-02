@@ -85,6 +85,7 @@ public class FacultyFeedbackSmileyDisplay extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyFeedbackSmileyDisplayListItems listItemProgramList = new FacultyFeedbackSmileyDisplayListItems(
                                 jsonObject1.getString("feedback_response"),
+                                jsonObject1.getString("feedback_question"),
                                 jsonObject1.getString("feedback_sent_date"),
                                 jsonObject1.getString("feedback_sent_time")
 

@@ -21,6 +21,7 @@ import com.like.LikeButton;
 import com.like.OnLikeListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -44,6 +45,10 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
     List<String> feedbacktextlist = new ArrayList<>();
     List<String> feedbacksmileylist = new ArrayList<>();
     List<String> feedbacklikelist = new ArrayList<>();
+    HashMap<String, String> texthmap = new HashMap<String, String>();
+    HashMap<String, String> ratehmap = new HashMap<String, String>();
+    HashMap<String, String> smileyhmap = new HashMap<String, String>();
+    HashMap<String, String> likehmap = new HashMap<String, String>();
 
     //constructor initializing the values
     public SubmitFeedBackScreenAdapter(Context context, int resource, List<SubmitFeedbackScreenListItems> submitFeedbackScreenListItems) {
@@ -86,7 +91,8 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     feedbackrate.setRating(rating);
                     hero.setRateval(rateVal);
                     hero.setRateStatus(true);
-                    feedbackratelist.add(rateVal);
+                    //feedbackratelist.add(rateVal);
+                    ratehmap.put(rateVal, feedbackquestion.getText().toString());
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -122,7 +128,9 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
                                 public void onClick(DialogInterface arg0,
                                                     int arg1) {
-                                    feedbacktextlist.add(userInput.getText().toString());
+                                   // feedbacktextlist.add(userInput.getText().toString());
+                                   // feedbacktextlist.add(feedbackquestion.getText().toString());
+                                    texthmap.put(userInput.getText().toString(), feedbackquestion.getText().toString());
                                     submitFeedbackScreenListItems.remove(position);
                                 }
                             });
@@ -156,7 +164,8 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     }
                     hero.setSmileyval(smileyVal);
                     hero.setSmileyStatus(true);
-                    feedbacksmileylist.add(smileyVal);
+                    //feedbacksmileylist.add(smileyVal);
+                    smileyhmap.put(smileyVal, feedbackquestion.getText().toString());
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -179,7 +188,8 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "Like";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                    feedbacklikelist.add(likeVal);
+                    //feedbacklikelist.add(likeVal);
+                    likehmap.put(likeVal, feedbackquestion.getText().toString());
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -194,7 +204,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "none";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                    feedbacklikelist.add(likeVal);
+                    //feedbacklikelist.add(likeVal);
                 }
             });
             dislikeButton.setOnClickListener(new View.OnClickListener() {
@@ -205,7 +215,8 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "Dislike";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                    feedbacklikelist.add(likeVal);
+                   // feedbacklikelist.add(likeVal);
+                    likehmap.put(likeVal, feedbackquestion.getText().toString());
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         public void run() {
@@ -224,22 +235,22 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
     }
 
 
-    List<String> getRateSubmittedFeedbackDetails() {
+    HashMap<String, String> getRateSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
-        return feedbackratelist;
+        return ratehmap;
     }
 
-    List<String> getLikeSubmittedFeedbackDetails() {
+    HashMap<String, String> getLikeSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
-        return feedbacklikelist;
+        return likehmap;
     }
-    List<String> getSmileySubmittedFeedbackDetails() {
+    HashMap<String, String> getSmileySubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
-        return feedbacksmileylist;
+        return smileyhmap;
     }
-    List<String> getTextSubmittedFeedbackDetails() {
+    HashMap<String, String> getTextSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
-        return feedbacktextlist;
+        return texthmap;
     }
 
 
