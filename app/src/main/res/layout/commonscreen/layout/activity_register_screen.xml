@@ -36,7 +36,7 @@
             android:background="@drawable/white_background"
             android:ems="10"
             android:hint="@string/registration_id"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/colorPrimaryDark"

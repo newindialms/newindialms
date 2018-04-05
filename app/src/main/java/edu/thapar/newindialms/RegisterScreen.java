@@ -76,12 +76,15 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         }
 
         if (studentid.equals("") || phonenumber.equals("") || emailaddress.equals("") || password.equals("") || (!register_checkbox1.isChecked() && !register_checkbox2.isChecked())) {
+            //Toast.makeText(RegisterScreen.this,"Missing field",Toast.LENGTH_LONG).show();
+
             builder = new AlertDialog.Builder(RegisterScreen.this, R.style.MyAlertDialogStyle);
             builder.setTitle("Error");
             builder.setMessage("Please fill in all fields");
             displayAlert("missingfields");
         }
         else{
+           // Toast.makeText(RegisterScreen.this,studentid+phonenumber+emailaddress+password+idtype,Toast.LENGTH_LONG).show();
             register();
         }
     }
@@ -115,7 +118,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
-                       // Toast.makeText(RegisterScreen.this, error.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterScreen.this, error.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -187,13 +190,11 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                                     startActivity(new Intent(RegisterScreen.this, Success.class));
                                 }else{
                                     //Displaying a toast if the otp entered is wrong
-                                    Toast.makeText(RegisterScreen.this,"Wrong OTP Please Try Again",Toast.LENGTH_LONG).show();
-                                    try {
-                                        //Asking user to enter otp again
-                                        confirmOtp(emailaddress);
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
+                                        Toast.makeText(RegisterScreen.this,"Wrong OTP Please Try Again after sometime.",Toast.LENGTH_LONG).show();
+                                        loading.dismiss();
+                                        alertDialog.dismiss();
+                                        finish();
+
                                 }
                             }
                         },

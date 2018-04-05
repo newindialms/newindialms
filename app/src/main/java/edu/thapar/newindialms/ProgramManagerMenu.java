@@ -68,6 +68,15 @@ public class ProgramManagerMenu extends AppCompatActivity
         Intent intent = new Intent(getApplicationContext(),AcademicCalendar.class);
         startActivity(intent);
     }
+    public void GoToFirstYearSchedule(View v){
+        Intent intent = new Intent(getApplicationContext(),ProgramManagerFirtYearSchedule.class);
+        startActivity(intent);
+    }
+    public void GoToSecondYearSchedule(View v){
+       // fragment=new ProgramManagerSchedule();
+        Intent intent = new Intent(getApplicationContext(),ProgramManagerSchedule.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed() {
@@ -90,7 +99,7 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment=new ProgramManagerCourseList();
                 break;
             case R.id.navigation_program_schedule:
-                fragment=new ProgramManagerSchedule();
+                fragment=new ProgramManagerSelector();
                 break;
             case R.id.navigation_program_calendar:
                 fragment=new ProgramManagerCalendar();

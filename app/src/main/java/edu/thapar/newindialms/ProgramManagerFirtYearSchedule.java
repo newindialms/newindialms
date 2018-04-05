@@ -33,9 +33,9 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProgramManagerSchedule  extends AppCompatActivity {
-    private String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
-    private String day_url = "https://newindialms.000webhostapp.com/get_days.php";
+public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
+    private String issue_url = "https://newindialms.000webhostapp.com/get_issue_firstyear.php";
+    private String day_url = "https://newindialms.000webhostapp.com/get_days_firstyear.php";
     private Spinner issuespinner,dayspinner,semesterspinner;
     private ArrayList<String> issuelist,daylist;
     private JSONArray resultissue,resultday;
@@ -47,7 +47,6 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_program_manager_schedule);
-        // Inflate the layout for this fragment
         addListenerOnCourseSpinnerItemSelection();
         addListenerOnIssueSpinnerItemSelection();
         addListenerOnDaysSpinnerItemSelection();
@@ -62,7 +61,7 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
                 issuespinner = (Spinner) findViewById(R.id.course_schedule_issuespinner);
                 issue_details=issuespinner.getSelectedItem().toString();
 
-                dayspinner = (Spinner)findViewById(R.id.course_schedule_dayspinner);
+                dayspinner = (Spinner) findViewById(R.id.course_schedule_dayspinner);
                 day_details=dayspinner.getSelectedItem().toString();
 
                 semesterspinner = (Spinner) findViewById(R.id.course_schedule_semesterspinner);
@@ -75,7 +74,7 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
                     displayAlert();
                 }
                 else {
-                    Intent scheduleintent = new Intent(getApplicationContext(), ProgramManagerCourseSchedule.class);
+                    Intent scheduleintent = new Intent(getApplicationContext(), ProgramManagerCourseScheduleFirstYear.class);
                     scheduleintent.putExtra("issue_details", issue_details);
                     scheduleintent.putExtra("day_details", day_details);
                     scheduleintent.putExtra("semester_details", semester_details);
@@ -222,7 +221,6 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         //Setting adapter to show the items in the spinner
         dayspinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, daylist));
     }
-
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {

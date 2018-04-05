@@ -47,6 +47,9 @@
         <activity android:name=".ProgramScreenYear" />
         <activity android:name=".ProgramScreenSpecialization" />
         <activity android:name=".AcademicCalendar" />
+        <activity android:name=".ProgramManagerCourseScheduleFirstYear" />
+        <activity android:name=".ProgramManagerFirtYearSchedule" />
+        <activity android:name=".ProgramManagerSchedule" />
         <activity android:name=".ProgramScreenYearStudentName" />
         <activity android:name=".ProgramScreenCourse" />
         <activity android:name=".ProgramScreenSpecializationModule" />
