@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ViewStudentsTab extends AppCompatActivity {
 
@@ -29,6 +30,7 @@ public class ViewStudentsTab extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     private Toolbar feedbacktoolbar;
+    private TextView studentview_program_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,9 @@ public class ViewStudentsTab extends AppCompatActivity {
                 finish();
             }
         });
+
+        studentview_program_title=(TextView)findViewById(R.id.itemsselected);
+        studentview_program_title.setText("Student View");
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);

@@ -143,6 +143,12 @@
         <item>2020</item>
     </string-array>
 
+    <string-array name="yeartype">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 
     <!-- EnrollFaculty-->
 

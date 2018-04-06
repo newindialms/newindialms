@@ -77,7 +77,7 @@ public class SpinnerStudentList extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_feedback_screen, menu);
+        inflater.inflate(R.menu.menu_sendall_screen, menu);
         return true;
     }
 
@@ -85,7 +85,7 @@ public class SpinnerStudentList extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.feedbacksubmit) {
+        if (id == R.id.feedbacksendall) {
             Intent intent = new Intent(getApplicationContext(),EmailActivityAll.class);
             intent.putStringArrayListExtra("emaillist", (ArrayList<String>) EmaillistItems);
             startActivity(intent);

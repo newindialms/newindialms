@@ -12,7 +12,7 @@ public class StudentConfig {
         //Tags used in the JSON String
         public static final String TAG_year = "student_joining";
         public static final String TAG_program = "student_program";
-        public static final String TAG_specialization = "student_specialization";
+        public static final String TAG_specialization = "course_details_specialization";
 
         //JSON array name
         public static final String JSON_ARRAY = "result";

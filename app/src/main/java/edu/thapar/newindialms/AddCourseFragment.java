@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public class AddCourseFragment extends Fragment {
     private View rootview;
-    private Spinner facultyspinner,coursetypespinner,specializationtypespinner;
+    private Spinner facultyspinner,coursetypespinner,specializationtypespinner,yeartypespinner;
     private Button btnSubmit;
     private ArrayList<String> facultylist;
     private JSONArray resultfaculty;
@@ -48,7 +48,7 @@ public class AddCourseFragment extends Fragment {
     private ProgressDialog progressDialog;
 
     private EditText coursename,coursecode,coursecredits,courseabbr;
-    private String course_details_name,course_details_code,course_details_credits,course_details_abbr,course_details_category,course_details_faculty,course_details_specialization;
+    private String course_details_name,course_details_code,course_details_credits,course_details_abbr,course_details_category,course_details_faculty,course_details_specialization,course_details_year;
     public AddCourseFragment() {
         // Required empty public constructor
     }
@@ -59,6 +59,7 @@ public class AddCourseFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview=inflater.inflate(R.layout.activity_new_course, container, false);
+        addListenerOnYearSpinnerItemSelection();
         addListenerOnCourseSpinnerItemSelection();
         addListenerOnFacultySpinnerItemSelection();
         addListenerOnSpecializationSpinnerItemSelection();
@@ -81,6 +82,21 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 course_details_category=coursetypespinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(getActivity(),"Nothing selected, Please choose one item", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    //Spinner for Year
+    public void addListenerOnYearSpinnerItemSelection() {
+        yeartypespinner = (Spinner) rootview.findViewById(R.id.specialization_spinner_year);
+        yeartypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                course_details_year=yeartypespinner.getSelectedItem().toString();
             }
 
             @Override
@@ -221,6 +237,7 @@ public class AddCourseFragment extends Fragment {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<String, String>();
                     params.put("course_details_code", course_details_code);
+                    params.put("course_details_year", course_details_year);
                     params.put("course_details_name", course_details_name);
                     params.put("course_details_specialization",course_details_specialization);
                     params.put("course_details_credits", course_details_credits);
