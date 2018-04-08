@@ -103,6 +103,7 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenCoreCourseStudentListItems listItemProgramList = new ProgramScreenCoreCourseStudentListItems(
                                 jsonObject1.getString("student_firstname"),
+                                jsonObject1.getString("student_lastname"),
                                 jsonObject1.getString("student_rollnno")
 
 

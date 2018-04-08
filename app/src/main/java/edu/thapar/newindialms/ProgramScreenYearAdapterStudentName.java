@@ -55,7 +55,7 @@ public class ProgramScreenYearAdapterStudentName extends ArrayAdapter<ProgramScr
         final ProgramScreenYearStudentNameListItems hero = programScreenYearStudentNameListItems.get(position);
 
         //adding values to the list item
-        studentpic_programscreenyearlist.setText(hero.getStudentname());
+        studentpic_programscreenyearlist.setText(hero.getStudentname()+" "+hero.getStudnetfirstname());
         studentpic_programscreenstudentrollnolist.setText(hero.getStudentrollno());
         studentpic_programscreenstudentspecializationlist.setText(hero.getStudentspecialization());
 

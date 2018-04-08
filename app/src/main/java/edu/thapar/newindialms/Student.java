@@ -6,5 +6,5 @@ package edu.thapar.newindialms;
 
 public class Student {
 
-    public String StudentName,Studentrollno ;
+    public String StudentName,StudentFirstName,Studentrollno ;
 }

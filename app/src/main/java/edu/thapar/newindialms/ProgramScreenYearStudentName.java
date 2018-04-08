@@ -101,6 +101,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenYearStudentNameListItems listItemProgramList = new ProgramScreenYearStudentNameListItems(
                                 jsonObject1.getString("student_firstname"),
+                                jsonObject1.getString("student_lastname"),
                                 jsonObject1.getString("student_rollnno"),
                                 jsonObject1.getString("student_specialization")
                         );

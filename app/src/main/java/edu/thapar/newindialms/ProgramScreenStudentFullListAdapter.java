@@ -58,7 +58,7 @@ public class ProgramScreenStudentFullListAdapter extends ArrayAdapter<ProgramScr
         //getting the hero of the specified position
         final ProgramScreenStudentFullListListItems hero = programScreenStudentFullListListItems.get(position);
         //adding values to the list item
-        Studentpic_programstudentfulllist_name.setText(hero.getName());
+        Studentpic_programstudentfulllist_name.setText(hero.getName()+" "+hero.getFname());
         Studentpic_programstudentfulllist_rollno.setText(hero.getRollno());
 
         //finally returning the view

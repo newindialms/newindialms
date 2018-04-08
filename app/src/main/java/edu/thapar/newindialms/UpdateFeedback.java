@@ -68,9 +68,13 @@ public class UpdateFeedback extends AppCompatActivity {
           id = getIntent().getStringExtra("id");
          feedback_title = getIntent().getStringExtra("feedback_title");
          feedback_question = getIntent().getStringExtra("feedback_question");
+        feedback_type = getIntent().getStringExtra("feedback_type");
 
 
         feedbackspinner=(Spinner)findViewById(R.id.addfeedbackspinner);
+
+        feedbackspinner.setSelection(((ArrayAdapter<String>)feedbackspinner.getAdapter()).getPosition(feedback_type));
+
         feedbackspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

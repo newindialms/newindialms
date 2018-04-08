@@ -105,7 +105,8 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         ProgramScreenStudentFullListListItems listItemProgramList = new ProgramScreenStudentFullListListItems(
-                                jsonObject1.getString("student_name"),
+                                jsonObject1.getString("student_firstname"),
+                                jsonObject1.getString("student_lastname"),
                                 jsonObject1.getString("student_rollnno")
 
 

@@ -112,6 +112,7 @@ public class SpinnerStudentList extends AppCompatActivity {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                         EmaillistItems.add(jsonObject1.getString("student_email"));
                         SpinnerListItem spinnerListItem = new SpinnerListItem(
+                                jsonObject1.getString("student_lastname"),
                                 jsonObject1.getString("student_firstname"),
                                 jsonObject1.getString("student_rollnno"),
                                 jsonObject1.getString("student_email")

@@ -6,14 +6,28 @@ package edu.thapar.newindialms;
 
 public class ProgramScreenYearStudentNameListItems {
     private String studentname;
+    private String studnetfirstname;
     private String studentrollno;
     private String studentspecialization;
 
-    public ProgramScreenYearStudentNameListItems(String studentname,String rollno,String specialization) {
+    public ProgramScreenYearStudentNameListItems(String studnetfirstname,String studentname,String rollno,String specialization) {
         this.studentname=studentname;
+        this.studnetfirstname=studnetfirstname;
         this.studentrollno=rollno;
         this.studentspecialization=specialization;
 
+    }
+
+    public void setStudentname(String studentname) {
+        this.studentname = studentname;
+    }
+
+    public String getStudnetfirstname() {
+        return studnetfirstname;
+    }
+
+    public void setStudnetfirstname(String studnetfirstname) {
+        this.studnetfirstname = studnetfirstname;
     }
 
     public String getStudentname() {

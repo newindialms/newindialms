@@ -37,7 +37,7 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
     HashMap<String,String> ResultHash = new HashMap<>();
     private String FinalJSonObject ;
     private TextView FIRSTNAME,PHONE_NUMBER,ROLLNO;
-    private String FirstNameHolder, PhoneHolder, RollnoHolder;
+    private String FirstNameHolder,lastNameHolder, PhoneHolder, RollnoHolder;
     private Button DeleteButton;
     private String TempItem;
     private ProgressDialog progressDialog2;
@@ -206,6 +206,7 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
 
                             // Storing Student Name, Phone Number, Class into Variables.
                             FirstNameHolder = jsonObject.getString("student_firstname").toString() ;
+                            lastNameHolder = jsonObject.getString("student_lastname").toString() ;
                             PhoneHolder = jsonObject.getString("student_phone").toString() ;
                             RollnoHolder = jsonObject.getString("student_rollnno").toString() ;
 
@@ -230,7 +231,7 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
         {
 
             // Setting Student Name, Phone Number, Class into TextView after done all process .
-            FIRSTNAME.setText(FirstNameHolder);
+            FIRSTNAME.setText(lastNameHolder+" "+FirstNameHolder);
             PHONE_NUMBER.setText(PhoneHolder);
             ROLLNO.setText(RollnoHolder);
 

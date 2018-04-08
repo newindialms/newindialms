@@ -66,7 +66,7 @@ public class ListAdapterClass extends BaseAdapter {
             viewItem = (ViewItem) convertView.getTag();
         }
 
-        viewItem.TextViewStudentName.setText(valueList.get(position).StudentName);
+        viewItem.TextViewStudentName.setText(valueList.get(position).StudentName+" "+valueList.get(position).StudentFirstName);
         viewItem.TextViewStudentRollno.setText(valueList.get(position).Studentrollno);
 
         return convertView;

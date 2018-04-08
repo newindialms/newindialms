@@ -132,7 +132,8 @@ public class ShowAllStudentFragment extends Fragment {
                                 IdList.add(jsonObject.getString("studentdetails_ID").toString());
 
                                 //Adding Student Name.
-                                student.StudentName = jsonObject.getString("student_firstname").toString();
+                                student.StudentName = jsonObject.getString("student_lastname").toString();
+                                student.StudentFirstName = jsonObject.getString("student_firstname").toString();
                                 student.Studentrollno = jsonObject.getString("student_rollnno").toString();
 
                                 studentList.add(student);

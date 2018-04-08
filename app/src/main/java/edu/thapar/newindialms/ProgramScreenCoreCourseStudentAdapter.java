@@ -56,7 +56,7 @@ public class ProgramScreenCoreCourseStudentAdapter extends ArrayAdapter<ProgramS
         //getting the hero of the specified position
         final ProgramScreenCoreCourseStudentListItems hero = programScreenCoreCourseStudentListItems.get(position);
         //adding values to the list item
-        Studentpic_programstudentcorecourselist_name.setText(hero.getName());
+        Studentpic_programstudentcorecourselist_name.setText(hero.getName()+" "+hero.getFname());
         Studentpic_programstudentcorecourselist_rollno.setText(hero.getRollno());
 
         //finally returning the view

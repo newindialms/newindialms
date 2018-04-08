@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -39,14 +41,29 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
     private Spinner issuespinner,dayspinner,semesterspinner;
     private ArrayList<String> issuelist,daylist;
     private JSONArray resultissue,resultday;
+    private Toolbar toolbar_all_notiifcation;
     private Button gobutton;
     private String issue_details,day_details,semester_details;
     private AlertDialog.Builder builder;
+    private TextView toolbar_title;
     View rootview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_program_manager_schedule);
+
+        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
+        toolbar_title.setText("First Year Course Schedule");
+
+        setSupportActionBar(toolbar_all_notiifcation);
+        toolbar_all_notiifcation.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         addListenerOnCourseSpinnerItemSelection();
         addListenerOnIssueSpinnerItemSelection();
         addListenerOnDaysSpinnerItemSelection();

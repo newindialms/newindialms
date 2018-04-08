@@ -36,7 +36,7 @@ public class SpinnerAdapter extends RecyclerView.Adapter<SpinnerAdapter.ViewHold
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
        SpinnerListItem spinnerStudentList=spinnerListItems.get(position);
-        holder.firstname.setText(spinnerStudentList.getFirstname());
+        holder.firstname.setText(spinnerStudentList.getLastname()+" "+spinnerStudentList.getFirstname());
         holder.rollno.setText(spinnerStudentList.getRollno());
         holder.email.setText(spinnerStudentList.getEmail());
         holder.mailimage.setImageResource(R.drawable.envelope);

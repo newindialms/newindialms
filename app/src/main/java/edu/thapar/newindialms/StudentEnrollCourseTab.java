@@ -123,8 +123,8 @@ StudentEnrollCourseTab extends AppCompatActivity {
                     EnrollCourseFragment enrollCourseFragment =new EnrollCourseFragment();
                     return enrollCourseFragment;
                 case 1:
-                    EnrolledCourseFragment enrolledCourseFragment =new EnrolledCourseFragment();
-                    return enrolledCourseFragment;
+                    EnrolledCourseFragment disenrolledCourseFragment =new EnrolledCourseFragment();
+                    return disenrolledCourseFragment;
             }
             return null;
         }

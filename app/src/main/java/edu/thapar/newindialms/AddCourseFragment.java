@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -44,8 +45,10 @@ public class AddCourseFragment extends Fragment {
     private JSONArray resultfaculty;
     public static final String facultyspinner_URL = "https://newindialms.000webhostapp.com/get_facultyname.php";
     public static final String  newcourse_url = "https://newindialms.000webhostapp.com/new_course.php";
+    public static final String  firstnewcourse_url = "https://newindialms.000webhostapp.com/add_first_course.php";
     private AlertDialog.Builder builder;
     private ProgressDialog progressDialog;
+    private TextView addcourse_specializationtype,addcourse_coursetype;
 
     private EditText coursename,coursecode,coursecredits,courseabbr;
     private String course_details_name,course_details_code,course_details_credits,course_details_abbr,course_details_category,course_details_faculty,course_details_specialization,course_details_year;
@@ -69,7 +72,12 @@ public class AddCourseFragment extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddCourseFunction();
+                if(course_details_year.equals("1")){
+                    AddFirstCourseFunction();
+                }
+                else{
+                    AddCourseFunction();
+                }
             }
         });
         return rootview;
@@ -96,7 +104,23 @@ public class AddCourseFragment extends Fragment {
         yeartypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                specializationtypespinner = (Spinner) rootview.findViewById(R.id.specialization_spinner);
+                addcourse_specializationtype = (TextView) rootview.findViewById(R.id.addcourse_specializationtype);
+                addcourse_coursetype = (TextView) rootview.findViewById(R.id.addcourse_coursetype);
+                coursetypespinner = (Spinner) rootview.findViewById(R.id.coursetypespinner);
+
                 course_details_year=yeartypespinner.getSelectedItem().toString();
+                if(course_details_year.equals("1")){
+                    specializationtypespinner.setVisibility(View.INVISIBLE);
+                    coursetypespinner.setVisibility(View.INVISIBLE);
+                    addcourse_specializationtype.setVisibility(View.INVISIBLE);
+                    addcourse_coursetype.setVisibility(View.INVISIBLE);
+                }else {
+                    specializationtypespinner.setVisibility(View.VISIBLE);
+                    coursetypespinner.setVisibility(View.VISIBLE);
+                    addcourse_specializationtype.setVisibility(View.VISIBLE);
+                    addcourse_coursetype.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -237,11 +261,75 @@ public class AddCourseFragment extends Fragment {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<String, String>();
                     params.put("course_details_code", course_details_code);
-                    params.put("course_details_year", course_details_year);
                     params.put("course_details_name", course_details_name);
                     params.put("course_details_specialization",course_details_specialization);
                     params.put("course_details_credits", course_details_credits);
                     params.put("course_details_category", course_details_category);
+                    params.put("course_details_faculty", course_details_faculty);
+                    params.put("course_details_abbr", course_details_abbr);
+                    return params;
+                }
+            };
+            MySingleton.getInstance(getActivity()).addToRequestQueue(stringRequest);
+        }
+    }
+    public void AddFirstCourseFunction(){
+        progressDialog= new ProgressDialog(getContext());
+        progressDialog.setMessage("Inserting Data");
+        progressDialog.show();
+
+        coursename=(EditText)rootview.findViewById(R.id.addcourse_name);
+        coursecode=(EditText)rootview.findViewById(R.id.addcourse_code);
+        coursecredits=(EditText)rootview.findViewById(R.id.addcourse_credits);
+        courseabbr=(EditText)rootview.findViewById(R.id.addcourse_abbr);
+
+
+        course_details_name=coursename.getText().toString();
+        course_details_code=coursecode.getText().toString();
+        course_details_credits=coursecredits.getText().toString();
+        course_details_abbr=courseabbr.getText().toString();
+        course_details_category=coursetypespinner.getSelectedItem().toString();
+        course_details_faculty=facultyspinner.getSelectedItem().toString();
+
+        if(course_details_name.equals("") ||course_details_code.equals("") ||course_details_credits.equals("") ||course_details_abbr.equals("") ||
+               course_details_faculty.equals("")){
+            progressDialog.dismiss();
+            builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
+            builder.setMessage(getResources().getString(R.string.registration_error_missingfields_text));
+            displayAlert("input_error");
+        }
+        else{
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, firstnewcourse_url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        progressDialog.dismiss();
+                        JSONArray jsonArray = new JSONArray(response);
+                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+                        String code = jsonObject.getString("code");
+                        String message = jsonObject.getString("message");
+
+                        builder.setTitle(getResources().getString(R.string.registration_server_response));
+                        builder.setMessage(message);
+                        displayAlert(code);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getActivity(),error.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("course_details_code", course_details_code);
+                    params.put("course_details_name", course_details_name);
+                    params.put("course_details_credits", course_details_credits);
                     params.put("course_details_faculty", course_details_faculty);
                     params.put("course_details_abbr", course_details_abbr);
                     return params;

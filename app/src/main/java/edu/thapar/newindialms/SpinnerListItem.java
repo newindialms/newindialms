@@ -7,14 +7,24 @@ package edu.thapar.newindialms;
 public class SpinnerListItem {
 
     private String firstname;
+    private String lastname;
     private String rollno;
     private String email;
 
 
-    public SpinnerListItem(String firstname, String rollno, String email) {
+    public SpinnerListItem(String lastname,String firstname, String rollno, String email) {
         this.firstname = firstname;
+        this.lastname = lastname;
         this.rollno = rollno;
         this.email = email;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getFirstname() {
