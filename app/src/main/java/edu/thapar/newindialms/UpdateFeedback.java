@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -130,9 +131,9 @@ public class UpdateFeedback extends AppCompatActivity {
                   String message = jsonObject.getString("message");
                   builder.setTitle(code);
                   builder.setMessage(message);
-                  //displayAlert(message);
-                  Toast.makeText(UpdateFeedback.this,"Feedback Updated Successfully",Toast.LENGTH_LONG).show();
-                  UpdateFeedback.this.finish();
+                  displayAlert(message);
+                 // Toast.makeText(UpdateFeedback.this,"Feedback Updated Successfully",Toast.LENGTH_LONG).show();
+                 // UpdateFeedback.this.finish();
               }
               catch (JSONException e){
 
@@ -174,9 +175,9 @@ public class UpdateFeedback extends AppCompatActivity {
                     String message = jsonObject.getString("message");
                     builder.setTitle(code);
                     builder.setMessage(message);
-                   // displayAlert(message);
-                    Toast.makeText(UpdateFeedback.this,"Feedback Deleted Successfully",Toast.LENGTH_LONG).show();
-                    UpdateFeedback.this.finish();
+                    displayAlert(message);
+                    //Toast.makeText(UpdateFeedback.this,"Feedback Deleted Successfully",Toast.LENGTH_LONG).show();
+                   // UpdateFeedback.this.finish();
                 }
                 catch (JSONException e){
 
@@ -211,6 +212,9 @@ public class UpdateFeedback extends AppCompatActivity {
                 }
                 if (code.equals("Success")) {
                     dialoginterface.dismiss();
+                    Intent feedbackintent = new Intent(getApplicationContext(), FeedbackTab.class);
+                    feedbackintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(feedbackintent);
 
                 }
                 if (code.equals("Fail")) {

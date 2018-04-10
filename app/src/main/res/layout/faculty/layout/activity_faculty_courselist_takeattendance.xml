@@ -9,7 +9,6 @@
     <include
         android:id="@+id/facultycourselist_toolbar"
         layout="@layout/facultycourselist_toolbar"/>
-
     <TextView
         android:id="@+id/facultycourselist_takeattendance_title"
         android:layout_width="match_parent"

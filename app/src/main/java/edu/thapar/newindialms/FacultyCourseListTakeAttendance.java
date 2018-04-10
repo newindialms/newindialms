@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -36,6 +40,7 @@ import java.util.Map;
  */
 
 public class FacultyCourseListTakeAttendance extends AppCompatActivity {
+    private static final String TAG = "FacultyCourseListTakeAttendance";
     public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendance.php";
     private String coursename, faculty_employeeid,course_date,course_time;
@@ -83,11 +88,39 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         builder = new AlertDialog.Builder(this, R.style.MyFacultyAlertDialogStyle);
         layoutinflater = getLayoutInflater();
 
-        ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_faculty_takeattendance_footer, listView, false);
-        listView.addFooterView(footer);
+        //ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_faculty_takeattendance_footer, listView, false);
+       // listView.addFooterView(footer);
     }
 
-    public void showResult(View v) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_feedback_screen, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.feedbacksubmit) {
+           /* for (FacultyCourseListTakeAttendanceListItems p :adapter.getpresentattendanceDetails()) {
+                presentlist.add(p.getStudentrollno());
+                //attendance_status="Present";
+            }
+            for (FacultyCourseListTakeAttendanceListItems p :adapter.getabsentattendanceDetails()) {
+                absentlist.add(p.getStudentrollno());
+                //attendance_status="Absent";
+            }*/
+            savepresentDetails();
+            saveabsentDetails();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+   /* public void showResult(View v) {
         for (FacultyCourseListTakeAttendanceListItems p :adapter.getpresentattendanceDetails()) {
             presentlist.add(p.getStudentrollno());
         }
@@ -97,13 +130,12 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         }
         savepresentDetails();
         saveabsentDetails();
-    }
+    }*/
 
 public void savepresentDetails()
     {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
-        attendance_status="Present";
         //Again creating the string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, saveattendance_URL,
                 new Response.Listener<String>() {
@@ -116,7 +148,7 @@ public void savepresentDetails()
                             String code = jsonObject.getString("code");
                             String message = jsonObject.getString("message");
                             String message_time = jsonObject.getString("message_time");
-                            String message_date = jsonObject.getString("message_date");
+                           String message_date = jsonObject.getString("message_date");
                             if (code.equals("Success")) {
                                 loading.dismiss();
                                 builder.setTitle(code);
@@ -150,6 +182,7 @@ public void savepresentDetails()
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> numbers = new ArrayList<String>();
+                attendance_status="Present";
                 arrayattendancelist = new String[adapter.getpresentattendanceDetails().size()];
                 for (int i = 0; i < adapter.getpresentattendanceDetails().size(); i++) {
                     numbers.add(adapter.getpresentattendanceDetails().get(i).getStudentrollno());
@@ -178,7 +211,6 @@ public void savepresentDetails()
     {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
-        attendance_status="Absent";
         //Again creating the string request
         StringRequest stringRequest = new StringRequest(Request.Method.POST, saveattendance_URL,
                 new Response.Listener<String>() {
@@ -189,10 +221,13 @@ public void savepresentDetails()
                             JSONArray jsonArray = new JSONArray(response);
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
                             String code = jsonObject.getString("code");
+                            String message_time = jsonObject.getString("message_time");
+                            String message_date = jsonObject.getString("message_date");
                             if (code.equals("Success")) {
                                 loading.dismiss();
                                 builder.setTitle(code);
                                 builder.setMessage("Now Select the Feedback's");
+                                displayAlert(message_time,message_date);
 
                             } else {
                                 loading.dismiss();
@@ -220,6 +255,7 @@ public void savepresentDetails()
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
+                attendance_status="Absent";
                 ArrayList<String> numbers = new ArrayList<String>();
                 arrayattendancelist = new String[adapter.getabsentattendanceDetails().size()];
                 for (int i = 0; i < adapter.getabsentattendanceDetails().size(); i++) {
@@ -258,12 +294,13 @@ public void savepresentDetails()
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyCourseListTakeAttendanceListItems listItemProgramList = new FacultyCourseListTakeAttendanceListItems(
-                                jsonObject1.getString("student_name"),
+                                jsonObject1.getString("student_firstname"),
+                                jsonObject1.getString("student_lastname"),
                                 jsonObject1.getString("student_rollnno")
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new FacultyCourseListTakeAttendanceAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_takeattendance_listitems, R.layout.activity_faculty_takeattendance_footer, heroList);
+                    adapter = new FacultyCourseListTakeAttendanceAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_takeattendance_listitems, heroList);
                     listView.setAdapter(adapter);
 
                 } catch (JSONException e) {

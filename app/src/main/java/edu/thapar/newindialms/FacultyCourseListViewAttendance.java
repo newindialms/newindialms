@@ -86,6 +86,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
                 course_details_faculty=coursespinner.getSelectedItem().toString();
                 Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListViewAttendanceDisplay.class);
                 facultyintent.putExtra("attendance_date",datevalue);
+                facultyintent.putExtra("faculty_employeeid",faculty_employeeid);
                 facultyintent.putExtra("course_details_name",course_details_faculty);
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 if (datevalue != null && !datevalue.isEmpty()) {

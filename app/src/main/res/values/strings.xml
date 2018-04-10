@@ -188,7 +188,7 @@
 
     <string name="calendar_notification">Send Academic Calendar</string>
     <string name="faculty_notification">Send Faculty Notification</string>
-    <string name="student_notifications">Send Student Calendar</string>
+    <string name="student_notifications">Send Student Notification</string>
     <string name="send_faculty_notification_title">Faculty Notification</string>
     <string name="send_faculty_notification_subtitle">Title</string>
     <string name="send_faculty_notification_subtitle_hint">Enter Title Here</string>
@@ -391,7 +391,7 @@
     <string name="enrolledcoursesattendance_title">My Attendance</string>
 
 
-    <string name="update_feedback">Udpate Feedback</string>
+    <string name="update_feedback">Update Feedback</string>
     <string name="enter_feedback">Enter the feedback</string>
     <string name="type_feedback">Type Your Message : </string>
     <string name="thanks_feedback">Thanks for submitting Feedback</string>

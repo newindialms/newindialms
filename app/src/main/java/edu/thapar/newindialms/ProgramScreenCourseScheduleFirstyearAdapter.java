@@ -78,7 +78,7 @@ public class ProgramScreenCourseScheduleFirstyearAdapter extends ArrayAdapter<Pr
         timetable_program.setText(hero.getTimetable_program());
 
         timetable_program_group.setText("Group- "+hero.getStudent_group());
-        timetable_program_batch.setText("Batch- "+hero.getStudent_batch());
+        timetable_program_batch.setText("Section- "+hero.getStudent_batch());
         //finally returning the view
         return view;
     }

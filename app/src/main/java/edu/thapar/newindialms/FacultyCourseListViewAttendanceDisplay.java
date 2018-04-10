@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
     public static final String attendancedetails_url = "https://newindialms.000webhostapp.com/get_attendancedetails.php";
-    String attendance_date, course_details_name;
+    String attendance_date, course_details_name,faculty_employeeid;
     TextView facultycourselist_attendancedisplay_title;
     Toolbar faculty_toolbar;
     FacultyCourseListViewAttendanceDisplayAdapter adapter;
@@ -51,6 +51,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_courselist_attendancedisplay);
         attendance_date = getIntent().getStringExtra("attendance_date");
         course_details_name = getIntent().getStringExtra("course_details_name");
+        faculty_employeeid= getIntent().getStringExtra("faculty_employeeid");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -140,6 +141,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("attendance_date", attendance_date);
                 params.put("course_details_name", course_details_name);
+                params.put("faculty_employeeid", faculty_employeeid);
                 return params;
             }
         };

@@ -27,7 +27,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     //activity context
     Context context;
     //the layout resource file for the list items
-    int resource, resource1;
+    int resource;
     private String status = "present";
     List<String> absentlist,presentlist;
     View view;
@@ -36,11 +36,10 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     Switch attendance_switch;
 
     //constructor initializing the values
-    public FacultyCourseListTakeAttendanceAdapter(Context context, int resource, int resource1, List<FacultyCourseListTakeAttendanceListItems> facultyCourseListTakeAttendanceListItems) {
+    public FacultyCourseListTakeAttendanceAdapter(Context context, int resource, List<FacultyCourseListTakeAttendanceListItems> facultyCourseListTakeAttendanceListItems) {
         super(context, resource, facultyCourseListTakeAttendanceListItems);
         this.context = context;
         this.resource = resource;
-        this.resource1 = resource1;
         this.facultyCourseListTakeAttendanceListItems = facultyCourseListTakeAttendanceListItems;
     }
 
@@ -53,11 +52,8 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         //And for this we need a layoutinflater
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        if (convertView == null) {
+        view = layoutInflater.inflate(resource, null, false);
 
-            view = layoutInflater.inflate(resource, null, false);
-
-        }
 
         //getting the view elements of the list from the view
         faculty_courselist_attendance_take = (TextView) view.findViewById(R.id.faculty_courselist_attendance_take);
@@ -69,7 +65,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         final FacultyCourseListTakeAttendanceListItems hero = facultyCourseListTakeAttendanceListItems.get(position);
 
         //adding values to the list item
-        faculty_courselist_attendance_take.setText(hero.getStudentname());
+        faculty_courselist_attendance_take.setText(hero.getStudentname()+" "+hero.getFname());
         faculty_courselist_attendance_take_roolno.setText(hero.getStudentrollno());
         attendance_switch.setChecked(true);
         absentlist = new ArrayList<>();

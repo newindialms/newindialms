@@ -7,7 +7,6 @@
     tools:context="edu.thapar.newindialms.FacultyCourseListTakeAttendance">
 
     <Button
-        android:onClick="showResult"
     android:id="@+id/SubmitAttendance"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

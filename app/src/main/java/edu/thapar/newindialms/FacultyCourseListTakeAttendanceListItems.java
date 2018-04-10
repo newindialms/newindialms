@@ -10,13 +10,23 @@ public class FacultyCourseListTakeAttendanceListItems implements Serializable {
 
     private String coursename;
     private String studentname;
+    private String fname;
     private String studentrollno;
     private boolean status;
 
 
-    public FacultyCourseListTakeAttendanceListItems(String studentname, String studentrollno) {
+    public FacultyCourseListTakeAttendanceListItems(String fname,String studentname, String studentrollno) {
         this.studentname = studentname;
+        this.fname = fname;
         this.studentrollno = studentrollno;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
     public String getCoursename() {

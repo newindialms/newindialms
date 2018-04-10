@@ -9,10 +9,12 @@
         android:id="@+id/Studentpic_programstudentcorecourselist_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:text="@string/removecourse_name"
         android:layout_gravity="center"
+        android:layout_weight="0.5"
         android:gravity="center"
+        android:paddingLeft="10dp"
+        android:text="@string/removecourse_name"
+        android:textAlignment="viewStart"
         android:textColor="@color/textColor"
         android:textSize="18sp" />
 

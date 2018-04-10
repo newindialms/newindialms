@@ -91,7 +91,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1.12"
                     android:contentDescription="@string/navigation_program_courselist"
-                    app:srcCompat="@drawable/ic_white_courselist" />
+                    app:srcCompat="@drawable/ic_courselist" />
 
                 <TextView
 

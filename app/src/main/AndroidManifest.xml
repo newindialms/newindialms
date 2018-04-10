@@ -94,7 +94,8 @@
         </activity>
         <activity
             android:name=".FeedbackTab"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".FacultyTab"
             android:windowSoftInputMode="stateAlwaysHidden" />
