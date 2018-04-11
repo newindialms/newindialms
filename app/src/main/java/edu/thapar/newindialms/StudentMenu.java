@@ -26,7 +26,7 @@ import android.widget.Toast;
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment=null;
-    private String studentname,studentid,studentyear,student_specialization;
+    private String studentname,studentlastname,studentid,studentyear,student_specialization;
     private TextView student_toolbar_name,student_toolbar_id;
     private AlertDialog.Builder builder;
 
@@ -38,6 +38,7 @@ public class StudentMenu extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         studentname = getIntent().getStringExtra("studentname");
+        studentlastname = getIntent().getStringExtra("studentlastname");
         studentid = getIntent().getStringExtra("studentid");
         studentyear = getIntent().getStringExtra("studentyear");
         student_specialization = getIntent().getStringExtra("student_specialization");
@@ -62,7 +63,7 @@ public class StudentMenu extends AppCompatActivity
         View header = navigationView.getHeaderView(0);
         student_toolbar_name=(TextView)header.findViewById(R.id.student_toolbar_name);
         student_toolbar_id=(TextView)header.findViewById(R.id.student_toolbar_id);
-        student_toolbar_name.setText(studentname);
+        student_toolbar_name.setText(studentlastname+" "+studentname);
         student_toolbar_id.setText(studentid);
 
 

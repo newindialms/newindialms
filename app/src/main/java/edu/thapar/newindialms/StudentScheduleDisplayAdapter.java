@@ -40,7 +40,7 @@ import java.util.List;
             StudentScheduleDisplayListItems hero = heroList.get(position);
             holder.student_scheduledisplay_program.setText(hero.getProgram());
             holder.student_scheduledisplay_course.setText(hero.getCourse());
-            holder.student_scheduledisplay_starttime.setText(hero.getStarttime());
+            holder.student_scheduledisplay_starttime.setText(hero.getEndtime());
             holder.student_scheduledisplay_starttimes.setText(hero.getStarttime());
             holder.student_scheduledisplay_endtime.setText(hero.getEndtime());
             holder.student_scheduledisplay_faculty.setText(hero.getFaculty());

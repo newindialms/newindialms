@@ -58,7 +58,7 @@ public class StudentMyProfile extends AppCompatActivity {
     private HashMap<String,String> ResultHash = new HashMap<>();
     private String ParseResult ;
     HttpParse httpParse = new HttpParse();
-    private String studentprofilename,studentprofilerollno,studentprofileemail,studentprofileprogram,studentprofilespecialization,studentprofileurl;
+    private String studentprofilename,studentprofilelastname,studentprofilerollno,studentprofileemail,studentprofileprogram,studentprofilespecialization,studentprofileurl;
     private Toolbar studentprofile_toolbar;
     ImageView imageView;
     //Image request code
@@ -309,6 +309,7 @@ public class StudentMyProfile extends AppCompatActivity {
 
                             // Storing Student Name, Phone Number, Class into Variables.
                             studentprofilename = jsonObject.getString("student_firstname");
+                            studentprofilelastname = jsonObject.getString("student_lastname");
                             studentprofilerollno = jsonObject.getString("student_rollnno");
                             studentprofileemail = jsonObject.getString("student_email");
                             studentprofileprogram = jsonObject.getString("student_program");
@@ -337,7 +338,7 @@ public class StudentMyProfile extends AppCompatActivity {
         {
 
             // Setting Student Name, Phone Number, Class into TextView after done all process .
-            studentprofile_name.setText(studentprofilename);
+            studentprofile_name.setText(studentprofilelastname+" "+studentprofilename);
             studentprofile_rollno.setText(studentprofilerollno);
             studentprofile_email.setText(studentprofileemail);
             studentprofile_program.setText(studentprofileprogram);

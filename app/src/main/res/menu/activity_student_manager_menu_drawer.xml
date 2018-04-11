@@ -12,7 +12,7 @@
         android:checkable="true"/>
     <item
         android:id="@+id/navigation_program_mycourses"
-        android:icon="@drawable/ic_course"
+        android:icon="@drawable/student_attendance"
         android:title="@string/navigation_program_mycourses"
         android:checkable="true"/>
     <!--<item
