@@ -17,11 +17,17 @@
         android:textSize="24sp"
         android:textColor="@color/studentcolorPrimaryDark"/>
     <!-- TODO: Update blank fragment layout -->
-
-    <ListView
-        android:id="@+id/enrolledcourselistView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        />
+        android:layout_marginTop="45dp">
+
+            <ListView
+                android:id="@+id/enrolledcourselistView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

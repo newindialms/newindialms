@@ -70,6 +70,7 @@ public class FacultyFeedackLikeDisplayAdapter extends ArrayAdapter<FacultyFeedba
 
        if(hero.getLike().equals("Like")){
            like_button.setVisibility(View.VISIBLE);
+           like_button.setLiked(true);
            dislike_button.setVisibility(View.INVISIBLE);
        }
        else{

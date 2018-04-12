@@ -66,6 +66,7 @@ public class FacultyFeedackRateDisplayAdapter extends ArrayAdapter<FacultyFeedba
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
         int numberOfStars= (int) Math.round(hero.getStars());
         staratebar.setNumStars(numberOfStars);
+        staratebar.setRating(numberOfStars);
 
         //finally returning the view
         return view;

@@ -41,6 +41,7 @@ public class EnrolledCourseFragment extends Fragment {
     private String studentid;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
+    SwipeRefreshLayout swipeRefreshLayout;
     public EnrolledCourseFragment() {
         // Required empty public constructor
     }
@@ -54,6 +55,16 @@ public class EnrolledCourseFragment extends Fragment {
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
+        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+                loadRecyclerViewData();
+            }
+        });
         return rootview;
     }
 
