@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/textColor"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:id="@+id/relative1"
+        android:background="@drawable/faculty_rounded_button"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/text_rating_questions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/faculty_courselist_rightarrow2"
+            android:layout_toStartOf="@+id/faculty_courselist_rightarrow2"
+            android:text="Question"
+            android:textAlignment="center"
+            android:textColor="@color/facultycolorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/faculty_courselist_rightarrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/text_rating_questions"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/textColor"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/faculty_rightarrow" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

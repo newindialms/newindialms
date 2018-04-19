@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -50,6 +52,7 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
+        LinearLayout relative1 = (LinearLayout)view.findViewById(R.id.relative1);
         TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
         ImageView enrollattendance_arrow= (ImageView) view.findViewById(R.id.studentPicarrow) ;
 
@@ -61,7 +64,7 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
         enrollattendance_arrow.setImageResource(R.drawable.student_right_arrow);
 
 
-        enrollattendance_arrow.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String enrolledcoursename=hero.getEnrolledcoursename();

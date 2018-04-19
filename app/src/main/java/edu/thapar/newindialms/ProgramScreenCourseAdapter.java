@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
+        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
         TextView studentpic_programscreencourselist = (TextView)view.findViewById(R.id.studentpic_programscreencourselist);
         TextView studentpic_programscreencourselistcode = (TextView)view.findViewById(R.id.studentpic_programscreencourselistcode);
         ImageView studentPicarrow = (ImageView)view.findViewById(R.id.studentPicarrow);
@@ -61,7 +63,7 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
         studentpic_programscreencourselistcode.setText(hero.getCoursecode());
         studentPicarrow.setImageResource(R.drawable.ic_right);
 
-        studentPicarrow.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
 
             String allcoursename=hero.getCoursename();
             @Override

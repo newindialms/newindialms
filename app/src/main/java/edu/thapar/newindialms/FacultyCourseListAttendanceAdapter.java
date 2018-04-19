@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,6 +50,8 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
+        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = (RelativeLayout)view.findViewById(R.id.relative2);
         TextView faculty_courselist_attendance_take = (TextView) view.findViewById(R.id.faculty_courselist_attendance_take);
         ImageView faculty_courselist_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow1);
         TextView faculty_courselist_attendance_see = (TextView) view.findViewById(R.id.faculty_courselist_attendance_see);
@@ -65,7 +68,7 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
         faculty_courselist_rightarrow1.setImageResource(R.drawable.faculty_rightarrow);
         faculty_courselist_rightarrow2.setImageResource(R.drawable.faculty_rightarrow);
 
-        faculty_courselist_rightarrow1.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
 
             String coursename=hero.getCoursename();
             @Override
@@ -78,7 +81,7 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
             }
         });
 
-        faculty_courselist_rightarrow2.setOnClickListener(new View.OnClickListener() {
+        relative2.setOnClickListener(new View.OnClickListener() {
 
             String coursename=hero.getCoursename();
             @Override

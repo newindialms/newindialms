@@ -20,9 +20,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class
-
-StudentEnrollCourseTab extends AppCompatActivity {
+public class StudentEnrollCourseTab extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

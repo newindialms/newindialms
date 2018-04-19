@@ -48,7 +48,9 @@ public class StudentMenu extends AppCompatActivity
             NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
             Menu menu =navigationView.getMenu();
             MenuItem target = menu.findItem(R.id.navigation_program_enrollcourse);
+            MenuItem targetspecialization = menu.findItem(R.id.navigation_program_specialization);
             target.setVisible(true);
+            targetspecialization.setVisible(true);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
@@ -143,6 +145,12 @@ public class StudentMenu extends AppCompatActivity
                 enrollcourseintent.putExtra("student_specialization",student_specialization);
                 enrollcourseintent.putExtra("studentid", studentid);
                 startActivity(enrollcourseintent);
+                break;
+            case R.id.navigation_program_specialization:
+                Intent specializationintent = new Intent(getApplicationContext(), StudentEnrollSpecializationTab.class);
+                specializationintent.putExtra("openfragment", "0");
+                specializationintent.putExtra("studentid", studentid);
+                startActivity(specializationintent);
                 break;
             case R.id.navigation_program_notification:
                 Intent notificationitent = new Intent(getApplicationContext(), StudentNotification.class);

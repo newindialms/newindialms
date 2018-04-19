@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
-        android:text="@string/enrolledcourses_title"
+        android:text="@string/navigation_program_mycourses"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textColor="@color/studentcolorPrimaryDark"/>

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,6 +50,8 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
+        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = (RelativeLayout)view.findViewById(R.id.relative2);
         TextView enrolledcourselist_daywise = (TextView) view.findViewById(R.id.enrolledcourselist_daywise);
         TextView enrolledcourselist_cumulative = (TextView) view.findViewById(R.id.enrolledcourselist_cumulative);
 
@@ -66,7 +69,7 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         enrolledcourselist_cumulative.setText(hero.getCumulative());
         studentPicarrow2.setImageResource(R.drawable.student_right_arrow);
 
-        studentPicarrow1.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String course_details_name=hero.getEnrolledcoursename();
@@ -80,7 +83,7 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
             }
         });
 
-        studentPicarrow2.setOnClickListener(new View.OnClickListener() {
+        relative2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String course_details_name=hero.getEnrolledcoursename();

@@ -41,7 +41,7 @@ public class EnrollCourseFragment extends Fragment{
     View rootview;
     String student_specialization,studentid,student_rollnno;
     TextView enrolled_specialization;
-    String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
+        String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
     String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
@@ -64,8 +64,6 @@ public class EnrollCourseFragment extends Fragment{
         student_specialization =  getActivity().getIntent().getExtras().getString("student_specialization");
         studentid =  getActivity().getIntent().getExtras().getString("studentid");
         student_rollnno =  getActivity().getIntent().getExtras().getString("studentid");
-        enrolled_specialization=(TextView)rootview.findViewById(R.id.Enrollspecialization_textview_value);
-        enrolled_specialization.setText(student_specialization);
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
         EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);

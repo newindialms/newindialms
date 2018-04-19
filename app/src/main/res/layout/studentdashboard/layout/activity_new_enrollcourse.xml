@@ -12,26 +12,6 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/enrollcourse_specialization"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:id="@+id/Enrollspecialization_textview_value"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_weight="0.51"
-                    android:text="@string/specialization_name"
-                    android:textAlignment="center"
-                    android:textColor="@color/studentcolorPrimaryDark"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/enrollcourse_listview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

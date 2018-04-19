@@ -2,10 +2,13 @@ package edu.thapar.newindialms;
 
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +45,7 @@ public class EnrolledCourseFragment extends Fragment {
     List<EnrolledCourseListItems> heroList;
     ListView listView;
     SwipeRefreshLayout swipeRefreshLayout;
+    private AlertDialog.Builder builder;
     public EnrolledCourseFragment() {
         // Required empty public constructor
     }
@@ -82,10 +86,19 @@ public class EnrolledCourseFragment extends Fragment {
                     JSONArray array = j.getJSONArray("course_details");
 
                     for (int i = 0; i < array.length(); i++) {
-                        EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
-                               array.getString(i)
-                        );
-                        heroList.add(listItemProgramList);
+                        if( array.getString(0).equals("")){
+                            builder = new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
+                            builder.setTitle("Records");
+                            builder.setMessage("No Courses Avaliable,Update your specialization and Courses");
+                            displayAlert();
+                        }
+                        else{
+                            EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
+                                    array.getString(i)
+                            );
+                            heroList.add(listItemProgramList);
+                        }
+
                     }
                     adapter = new EnrolledCourseAdapter(getActivity(),R.layout.fragment_enrolled_course_listitems,heroList);
                     listView.setAdapter(adapter);
@@ -114,7 +127,21 @@ public class EnrolledCourseFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.enrolledcourses_title));
+        getActivity().setTitle("My Courses");
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                Intent specializationintent = new Intent(getContext(), StudentEnrollSpecializationTab.class);
+                specializationintent.putExtra("openfragment", "0");
+                specializationintent.putExtra("studentid", studentid);
+                startActivity(specializationintent);
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

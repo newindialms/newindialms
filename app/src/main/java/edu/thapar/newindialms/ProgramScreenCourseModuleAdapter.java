@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
 
         //getting the view elements of the list from the view
         TextView studentpic_programscreencoursemodulelist = (TextView)view.findViewById(R.id.studentpic_programscreencoursemodulelist);
+        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
         TextView studentpic_programscreencoursemodulecode = (TextView)view.findViewById(R.id.studentpic_programscreencoursemodulelistcode);
         ImageView studentpic_programlistarrow = (ImageView)view.findViewById(R.id.studentPicarrow);
 
@@ -62,7 +64,7 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
         studentpic_programlistarrow.setImageResource(R.drawable.ic_right);
 
 
-        studentpic_programlistarrow.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //we will call this method to remove the selected value from the list

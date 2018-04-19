@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
+        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
         TextView faculty_cardviewCourselistTitle = (TextView)view.findViewById(R.id.faculty_cardviewCourselistTitle);
         TextView faculty_cardviewCourselistCode = (TextView)view.findViewById(R.id.faculty_cardviewCourselistCode);
         ImageView faculty_courselist_rightarrow = (ImageView)view.findViewById(R.id.faculty_courselist_rightarrow);
@@ -63,7 +65,7 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
 
 
 
-        faculty_courselist_rightarrow.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
 
             String coursename=hero.getCourseListTitle();
             @Override

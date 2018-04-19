@@ -28,6 +28,8 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_margin="10dp"
+        android:clickable="true"
+        android:onClick="GoToAccademicCalendar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -56,7 +58,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="@string/calendar_notification"
-            android:onClick="GoToAccademicCalendar"
             app:srcCompat="@drawable/ic_right" />
     </LinearLayout>
 
@@ -67,6 +68,8 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_margin="10dp"
+        android:clickable="true"
+        android:onClick="SendFacultyNotification"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="100dp">
@@ -93,7 +96,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="SendFacultyNotification"
             android:contentDescription="@string/faculty_notification"
             app:srcCompat="@drawable/ic_right" />
     </LinearLayout>
@@ -105,6 +107,8 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_margin="10dp"
+        android:clickable="true"
+        android:onClick="SendStudentNotification"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -133,7 +137,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="@string/student_notifications"
-            android:onClick="SendStudentNotification"
             app:srcCompat="@drawable/ic_right" />
     </LinearLayout>
 </LinearLayout>

@@ -29,7 +29,7 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_faculty_schedule);
 
-        feedback_type=getIntent().getStringExtra("feedback_type");
+        //feedback_type=getIntent().getStringExtra("feedback_type");
         coursename=getIntent().getStringExtra("coursename");
         faculty_employeeid=getIntent().getStringExtra("faculty_employeeid");
 
@@ -65,6 +65,13 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent feedbackintent = new Intent(getApplicationContext(), FacultyFeedbackDashboard.class);
+                feedbackintent.putExtra( "coursename", coursename);
+                feedbackintent.putExtra( "faculty_employeeid", faculty_employeeid);
+                feedbackintent.putExtra( "datevalue", datevalue);
+                startActivity(feedbackintent);
+
+                /*
                 if(feedback_type.equals("Rate")) {
                     Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackRateDisplay.class);
                     facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
@@ -132,6 +139,9 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
                 else{
                     //
                 }
+                */
+
+
             }
         });
     }

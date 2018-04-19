@@ -27,7 +27,7 @@ import java.util.List;
 
 public class FacultyFeedbackDashboard extends AppCompatActivity {
     public static final String feedack_type_url = "http://newindialms.000webhostapp.com/get_feedbacktype.php";
-    private String coursename,faculty_employeeid;
+    private String coursename,faculty_employeeid,datevalue;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;
 
@@ -43,6 +43,7 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_feedback_dashboard);
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+        datevalue = getIntent().getStringExtra("datevalue");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -85,7 +86,7 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
                         JSONObject obj = jsonArray.getJSONObject(i);
 
                         FacultyFeedbackDashboardListItems listItemProgramList = new FacultyFeedbackDashboardListItems(
-                                obj.getString("feedback_type"),coursename,faculty_employeeid
+                                obj.getString("feedback_type"),coursename,faculty_employeeid,datevalue
                         );
                         heroList.add(listItemProgramList);
 

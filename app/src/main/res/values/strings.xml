@@ -384,10 +384,12 @@
     <string name="navigation_program_academiccalendar">Academic Calendar</string>
     <string name="navigation_program_myprofile">My Profile</string>
     <string name="navigation_program_enrollcourse">Enroll Course</string>
+    <string name="navigation_program_specialization">Enroll Specialization</string>
 
     <!-- enrolled courses -->
 
     <string name="enrolledcourses_title">Enrolled Courses</string>
+    <string name="enrolledspecialization_title">Enrolled Specialization</string>
     <string name="enrolledcoursesattendance_title">My Attendance</string>
 
 
@@ -404,7 +406,7 @@
     <string name="dislike">Dislike</string>
     <string name="stars">Stars</string>
     <string name="course">Course</string>
-    <string name="starttime">starttime</string>
+    <string name="starttime">Start Time</string>
     <string name="endtime">End time</string>
     <string name="dash">-</string>
     <string name="smiley">Smiley</string>
@@ -438,6 +440,7 @@
 
     <string name="enroll">Enroll</string>
     <string name="select_the_course">Select the Courses</string>
+    <string name="select_the_specialization">Select the Specialization</string>
 
     <string name="specialization_name">Specialization Name</string>
     <string name="specialization_arrow">Specialization --></string>
@@ -450,7 +453,7 @@
     <string name="choose">Choose</string>
     <string name="upload">Upload</string>
     <string name="my_profile">My Profile</string>
-    <string name="classroom">classroom</string>
+    <string name="classroom">Classroom </string>
     <string name="faculty">Faculty</string>
     <string name="core_course">CoreCourse</string>
     <string name="issue">issue</string>

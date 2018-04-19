@@ -61,7 +61,7 @@ public class ProgramScreenSpecializationModuleAdapter extends ArrayAdapter<Progr
         studentPicarrow.setImageResource(R.drawable.ic_right);
 
 
-        studentPicarrow.setOnClickListener(new View.OnClickListener() {
+        studentpic_programscreenspecializationmodule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //we will call this method to remove the selected value from the list

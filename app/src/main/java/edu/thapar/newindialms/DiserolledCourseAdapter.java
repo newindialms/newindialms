@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +68,7 @@ public class DiserolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItem
 
         //getting the view elements of the list from the view
         TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
         ImageView cancelcourselist_name = (ImageView) view.findViewById(R.id.studentcancel);
 
 
@@ -77,7 +79,7 @@ public class DiserolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItem
         enrolledcourselist_name.setText(hero.getEnrolledcoursename());
         cancelcourselist_name.setImageResource(R.drawable.cancel);
 
-        cancelcourselist_name.setOnClickListener(new View.OnClickListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
             String coursename=hero.getEnrolledcoursename();
             String student_rollno=hero.getStudentid();
             @Override

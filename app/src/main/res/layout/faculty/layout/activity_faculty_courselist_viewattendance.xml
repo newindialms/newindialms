@@ -35,31 +35,9 @@
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         />
 
-    <TextView
-        android:id="@+id/facultycourselist_viewattendance_courses"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
-        android:layout_below="@+id/calendarView"
-        android:text="@string/facultycourselist_viewattendance_courses"
-        android:textAlignment="center"
-        android:textColor="@color/facultytextMenu"
-        android:textSize="18sp" />
-
-    <Spinner
-        android:id="@+id/facultycourselistspinner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/facultycourselist_viewattendance_courses"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:spinnerMode="dialog"
-        android:textColor="@color/facultyMenu"
-        android:theme="@style/spinnerTheme" />
 
     <Button
         android:id="@+id/ChooseButton"
-        android:layout_below="@+id/facultycourselistspinner"
         android:background="@color/facultytextMenu"
         android:textColor="@color/textColor"
         android:layout_width="wrap_content"

@@ -54,7 +54,7 @@ public class FacultyCourseListAttendance extends AppCompatActivity {
         FacultyCourseListDashboardListItems pglist= new FacultyCourseListDashboardListItems(coursename);
         pglist.setCoursename(coursename);
 
-        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance","See Attendance",pglist.getCoursename(),faculty_employeeid));
+        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance","View Attendance",pglist.getCoursename(),faculty_employeeid));
 
         //creating the adapter
         FacultyCourseListAttendanceAdapter adapter = new FacultyCourseListAttendanceAdapter(this, R.layout.activity_faculty_courselist_attendance_listitems, heroList);
