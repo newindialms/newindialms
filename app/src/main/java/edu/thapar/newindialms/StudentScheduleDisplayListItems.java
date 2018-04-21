@@ -14,11 +14,11 @@ public class StudentScheduleDisplayListItems {
 
 
     public StudentScheduleDisplayListItems(String program, String starttime, String endtime, String course, String faculty) {
-       this.program=program;
-        this.starttime=starttime;
-        this.endtime=endtime;
-        this.course=course;
-        this.faculty=faculty;
+        this.program = program;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.course = course;
+        this.faculty = faculty;
     }
 
     public String getProgram() {

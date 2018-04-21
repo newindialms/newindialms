@@ -17,7 +17,7 @@ public class FacultySelectFeedbackScreenDetails {
     }
 
     public FacultySelectFeedbackScreenDetails(String feedbackId, String feedbackQuestions, String feedbackDescription, String feedbackType) {
-        this.feedbackId=feedbackId;
+        this.feedbackId = feedbackId;
         this.feedbackQuestions = feedbackQuestions;
         this.feedbackDescription = feedbackDescription;
         this.feedbackType = feedbackType;

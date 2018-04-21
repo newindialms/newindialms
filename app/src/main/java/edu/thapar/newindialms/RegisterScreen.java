@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,9 +30,9 @@ import java.util.Map;
 
 public class RegisterScreen extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText register_id, register_phone, register_email, register_password,editTextConfirmOtp;
+    private EditText register_id, register_phone, register_email, register_password, editTextConfirmOtp;
     private CheckBox register_checkbox1, register_checkbox2;
-    private String EMAIL,PASSWORD;
+    private String EMAIL, PASSWORD;
     private String studentid, emailaddress, phonenumber, password, idtype;
     private Button register_button, otp_button;
     private RequestQueue requestQueue;
@@ -82,9 +81,8 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
             builder.setTitle("Error");
             builder.setMessage("Please fill in all fields");
             displayAlert("missingfields");
-        }
-        else{
-           // Toast.makeText(RegisterScreen.this,studentid+phonenumber+emailaddress+password+idtype,Toast.LENGTH_LONG).show();
+        } else {
+            // Toast.makeText(RegisterScreen.this,studentid+phonenumber+emailaddress+password+idtype,Toast.LENGTH_LONG).show();
             register();
         }
     }
@@ -93,7 +91,6 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
 
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Registering", "Please wait...", false, false);
-
 
 
         //Again creating the string request
@@ -118,7 +115,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
-                        Toast.makeText(RegisterScreen.this, error.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -171,7 +168,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                 alertDialog.dismiss();
 
                 //Displaying a progressbar
-                final ProgressDialog loading = ProgressDialog.show(RegisterScreen.this, "Authenticating", "Please wait while we check the entered code", false,false);
+                final ProgressDialog loading = ProgressDialog.show(RegisterScreen.this, "Authenticating", "Please wait while we check the entered code", false, false);
 
                 //Getting the user entered otp from edittext
                 final String otp = editTextConfirmOtp.getText().toString().trim();
@@ -182,18 +179,18 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void onResponse(String response) {
                                 //if the server response is success
-                                if(response.equalsIgnoreCase("success")){
+                                if (response.equalsIgnoreCase("success")) {
                                     //dismissing the progressbar
                                     loading.dismiss();
                                     SendRegistrationEmail(emailaddress);
                                     //Starting a new activity
                                     startActivity(new Intent(RegisterScreen.this, Success.class));
-                                }else{
+                                } else {
                                     //Displaying a toast if the otp entered is wrong
-                                        Toast.makeText(RegisterScreen.this,"Wrong OTP Please Try Again after sometime.",Toast.LENGTH_LONG).show();
-                                        loading.dismiss();
-                                        alertDialog.dismiss();
-                                        finish();
+                                    Toast.makeText(RegisterScreen.this, "Wrong OTP Please Try Again after sometime.", Toast.LENGTH_LONG).show();
+                                    loading.dismiss();
+                                    alertDialog.dismiss();
+                                    finish();
 
                                 }
                             }
@@ -204,10 +201,10 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                                 alertDialog.dismiss();
                                 Toast.makeText(RegisterScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
                             }
-                        }){
+                        }) {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<String, String>();
+                        Map<String, String> params = new HashMap<String, String>();
                         //Adding the parameters otp and username
                         params.put(RegistrationConfig.KEY_OTP, otp);
                         params.put(RegistrationConfig.KEY_PHONENUMBER, phonenumber);
@@ -220,6 +217,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+
     public void displayAlert(final String code) {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
@@ -233,7 +231,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
                     register_password.setText("");
                     register_checkbox1.setChecked(false);
                     register_checkbox2.setChecked(false);
-                }else if (code.equals("missingfields")){
+                } else if (code.equals("missingfields")) {
                     dialoginterface.dismiss();
                 }
 
@@ -243,7 +241,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         alertDialog.show();
     }
 
-    public void SendRegistrationEmail(final String EmailAddress){
+    public void SendRegistrationEmail(final String EmailAddress) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, RegistrationConfig.EMAILPROFILE_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -253,10 +251,10 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
 
                     JSONObject jsonObject1 = array.getJSONObject(0);
 
-                    EMAIL= jsonObject1.getString("username");
-                    PASSWORD= jsonObject1.getString("password");
+                    EMAIL = jsonObject1.getString("username");
+                    PASSWORD = jsonObject1.getString("password");
                     //Creating SendMail object
-                    SendEmailRegistration sm = new SendEmailRegistration(RegisterScreen.this, EmailAddress,EMAIL,PASSWORD);
+                    SendEmailRegistration sm = new SendEmailRegistration(RegisterScreen.this, EmailAddress, EMAIL, PASSWORD);
 
                     //Executing sendmail to send email
                     sm.execute();
@@ -268,7 +266,7 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterScreen.this,error.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterScreen.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
         RequestQueue requestQueue = Volley.newRequestQueue(RegisterScreen.this);

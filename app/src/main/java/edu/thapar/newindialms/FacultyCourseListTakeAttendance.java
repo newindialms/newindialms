@@ -7,13 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +41,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
     private static final String TAG = "FacultyCourseListTakeAttendance";
     public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
     public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendance.php";
-    private String coursename, faculty_employeeid,course_date,course_time;
+    private String coursename, faculty_employeeid, course_date, course_time, coursetype;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;
     LayoutInflater layoutinflater;
@@ -65,6 +63,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_courselist_takeattendance);
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+        coursetype = getIntent().getStringExtra("coursetype");
 
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
@@ -89,7 +88,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         layoutinflater = getLayoutInflater();
 
         //ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_faculty_takeattendance_footer, listView, false);
-       // listView.addFooterView(footer);
+        // listView.addFooterView(footer);
     }
 
     @Override
@@ -132,8 +131,7 @@ public class FacultyCourseListTakeAttendance extends AppCompatActivity {
         saveabsentDetails();
     }*/
 
-public void savepresentDetails()
-    {
+    public void savepresentDetails() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -148,25 +146,25 @@ public void savepresentDetails()
                             String code = jsonObject.getString("code");
                             String message = jsonObject.getString("message");
                             String message_time = jsonObject.getString("message_time");
-                           String message_date = jsonObject.getString("message_date");
+                            String message_date = jsonObject.getString("message_date");
                             if (code.equals("Success")) {
                                 loading.dismiss();
                                 builder.setTitle(code);
-                                builder.setMessage("Now Select the Feedback's");
-                                displayAlert(message_time,message_date);
+                                builder.setMessage("Select the Feedback");
+                                displayAlert(message_time, message_date);
 
                             } else {
                                 loading.dismiss();
                                 builder.setTitle("failed");
                                 builder.setMessage("Try again");
-                               // displayAlert("input_error");
+                                // displayAlert("input_error");
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             builder.setTitle("Success");
                             builder.setMessage("Data saved successfully");
-                           // displayAlert("input_success");
+                            // displayAlert("input_success");
                         }
 
                     }
@@ -182,15 +180,15 @@ public void savepresentDetails()
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 ArrayList<String> numbers = new ArrayList<String>();
-                attendance_status="Present";
+                attendance_status = "Present";
                 arrayattendancelist = new String[adapter.getpresentattendanceDetails().size()];
                 for (int i = 0; i < adapter.getpresentattendanceDetails().size(); i++) {
                     numbers.add(adapter.getpresentattendanceDetails().get(i).getStudentrollno());
                 }
 
-                int j=0;
-                for(String object: numbers){
-                    params.put("student_rollnno["+(j++)+"]", object);
+                int j = 0;
+                for (String object : numbers) {
+                    params.put("student_rollnno[" + (j++) + "]", object);
                 }
 
                 params.put("faculty_employeeid", faculty_employeeid);
@@ -207,8 +205,7 @@ public void savepresentDetails()
     }
 
 
-    public void saveabsentDetails()
-    {
+    public void saveabsentDetails() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -227,19 +224,19 @@ public void savepresentDetails()
                                 loading.dismiss();
                                 builder.setTitle(code);
                                 builder.setMessage("Now Select the Feedback's");
-                                displayAlert(message_time,message_date);
+                                displayAlert(message_time, message_date);
 
                             } else {
                                 loading.dismiss();
                                 builder.setTitle("failed");
                                 builder.setMessage("Try again");
-                               // displayAlert("input_error");
+                                // displayAlert("input_error");
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             //builder.setTitle("Success");
-                           // builder.setMessage("Data saved successfully");
+                            // builder.setMessage("Data saved successfully");
                             //displayAlert("input_success");
                         }
 
@@ -255,16 +252,16 @@ public void savepresentDetails()
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                attendance_status="Absent";
+                attendance_status = "Absent";
                 ArrayList<String> numbers = new ArrayList<String>();
                 arrayattendancelist = new String[adapter.getabsentattendanceDetails().size()];
                 for (int i = 0; i < adapter.getabsentattendanceDetails().size(); i++) {
                     numbers.add(adapter.getabsentattendanceDetails().get(i).getStudentrollno());
                 }
 
-                int j=0;
-                for(String object: numbers){
-                    params.put("student_rollnno["+(j++)+"]", object);
+                int j = 0;
+                for (String object : numbers) {
+                    params.put("student_rollnno[" + (j++) + "]", object);
                 }
 
                 params.put("faculty_employeeid", faculty_employeeid);
@@ -278,6 +275,7 @@ public void savepresentDetails()
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
+
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Refreshing Data");
@@ -290,7 +288,7 @@ public void savepresentDetails()
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("studentlist");
-
+                    if (array != null && array.length() > 0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyCourseListTakeAttendanceListItems listItemProgramList = new FacultyCourseListTakeAttendanceListItems(
@@ -302,7 +300,13 @@ public void savepresentDetails()
                     }
                     adapter = new FacultyCourseListTakeAttendanceAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_takeattendance_listitems, heroList);
                     listView.setAdapter(adapter);
-
+                    } else {
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyCourseListTakeAttendance.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Feedback");
+                        builder.setMessage("No Records available for the selected search.");
+                        displayAlert();
+                    }
                 } catch (JSONException e) {
                     progressDialog.dismiss();
                     e.printStackTrace();
@@ -326,17 +330,18 @@ public void savepresentDetails()
         requestQueue.add(stringRequest);
     }
 
-    public void displayAlert(final String code_time,final String code_date) {
+    public void displayAlert(final String code_time, final String code_date) {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                course_date=code_date;
-                course_time=code_time;
+                course_date = code_date;
+                course_time = code_time;
                 finish();
-                Intent feedbackScreenIntent=new Intent(FacultyCourseListTakeAttendance.this,FacultySelectFeedbackScreen.class);
-                feedbackScreenIntent.putExtra("coursename",coursename);
-                feedbackScreenIntent.putExtra("faculty_employeeid",faculty_employeeid);
-                feedbackScreenIntent.putExtra("course_date",course_date);
-                feedbackScreenIntent.putExtra("course_time",course_time);
+                Intent feedbackScreenIntent = new Intent(FacultyCourseListTakeAttendance.this, FacultySelectFeedbackScreen.class);
+                feedbackScreenIntent.putExtra("coursename", coursename);
+                feedbackScreenIntent.putExtra("coursetype", coursetype);
+                feedbackScreenIntent.putExtra("faculty_employeeid", faculty_employeeid);
+                feedbackScreenIntent.putExtra("course_date", course_date);
+                feedbackScreenIntent.putExtra("course_time", course_time);
                 startActivity(feedbackScreenIntent);
 
             }
@@ -344,5 +349,14 @@ public void savepresentDetails()
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

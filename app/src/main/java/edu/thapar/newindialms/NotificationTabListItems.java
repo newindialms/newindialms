@@ -6,7 +6,7 @@ package edu.thapar.newindialms;
 
 public class NotificationTabListItems {
 
-    private String notificationTitle,notificationMessage,notificationDate;
+    private String notificationTitle, notificationMessage, notificationDate;
 
     public NotificationTabListItems(String notificationTitle, String notificationMessage, String notificationDate) {
         this.notificationTitle = notificationTitle;
@@ -22,7 +22,6 @@ public class NotificationTabListItems {
     public String getNotificationMessage() {
         return notificationMessage;
     }
-
 
 
     public String getNotificationDate() {

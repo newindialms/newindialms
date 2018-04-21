@@ -51,8 +51,8 @@ public class ProgramScreenSpecializationAdapter extends ArrayAdapter<ProgramScre
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreenspecializationlist = (TextView)view.findViewById(R.id.studentpic_programscreenspecializationlist);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
+        TextView studentpic_programscreenspecializationlist = (TextView) view.findViewById(R.id.studentpic_programscreenspecializationlist);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenSpecializationListItems hero = programScreenSpecializationListItems.get(position);
@@ -68,10 +68,10 @@ public class ProgramScreenSpecializationAdapter extends ArrayAdapter<ProgramScre
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String specializationname=hero.getSpecializationdetails();
+                String specializationname = hero.getSpecializationdetails();
 
                 Intent specializationintent = new Intent(context, ProgramScreenSpecializationModule.class);
-                specializationintent.putExtra("specializationname",specializationname);
+                specializationintent.putExtra("specializationname", specializationname);
                 specializationintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(specializationintent);
 

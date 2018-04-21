@@ -50,14 +50,11 @@ public class FacultyFeedackLikeDisplayAdapter extends ArrayAdapter<FacultyFeedba
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        LikeButton like_button=(LikeButton) view.findViewById(R.id.like_button);
-        ImageView dislike_button=(ImageView) view.findViewById(R.id.dislikeButton);
+        LikeButton like_button = (LikeButton) view.findViewById(R.id.like_button);
+        ImageView dislike_button = (ImageView) view.findViewById(R.id.dislikeButton);
         TextView text_rating_questions = (TextView) view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
-
-
-
 
 
         //getting the hero of the specified position
@@ -68,15 +65,14 @@ public class FacultyFeedackLikeDisplayAdapter extends ArrayAdapter<FacultyFeedba
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
 
-       if(hero.getLike().equals("Like")){
-           like_button.setVisibility(View.VISIBLE);
-           like_button.setLiked(true);
-           dislike_button.setVisibility(View.INVISIBLE);
-       }
-       else{
-           dislike_button.setVisibility(View.VISIBLE);
-           like_button.setVisibility(View.INVISIBLE);
-       }
+        if (hero.getLike().equals("Like")) {
+            like_button.setVisibility(View.VISIBLE);
+            like_button.setLiked(true);
+            dislike_button.setVisibility(View.INVISIBLE);
+        } else {
+            dislike_button.setVisibility(View.VISIBLE);
+            like_button.setVisibility(View.INVISIBLE);
+        }
         //finally returning the view
         return view;
     }

@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -55,7 +55,8 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
 
         //getting the view elements of the list from the view
         enrolledcourselist_name = (TextView) view.findViewById(R.id.myfeedbackenrolledcourselist_name);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(R.id.myfeedback_rightarrow);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(R.id.myfeedback_rightarrow);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
 
         //getting the hero of the specified position
         final MyfeedbackEnrolledCourseListItems hero = myfeedbackEnrolledCourseListItems.get(position);
@@ -63,38 +64,36 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
         //adding values to the list item
         enrolledcourselist_name.setText(hero.getEnrolledcoursename());
 
-        studentpic_programlistarrow.setOnClickListener(new View.OnClickListener() {
-            String corecoursename=hero.getEnrolledcoursename();
-            String studentid=hero.getStudentid();
-            String course_date=hero.getCourse_date();
-            String course_time=hero.getCourse_time();
-            String faculty_employeeid=hero.getFaculty_employeeid();
+        relative1.setOnClickListener(new View.OnClickListener() {
+            String corecoursename = hero.getEnrolledcoursename();
+            String studentid = hero.getStudentid();
+            String course_date = hero.getCourse_date();
+            String course_time = hero.getCourse_time();
+            String faculty_employeeid = hero.getFaculty_employeeid();
 
             @Override
             public void onClick(View view) {
-                coursename=hero.getCoursename();
-               // Toast.makeText(getContext(),coursename+","+corecoursename,Toast.LENGTH_LONG).show();
-                if(coursename.equals(corecoursename)){
+                coursename = hero.getCoursename();
+                // Toast.makeText(getContext(),coursename+","+corecoursename,Toast.LENGTH_LONG).show();
+                if (coursename.equals(corecoursename)) {
                     Intent submitfeedbackitent = new Intent(context, SubmitFeedBackScreen.class);
-                    submitfeedbackitent.putExtra("corecoursename",corecoursename);
-                    submitfeedbackitent.putExtra("studentid",studentid);
-                    submitfeedbackitent.putExtra("course_date",course_date);
-                    submitfeedbackitent.putExtra("course_time",course_time);
-                    submitfeedbackitent.putExtra("faculty_employeeid",faculty_employeeid);
+                    submitfeedbackitent.putExtra("corecoursename", corecoursename);
+                    submitfeedbackitent.putExtra("studentid", studentid);
+                    submitfeedbackitent.putExtra("course_date", course_date);
+                    submitfeedbackitent.putExtra("course_time", course_time);
+                    submitfeedbackitent.putExtra("faculty_employeeid", faculty_employeeid);
                     submitfeedbackitent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(submitfeedbackitent);
-                }
-                else{
-                    builder=new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
+                } else {
+                    builder = new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
                     builder.setTitle("Feedback");
-                    builder.setMessage("Feedback is not avaliable,Try again later");
+                    builder.setMessage("Feedback is not available,Try again later");
                     displayAlert();
                 }
                 //Toast.makeText(getContext(),"Adapter"+studentid+course_date+course_time,Toast.LENGTH_LONG).show();
 
             }
         });
-
 
 
         //finally returning the view

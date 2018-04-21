@@ -25,9 +25,9 @@ import android.widget.Toast;
 
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Fragment fragment=null;
-    private String studentname,studentlastname,studentid,studentyear,student_specialization;
-    private TextView student_toolbar_name,student_toolbar_id;
+    Fragment fragment = null;
+    private String studentname, studentlastname, studentid, studentyear, student_specialization;
+    private TextView student_toolbar_name, student_toolbar_id;
     private AlertDialog.Builder builder;
 
     @Override
@@ -44,9 +44,9 @@ public class StudentMenu extends AppCompatActivity
         student_specialization = getIntent().getStringExtra("student_specialization");
         //Toast.makeText(StudentMenu.this,"Specialization"+student_specialization,Toast.LENGTH_LONG).show();
 
-       if(studentyear.equals("2")) {
-            NavigationView navigationView=(NavigationView)findViewById(R.id.student_nav_view);
-            Menu menu =navigationView.getMenu();
+        if (studentyear.equals("2")) {
+            NavigationView navigationView = (NavigationView) findViewById(R.id.student_nav_view);
+            Menu menu = navigationView.getMenu();
             MenuItem target = menu.findItem(R.id.navigation_program_enrollcourse);
             MenuItem targetspecialization = menu.findItem(R.id.navigation_program_specialization);
             target.setVisible(true);
@@ -63,28 +63,32 @@ public class StudentMenu extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View header = navigationView.getHeaderView(0);
-        student_toolbar_name=(TextView)header.findViewById(R.id.student_toolbar_name);
-        student_toolbar_id=(TextView)header.findViewById(R.id.student_toolbar_id);
-        student_toolbar_name.setText(studentlastname+" "+studentname);
+        student_toolbar_name = (TextView) header.findViewById(R.id.student_toolbar_name);
+        student_toolbar_id = (TextView) header.findViewById(R.id.student_toolbar_id);
+        student_toolbar_name.setText(studentlastname + " " + studentname);
         student_toolbar_id.setText(studentid);
 
 
     }
-    public void student_myprofile_layout(View view){
+
+    public void student_myprofile_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_myprofile);
     }
-    public void student_mycourse_layout(View view){
+
+    public void student_mycourse_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_mycourses);
     }
-    public void student_calendar_layout(View view){
+
+    public void student_calendar_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_academiccalendar);
     }
-    public void student_schedule_layout(View view){
+
+    public void student_schedule_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_myschedule);
     }
 
-    public void homescreen_logout_layout(View view){
-        builder=new AlertDialog.Builder(StudentMenu.this, R.style.MyStudentAlertDialogStyle);
+    public void homescreen_logout_layout(View view) {
+        builder = new AlertDialog.Builder(StudentMenu.this, R.style.MyStudentAlertDialogStyle);
         builder.setTitle("Logout");
         builder.setMessage("Do you want to Logout?");
         displayAlert();
@@ -101,11 +105,11 @@ public class StudentMenu extends AppCompatActivity
         }
     }
 
-    private void displaySelectedScreen(int id){
-        Fragment fragment=null;
-        switch(id){
+    private void displaySelectedScreen(int id) {
+        Fragment fragment = null;
+        switch (id) {
             case R.id.navigation_program_home:
-                fragment=new StudentHome();
+                fragment = new StudentHome();
                 break;
             case R.id.navigation_program_myprofile:
                 Intent studentmyprofileintent = new Intent(getApplicationContext(), StudentMyProfile.class);
@@ -114,7 +118,7 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(studentmyprofileintent);
                 break;
             case R.id.navigation_program_mycourses:
-                fragment=new EnrolledCourseFragment();
+                fragment = new EnrolledCourseFragment();
                 break;
            /* case R.id.navigation_program_coursefeedback:
                 Intent myfeedback=new Intent(getApplicationContext(),MyFeedbackEnrolledCourse.class);
@@ -123,7 +127,7 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(myfeedback);
                 break;*/
             case R.id.navigation_program_Attendance:
-                Intent attendanceactivity=new Intent(getApplicationContext(),EnrolledCourseAttendanceActivity.class);
+                Intent attendanceactivity = new Intent(getApplicationContext(), EnrolledCourseAttendanceActivity.class);
                 attendanceactivity.putExtra("studentid", studentid);
                 attendanceactivity.putExtra("studentyear", studentyear);
                 startActivity(attendanceactivity);
@@ -133,23 +137,25 @@ public class StudentMenu extends AppCompatActivity
                 bundle.putString("studentyear", studentyear);
                 bundle.putString("studentid", studentid);
                 bundle.putString("student_specialization", student_specialization);
-                fragment=new StudentSchedule();
+                fragment = new StudentSchedule();
                 fragment.setArguments(bundle);
                 break;
             case R.id.navigation_program_academiccalendar:
-                fragment=new StudentAcademicCalendar();
+                fragment = new StudentAcademicCalendar();
                 break;
             case R.id.navigation_program_enrollcourse:
                 Intent enrollcourseintent = new Intent(getApplicationContext(), StudentEnrollCourseTab.class);
                 enrollcourseintent.putExtra("openfragment", "0");
-                enrollcourseintent.putExtra("student_specialization",student_specialization);
+                enrollcourseintent.putExtra("student_specialization", student_specialization);
                 enrollcourseintent.putExtra("studentid", studentid);
+                enrollcourseintent.putExtra("studentyear", studentyear);
                 startActivity(enrollcourseintent);
                 break;
             case R.id.navigation_program_specialization:
                 Intent specializationintent = new Intent(getApplicationContext(), StudentEnrollSpecializationTab.class);
                 specializationintent.putExtra("openfragment", "0");
                 specializationintent.putExtra("studentid", studentid);
+                specializationintent.putExtra("studentyear", studentyear);
                 startActivity(specializationintent);
                 break;
             case R.id.navigation_program_notification:
@@ -158,27 +164,27 @@ public class StudentMenu extends AppCompatActivity
                 break;
         }
 
-        if(fragment!=null){
-            RelativeLayout layout = (RelativeLayout)findViewById(R.id.student_courselist_fragment);
+        if (fragment != null) {
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.student_courselist_fragment);
             layout.removeAllViewsInLayout();
-            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.student_courselist_fragment,fragment);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.student_courselist_fragment, fragment);
             fragmentTransaction.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id!= R.id.navigation_program_logout) {
+        if (id != R.id.navigation_program_logout) {
             displaySelectedScreen(id);
-        }
-        else{
-            builder=new AlertDialog.Builder(StudentMenu.this, R.style.MyStudentAlertDialogStyle);
+        } else {
+            builder = new AlertDialog.Builder(StudentMenu.this, R.style.MyStudentAlertDialogStyle);
             builder.setTitle("Logout");
             builder.setMessage("Do you want to Logout?");
             displayAlert();
@@ -187,17 +193,17 @@ public class StudentMenu extends AppCompatActivity
     }
 
     public void displayAlert() {
-        builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
                 dialoginterface.dismiss();
             }
         });
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
                 SharedPrefManager.getInstance(StudentMenu.this).logout();
                 finish();
-                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+                startActivity(new Intent(getApplicationContext(), LoginScreen.class));
             }
         });
         AlertDialog alertDialog = builder.create();

@@ -23,11 +23,11 @@ import org.json.JSONObject;
  * Created by kamalshree on 9/26/2017.
  */
 
-public class StudentAcademicCalendar extends Fragment{
+public class StudentAcademicCalendar extends Fragment {
 
     private Toolbar calendar_toolbar;
     private String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
-    private TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
+    private TextView accademic_calendar, fall_year, fall_semester_sesion, spring_year,
             spring_semester_sesion,
             fall_classes_semester3,
             sprig_classes_semester24,
@@ -53,42 +53,44 @@ public class StudentAcademicCalendar extends Fragment{
             fall_winter_break,
             spring_summer_break;
     View rootview;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview= inflater.inflate(R.layout.activity_academic_calendar_student, container, false);
+        rootview = inflater.inflate(R.layout.activity_academic_calendar_student, container, false);
         accademic_calendar = (TextView) rootview.findViewById(R.id.accademic_calendar);
         fall_year = (TextView) rootview.findViewById(R.id.fall_year);
         fall_semester_sesion = (TextView) rootview.findViewById(R.id.fall_semester_sesion);
         spring_year = (TextView) rootview.findViewById(R.id.spring_year);
         spring_semester_sesion = (TextView) rootview.findViewById(R.id.spring_semester_sesion);
-        fall_classes_semester3 = (TextView)rootview.findViewById(R.id.fall_classes_semester3);
-        sprig_classes_semester24 = (TextView)rootview.findViewById(R.id.sprig_classes_semester24);
+        fall_classes_semester3 = (TextView) rootview.findViewById(R.id.fall_classes_semester3);
+        sprig_classes_semester24 = (TextView) rootview.findViewById(R.id.sprig_classes_semester24);
         fall_classes_semester2 = (TextView) rootview.findViewById(R.id.fall_classes_semester2);
-        fall_classes_semester1 = (TextView)rootview.findViewById(R.id.fall_classes_semester1);
+        fall_classes_semester1 = (TextView) rootview.findViewById(R.id.fall_classes_semester1);
         fall_teaching_semester3 = (TextView) rootview.findViewById(R.id.fall_teaching_semester3);
         spring_teaching_semester24 = (TextView) rootview.findViewById(R.id.spring_teaching_semester24);
-        fall_teaching_semester1 = (TextView)rootview.findViewById(R.id.fall_teaching_semester1);
+        fall_teaching_semester1 = (TextView) rootview.findViewById(R.id.fall_teaching_semester1);
         fall_midend_semester13 = (TextView) rootview.findViewById(R.id.fall_midend_semester13);
-        spring_midend_semester24 = (TextView)rootview.findViewById(R.id.spring_midend_semester24);
-        fall_teaching_semestersecond = (TextView)rootview.findViewById(R.id.fall_teaching_semestersecond);
+        spring_midend_semester24 = (TextView) rootview.findViewById(R.id.spring_midend_semester24);
+        fall_teaching_semestersecond = (TextView) rootview.findViewById(R.id.fall_teaching_semestersecond);
         spring_teaching_semestersecond = (TextView) rootview.findViewById(R.id.spring_teaching_semestersecond);
         fall_break_semester13 = (TextView) rootview.findViewById(R.id.fall_break_semester13);
         spring_break_semester24 = (TextView) rootview.findViewById(R.id.spring_break_semester24);
-        fall_teaching_semesterthird = (TextView)rootview.findViewById(R.id.fall_teaching_semesterthird);
-        spring_weekend_days = (TextView)rootview.findViewById(R.id.spring_weekend_days);
-        fallend_break_semester13 = (TextView)rootview.findViewById(R.id.fallend_break_semester13);
-        spring_closing_days = (TextView)rootview.findViewById(R.id.spring_closing_days);
+        fall_teaching_semesterthird = (TextView) rootview.findViewById(R.id.fall_teaching_semesterthird);
+        spring_weekend_days = (TextView) rootview.findViewById(R.id.spring_weekend_days);
+        fallend_break_semester13 = (TextView) rootview.findViewById(R.id.fallend_break_semester13);
+        spring_closing_days = (TextView) rootview.findViewById(R.id.spring_closing_days);
         fall_weekend_days = (TextView) rootview.findViewById(R.id.fall_weekend_days);
         internship_days = (TextView) rootview.findViewById(R.id.internship_days);
         fall_closing_days = (TextView) rootview.findViewById(R.id.fall_closing_days);
         backlog_dates = (TextView) rootview.findViewById(R.id.backlog_dates);
-        fall_winter_break = (TextView)rootview.findViewById(R.id.fall_winter_break);
+        fall_winter_break = (TextView) rootview.findViewById(R.id.fall_winter_break);
         spring_summer_break = (TextView) rootview.findViewById(R.id.spring_summer_break);
         loadCalendarDetails();
         return rootview;
     }
+
     private void loadCalendarDetails() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, calendatdetails_url,
                 new Response.Listener<String>() {
@@ -98,7 +100,7 @@ public class StudentAcademicCalendar extends Fragment{
 
                             JSONArray jsonarray = new JSONArray(response);
 
-                            for(int i=0; i < jsonarray.length(); i++) {
+                            for (int i = 0; i < jsonarray.length(); i++) {
 
                                 JSONObject jsonobject = jsonarray.getJSONObject(i);
 
@@ -168,7 +170,7 @@ public class StudentAcademicCalendar extends Fragment{
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(error != null){
+                        if (error != null) {
 
                             Toast.makeText(getContext(), "Something went wrong.Try again", Toast.LENGTH_LONG).show();
                         }
@@ -179,6 +181,7 @@ public class StudentAcademicCalendar extends Fragment{
 
         MySingleton.getInstance(getContext()).addToRequestQueue(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.navigation_faculty_program_accademic_calendar));
     }

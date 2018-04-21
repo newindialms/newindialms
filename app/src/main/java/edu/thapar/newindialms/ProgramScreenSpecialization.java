@@ -33,7 +33,7 @@ import java.util.Map;
  */
 
 public class ProgramScreenSpecialization extends AppCompatActivity {
-    private String ProgramName,SpecializationList;
+    private String ProgramName, SpecializationList;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
@@ -51,7 +51,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(SpecializationList);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -102,7 +102,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenSpecializationAdapter(getApplicationContext(),R.layout.activity_program_screen_specializationlistitems,heroList);
+                    adapter = new ProgramScreenSpecializationAdapter(getApplicationContext(), R.layout.activity_program_screen_specializationlistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -117,7 +117,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

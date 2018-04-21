@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class CalendarViewFaculty extends AppCompatActivity {
     private Toolbar calendar_toolbar;
     private String calendatdetails_url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
-    private TextView accademic_calendar,fall_year,fall_semester_sesion,spring_year,
+    private TextView accademic_calendar, fall_year, fall_semester_sesion, spring_year,
             spring_semester_sesion,
             fall_classes_semester3,
             sprig_classes_semester24,
@@ -69,32 +69,33 @@ public class CalendarViewFaculty extends AppCompatActivity {
         fall_semester_sesion = (TextView) findViewById(R.id.fall_semester_sesion);
         spring_year = (TextView) findViewById(R.id.spring_year);
         spring_semester_sesion = (TextView) findViewById(R.id.spring_semester_sesion);
-        fall_classes_semester3 = (TextView)findViewById(R.id.fall_classes_semester3);
-        sprig_classes_semester24 = (TextView)findViewById(R.id.sprig_classes_semester24);
+        fall_classes_semester3 = (TextView) findViewById(R.id.fall_classes_semester3);
+        sprig_classes_semester24 = (TextView) findViewById(R.id.sprig_classes_semester24);
         fall_classes_semester2 = (TextView) findViewById(R.id.fall_classes_semester2);
-        fall_classes_semester1 = (TextView)findViewById(R.id.fall_classes_semester1);
+        fall_classes_semester1 = (TextView) findViewById(R.id.fall_classes_semester1);
         fall_teaching_semester3 = (TextView) findViewById(R.id.fall_teaching_semester3);
         spring_teaching_semester24 = (TextView) findViewById(R.id.spring_teaching_semester24);
-        fall_teaching_semester1 = (TextView)findViewById(R.id.fall_teaching_semester1);
+        fall_teaching_semester1 = (TextView) findViewById(R.id.fall_teaching_semester1);
         fall_midend_semester13 = (TextView) findViewById(R.id.fall_midend_semester13);
-        spring_midend_semester24 = (TextView)findViewById(R.id.spring_midend_semester24);
-        fall_teaching_semestersecond = (TextView)findViewById(R.id.fall_teaching_semestersecond);
+        spring_midend_semester24 = (TextView) findViewById(R.id.spring_midend_semester24);
+        fall_teaching_semestersecond = (TextView) findViewById(R.id.fall_teaching_semestersecond);
         spring_teaching_semestersecond = (TextView) findViewById(R.id.spring_teaching_semestersecond);
         fall_break_semester13 = (TextView) findViewById(R.id.fall_break_semester13);
         spring_break_semester24 = (TextView) findViewById(R.id.spring_break_semester24);
-        fall_teaching_semesterthird = (TextView)findViewById(R.id.fall_teaching_semesterthird);
-        spring_weekend_days = (TextView)findViewById(R.id.spring_weekend_days);
-        fallend_break_semester13 = (TextView)findViewById(R.id.fallend_break_semester13);
-        spring_closing_days = (TextView)findViewById(R.id.spring_closing_days);
+        fall_teaching_semesterthird = (TextView) findViewById(R.id.fall_teaching_semesterthird);
+        spring_weekend_days = (TextView) findViewById(R.id.spring_weekend_days);
+        fallend_break_semester13 = (TextView) findViewById(R.id.fallend_break_semester13);
+        spring_closing_days = (TextView) findViewById(R.id.spring_closing_days);
         fall_weekend_days = (TextView) findViewById(R.id.fall_weekend_days);
         internship_days = (TextView) findViewById(R.id.internship_days);
         fall_closing_days = (TextView) findViewById(R.id.fall_closing_days);
         backlog_dates = (TextView) findViewById(R.id.backlog_dates);
-        fall_winter_break = (TextView)findViewById(R.id.fall_winter_break);
+        fall_winter_break = (TextView) findViewById(R.id.fall_winter_break);
         spring_summer_break = (TextView) findViewById(R.id.spring_summer_break);
 
         loadCalendarDetails();
     }
+
     private void loadCalendarDetails() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, calendatdetails_url,
                 new Response.Listener<String>() {
@@ -104,7 +105,7 @@ public class CalendarViewFaculty extends AppCompatActivity {
 
                             JSONArray jsonarray = new JSONArray(response);
 
-                            for(int i=0; i < jsonarray.length(); i++) {
+                            for (int i = 0; i < jsonarray.length(); i++) {
 
                                 JSONObject jsonobject = jsonarray.getJSONObject(i);
 
@@ -174,7 +175,7 @@ public class CalendarViewFaculty extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(error != null){
+                        if (error != null) {
 
                             Toast.makeText(getApplicationContext(), "Something went wrong.Try again", Toast.LENGTH_LONG).show();
                         }

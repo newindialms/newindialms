@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class ProgramManagerMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Fragment fragment=null;
+    Fragment fragment = null;
 
     private AlertDialog.Builder builder;
 
@@ -41,40 +41,46 @@ public class ProgramManagerMenu extends AppCompatActivity
 
     }
 
-    public void homescreen_notification_layout(View view){
-        Intent intent = new Intent(getApplicationContext(),NotificationScreen.class);
+    public void homescreen_notification_layout(View view) {
+        Intent intent = new Intent(getApplicationContext(), NotificationScreen.class);
         startActivity(intent);
     }
-    public void homescreen_courselist_layout(View view){
+
+    public void homescreen_courselist_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_courselist);
     }
-    public void homescreen_calendar_layout(View view){
+
+    public void homescreen_calendar_layout(View view) {
         displaySelectedScreen(R.id.navigation_program_calendar);
     }
-    public void homescreen_feedback_layout(View view){
-        Intent intent = new Intent(getApplicationContext(),FeedbackTab.class);
+
+    public void homescreen_feedback_layout(View view) {
+        Intent intent = new Intent(getApplicationContext(), FeedbackTab.class);
         startActivity(intent);
     }
-    public void homescreen_logout_layout(View view){
-        builder=new AlertDialog.Builder(ProgramManagerMenu.this, R.style.MyAlertDialogStyle);
+
+    public void homescreen_logout_layout(View view) {
+        builder = new AlertDialog.Builder(ProgramManagerMenu.this, R.style.MyAlertDialogStyle);
         builder.setTitle("Logout");
         builder.setMessage("Do you want to Logout?");
         displayAlert();
     }
 
 
-//Calendar
-    public void GoToCalendar(View v){
-        Intent intent = new Intent(getApplicationContext(),AcademicCalendar.class);
+    //Calendar
+    public void GoToCalendar(View v) {
+        Intent intent = new Intent(getApplicationContext(), AcademicCalendar.class);
         startActivity(intent);
     }
-    public void GoToFirstYearSchedule(View v){
-        Intent intent = new Intent(getApplicationContext(),ProgramManagerFirtYearSchedule.class);
+
+    public void GoToFirstYearSchedule(View v) {
+        Intent intent = new Intent(getApplicationContext(), ProgramManagerFirtYearSchedule.class);
         startActivity(intent);
     }
-    public void GoToSecondYearSchedule(View v){
-       // fragment=new ProgramManagerSchedule();
-        Intent intent = new Intent(getApplicationContext(),ProgramManagerSchedule.class);
+
+    public void GoToSecondYearSchedule(View v) {
+        // fragment=new ProgramManagerSchedule();
+        Intent intent = new Intent(getApplicationContext(), ProgramManagerSchedule.class);
         startActivity(intent);
     }
 
@@ -84,28 +90,28 @@ public class ProgramManagerMenu extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-           // super.onBackPressed();
+            // super.onBackPressed();
             drawer.openDrawer(GravityCompat.START);
         }
     }
 
-    private void displaySelectedScreen(int id){
-        Fragment fragment=null;
-        switch(id){
+    private void displaySelectedScreen(int id) {
+        Fragment fragment = null;
+        switch (id) {
             case R.id.navigation_program_home:
-                fragment=new ProgramManagerHome();
+                fragment = new ProgramManagerHome();
                 break;
             case R.id.navigation_program_courselist:
-                fragment=new ProgramManagerCourseList();
+                fragment = new ProgramManagerCourseList();
                 break;
             case R.id.navigation_program_schedule:
-                fragment=new ProgramManagerSelector();
+                fragment = new ProgramManagerSelector();
                 break;
             case R.id.navigation_program_calendar:
-                fragment=new ProgramManagerCalendar();
+                fragment = new ProgramManagerCalendar();
                 break;
             case R.id.navigation_program_picbook:
-                fragment=new ProgramManagerStudentPic();
+                fragment = new ProgramManagerStudentPic();
                 break;
             case R.id.navigation_program_addcourse:
                 Intent addcourseintent = new Intent(getApplicationContext(), AddCourseTab.class);
@@ -135,27 +141,27 @@ public class ProgramManagerMenu extends AppCompatActivity
                 break;
         }
 
-        if(fragment!=null){
-            RelativeLayout layout = (RelativeLayout)findViewById(R.id.courselist_fragment);
+        if (fragment != null) {
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.courselist_fragment);
             layout.removeAllViewsInLayout();
-            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.courselist_fragment,fragment);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.courselist_fragment, fragment);
             fragmentTransaction.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id!= R.id.navigation_program_logout) {
+        if (id != R.id.navigation_program_logout) {
             displaySelectedScreen(id);
-        }
-        else{
-            builder=new AlertDialog.Builder(ProgramManagerMenu.this, R.style.MyAlertDialogStyle);
+        } else {
+            builder = new AlertDialog.Builder(ProgramManagerMenu.this, R.style.MyAlertDialogStyle);
             builder.setTitle("Logout");
             builder.setMessage("Do you want to Logout?");
             displayAlert();
@@ -164,17 +170,17 @@ public class ProgramManagerMenu extends AppCompatActivity
     }
 
     public void displayAlert() {
-        builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-               dialoginterface.dismiss();
+                dialoginterface.dismiss();
             }
         });
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
                 SharedPrefManager.getInstance(ProgramManagerMenu.this).logout();
                 finish();
-                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+                startActivity(new Intent(getApplicationContext(), LoginScreen.class));
             }
         });
         AlertDialog alertDialog = builder.create();

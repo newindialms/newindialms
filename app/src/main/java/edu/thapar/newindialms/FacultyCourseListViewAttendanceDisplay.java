@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
     public static final String attendancedetails_url = "https://newindialms.000webhostapp.com/get_attendancedetails.php";
-    String attendance_date, course_details_name,faculty_employeeid;
+    String attendance_date, course_details_name, faculty_employeeid, groupname, sectionname, coursetype;
     TextView facultycourselist_attendancedisplay_title;
     Toolbar faculty_toolbar;
     FacultyCourseListViewAttendanceDisplayAdapter adapter;
@@ -51,7 +51,16 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_courselist_attendancedisplay);
         attendance_date = getIntent().getStringExtra("attendance_date");
         course_details_name = getIntent().getStringExtra("course_details_name");
-        faculty_employeeid= getIntent().getStringExtra("faculty_employeeid");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+
+        coursetype = getIntent().getStringExtra("coursetype");
+        if (coursetype.equals("1")) {
+            groupname = getIntent().getStringExtra("groupname");
+            sectionname = getIntent().getStringExtra("sectionname");
+        } else {
+            groupname = "0";
+            sectionname = "0";
+        }
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -70,7 +79,7 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.facultycourselistattendancedisplaylist_ListView);
         heroList = new ArrayList<>();
         loadRecyclerViewData();
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -98,29 +107,29 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("attendancelist");
 
-                    if (array != null&& array.length()>0) {
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        String rollno=jsonObject1.getString("student_rollnno");
-                        if(rollno.equals("0"))
-                            break;
-                        String [] items = rollno.split(",");
-                        for(int k = 0; k < items.length; k++) {
-                            FacultyCourseListViewAttendanceDisplayListItems listItemProgramList = new FacultyCourseListViewAttendanceDisplayListItems(
-                                    items[k],
-                                    jsonObject1.getString("attendance_status"),
-                                    jsonObject1.getString("student_firstname")
-                            );
-                            heroList.add(listItemProgramList);
+                    if (array != null && array.length() > 0) {
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject jsonObject1 = array.getJSONObject(i);
+                            String rollno = jsonObject1.getString("student_rollnno");
+                            if (rollno.equals("0"))
+                                break;
+                            String[] items = rollno.split(",");
+                            for (int k = 0; k < items.length; k++) {
+                                FacultyCourseListViewAttendanceDisplayListItems listItemProgramList = new FacultyCourseListViewAttendanceDisplayListItems(
+                                        items[k],
+                                        jsonObject1.getString("attendance_status"),
+                                        jsonObject1.getString("student_firstname")
+                                );
+                                heroList.add(listItemProgramList);
+                            }
                         }
-                    }
-                    adapter = new FacultyCourseListViewAttendanceDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_attendancedisplay_listitems, heroList);
-                    listView.setAdapter(adapter);
-                    }else{
+                        adapter = new FacultyCourseListViewAttendanceDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_attendancedisplay_listitems, heroList);
+                        listView.setAdapter(adapter);
+                    } else {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
                         builder = new AlertDialog.Builder(FacultyCourseListViewAttendanceDisplay.this, R.style.MyFacultyAlertDialogStyle);
                         builder.setTitle("Records");
-                        builder.setMessage("No Records avaliable for the selected Day.");
+                        builder.setMessage("No Records available for the selected Day.");
                         displayAlert();
                     }
 
@@ -142,6 +151,9 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
                 params.put("attendance_date", attendance_date);
                 params.put("course_details_name", course_details_name);
                 params.put("faculty_employeeid", faculty_employeeid);
+                params.put("groupname", groupname);
+                params.put("sectionname", sectionname);
+                params.put("coursetype", coursetype);
                 return params;
             }
         };

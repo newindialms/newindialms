@@ -24,9 +24,9 @@ import android.widget.Toast;
 
 public class FacultyMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Fragment fragment=null;
-    private String facultyname,facultyid;
-    private TextView faculty_toolbar_name,faculty_toolbar_id;
+    Fragment fragment = null;
+    private String facultyname, facultyid;
+    private TextView faculty_toolbar_name, faculty_toolbar_id;
     private AlertDialog.Builder builder;
 
     @Override
@@ -49,36 +49,38 @@ public class FacultyMenu extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View header = navigationView.getHeaderView(0);
-        faculty_toolbar_name=(TextView)header.findViewById(R.id.faculty_toolbar_name);
-        faculty_toolbar_id=(TextView)header.findViewById(R.id.faculty_toolbar_id);
+        faculty_toolbar_name = (TextView) header.findViewById(R.id.faculty_toolbar_name);
+        faculty_toolbar_id = (TextView) header.findViewById(R.id.faculty_toolbar_id);
         faculty_toolbar_name.setText(facultyname);
         faculty_toolbar_id.setText(facultyid);
 
 
     }
 
-    public void homescreen_calendar_layout(View view){
+    public void homescreen_calendar_layout(View view) {
         displaySelectedScreen(R.id.navigation_faculty_program_accademic_calendar);
     }
-    public void homescreen_schedule_layout(View view){
+
+    public void homescreen_schedule_layout(View view) {
         displaySelectedScreen(R.id.navigation_faculty_program_schedule);
     }
+
     public String getEmployeeid() {
         return facultyid;
     }
 
-    public void homescreen_courselist_layout(View view){
+    public void homescreen_courselist_layout(View view) {
         displaySelectedScreen(R.id.navigation_faculty_program_courselist);
     }
 
-    public void homescreen_logout_layout(View view){
-        builder=new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
+    public void homescreen_logout_layout(View view) {
+        builder = new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
         builder.setTitle("Logout");
         builder.setMessage("Do you want to Logout?");
         displayAlert();
     }
 
-    public void homescreen_notification_layout(View view){
+    public void homescreen_notification_layout(View view) {
         displaySelectedScreen(R.id.navigation_faculty_program_notification);
     }
 
@@ -92,20 +94,20 @@ public class FacultyMenu extends AppCompatActivity
         }
     }
 
-    private void displaySelectedScreen(int id){
-        Fragment fragment=null;
-        switch(id){
+    private void displaySelectedScreen(int id) {
+        Fragment fragment = null;
+        switch (id) {
             case R.id.navigation_faculty_program_home:
-                fragment=new FacultyHome();
+                fragment = new FacultyHome();
                 break;
             case R.id.navigation_faculty_program_courselist:
-                fragment=new FacultyCourseList();
+                fragment = new FacultyCourseList();
                 break;
             case R.id.navigation_faculty_program_schedule:
-                fragment=new FacultySchedule();
+                fragment = new FacultySchedule();
                 break;
             case R.id.navigation_faculty_program_accademic_calendar:
-                fragment=new FacultyAccademicCalendar();
+                fragment = new FacultyAccademicCalendar();
                 break;
             case R.id.navigation_faculty_program_notification:
                 Intent notificationitent = new Intent(getApplicationContext(), FacultyNotificationScreen.class);
@@ -113,27 +115,27 @@ public class FacultyMenu extends AppCompatActivity
                 break;
         }
 
-        if(fragment!=null){
-            RelativeLayout layout = (RelativeLayout)findViewById(R.id.faculty_courselist_fragment);
+        if (fragment != null) {
+            RelativeLayout layout = (RelativeLayout) findViewById(R.id.faculty_courselist_fragment);
             layout.removeAllViewsInLayout();
-            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.faculty_courselist_fragment,fragment);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.faculty_courselist_fragment, fragment);
             fragmentTransaction.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id!= R.id.navigation_faculty_program_logout) {
+        if (id != R.id.navigation_faculty_program_logout) {
             displaySelectedScreen(id);
-        }
-        else{
-            builder=new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
+        } else {
+            builder = new AlertDialog.Builder(FacultyMenu.this, R.style.MyFacultyAlertDialogStyle);
             builder.setTitle("Logout");
             builder.setMessage("Do you want to Logout?");
             displayAlert();
@@ -142,17 +144,17 @@ public class FacultyMenu extends AppCompatActivity
     }
 
     public void displayAlert() {
-        builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
                 dialoginterface.dismiss();
             }
         });
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Logged out successfully", Toast.LENGTH_LONG).show();
                 SharedPrefManager.getInstance(FacultyMenu.this).logout();
                 finish();
-                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+                startActivity(new Intent(getApplicationContext(), LoginScreen.class));
             }
         });
         AlertDialog alertDialog = builder.create();

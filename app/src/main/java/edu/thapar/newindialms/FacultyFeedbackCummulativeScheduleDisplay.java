@@ -29,22 +29,22 @@ public class FacultyFeedbackCummulativeScheduleDisplay extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_faculty_schedule);
 
-        coursename=getIntent().getStringExtra("coursename");
-        faculty_employeeid=getIntent().getStringExtra("faculty_employeeid");
+        coursename = getIntent().getStringExtra("coursename");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
-        faculty_schedule_title=(TextView)findViewById(R.id.faculty_schedule_title);
+        faculty_schedule_title = (TextView) findViewById(R.id.faculty_schedule_title);
         faculty_schedule_title.setText("Select a Date");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setVisibility(View.VISIBLE);
 
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
-        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -64,19 +64,19 @@ public class FacultyFeedbackCummulativeScheduleDisplay extends AppCompatActivity
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackCumulativeDisplay.class);
-                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
-                    facultyintent.putExtra("coursename", coursename);
-                    facultyintent.putExtra("datevalue", datevalue);
-                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent facultyintent = new Intent(getApplicationContext(), FacultyFeedbackCumulativeDisplay.class);
+                facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                facultyintent.putExtra("coursename", coursename);
+                facultyintent.putExtra("datevalue", datevalue);
+                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                    if (datevalue != null && !datevalue.isEmpty()) {
-                        //Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
-                        startActivity(facultyintent);
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
-                    }
+                if (datevalue != null && !datevalue.isEmpty()) {
+                    //Toast.makeText(getApplicationContext(), "selected Date is " + datevalue + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"Employee ID is "+faculty_employeeid,Toast.LENGTH_LONG).show();
+                    startActivity(facultyintent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Select a Date", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

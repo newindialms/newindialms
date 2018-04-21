@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -37,19 +34,19 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EnrollCourseFragment extends Fragment{
+public class EnrollCourseFragment extends Fragment {
     View rootview;
-    String student_specialization,studentid,student_rollnno;
-    TextView enrolled_specialization;
-        String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
+    String student_specialization, studentid, student_rollnno;
+    String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
     String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
     ListView listView;
     Button EnrollButton;
     AlertDialog.Builder builder;
-    String student_year="2";
-    String enrollist="";
+    String student_year = "2";
+    String enrollist = "";
+
     public EnrollCourseFragment() {
         // Required empty public constructor
     }
@@ -59,14 +56,14 @@ public class EnrollCourseFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.activity_new_enrollcourse, container, false);
+        rootview = inflater.inflate(R.layout.activity_new_enrollcourse, container, false);
 
-        student_specialization =  getActivity().getIntent().getExtras().getString("student_specialization");
-        studentid =  getActivity().getIntent().getExtras().getString("studentid");
-        student_rollnno =  getActivity().getIntent().getExtras().getString("studentid");
+        student_specialization = getActivity().getIntent().getExtras().getString("student_specialization");
+        studentid = getActivity().getIntent().getExtras().getString("studentid");
+        student_rollnno = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
-        EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);
+        EnrollButton = (Button) rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
 
         EnrollButton.setOnClickListener(new View.OnClickListener() {
@@ -77,23 +74,22 @@ public class EnrollCourseFragment extends Fragment{
         });
 
 
-
         return rootview;
 
 
     }
-    public void onClickData ( View view ) {
+
+    public void onClickData(View view) {
         List<EnrollcourseListItems> empData = adapter.enrollcourseListItemses;
-        enrollist="";
-        int counter=0;
+        enrollist = "";
+        int counter = 0;
         for (EnrollcourseListItems employeeModel : empData) {
-            if ( employeeModel.isSelected() ) {
+            if (employeeModel.isSelected()) {
                 counter++;
-                if(counter==1) {
+                if (counter == 1) {
                     enrollist = employeeModel.getCoursedetails_name();
-                }
-                else{
-                    enrollist +=","+employeeModel.getCoursedetails_name();
+                } else {
+                    enrollist += "," + employeeModel.getCoursedetails_name();
                 }
             }
 
@@ -107,7 +103,7 @@ public class EnrollCourseFragment extends Fragment{
         StringRequest stringRequest = new StringRequest(Request.Method.POST, insertenroll_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                builder=new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
+                builder = new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
                 builder.setTitle("Enroll");
                 builder.setMessage("Courses Enrolled Succcessfully");
                 displayAlert();
@@ -117,7 +113,7 @@ public class EnrollCourseFragment extends Fragment{
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -131,6 +127,7 @@ public class EnrollCourseFragment extends Fragment{
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Refreshing Data");
@@ -154,7 +151,7 @@ public class EnrollCourseFragment extends Fragment{
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new EnrollcourseAdapter(getContext(),R.layout.activity_student_enrollcourselistitems,heroList);
+                    adapter = new EnrollcourseAdapter(getContext(), R.layout.activity_student_enrollcourselistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -169,7 +166,7 @@ public class EnrollCourseFragment extends Fragment{
                 progressDialog.dismiss();
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

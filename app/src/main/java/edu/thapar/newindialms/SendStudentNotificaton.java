@@ -61,13 +61,12 @@ public class SendStudentNotificaton extends AppCompatActivity {
             public void onClick(View view) {
                 title = title_notification.getText().toString();
                 message = message_notification.getText().toString();
-                if(title.equals("")||message.equals("")){
-                    builder=new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyAlertDialogStyle);
+                if (title.equals("") || message.equals("")) {
+                    builder = new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyAlertDialogStyle);
                     builder.setTitle("Missing");
                     builder.setMessage("Please enter the Title and Message ");
                     displayAlert();
-                }
-                else {
+                } else {
                     SendStudentNotificationFunction();
                     builder = new AlertDialog.Builder(SendStudentNotificaton.this, R.style.MyStudentAlertDialogStyle);
                     builder.setTitle("Success");

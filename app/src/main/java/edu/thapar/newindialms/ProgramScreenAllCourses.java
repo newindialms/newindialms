@@ -42,7 +42,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
     ListView listView;
     private int Student_size;
     public SwipeRefreshLayout swipeRefreshLayout;
-    ProgramScreenAllCoursesListItems arraycount=new ProgramScreenAllCoursesListItems();
+    ProgramScreenAllCoursesListItems arraycount = new ProgramScreenAllCoursesListItems();
     private TextView Studentpic_programstudentallcourselist_total;
 
 
@@ -54,7 +54,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
 
         studentpic_title.setText(coursesname);
         setSupportActionBar(studentpic_toolbar);
@@ -72,7 +72,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -99,7 +99,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("studentlist");
 
-                   Student_size = j.getInt("rowcount");
+                    Student_size = j.getInt("rowcount");
                     arraycount.setRowcount(Student_size);
 
                     for (int i = 0; i < array.length(); i++) {
@@ -114,7 +114,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
                         myarraycount(Student_size);
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenAllCoursesAdapter(getApplicationContext(),R.layout.activity_program_screen_allcourselistitems,heroList,Student_size);
+                    adapter = new ProgramScreenAllCoursesAdapter(getApplicationContext(), R.layout.activity_program_screen_allcourselistitems, heroList, Student_size);
                     listView.setAdapter(adapter);
 
                 } catch (JSONException e) {
@@ -128,7 +128,7 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -141,9 +141,9 @@ public class ProgramScreenAllCourses extends AppCompatActivity {
     }
 
 
-    public void myarraycount(int rowcount){
-        Studentpic_programstudentallcourselist_total = (TextView)findViewById(R.id.Studentpic_programstudentallcourselist_total);
-        Studentpic_programstudentallcourselist_total.setText("Total Students : "+rowcount);
+    public void myarraycount(int rowcount) {
+        Studentpic_programstudentallcourselist_total = (TextView) findViewById(R.id.Studentpic_programstudentallcourselist_total);
+        Studentpic_programstudentallcourselist_total.setText("Total Students : " + rowcount);
     }
 
 }

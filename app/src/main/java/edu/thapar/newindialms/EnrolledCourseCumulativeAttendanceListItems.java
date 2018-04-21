@@ -12,11 +12,11 @@ public class EnrolledCourseCumulativeAttendanceListItems {
     private String absent_count;
     private String percentage;
 
-   public EnrolledCourseCumulativeAttendanceListItems(String total_count, String present_count, String absent_count, String percentage) {
+    public EnrolledCourseCumulativeAttendanceListItems(String total_count, String present_count, String absent_count, String percentage) {
         this.total_count = total_count;
-        this.present_count=present_count;
-       this.absent_count=absent_count;
-       this.percentage=percentage;
+        this.present_count = present_count;
+        this.absent_count = absent_count;
+        this.percentage = percentage;
 
     }
 

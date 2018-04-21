@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -30,22 +29,22 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
         setContentView(R.layout.fragment_faculty_schedule);
 
         //feedback_type=getIntent().getStringExtra("feedback_type");
-        coursename=getIntent().getStringExtra("coursename");
-        faculty_employeeid=getIntent().getStringExtra("faculty_employeeid");
+        coursename = getIntent().getStringExtra("coursename");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
-        faculty_schedule_title=(TextView)findViewById(R.id.faculty_schedule_title);
+        faculty_schedule_title = (TextView) findViewById(R.id.faculty_schedule_title);
         faculty_schedule_title.setText("Select a Date");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setVisibility(View.VISIBLE);
 
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
-        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -66,9 +65,9 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent feedbackintent = new Intent(getApplicationContext(), FacultyFeedbackDashboard.class);
-                feedbackintent.putExtra( "coursename", coursename);
-                feedbackintent.putExtra( "faculty_employeeid", faculty_employeeid);
-                feedbackintent.putExtra( "datevalue", datevalue);
+                feedbackintent.putExtra("coursename", coursename);
+                feedbackintent.putExtra("faculty_employeeid", faculty_employeeid);
+                feedbackintent.putExtra("datevalue", datevalue);
                 startActivity(feedbackintent);
 
                 /*

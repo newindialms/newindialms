@@ -10,7 +10,7 @@ import android.widget.Button;
  * Created by kamalshree on 11/7/2017.
  */
 
-public class Success  extends AppCompatActivity implements View.OnClickListener{
+public class Success extends AppCompatActivity implements View.OnClickListener {
 
 
     private Button login_button;
@@ -20,7 +20,7 @@ public class Success  extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success);
-        login_button=(Button) findViewById(R.id.success_login_button);
+        login_button = (Button) findViewById(R.id.success_login_button);
         login_button.setOnClickListener(this);
     }
 

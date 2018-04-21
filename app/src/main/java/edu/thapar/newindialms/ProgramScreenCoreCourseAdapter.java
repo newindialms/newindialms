@@ -52,10 +52,10 @@ public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCo
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        TextView studentpic_programcorecourse = (TextView)view.findViewById(R.id.studentpic_programcorecourse);
-        TextView studentpic_programcorecoursecode = (TextView)view.findViewById(R.id.studentpic_programcorecoursecode);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        TextView studentpic_programcorecourse = (TextView) view.findViewById(R.id.studentpic_programcorecourse);
+        TextView studentpic_programcorecoursecode = (TextView) view.findViewById(R.id.studentpic_programcorecoursecode);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenCoreCourseListItems hero = programScreenCoreCourseListItems.get(position);
@@ -67,11 +67,12 @@ public class ProgramScreenCoreCourseAdapter extends ArrayAdapter<ProgramScreenCo
 
         relative1.setOnClickListener(new View.OnClickListener() {
 
-            String corecoursename=hero.getCoursedetails();
+            String corecoursename = hero.getCoursedetails();
+
             @Override
             public void onClick(View view) {
                 Intent studentintent = new Intent(context, ProgramScreenCoreCourseStudent.class);
-                studentintent.putExtra("corecoursename",corecoursename);
+                studentintent.putExtra("corecoursename", corecoursename);
                 studentintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(studentintent);
             }

@@ -12,13 +12,13 @@ public class MyfeedbackEnrolledCourseListItems {
     private String faculty_employeeid;
     private String coursename;
 
-    public MyfeedbackEnrolledCourseListItems(String enrolledcoursename, String studentid,String course_date,String course_time,String faculty_employeeid,String coursename) {
+    public MyfeedbackEnrolledCourseListItems(String enrolledcoursename, String studentid, String course_date, String course_time, String faculty_employeeid, String coursename) {
         this.enrolledcoursename = enrolledcoursename;
         this.studentid = studentid;
         this.course_date = course_date;
         this.course_time = course_time;
-        this.faculty_employeeid=faculty_employeeid;
-        this.coursename=coursename;
+        this.faculty_employeeid = faculty_employeeid;
+        this.coursename = coursename;
     }
 
     public String getCoursename() {

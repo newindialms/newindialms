@@ -17,9 +17,9 @@ public class FacultyCourseListDashboardWiseListItems {
 
     public FacultyCourseListDashboardWiseListItems(String attendance, String feedback, String coursename, String faculty_employeeid) {
         this.attendance = attendance;
-        this.feedback=feedback;
-        this.coursename=coursename;
-        this.faculty_employeeid=faculty_employeeid;
+        this.feedback = feedback;
+        this.coursename = coursename;
+        this.faculty_employeeid = faculty_employeeid;
     }
 
     public String getCoursename() {

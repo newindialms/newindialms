@@ -113,6 +113,9 @@
             android:name=".FacultyCourseListDashboard"
             android:theme="@style/FacultyTheme" />
         <activity
+            android:name=".FacultyCourseListGroup"
+            android:theme="@style/FacultyTheme" />
+        <activity
             android:name=".FacultyCourseListAttendance"
             android:theme="@style/FacultyTheme" />
         <activity
@@ -149,7 +152,13 @@
             android:name=".FacultyCourseListTakeAttendance"
             android:theme="@style/FacultyTheme" />
         <activity
+            android:name=".FacultyCourseListTakeAttendanceGroup"
+            android:theme="@style/FacultyTheme" />
+        <activity
             android:name=".FacultyCourseListViewAttendance"
+            android:theme="@style/FacultyTheme" />
+        <activity
+            android:name=".FacultyCourseListviewAttendanceGroup"
             android:theme="@style/FacultyTheme" />
         <activity
             android:name=".FacultyCourseListViewAttendanceDisplay"

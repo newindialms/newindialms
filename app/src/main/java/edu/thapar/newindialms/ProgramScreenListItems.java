@@ -17,11 +17,11 @@ public class ProgramScreenListItems {
         this.programname = programname;
     }
 
-    public ProgramScreenListItems(String yearofjoining,  String yearofspecialization, String yearofcourses,String yearofcorecourses,String programname) {
+    public ProgramScreenListItems(String yearofjoining, String yearofspecialization, String yearofcourses, String yearofcorecourses, String programname) {
         this.yearofjoining = yearofjoining;
         this.yearofcourses = yearofcourses;
         this.yearofspecialization = yearofspecialization;
-        this.yearofcorecourses=yearofcorecourses;
+        this.yearofcorecourses = yearofcorecourses;
         this.programname = programname;
     }
 

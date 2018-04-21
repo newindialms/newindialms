@@ -33,7 +33,7 @@ import java.util.Map;
  */
 
 public class ProgramScreenYearStudentName extends AppCompatActivity {
-    private String ProgramName,YearList;
+    private String ProgramName, YearList;
     private Toolbar studentpic_toolbar;
     private TextView Studentpic_programstudentname_title;
     private String yearlist_url = "https://newindialms.000webhostapp.com/get_student_name.php";
@@ -53,7 +53,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(YearList);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -70,7 +70,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -109,7 +109,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
 
 
                     }
-                    adapter = new ProgramScreenYearAdapterStudentName(getApplicationContext(),R.layout.activity_program_screenyearstudentamelistitems,heroList);
+                    adapter = new ProgramScreenYearAdapterStudentName(getApplicationContext(), R.layout.activity_program_screenyearstudentamelistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -124,7 +124,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

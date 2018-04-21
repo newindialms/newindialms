@@ -20,7 +20,7 @@ import javax.mail.internet.MimeMessage;
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
-public class SendEmail extends AsyncTask<Void,Void,Void> {
+public class SendEmail extends AsyncTask<Void, Void, Void> {
 
     //Declaring Variables
     private Context context;
@@ -38,21 +38,21 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendEmail(Context context, String email, String subject, String message,String Email_Address,String Password){
+    public SendEmail(Context context, String email, String subject, String message, String Email_Address, String Password) {
         //Initializing variables
         this.context = context;
         this.email = email;
         this.subject = subject;
         this.message = message;
-        this.Email_Address=Email_Address;
-        this.Password=Password;
+        this.Email_Address = Email_Address;
+        this.Password = Password;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         //Showing progress dialog while sending email
-        progressDialog = ProgressDialog.show(context,"Sending message","Please wait...",false,false);
+        progressDialog = ProgressDialog.show(context, "Sending message", "Please wait...", false, false);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
         //Dismissing the progress dialog
         progressDialog.dismiss();
         //Showing a success message
-        Toast.makeText(context,"Message Sent",Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Message Sent", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -82,7 +82,7 @@ public class SendEmail extends AsyncTask<Void,Void,Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(Email_Address,Password);
+                        return new PasswordAuthentication(Email_Address, Password);
                     }
                 });
 

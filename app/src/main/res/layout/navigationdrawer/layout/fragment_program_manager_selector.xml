@@ -43,7 +43,7 @@
         android:background="@drawable/rounded_button"
         android:onClick="GoToFirstYearSchedule"
         android:padding="25dp"
-        android:text="First Year"
+        android:text="@string/first_year"
         android:textColor="@color/textColor" />
 
     <Button
@@ -59,6 +59,6 @@
         android:background="@drawable/rounded_button"
         android:onClick="GoToSecondYearSchedule"
         android:padding="25dp"
-        android:text="Second Year"
+        android:text="@string/second_year"
         android:textColor="@color/textColor" />
 </RelativeLayout>

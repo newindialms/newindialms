@@ -24,7 +24,7 @@
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:paddingTop="10dp"
-            android:text="Courses"
+            android:text="@string/course"
             android:textColor="@color/textColor"
             android:textSize="18sp" />
 

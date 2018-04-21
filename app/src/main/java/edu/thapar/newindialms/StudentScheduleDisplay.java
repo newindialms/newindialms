@@ -34,7 +34,7 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplay extends AppCompatActivity {
-    private String datevalue,student_specialization,studentid;
+    private String datevalue, student_specialization, studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
@@ -65,7 +65,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
         });
 
         Studentpic_program_title = (TextView) findViewById(R.id.studentschedule_display_title);
-        Studentpic_program_title.setText("My schedule on "+datevalue);
+        Studentpic_program_title.setText("My schedule on " + datevalue);
         heroList = new ArrayList<>();
         listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylist_ListView);
         listView.setHasFixedSize(true);
@@ -88,25 +88,25 @@ public class StudentScheduleDisplay extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");
 
-                    if (array != null&& array.length()>0) {
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        StudentScheduleDisplayListItems listItemProgramList = new StudentScheduleDisplayListItems(
-                                jsonObject1.getString("course_schedule_program"),
-                                jsonObject1.getString("course_schedule_starttime"),
-                                jsonObject1.getString("course_schedule_endtime"),
-                                jsonObject1.getString("course_schedule_course"),
-                                jsonObject1.getString("course_schedule_faculty")
-                        );
-                        heroList.add(listItemProgramList);
-                    }
-                    adapter = new StudentScheduleDisplayAdapter(heroList,getApplicationContext());
-                    listView.setAdapter(adapter);
-                    }else{
+                    if (array != null && array.length() > 0) {
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject jsonObject1 = array.getJSONObject(i);
+                            StudentScheduleDisplayListItems listItemProgramList = new StudentScheduleDisplayListItems(
+                                    jsonObject1.getString("course_schedule_program"),
+                                    jsonObject1.getString("course_schedule_starttime"),
+                                    jsonObject1.getString("course_schedule_endtime"),
+                                    jsonObject1.getString("course_schedule_course"),
+                                    jsonObject1.getString("course_schedule_faculty")
+                            );
+                            heroList.add(listItemProgramList);
+                        }
+                        adapter = new StudentScheduleDisplayAdapter(heroList, getApplicationContext());
+                        listView.setAdapter(adapter);
+                    } else {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
                         builder = new AlertDialog.Builder(StudentScheduleDisplay.this, R.style.MyStudentAlertDialogStyle);
                         builder.setTitle("Records");
-                        builder.setMessage("No Records avaliable for the selected Day.");
+                        builder.setMessage("No Records available for the selected Day.");
                         displayAlert();
                     }
 
@@ -121,7 +121,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

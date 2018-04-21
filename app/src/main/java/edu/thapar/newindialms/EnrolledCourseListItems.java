@@ -7,19 +7,25 @@ package edu.thapar.newindialms;
 public class EnrolledCourseListItems {
     private String enrolledcoursename;
     private String studentid;
+    private String studentyear;
 
     public EnrolledCourseListItems(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
     }
-    public EnrolledCourseListItems(String enrolledcoursename,String studentid) {
+
+    public EnrolledCourseListItems(String enrolledcoursename, String studentid,String studentyear) {
         this.enrolledcoursename = enrolledcoursename;
         this.studentid = studentid;
+        this.studentyear = studentyear;
     }
 
     public String getEnrolledcoursename() {
         return enrolledcoursename;
     }
 
+    public String getStudentyear() {
+        return studentyear;
+    }
 
     public String getStudentid() {
         return studentid;

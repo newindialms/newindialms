@@ -13,12 +13,12 @@ public class FacultyFeedbackCumulativeDisplayListItems {
     private String question;
     private String type;
 
-   public FacultyFeedbackCumulativeDisplayListItems(String question,String type,String facultyid, String coursename,String dateval) {
-       this.facultyid=facultyid;
-       this.question=question;
+    public FacultyFeedbackCumulativeDisplayListItems(String question, String type, String facultyid, String coursename, String dateval) {
+        this.facultyid = facultyid;
+        this.question = question;
         this.coursename = coursename;
-        this.dateval=dateval;
-        this.type=type;
+        this.dateval = dateval;
+        this.type = type;
     }
 
     public String getQuestion() {
@@ -33,10 +33,6 @@ public class FacultyFeedbackCumulativeDisplayListItems {
         return facultyid;
     }
 
-    public void setFacultyid(String facultyid) {
-        this.facultyid = facultyid;
-    }
-
     public String getCoursename() {
         return coursename;
     }
@@ -47,10 +43,6 @@ public class FacultyFeedbackCumulativeDisplayListItems {
 
     public String getDateval() {
         return dateval;
-    }
-
-    public void setDateval(String dateval) {
-        this.dateval = dateval;
     }
 
     public String getType() {

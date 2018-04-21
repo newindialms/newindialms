@@ -31,6 +31,7 @@ public class ViewStudentsTab extends AppCompatActivity {
     private ViewPager mViewPager;
     private Toolbar feedbacktoolbar;
     private TextView studentview_program_title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +45,14 @@ public class ViewStudentsTab extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        feedbacktoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        feedbacktoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
-        studentview_program_title=(TextView)findViewById(R.id.itemsselected);
+        studentview_program_title = (TextView) findViewById(R.id.itemsselected);
         studentview_program_title.setText("Student View");
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -78,14 +79,14 @@ public class ViewStudentsTab extends AppCompatActivity {
         /**
          * Returns a new instance of this fragment for the given section
          * number.
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+         * <p>
+         * public static PlaceholderFragment newInstance(int sectionNumber) {
+         * PlaceholderFragment fragment = new PlaceholderFragment();
+         * Bundle args = new Bundle();
+         * args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+         * fragment.setArguments(args);
+         * return fragment;
+         * }
          */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -107,15 +108,15 @@ public class ViewStudentsTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                ShowAllStudentFragment showstudent =new ShowAllStudentFragment();
-                return showstudent;
+                    ShowAllStudentFragment showstudent = new ShowAllStudentFragment();
+                    return showstudent;
                 case 1:
-                    SearchStudent searchStudent =new SearchStudent();
+                    SearchStudent searchStudent = new SearchStudent();
                     return searchStudent;
                 case 2:
-                    ShowAllStudentFragment showstudent2=new ShowAllStudentFragment();
+                    ShowAllStudentFragment showstudent2 = new ShowAllStudentFragment();
                     return showstudent2;
             }
             return null;

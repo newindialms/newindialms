@@ -51,7 +51,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(specializationname);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -62,14 +62,14 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
         });
 
         Studentpic_programycoursemodule_title = (TextView) findViewById(R.id.Studentpic_programycoursemodule_title);
-        Studentpic_programycoursemodule_title.setText(specializationname+ " Courses");
+        Studentpic_programycoursemodule_title.setText(specializationname + " Courses");
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.studentpic_programscreencoursemodulelist_ListView);
-        pglist= new ProgramScreenCourseModuleListItems(specializationname);
+        pglist = new ProgramScreenCourseModuleListItems(specializationname);
         pglist.setSpecializationname(specializationname);
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -105,7 +105,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenCourseModuleAdapter(getApplicationContext(),R.layout.activity_program_screencoursemodulelistitems,heroList);
+                    adapter = new ProgramScreenCourseModuleAdapter(getApplicationContext(), R.layout.activity_program_screencoursemodulelistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -120,7 +120,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -133,7 +133,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle(specializationname+ " Courses");
+        this.setTitle(specializationname + " Courses");
     }
 
 }

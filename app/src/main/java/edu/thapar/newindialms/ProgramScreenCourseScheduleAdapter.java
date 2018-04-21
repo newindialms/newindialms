@@ -15,7 +15,7 @@ import java.util.List;
  * Created by kamalshree on 11/10/2017.
  */
 
-public class ProgramScreenCourseScheduleAdapter  extends ArrayAdapter<ProgramScreenCourseScheduleListItems> {
+public class ProgramScreenCourseScheduleAdapter extends ArrayAdapter<ProgramScreenCourseScheduleListItems> {
 
     //the list values in the List of type hero
     List<ProgramScreenCourseScheduleListItems> programScreenCourseScheduleListItems;
@@ -47,16 +47,15 @@ public class ProgramScreenCourseScheduleAdapter  extends ArrayAdapter<ProgramScr
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView timetable_day = (TextView)view.findViewById(R.id.timetable_day);
-        TextView timetable_date = (TextView)view.findViewById(R.id.timetable_date);
-        TextView timetable_startdate = (TextView)view.findViewById(R.id.timetable_startdate);
-        TextView textView10 = (TextView)view.findViewById(R.id.textView10);
-        TextView timetable_enddate = (TextView)view.findViewById(R.id.timetable_enddate);
-        TextView timetable_course = (TextView)view.findViewById(R.id.timetable_course);
-        TextView textView13 = (TextView)view.findViewById(R.id.textView13);
-        TextView timetable_faculty = (TextView)view.findViewById(R.id.timetable_faculty);
-        TextView timetable_program = (TextView)view.findViewById(R.id.timetable_program);
-
+        TextView timetable_day = (TextView) view.findViewById(R.id.timetable_day);
+        TextView timetable_date = (TextView) view.findViewById(R.id.timetable_date);
+        TextView timetable_startdate = (TextView) view.findViewById(R.id.timetable_startdate);
+        TextView textView10 = (TextView) view.findViewById(R.id.textView10);
+        TextView timetable_enddate = (TextView) view.findViewById(R.id.timetable_enddate);
+        TextView timetable_course = (TextView) view.findViewById(R.id.timetable_course);
+        TextView textView13 = (TextView) view.findViewById(R.id.textView13);
+        TextView timetable_faculty = (TextView) view.findViewById(R.id.timetable_faculty);
+        TextView timetable_program = (TextView) view.findViewById(R.id.timetable_program);
 
 
         //getting the hero of the specified position
@@ -67,13 +66,13 @@ public class ProgramScreenCourseScheduleAdapter  extends ArrayAdapter<ProgramScr
         timetable_date.setText(hero.getTimetable_date());
         timetable_startdate.setText(hero.getTimetable_startdate());
 
-        String textView10text=textView10.getText().toString();
+        String textView10text = textView10.getText().toString();
         textView10.setText(textView10text);
 
         timetable_enddate.setText(hero.getTimetable_enddate());
         timetable_course.setText(hero.getTimetable_course());
 
-        String textView13text=textView13.getText().toString();
+        String textView13text = textView13.getText().toString();
         textView13.setText(textView13text);
 
         timetable_faculty.setText(hero.getTimetable_faculty());

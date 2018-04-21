@@ -22,13 +22,14 @@ import java.util.List;
  * Created by kamalshree on 10/30/2017.
  */
 
-public class RemoveFacultyFragment  extends Fragment {
+public class RemoveFacultyFragment extends Fragment {
     View rootview;
     private ListView FacultyListView;
     private String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
     List<Faculty> facultyList;
     SwipeRefreshLayout swipeRefreshLayout;
+
     public RemoveFacultyFragment() {
     }
 
@@ -40,7 +41,7 @@ public class RemoveFacultyFragment  extends Fragment {
 
 
         FacultyListView = (ListView) rootview.findViewById(R.id.all_faculty_list);
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfaculty_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfaculty_swipe);
         new GetHttpResponse(getActivity()).execute();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -60,7 +61,6 @@ public class RemoveFacultyFragment  extends Fragment {
         public Context context;
 
         String JSonResult;
-
 
 
         public GetHttpResponse(Context context) {
@@ -105,8 +105,8 @@ public class RemoveFacultyFragment  extends Fragment {
                                 //Adding Faculty Name.
                                 faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
                                 faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
-                                faculty.FacultyID=jsonObject.getString("facultydetails_ID").toString();
-                                faculty.FacultyRollno=jsonObject.getString("faculty_employeeid").toString();
+                                faculty.FacultyID = jsonObject.getString("facultydetails_ID").toString();
+                                faculty.FacultyRollno = jsonObject.getString("faculty_employeeid").toString();
                                 faculty.FacultyCode = jsonObject.getString("faculty_code").toString();
                                 faculty.FacultySpecialization = jsonObject.getString("faculty_specialization").toString();
 

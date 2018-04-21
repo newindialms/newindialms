@@ -32,11 +32,11 @@ import java.util.Map;
 
 public class UpdateFeedback extends AppCompatActivity {
     private Toolbar showfeedback_toolbar;
-    private EditText feedback_udpate_title,feedback_udpate_question;
+    private EditText feedback_udpate_title, feedback_udpate_question;
     private TextView showfeedback_id;
-    private Button udpateButton,deleteButton;
+    private Button udpateButton, deleteButton;
     private Spinner feedbackspinner;
-    private String feedback_title,feedback_question,feedback_type,id;
+    private String feedback_title, feedback_question, feedback_type, id;
     private String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
     private String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";
 
@@ -59,32 +59,32 @@ public class UpdateFeedback extends AppCompatActivity {
             }
         });
 
-        showfeedback_id= (TextView) findViewById(R.id.showfeedback_id);
-        feedback_udpate_title= (EditText)findViewById(R.id.feedback_udpate_title);
-        feedback_udpate_question= (EditText)findViewById(R.id.feedback_udpate_question);
+        showfeedback_id = (TextView) findViewById(R.id.showfeedback_id);
+        feedback_udpate_title = (EditText) findViewById(R.id.feedback_udpate_title);
+        feedback_udpate_question = (EditText) findViewById(R.id.feedback_udpate_question);
 
-        udpateButton = (Button)findViewById(R.id.feedback_update);
-        deleteButton = (Button)findViewById(R.id.feedback_delete);
+        udpateButton = (Button) findViewById(R.id.feedback_update);
+        deleteButton = (Button) findViewById(R.id.feedback_delete);
 
-          id = getIntent().getStringExtra("id");
-         feedback_title = getIntent().getStringExtra("feedback_title");
-         feedback_question = getIntent().getStringExtra("feedback_question");
+        id = getIntent().getStringExtra("id");
+        feedback_title = getIntent().getStringExtra("feedback_title");
+        feedback_question = getIntent().getStringExtra("feedback_question");
         feedback_type = getIntent().getStringExtra("feedback_type");
 
 
-        feedbackspinner=(Spinner)findViewById(R.id.addfeedbackspinner);
+        feedbackspinner = (Spinner) findViewById(R.id.addfeedbackspinner);
 
-        feedbackspinner.setSelection(((ArrayAdapter<String>)feedbackspinner.getAdapter()).getPosition(feedback_type));
+        feedbackspinner.setSelection(((ArrayAdapter<String>) feedbackspinner.getAdapter()).getPosition(feedback_type));
 
         feedbackspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                feedback_type=feedbackspinner.getSelectedItem().toString();
+                feedback_type = feedbackspinner.getSelectedItem().toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(UpdateFeedback.this,"nothing selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateFeedback.this, "nothing selected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -109,13 +109,13 @@ public class UpdateFeedback extends AppCompatActivity {
     }
 
 
-    public void updateFeedbackFunction(){
-        id=showfeedback_id.getText().toString();
-        feedback_title=feedback_udpate_title.getText().toString();
-        feedback_question=feedback_udpate_question.getText().toString();
-        feedback_type= feedbackspinner.getSelectedItem().toString();
+    public void updateFeedbackFunction() {
+        id = showfeedback_id.getText().toString();
+        feedback_title = feedback_udpate_title.getText().toString();
+        feedback_question = feedback_udpate_question.getText().toString();
+        feedback_type = feedbackspinner.getSelectedItem().toString();
 
-        if (feedback_title.equals("") || feedback_question.equals("") || feedback_type.equals("")){
+        if (feedback_title.equals("") || feedback_question.equals("") || feedback_type.equals("")) {
             builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
             builder.setMessage(getResources().getString(R.string.registration_error_missingfields_text));
             displayAlert("missing_fields");
@@ -124,20 +124,19 @@ public class UpdateFeedback extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, updatefeedback_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-              try {
-                  JSONArray jsonArray = new JSONArray(response);
-                  JSONObject jsonObject = jsonArray.getJSONObject(0);
-                  String code = jsonObject.getString("code");
-                  String message = jsonObject.getString("message");
-                  builder.setTitle(code);
-                  builder.setMessage(message);
-                  displayAlert(message);
-                 // Toast.makeText(UpdateFeedback.this,"Feedback Updated Successfully",Toast.LENGTH_LONG).show();
-                 // UpdateFeedback.this.finish();
-              }
-              catch (JSONException e){
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String code = jsonObject.getString("code");
+                    String message = jsonObject.getString("message");
+                    builder.setTitle(code);
+                    builder.setMessage(message);
+                    displayAlert(message);
+                    // Toast.makeText(UpdateFeedback.this,"Feedback Updated Successfully",Toast.LENGTH_LONG).show();
+                    // UpdateFeedback.this.finish();
+                } catch (JSONException e) {
 
-              }
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -163,8 +162,8 @@ public class UpdateFeedback extends AppCompatActivity {
     }
 
 
-    public void deleteFeedbackFunction(){
-        id=showfeedback_id.getText().toString();
+    public void deleteFeedbackFunction() {
+        id = showfeedback_id.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, deletefeedback_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -177,9 +176,8 @@ public class UpdateFeedback extends AppCompatActivity {
                     builder.setMessage(message);
                     displayAlert(message);
                     //Toast.makeText(UpdateFeedback.this,"Feedback Deleted Successfully",Toast.LENGTH_LONG).show();
-                   // UpdateFeedback.this.finish();
-                }
-                catch (JSONException e){
+                    // UpdateFeedback.this.finish();
+                } catch (JSONException e) {
 
                 }
             }
@@ -198,10 +196,11 @@ public class UpdateFeedback extends AppCompatActivity {
                 params.put("id", id);
                 return params;
             }
-            };
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
     public void displayAlert(final String code) {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {

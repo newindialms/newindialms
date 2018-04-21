@@ -18,7 +18,7 @@ import java.util.List;
  * Created by kamalshree on 10/25/2017.
  */
 
-public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCourseListItems> {
+public class ProgramScreenCourseAdapter extends ArrayAdapter<ProgramScreenCourseListItems> {
 
     //the list values in the List of type hero
     List<ProgramScreenCourseListItems> programScreenCourseListItems;
@@ -50,10 +50,10 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        TextView studentpic_programscreencourselist = (TextView)view.findViewById(R.id.studentpic_programscreencourselist);
-        TextView studentpic_programscreencourselistcode = (TextView)view.findViewById(R.id.studentpic_programscreencourselistcode);
-        ImageView studentPicarrow = (ImageView)view.findViewById(R.id.studentPicarrow);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        TextView studentpic_programscreencourselist = (TextView) view.findViewById(R.id.studentpic_programscreencourselist);
+        TextView studentpic_programscreencourselistcode = (TextView) view.findViewById(R.id.studentpic_programscreencourselistcode);
+        ImageView studentPicarrow = (ImageView) view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenCourseListItems hero = programScreenCourseListItems.get(position);
@@ -65,11 +65,12 @@ public class ProgramScreenCourseAdapter  extends ArrayAdapter<ProgramScreenCours
 
         relative1.setOnClickListener(new View.OnClickListener() {
 
-            String allcoursename=hero.getCoursename();
+            String allcoursename = hero.getCoursename();
+
             @Override
             public void onClick(View view) {
                 Intent allcourseintent = new Intent(context, ProgramScreenAllCourses.class);
-                allcourseintent.putExtra("allcoursename",allcoursename);
+                allcourseintent.putExtra("allcoursename", allcoursename);
                 allcourseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(allcourseintent);
             }

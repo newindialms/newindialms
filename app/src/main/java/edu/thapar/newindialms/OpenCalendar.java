@@ -64,15 +64,14 @@ public class OpenCalendar extends AppCompatActivity {
             public void onClick(View view) {
                 title = title_notification.getText().toString();
                 message = message_notification.getText().toString();
-                if(title.equals("")||message.equals("")){
-                    builder=new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
+                if (title.equals("") || message.equals("")) {
+                    builder = new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
                     builder.setTitle("Missing");
                     builder.setMessage("Please enter the Title and Message ");
                     displayAlert();
-                }
-                else {
+                } else {
                     SendAccademicCalendarNotificationFunction();
-                    builder=new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
+                    builder = new AlertDialog.Builder(OpenCalendar.this, R.style.MyAlertDialogStyle);
                     builder.setTitle("Success");
                     builder.setMessage("Notification sent successfully ");
                     displayAlert();

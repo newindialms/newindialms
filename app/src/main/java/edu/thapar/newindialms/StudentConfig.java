@@ -6,16 +6,16 @@ package edu.thapar.newindialms;
 
 public class StudentConfig {
 
-        //JSON URL
-        public static final String DATA_URL = "https://newindialms.000webhostapp.com/SearchStudent.php";
+    //JSON URL
+    public static final String DATA_URL = "https://newindialms.000webhostapp.com/SearchStudent.php";
 
-        //Tags used in the JSON String
-        public static final String TAG_year = "student_joining";
-        public static final String TAG_program = "student_program";
-        public static final String TAG_specialization = "course_details_specialization";
+    //Tags used in the JSON String
+    public static final String TAG_year = "student_joining";
+    public static final String TAG_program = "student_program";
+    public static final String TAG_specialization = "course_details_specialization";
 
-        //JSON array name
-        public static final String JSON_ARRAY = "result";
+    //JSON array name
+    public static final String JSON_ARRAY = "result";
 
-    }
+}
 

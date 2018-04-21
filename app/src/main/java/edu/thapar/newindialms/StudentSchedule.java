@@ -7,21 +7,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
-public class StudentSchedule extends Fragment{
+public class StudentSchedule extends Fragment {
 
-    private String student_specialization,studentyear,studentid;
+    private String student_specialization, studentyear, studentid;
     View rootView;
     private Button ScheduleButton;
     private String datevalue;
@@ -35,20 +32,20 @@ public class StudentSchedule extends Fragment{
         studentid = getArguments().getString("studentid");
         student_specialization = getArguments().getString("student_specialization");
         //Toast.makeText(getContext(),"student year"+studentyear,Toast.LENGTH_LONG).show();
-        calendarView= (android.widget.CalendarView)rootView.findViewById(R.id.schedule_calendarView);
-        ScheduleButton=(Button)rootView.findViewById(R.id.ScheduleButton);
+        calendarView = (android.widget.CalendarView) rootView.findViewById(R.id.schedule_calendarView);
+        ScheduleButton = (Button) rootView.findViewById(R.id.ScheduleButton);
 
         calendarView.setOnDateChangeListener(new android.widget.CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull android.widget.CalendarView calendarView, int yearval, int monthval, int dateval) {
-                datevalue=dateval+"-"+(monthval+1)+"-"+yearval;
+                datevalue = dateval + "-" + (monthval + 1) + "-" + yearval;
             }
         });
 
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(studentyear.equals("1")) {
+                if (studentyear.equals("1")) {
                     Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplayFirstYear.class);
                     facultyintent.putExtra("datevalue", datevalue);
                     facultyintent.putExtra("studentid", studentid);
@@ -67,8 +64,7 @@ public class StudentSchedule extends Fragment{
                         displayAlert();
                     }
 
-                }
-                else{
+                } else {
                     Intent facultyintent = new Intent(getActivity(), StudentScheduleDisplay.class);
                     facultyintent.putExtra("student_specialization", student_specialization);
                     facultyintent.putExtra("studentid", studentid);
@@ -92,6 +88,7 @@ public class StudentSchedule extends Fragment{
         });
         return rootView;
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.faculty_schedule_title));
     }

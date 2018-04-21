@@ -34,10 +34,9 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EnrollSpecializationFragment extends Fragment{
+public class EnrollSpecializationFragment extends Fragment {
     View rootview;
-    String student_specialization,studentid,student_rollnno;
-    TextView enrolled_specialization;
+    String studentid, student_rollnno;
     String getspecializationlist_url = "https://newindialms.000webhostapp.com/get_specializationname.php";
     String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollspecialization.php";
     List<EnrollSpecializationListItems> heroList;
@@ -45,8 +44,8 @@ public class EnrollSpecializationFragment extends Fragment{
     ListView listView;
     Button EnrollButton;
     AlertDialog.Builder builder;
-    String student_year="2";
-    String enrollist="";
+    String enrollist = "";
+
     public EnrollSpecializationFragment() {
         // Required empty public constructor
     }
@@ -56,13 +55,13 @@ public class EnrollSpecializationFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.activity_new_enrollspecialization, container, false);
+        rootview = inflater.inflate(R.layout.activity_new_enrollspecialization, container, false);
 
-        studentid =  getActivity().getIntent().getExtras().getString("studentid");
-        student_rollnno =  getActivity().getIntent().getExtras().getString("studentid");
+        studentid = getActivity().getIntent().getExtras().getString("studentid");
+        student_rollnno = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
-        EnrollButton=(Button)rootview.findViewById(R.id.EnrollButton);
+        EnrollButton = (Button) rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
 
         EnrollButton.setOnClickListener(new View.OnClickListener() {
@@ -73,23 +72,22 @@ public class EnrollSpecializationFragment extends Fragment{
         });
 
 
-
         return rootview;
 
 
     }
-    public void onClickData ( View view ) {
+
+    public void onClickData(View view) {
         List<EnrollSpecializationListItems> empData = adapter.enrollcourseListItemses;
-        enrollist="";
-        int counter=0;
+        enrollist = "";
+        int counter = 0;
         for (EnrollSpecializationListItems employeeModel : empData) {
-            if ( employeeModel.isSelected() ) {
+            if (employeeModel.isSelected()) {
                 counter++;
-                if(counter==1) {
+                if (counter == 1) {
                     enrollist = employeeModel.getCoursedetails_name();
-                }
-                else{
-                    enrollist +=","+employeeModel.getCoursedetails_name();
+                } else {
+                    enrollist += "," + employeeModel.getCoursedetails_name();
                 }
             }
 
@@ -102,7 +100,7 @@ public class EnrollSpecializationFragment extends Fragment{
         StringRequest stringRequest = new StringRequest(Request.Method.POST, insertenroll_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                builder=new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
+                builder = new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
                 builder.setTitle("Success");
                 builder.setMessage("Specialization updated Succcessfully");
                 displayAlert();
@@ -112,18 +110,19 @@ public class EnrollSpecializationFragment extends Fragment{
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                    params.put("student_rollnno", studentid);
-                    params.put("student_specialization", enrollist);
+                params.put("student_rollnno", studentid);
+                params.put("student_specialization", enrollist);
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Refreshing Data");
@@ -144,7 +143,7 @@ public class EnrollSpecializationFragment extends Fragment{
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new EnrollSpecializationAdapter(getContext(),R.layout.activity_student_enrollspecializationlistitems,heroList);
+                    adapter = new EnrollSpecializationAdapter(getContext(), R.layout.activity_student_enrollspecializationlistitems, heroList);
                     listView.setAdapter(adapter);
 
 

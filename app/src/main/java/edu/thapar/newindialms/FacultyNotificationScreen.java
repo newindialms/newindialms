@@ -2,15 +2,12 @@ package edu.thapar.newindialms;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -44,7 +41,7 @@ public class FacultyNotificationScreen extends AppCompatActivity {
         setContentView(R.layout.fragment_faculty_noticationscreen);
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(" Notification");
         setSupportActionBar(faculty_toolbar);
 
@@ -61,7 +58,7 @@ public class FacultyNotificationScreen extends AppCompatActivity {
         LoadNotifications();
         notificationScreenDetails = new ArrayList<>();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

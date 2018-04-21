@@ -27,7 +27,7 @@ import java.util.List;
 
 public class FacultyFeedbackDashboard extends AppCompatActivity {
     public static final String feedack_type_url = "http://newindialms.000webhostapp.com/get_feedbacktype.php";
-    private String coursename,faculty_employeeid,datevalue;
+    private String coursename, faculty_employeeid, datevalue;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;
 
@@ -37,6 +37,7 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
 
     //the listview
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,17 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
-        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
-        facultycourselist_program_title=(TextView)findViewById(R.id.faculty_feedback_dashboard_title);
+        facultycourselist_program_title = (TextView) findViewById(R.id.faculty_feedback_dashboard_title);
         facultycourselist_program_title.setText("My Feedback");
 
         //initializing objects
@@ -86,12 +87,12 @@ public class FacultyFeedbackDashboard extends AppCompatActivity {
                         JSONObject obj = jsonArray.getJSONObject(i);
 
                         FacultyFeedbackDashboardListItems listItemProgramList = new FacultyFeedbackDashboardListItems(
-                                obj.getString("feedback_type"),coursename,faculty_employeeid,datevalue
+                                obj.getString("feedback_type"), coursename, faculty_employeeid, datevalue
                         );
                         heroList.add(listItemProgramList);
 
                     }
-                    adapter = new FacultyFeedbackDashboardAdapter(FacultyFeedbackDashboard.this,R.layout.activity_faculty_feedback_dashboard_listitems,heroList);
+                    adapter = new FacultyFeedbackDashboardAdapter(FacultyFeedbackDashboard.this, R.layout.activity_faculty_feedback_dashboard_listitems, heroList);
                     listView.setAdapter(adapter);
 
 

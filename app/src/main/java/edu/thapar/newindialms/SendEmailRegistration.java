@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMessage;
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
-public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
+public class SendEmailRegistration extends AsyncTask<Void, Void, Void> {
 
     //Declaring Variables
     private Session session;
@@ -35,11 +35,11 @@ public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendEmailRegistration(Context context, String email,String Email_Address, String Password){
+    public SendEmailRegistration(Context context, String email, String Email_Address, String Password) {
         //Initializing variables
         this.email = email;
-        this.Email_Address=Email_Address;
-        this.Password=Password;
+        this.Email_Address = Email_Address;
+        this.Password = Password;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class SendEmailRegistration extends AsyncTask<Void,Void,Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(Email_Address,Password);
+                        return new PasswordAuthentication(Email_Address, Password);
                     }
                 });
 

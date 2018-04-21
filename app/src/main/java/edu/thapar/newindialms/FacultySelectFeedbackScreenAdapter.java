@@ -20,6 +20,7 @@ public class FacultySelectFeedbackScreenAdapter extends RecyclerView.Adapter<Fac
 
     private Context ctx;
     private List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;
+
     public FacultySelectFeedbackScreenAdapter(Context ctx, List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails) {
         this.ctx = ctx;
         this.facultySelectFeedbackScreenDetails = facultySelectFeedbackScreenDetails;
@@ -45,8 +46,7 @@ public class FacultySelectFeedbackScreenAdapter extends RecyclerView.Adapter<Fac
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     notification.setStatus(true);
-                }
-                else{
+                } else {
                     notification.setStatus(false);
                 }
             }

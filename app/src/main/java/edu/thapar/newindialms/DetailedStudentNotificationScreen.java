@@ -22,7 +22,7 @@ public class DetailedStudentNotificationScreen extends AppCompatActivity {
 
         student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.student_enroll_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
         faculty_title.setText(" Notification");
         setSupportActionBar(student_toolbar);
 

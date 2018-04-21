@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -29,7 +28,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
     //the layout resource file for the list items
     int resource;
     private String status = "present";
-    List<String> absentlist,presentlist;
+    List<String> absentlist, presentlist;
     View view;
     LayoutInflater layoutinflater;
     TextView faculty_courselist_attendance_take, faculty_courselist_attendance_take_roolno;
@@ -65,7 +64,7 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
         final FacultyCourseListTakeAttendanceListItems hero = facultyCourseListTakeAttendanceListItems.get(position);
 
         //adding values to the list item
-        faculty_courselist_attendance_take.setText(hero.getStudentname()+" "+hero.getFname());
+        faculty_courselist_attendance_take.setText(hero.getStudentname() + " " + hero.getFname());
         faculty_courselist_attendance_take_roolno.setText(hero.getStudentrollno());
         attendance_switch.setChecked(true);
         absentlist = new ArrayList<>();

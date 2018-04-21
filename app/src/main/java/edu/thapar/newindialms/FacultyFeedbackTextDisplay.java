@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -33,8 +35,9 @@ import java.util.Map;
 public class FacultyFeedbackTextDisplay extends AppCompatActivity {
 
     public static final String rate_url = "https://newindialms.000webhostapp.com/get_all_text_feedback.php";
-    private String faculty_id,coursename,feedback_sent_date;
+    private String faculty_id, coursename, feedback_sent_date;
     private Toolbar rate_toolbar;
+    private AlertDialog.Builder builder;
     FacultyFeedackTextDisplayAdapter adapter;
 
     List<FacultyFeedbackTextDisplayListItems> heroList;
@@ -45,7 +48,7 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_textfeedback_dashboard);
 
-        faculty_id  = getIntent().getStringExtra("faculty_employeeid");
+        faculty_id = getIntent().getStringExtra("faculty_employeeid");
         coursename = getIntent().getStringExtra("coursename");
         feedback_sent_date = getIntent().getStringExtra("datevalue");
 
@@ -81,7 +84,7 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("Textfeedback");
-
+                    if (array != null && array.length() > 0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyFeedbackTextDisplayListItems listItemProgramList = new FacultyFeedbackTextDisplayListItems(
@@ -93,9 +96,15 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new FacultyFeedackTextDisplayAdapter(getApplicationContext(),R.layout.activity_faculty_textfeedback_dashboard_listitems,heroList);
+                    adapter = new FacultyFeedackTextDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_textfeedback_dashboard_listitems, heroList);
                     listView.setAdapter(adapter);
-
+                    } else {
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyFeedbackTextDisplay.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Feedback");
+                        builder.setMessage("No Records available for the selected search.");
+                        displayAlert();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -106,7 +115,7 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -119,7 +128,17 @@ public class FacultyFeedbackTextDisplay extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     }
-
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

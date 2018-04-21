@@ -4,14 +4,11 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -35,18 +32,19 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProgramManagerSchedule  extends AppCompatActivity {
+public class ProgramManagerSchedule extends AppCompatActivity {
     private String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
     private String day_url = "https://newindialms.000webhostapp.com/get_days.php";
-    private Spinner issuespinner,dayspinner,semesterspinner;
-    private ArrayList<String> issuelist,daylist;
-    private JSONArray resultissue,resultday;
+    private Spinner issuespinner, dayspinner, semesterspinner;
+    private ArrayList<String> issuelist, daylist;
+    private JSONArray resultissue, resultday;
     private Button gobutton;
     private Toolbar toolbar_all_notiifcation;
-    private String issue_details,day_details,semester_details;
+    private String issue_details, day_details, semester_details;
     private AlertDialog.Builder builder;
     private TextView toolbar_title;
     View rootview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,28 +67,25 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         addListenerOnDaysSpinnerItemSelection();
 
 
-
-
         gobutton = (Button) findViewById(R.id.course_schedule_go);
         gobutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 issuespinner = (Spinner) findViewById(R.id.course_schedule_issuespinner);
-                issue_details=issuespinner.getSelectedItem().toString();
+                issue_details = issuespinner.getSelectedItem().toString();
 
-                dayspinner = (Spinner)findViewById(R.id.course_schedule_dayspinner);
-                day_details=dayspinner.getSelectedItem().toString();
+                dayspinner = (Spinner) findViewById(R.id.course_schedule_dayspinner);
+                day_details = dayspinner.getSelectedItem().toString();
 
                 semesterspinner = (Spinner) findViewById(R.id.course_schedule_semesterspinner);
-                semester_details=semesterspinner.getSelectedItem().toString();
+                semester_details = semesterspinner.getSelectedItem().toString();
 
-                if(semester_details.equals("")||day_details.equals("")||issue_details.equals("")){
-                    builder=new AlertDialog.Builder(getApplicationContext(), R.style.MyAlertDialogStyle);
+                if (semester_details.equals("") || day_details.equals("") || issue_details.equals("")) {
+                    builder = new AlertDialog.Builder(getApplicationContext(), R.style.MyAlertDialogStyle);
                     builder.setTitle("Missing");
                     builder.setMessage("Please choose the Issue,Day and Semester ");
                     displayAlert();
-                }
-                else {
+                } else {
                     Intent scheduleintent = new Intent(getApplicationContext(), ProgramManagerCourseSchedule.class);
                     scheduleintent.putExtra("issue_details", issue_details);
                     scheduleintent.putExtra("day_details", day_details);
@@ -107,12 +102,12 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         semesterspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                semester_details=semesterspinner.getSelectedItem().toString();
+                semester_details = semesterspinner.getSelectedItem().toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getApplicationContext(),"nothing selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "nothing selected", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -123,7 +118,8 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         getIssueData();
 
     }
-    private void getIssueData(){
+
+    private void getIssueData() {
 
         issuespinner = (Spinner) findViewById(R.id.course_schedule_issuespinner);
         //Creating a string request
@@ -149,7 +145,7 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -160,9 +156,9 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void getIssueName(JSONArray j){
+    private void getIssueName(JSONArray j) {
         //Traversing through all the items in the json array
-        for(int i=0;i<j.length();i++){
+        for (int i = 0; i < j.length(); i++) {
             try {
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);
@@ -184,7 +180,8 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         getDaysData();
 
     }
-    private void getDaysData(){
+
+    private void getDaysData() {
 
         dayspinner = (Spinner) findViewById(R.id.course_schedule_dayspinner);
         //Creating a string request
@@ -210,7 +207,7 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -221,9 +218,9 @@ public class ProgramManagerSchedule  extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void getDaysName(JSONArray j){
+    private void getDaysName(JSONArray j) {
         //Traversing through all the items in the json array
-        for(int i=0;i<j.length();i++){
+        for (int i = 0; i < j.length(); i++) {
             try {
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);

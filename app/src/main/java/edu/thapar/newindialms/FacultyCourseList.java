@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,7 @@ import java.util.Map;
  * Created by kamalshree on 9/26/2017.
  */
 
-public class FacultyCourseList extends Fragment{
+public class FacultyCourseList extends Fragment {
 
 
     private String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
@@ -50,18 +49,18 @@ public class FacultyCourseList extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_courselist, null);
         FacultyMenu activity = (FacultyMenu) getActivity();
-        faculty_employeeid=activity.getEmployeeid();
-        TextView studentpic_title=(TextView)rootView.findViewById(R.id.faculty_courselist_title);
+        faculty_employeeid = activity.getEmployeeid();
+        TextView studentpic_title = (TextView) rootView.findViewById(R.id.faculty_courselist_title);
         studentpic_title.setText("CourseList");
 
-        pglist= new FacultyListItemCourseList(faculty_employeeid);
+        pglist = new FacultyListItemCourseList(faculty_employeeid);
         pglist.setFaculty_employeeid(faculty_employeeid);
 
         heroList = new ArrayList<>();
         listView = (ListView) rootView.findViewById(R.id.faculty_courselist_ListView);
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)rootView.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -91,13 +90,12 @@ public class FacultyCourseList extends Fragment{
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         FacultyListItemCourseList listItemProgramList = new FacultyListItemCourseList(
-                                jsonObject1.getString("course_details_name"),jsonObject1.getString("course_details_code"),pglist.getFaculty_employeeid()
-                        );
+                                jsonObject1.getString("course_details_name"), jsonObject1.getString("course_details_code"), jsonObject1.getString("course_type"), pglist.getFaculty_employeeid());
                         heroList.add(listItemProgramList);
 
 
                     }
-                    adapter = new FacultyCourseListAdapter(getContext(),R.layout.cardview_faculty_courselist,heroList);
+                    adapter = new FacultyCourseListAdapter(getContext(), R.layout.cardview_faculty_courselist, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -112,7 +110,7 @@ public class FacultyCourseList extends Fragment{
                 progressDialog.dismiss();
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

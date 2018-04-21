@@ -29,16 +29,19 @@ public class NotificationScreen extends AppCompatActivity {
             }
         });
     }
-    public void GoToAccademicCalendar(View v){
-        Intent intent = new Intent(getApplicationContext(),OpenCalendar.class);
+
+    public void GoToAccademicCalendar(View v) {
+        Intent intent = new Intent(getApplicationContext(), OpenCalendar.class);
         startActivity(intent);
     }
-    public void SendFacultyNotification(View v){
-        Intent intent = new Intent(getApplicationContext(),SendFacultyNotificaton.class);
+
+    public void SendFacultyNotification(View v) {
+        Intent intent = new Intent(getApplicationContext(), SendFacultyNotificaton.class);
         startActivity(intent);
     }
-    public void SendStudentNotification(View v){
-        Intent intent = new Intent(getApplicationContext(),SendStudentNotificaton.class);
+
+    public void SendStudentNotification(View v) {
+        Intent intent = new Intent(getApplicationContext(), SendStudentNotificaton.class);
         startActivity(intent);
     }
 }

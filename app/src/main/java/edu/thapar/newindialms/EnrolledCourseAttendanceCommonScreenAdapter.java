@@ -50,14 +50,13 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        RelativeLayout relative2 = (RelativeLayout)view.findViewById(R.id.relative2);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = (RelativeLayout) view.findViewById(R.id.relative2);
         TextView enrolledcourselist_daywise = (TextView) view.findViewById(R.id.enrolledcourselist_daywise);
         TextView enrolledcourselist_cumulative = (TextView) view.findViewById(R.id.enrolledcourselist_cumulative);
 
         ImageView studentPicarrow1 = (ImageView) view.findViewById(R.id.studentPicarrow1);
         ImageView studentPicarrow2 = (ImageView) view.findViewById(R.id.studentPicarrow2);
-
 
 
         //getting the hero of the specified position
@@ -72,12 +71,14 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String course_details_name=hero.getEnrolledcoursename();
-                String student_rollnno=hero.getStudentrollno();
+                String course_details_name = hero.getEnrolledcoursename();
+                String student_rollnno = hero.getStudentrollno();
+                String studentyear = hero.getStudentyear();
 
                 Intent daywiseintent = new Intent(context, EnrolledCourseDaywiseAttendanceActivity.class);
-                daywiseintent.putExtra("course_details_name",course_details_name);
-                daywiseintent.putExtra("student_rollnno",student_rollnno);
+                daywiseintent.putExtra("course_details_name", course_details_name);
+                daywiseintent.putExtra("student_rollnno", student_rollnno);
+                daywiseintent.putExtra("studentyear", studentyear);
                 daywiseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(daywiseintent);
             }
@@ -86,12 +87,14 @@ public class EnrolledCourseAttendanceCommonScreenAdapter extends ArrayAdapter<En
         relative2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String course_details_name=hero.getEnrolledcoursename();
-                String student_rollnno=hero.getStudentrollno();
+                String course_details_name = hero.getEnrolledcoursename();
+                String student_rollnno = hero.getStudentrollno();
+                String studentyear = hero.getStudentyear();
 
                 Intent daywiseintent = new Intent(context, EnrolledCourseCumulativeAttendanceActivity.class);
-                daywiseintent.putExtra("course_details_name",course_details_name);
-                daywiseintent.putExtra("student_rollnno",student_rollnno);
+                daywiseintent.putExtra("course_details_name", course_details_name);
+                daywiseintent.putExtra("student_rollnno", student_rollnno);
+                daywiseintent.putExtra("studentyear", studentyear);
                 daywiseintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(daywiseintent);
             }

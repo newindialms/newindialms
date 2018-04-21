@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -58,15 +57,14 @@ public class FacultyFeedackCumulativeDasboardAdapter extends ArrayAdapter<Facult
 
         //adding values to the list item
 
-        if(hero.getType().equals("like")){
+        if (hero.getType().equals("like")) {
             text_rating_questions.setText(hero.getQuestion());
-            average.setText("Like Percentage : "+hero.getAverage()+"%");
+            average.setText("Like Percentage : " + hero.getAverage() + "%");
             median.setVisibility(View.GONE);
-        }
-        else {
+        } else {
             text_rating_questions.setText(hero.getQuestion());
-            average.setText("Average : "+hero.getAverage());
-            median.setText("Median : "+hero.getMedian());
+            average.setText("Average : " + hero.getAverage());
+            median.setText("Median : " + hero.getMedian());
         }
         //finally returning the view
         return view;

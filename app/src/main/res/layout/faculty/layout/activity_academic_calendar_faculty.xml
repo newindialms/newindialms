@@ -37,7 +37,7 @@
                 android:ems="10"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/facultyMenu"
+                android:textColor="@color/facultytextMenu"
                 android:textSize="24sp" />
 
             <ScrollView
@@ -70,7 +70,7 @@
                             android:padding="5dp"
                             android:text="@string/fall"
                             android:textAlignment="center"
-                            android:textColor="@color/facultyMenu"
+                            android:textColor="@color/facultytextMenu"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -673,7 +673,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Accademic Calendar Spring"
                 android:textAlignment="center"
-                android:textColor="@color/facultyMenu"
+                android:textColor="@color/facultytextMenu"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -707,7 +707,7 @@
                             android:padding="5dp"
                             android:text="Spring"
                             android:textAlignment="center"
-                            android:textColor="@color/facultyMenu"
+                            android:textColor="@color/facultytextMenu"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <View
@@ -1205,7 +1205,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Notes:"
                 android:textAlignment="center"
-                android:textColor="@color/facultyMenu"
+                android:textColor="@color/facultytextMenu"
                 android:textSize="14sp" />
 
             <TextView
@@ -1216,7 +1216,8 @@
                 android:lines="5"
                 android:maxLines="5"
                 android:text="&#8226; In case of shortage of slots for MST &amp; EST, the examinations can even be held on Sundays. The classes, if require, can also be scheduled on Saturdays and Sundays."
-                android:textColor="@color/facultyMenu" />
+                android:textColor="@color/facultytextMenu"
+                />
 
             <TextView
                 android:id="@+id/multiAutoCompleteTextView2"
@@ -1226,7 +1227,8 @@
                 android:lines="5"
                 android:maxLines="5"
                 android:text="&#8226; A faculty can avail maximum 60 days’ vacations out of total days of vacations as per the winter and summer vacation circular of the University."
-                android:textColor="@color/facultyMenu" />
+                android:textColor="@color/facultytextMenu"
+                />
 
         </LinearLayout>
 

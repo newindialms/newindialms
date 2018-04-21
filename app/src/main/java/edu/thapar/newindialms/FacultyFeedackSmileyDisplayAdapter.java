@@ -49,13 +49,10 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        SmileRating smileybar=(SmileRating)view.findViewById(R.id.smile_rating);
-        TextView smileyquestion=(TextView)view.findViewById(R.id.text_rating_questions);
+        SmileRating smileybar = (SmileRating) view.findViewById(R.id.smile_rating);
+        TextView smileyquestion = (TextView) view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
-
-
-
 
 
         //getting the hero of the specified position
@@ -66,24 +63,24 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
 
-        int smiley=Integer.parseInt(hero.getSmiley());
-       // Toast.makeText(context,smiley,Toast.LENGTH_LONG).show();
-        int smileyRating=0;
+        int smiley = Integer.parseInt(hero.getSmiley());
+        // Toast.makeText(context,smiley,Toast.LENGTH_LONG).show();
+        int smileyRating = 0;
         switch (smiley) {
             case 0:
-                smileyRating=0;
+                smileyRating = 0;
                 break;
             case 1:
-                smileyRating=1;
+                smileyRating = 1;
                 break;
             case 2:
-                smileyRating=2;
+                smileyRating = 2;
                 break;
             case 3:
-                smileyRating=3;
+                smileyRating = 3;
                 break;
             case 4:
-                smileyRating=4;
+                smileyRating = 4;
                 break;
         }
         smileybar.setSelectedSmile(smileyRating, false);

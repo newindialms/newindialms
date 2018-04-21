@@ -34,7 +34,7 @@ import java.util.Map;
  */
 
 public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
-    private String datevalue,studentid;
+    private String datevalue, studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
@@ -65,7 +65,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
         });
 
         Studentpic_program_title = (TextView) findViewById(R.id.studentschedule_display_title);
-        Studentpic_program_title.setText("My schedule on "+datevalue);
+        Studentpic_program_title.setText("My schedule on " + datevalue);
         heroList = new ArrayList<>();
         listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylistfirstyear_ListView);
         listView.setHasFixedSize(true);
@@ -88,25 +88,25 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");
 
-                    if (array != null&& array.length()>0) {
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
-                        StudentScheduleDisplayFirstYearListItems listItemProgramList = new StudentScheduleDisplayFirstYearListItems(
-                                jsonObject1.getString("course_code"),
-                                jsonObject1.getString("course_name"),
-                                jsonObject1.getString("faculty_code"),
-                                jsonObject1.getString("course_schedule_time"),
-                                jsonObject1.getString("course_classroom")
-                        );
-                        heroList.add(listItemProgramList);
-                    }
-                    adapter = new StudentScheduleDisplayFirstYearAdapter(heroList,getApplicationContext());
-                    listView.setAdapter(adapter);
-                    }else{
+                    if (array != null && array.length() > 0) {
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject jsonObject1 = array.getJSONObject(i);
+                            StudentScheduleDisplayFirstYearListItems listItemProgramList = new StudentScheduleDisplayFirstYearListItems(
+                                    jsonObject1.getString("course_code"),
+                                    jsonObject1.getString("course_name"),
+                                    jsonObject1.getString("faculty_code"),
+                                    jsonObject1.getString("course_schedule_time"),
+                                    jsonObject1.getString("course_classroom")
+                            );
+                            heroList.add(listItemProgramList);
+                        }
+                        adapter = new StudentScheduleDisplayFirstYearAdapter(heroList, getApplicationContext());
+                        listView.setAdapter(adapter);
+                    } else {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
                         builder = new AlertDialog.Builder(StudentScheduleDisplayFirstYear.this, R.style.MyStudentAlertDialogStyle);
                         builder.setTitle("Records");
-                        builder.setMessage("No Records avaliable for the selected Day.");
+                        builder.setMessage("No Records available for the selected Day.");
                         displayAlert();
                     }
 
@@ -121,7 +121,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -133,6 +133,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
+
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {

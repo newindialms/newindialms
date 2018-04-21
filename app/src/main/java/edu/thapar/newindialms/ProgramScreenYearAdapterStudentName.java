@@ -47,20 +47,19 @@ public class ProgramScreenYearAdapterStudentName extends ArrayAdapter<ProgramScr
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreenyearlist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentnamelist);
-        TextView studentpic_programscreenstudentrollnolist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentrollnolist);
-        TextView studentpic_programscreenstudentspecializationlist = (TextView)view.findViewById(R.id.studentpic_programscreenstudentspecializationlist);
+        TextView studentpic_programscreenyearlist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentnamelist);
+        TextView studentpic_programscreenstudentrollnolist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentrollnolist);
+        TextView studentpic_programscreenstudentspecializationlist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentspecializationlist);
 
         //getting the hero of the specified position
         final ProgramScreenYearStudentNameListItems hero = programScreenYearStudentNameListItems.get(position);
 
         //adding values to the list item
-        studentpic_programscreenyearlist.setText(hero.getStudentname()+" "+hero.getStudnetfirstname());
+        studentpic_programscreenyearlist.setText(hero.getStudentname() + " " + hero.getStudnetfirstname());
         studentpic_programscreenstudentrollnolist.setText(hero.getStudentrollno());
-        if(hero.getStudentspecialization().equals("General")){
+        if (hero.getStudentspecialization().equals("General")) {
             studentpic_programscreenstudentspecializationlist.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             studentpic_programscreenstudentspecializationlist.setText(hero.getStudentspecialization());
         }
         //finally returning the view

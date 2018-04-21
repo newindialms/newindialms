@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -42,7 +41,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
     private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
     public SwipeRefreshLayout swipeRefreshLayout;
-    private String studentid,course_date,course_time,faculty_employeeid,coursename;
+    private String studentid, course_date, course_time, faculty_employeeid, coursename;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,13 +50,13 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title=(TextView)findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
 
-        studentid=getIntent().getStringExtra("studentid");
-        course_date=getIntent().getStringExtra("course_date");
-        course_time=getIntent().getStringExtra("course_time");
-        faculty_employeeid=getIntent().getStringExtra("faculty_employeeid");
-        coursename=getIntent().getStringExtra("coursename");
+        studentid = getIntent().getStringExtra("studentid");
+        course_date = getIntent().getStringExtra("course_date");
+        course_time = getIntent().getStringExtra("course_time");
+        faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+        coursename = getIntent().getStringExtra("coursename");
 
         myfeedbackenrolledcourses_title.setText("My Feedback");
         setSupportActionBar(studentpic_toolbar);
@@ -75,7 +74,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -89,6 +88,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
 
     }
+
     private void loadRecyclerViewData() {
         final ProgressDialog progressDialog = new ProgressDialog(MyFeedbackEnrolledCourse.this);
         progressDialog.setMessage("Refreshing Data");
@@ -104,11 +104,11 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         MyfeedbackEnrolledCourseListItems listItemProgramList = new MyfeedbackEnrolledCourseListItems(
-                                array.getString(i),studentid,course_date,course_time,faculty_employeeid,coursename
+                                array.getString(i), studentid, course_date, course_time, faculty_employeeid, coursename
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new MyfeedbackEnrolledCourseAdapter(MyFeedbackEnrolledCourse.this,R.layout.myfeedback_enrolled_course_listitems,heroList);
+                    adapter = new MyfeedbackEnrolledCourseAdapter(MyFeedbackEnrolledCourse.this, R.layout.myfeedback_enrolled_course_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -123,7 +123,7 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(MyFeedbackEnrolledCourse.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

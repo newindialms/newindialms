@@ -22,7 +22,7 @@ public class DetailedNotificationScreen extends AppCompatActivity {
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(" Notification");
         setSupportActionBar(faculty_toolbar);
 

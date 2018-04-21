@@ -117,7 +117,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     alertbox.setTitle("Feedback");
 
                     LayoutInflater li = LayoutInflater.from(context);
-                    View promptsView = li.inflate(R.layout.textview_dialog_layout, null,false);
+                    View promptsView = li.inflate(R.layout.textview_dialog_layout, null, false);
                     alertbox.setView(promptsView);
 
                     final EditText userInput = (EditText) promptsView
@@ -128,8 +128,8 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
 
                                 public void onClick(DialogInterface arg0,
                                                     int arg1) {
-                                   // feedbacktextlist.add(userInput.getText().toString());
-                                   // feedbacktextlist.add(feedbackquestion.getText().toString());
+                                    // feedbacktextlist.add(userInput.getText().toString());
+                                    // feedbacktextlist.add(feedbackquestion.getText().toString());
                                     texthmap.put(userInput.getText().toString(), feedbackquestion.getText().toString());
                                     submitFeedbackScreenListItems.remove(position);
                                 }
@@ -215,7 +215,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     likeVal = "Dislike";
                     hero.setLikeval(likeVal);
                     hero.setLikeStatus(true);
-                   // feedbacklikelist.add(likeVal);
+                    // feedbacklikelist.add(likeVal);
                     likehmap.put(likeVal, feedbackquestion.getText().toString());
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -244,10 +244,12 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         //  ArrayList<String> feedback = new ArrayList<>();
         return likehmap;
     }
+
     HashMap<String, String> getSmileySubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
         return smileyhmap;
     }
+
     HashMap<String, String> getTextSubmittedFeedbackDetails() {
         //  ArrayList<String> feedback = new ArrayList<>();
         return texthmap;

@@ -15,7 +15,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class ProgramManagerStudentPic extends Fragment {
-        View rootview;
+    View rootview;
     private TextView studentPicProgram;
 
     public ProgramManagerStudentPic() {
@@ -27,8 +27,8 @@ public class ProgramManagerStudentPic extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_program_manager_student_pic, container, false);
-        studentPicProgram=(TextView) rootview.findViewById(R.id.student_PicProgram);
+        rootview = inflater.inflate(R.layout.fragment_program_manager_student_pic, container, false);
+        studentPicProgram = (TextView) rootview.findViewById(R.id.student_PicProgram);
 
         studentPicProgram.setOnClickListener(new View.OnClickListener() {
             @Override

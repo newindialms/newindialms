@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
-public class SendEmailAll extends AsyncTask<Void,Void,Void> {
+public class SendEmailAll extends AsyncTask<Void, Void, Void> {
 
     //Declaring Variables
     private Context context;
@@ -33,27 +33,28 @@ public class SendEmailAll extends AsyncTask<Void,Void,Void> {
 
     private String Email_Address;
     private String Password;
-    ArrayList<String> EmailList=new ArrayList<>();;
+    ArrayList<String> EmailList = new ArrayList<>();
+    ;
 
     //Progressdialog to show while sending email
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendEmailAll(Context context, String subject, String message, String Email_Address, String Password,ArrayList<String> EmailList){
+    public SendEmailAll(Context context, String subject, String message, String Email_Address, String Password, ArrayList<String> EmailList) {
         //Initializing variables
         this.context = context;
         this.subject = subject;
         this.message = message;
-        this.Email_Address=Email_Address;
-        this.Password=Password;
-        this.EmailList=EmailList;
+        this.Email_Address = Email_Address;
+        this.Password = Password;
+        this.EmailList = EmailList;
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
         //Showing progress dialog while sending email
-        progressDialog = ProgressDialog.show(context,"Sending message","Please wait...",false,false);
+        progressDialog = ProgressDialog.show(context, "Sending message", "Please wait...", false, false);
     }
 
     @Override
@@ -62,7 +63,7 @@ public class SendEmailAll extends AsyncTask<Void,Void,Void> {
         //Dismissing the progress dialog
         progressDialog.dismiss();
         //Showing a success message
-        Toast.makeText(context,"Message Sent",Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Message Sent", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -83,7 +84,7 @@ public class SendEmailAll extends AsyncTask<Void,Void,Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(Email_Address,Password);
+                        return new PasswordAuthentication(Email_Address, Password);
                     }
                 });
 
@@ -94,16 +95,16 @@ public class SendEmailAll extends AsyncTask<Void,Void,Void> {
             //Setting sender address
             mm.setFrom(new InternetAddress(Email_Address));
             //Adding receiver
-            for(int k=0;k<EmailList.size();k++){
+            for (int k = 0; k < EmailList.size(); k++) {
                 mm.addRecipient(Message.RecipientType.TO, new InternetAddress(EmailList.get(k)));
 
-            //Adding subject
-            mm.setSubject(subject);
-            //Adding message
-            mm.setText(message);
+                //Adding subject
+                mm.setSubject(subject);
+                //Adding message
+                mm.setText(message);
 
-            //Sending email
-            Transport.send(mm);
+                //Sending email
+                Transport.send(mm);
             }
 
         } catch (MessagingException e) {

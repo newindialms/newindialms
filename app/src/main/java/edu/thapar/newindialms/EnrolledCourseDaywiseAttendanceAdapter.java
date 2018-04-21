@@ -54,8 +54,6 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
         TextView enrollcourse_daywise_display_status = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_status);
 
 
-
-
         //getting the hero of the specified position
         final EnrolledCourseDaywiseAttendanceListItems hero = enrolledCourseDaywiseAttendanceListItems.get(position);
 
@@ -64,8 +62,7 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
         if (hero.getDaywise_status().equals("Present")) {
 
             enrollcourse_daywise_display_status.setTextColor(Color.GREEN);
-        }
-        else{
+        } else {
             enrollcourse_daywise_display_status.setTextColor(Color.RED);
         }
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());

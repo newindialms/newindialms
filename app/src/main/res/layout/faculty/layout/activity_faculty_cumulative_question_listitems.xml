@@ -22,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/faculty_courselist_rightarrow2"
             android:layout_toStartOf="@+id/faculty_courselist_rightarrow2"
-            android:text="Question"
+            android:text="@string/questions"
             android:textAlignment="center"
             android:textColor="@color/facultycolorPrimaryDark"
             android:textSize="20sp"

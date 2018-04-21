@@ -53,8 +53,6 @@ public class EnrolledCourseCumulativeAttendanceAdapter extends ArrayAdapter<Enro
         TextView enrollcourse_cumulative_display_percentage = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_percentage);
 
 
-
-
         //getting the hero of the specified position
         final EnrolledCourseCumulativeAttendanceListItems hero = enrolledCourseCumulativeAttendanceListItems.get(position);
 

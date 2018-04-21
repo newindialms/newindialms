@@ -32,12 +32,12 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
     // Http URL for delete Already Open Student Record.
     private String HttpUrlDeleteRecord = "https://newindialms.000webhostapp.com/DeleteFaculty.php";
     private Toolbar toolbar_delete_faculty;
-    private String finalResult ;
-    HashMap<String,String> hashMap = new HashMap<>();
-    private String ParseResult ;
-    HashMap<String,String> ResultHash = new HashMap<>();
-    private String FinalJSonObject ;
-    TextView FIRSTNAME,DESIGNATION,ROLLNO;
+    private String finalResult;
+    HashMap<String, String> hashMap = new HashMap<>();
+    private String ParseResult;
+    HashMap<String, String> ResultHash = new HashMap<>();
+    private String FinalJSonObject;
+    TextView FIRSTNAME, DESIGNATION, ROLLNO;
     private String FirstNameHolder, Designation, RollnoHolder;
     private Button DeleteButton;
     private String TempItem;
@@ -51,19 +51,19 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
         toolbar_delete_faculty = (Toolbar) findViewById(R.id.toolbar_delete_faculty);
         toolbar_delete_faculty.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_delete_faculty);
-        toolbar_delete_faculty.setNavigationOnClickListener(new View.OnClickListener(){
+        toolbar_delete_faculty.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
 
-        FIRSTNAME = (TextView)findViewById(R.id.textFirstName);
-        DESIGNATION = (TextView)findViewById(R.id.textDesignation);
-        ROLLNO = (TextView)findViewById(R.id.textRollno);
+        FIRSTNAME = (TextView) findViewById(R.id.textFirstName);
+        DESIGNATION = (TextView) findViewById(R.id.textDesignation);
+        ROLLNO = (TextView) findViewById(R.id.textRollno);
 
-        DeleteButton = (Button)findViewById(R.id.buttonDeleteFaculty);
+        DeleteButton = (Button) findViewById(R.id.buttonDeleteFaculty);
 
         //Receiving the ListView Clicked item value send by previous activity.
         TempItem = getIntent().getStringExtra("ListViewValue");
@@ -128,15 +128,15 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
 
 
     //Method to show current record Current Selected Record
-    public void HttpWebCall(final String PreviousListViewClickedItem){
+    public void HttpWebCall(final String PreviousListViewClickedItem) {
 
-        class HttpWebCallFunction extends AsyncTask<String,Void,String> {
+        class HttpWebCallFunction extends AsyncTask<String, Void, String> {
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                pDialog = ProgressDialog.show(ShowFacultySingleRecordActivity.this,"Loading Data",null,true,true);
+                pDialog = ProgressDialog.show(ShowFacultySingleRecordActivity.this, "Loading Data", null, true, true);
             }
 
             @Override
@@ -147,7 +147,7 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
                 pDialog.dismiss();
 
                 //Storing Complete JSon Object into String Variable.
-                FinalJSonObject = httpResponseMsg ;
+                FinalJSonObject = httpResponseMsg;
 
                 //Parsing the Stored JSOn String to GetHttpResponse Method.
                 new GetHttpResponse(ShowFacultySingleRecordActivity.this).execute();
@@ -157,7 +157,7 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
 
-                ResultHash.put("id",params[0]);
+                ResultHash.put("id", params[0]);
 
                 ParseResult = httpParse.postRequest(ResultHash, HttpURL);
 
@@ -172,28 +172,22 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
 
 
     // Parsing Complete JSON Object.
-    private class GetHttpResponse extends AsyncTask<Void, Void, Void>
-    {
+    private class GetHttpResponse extends AsyncTask<Void, Void, Void> {
         public Context context;
 
-        public GetHttpResponse(Context context)
-        {
+        public GetHttpResponse(Context context) {
             this.context = context;
         }
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
         }
 
         @Override
-        protected Void doInBackground(Void... arg0)
-        {
-            try
-            {
-                if(FinalJSonObject != null)
-                {
+        protected Void doInBackground(Void... arg0) {
+            try {
+                if (FinalJSonObject != null) {
                     JSONArray jsonArray = null;
 
                     try {
@@ -201,25 +195,21 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
 
                         JSONObject jsonObject;
 
-                        for(int i=0; i<jsonArray.length(); i++)
-                        {
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             jsonObject = jsonArray.getJSONObject(i);
 
                             // Storing Student Name, Phone Number, Class into Variables.
-                            FirstNameHolder = jsonObject.getString("firstname").toString() ;
-                            Designation = jsonObject.getString("designation").toString() ;
-                            RollnoHolder = jsonObject.getString("rollno").toString() ;
+                            FirstNameHolder = jsonObject.getString("firstname").toString();
+                            Designation = jsonObject.getString("designation").toString();
+                            RollnoHolder = jsonObject.getString("rollno").toString();
 
                         }
-                    }
-                    catch (JSONException e) {
+                    } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -227,8 +217,7 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Void result)
-        {
+        protected void onPostExecute(Void result) {
 
             // Setting Student Name, Phone Number, Class into TextView after done all process .
             FIRSTNAME.setText(FirstNameHolder);

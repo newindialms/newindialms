@@ -33,6 +33,7 @@ public class FacultyTab extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     Toolbar facultytoolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +43,9 @@ public class FacultyTab extends AppCompatActivity {
         facultytoolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(facultytoolbar);
 
-        facultytoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        facultytoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -58,7 +59,6 @@ public class FacultyTab extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
-
 
 
     /**
@@ -106,12 +106,12 @@ public class FacultyTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    ViewFacultyFragment viewFacultyFragment =new ViewFacultyFragment();
+                    ViewFacultyFragment viewFacultyFragment = new ViewFacultyFragment();
                     return viewFacultyFragment;
                 case 1:
-                    RemoveFacultyFragment removeFacultyFragment =new RemoveFacultyFragment();
+                    RemoveFacultyFragment removeFacultyFragment = new RemoveFacultyFragment();
                     return removeFacultyFragment;
             }
             return null;

@@ -12,7 +12,7 @@ public class FacultyFeedbackSmileyDisplayListItems {
     private String smiley;
     private String question;
 
-    public FacultyFeedbackSmileyDisplayListItems(String smiley, String question,String daywise_date, String daywise_time) {
+    public FacultyFeedbackSmileyDisplayListItems(String smiley, String question, String daywise_date, String daywise_time) {
         this.smiley = smiley;
         this.question = question;
         this.daywise_date = daywise_date;
@@ -42,7 +42,4 @@ public class FacultyFeedbackSmileyDisplayListItems {
         return smiley;
     }
 
-    public void setSmiley(String smiley) {
-        this.smiley = smiley;
-    }
 }

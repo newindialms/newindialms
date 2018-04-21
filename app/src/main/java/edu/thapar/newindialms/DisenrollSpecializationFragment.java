@@ -42,7 +42,8 @@ public class DisenrollSpecializationFragment extends Fragment {
     private String studentid;
     List<EnrollSpecializationListItems> heroList;
     ListView listView;
-    private AlertDialog.Builder builder;
+
+    //private AlertDialog.Builder builder;
     public DisenrollSpecializationFragment() {
         // Required empty public constructor
     }
@@ -51,8 +52,8 @@ public class DisenrollSpecializationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_enrolled_specialization, container, false);
-        studentid =  getActivity().getIntent().getExtras().getString("studentid");
+        rootview = inflater.inflate(R.layout.fragment_enrolled_specialization, container, false);
+        studentid = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
@@ -74,12 +75,12 @@ public class DisenrollSpecializationFragment extends Fragment {
 
                     for (int i = 0; i < array.length(); i++) {
                         EnrollSpecializationListItems listItemProgramList = new EnrollSpecializationListItems(
-                                    array.getString(i), studentid
-                            );
-                            heroList.add(listItemProgramList);
+                                array.getString(i), studentid
+                        );
+                        heroList.add(listItemProgramList);
 
                     }
-                    adapter = new DisenrolledSpecializationAdapter(getActivity(),R.layout.fragment_disenroll_course_listitems,heroList);
+                    adapter = new DisenrolledSpecializationAdapter(getActivity(), R.layout.fragment_disenroll_course_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -94,7 +95,7 @@ public class DisenrollSpecializationFragment extends Fragment {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -105,21 +106,9 @@ public class DisenrollSpecializationFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.enrolledcourses_title));
     }
 
-    public void displayAlert() {
-        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialoginterface, int i) {
-                dialoginterface.dismiss();
-                Intent specializationintent = new Intent(getContext(), StudentEnrollSpecializationTab.class);
-                specializationintent.putExtra("openfragment", "0");
-                specializationintent.putExtra("studentid", studentid);
-                startActivity(specializationintent);
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
 }

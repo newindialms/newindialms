@@ -51,8 +51,8 @@ public class ProgramScreenYearAdapter extends ArrayAdapter<ProgramScreenYearList
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreenyearlist = (TextView)view.findViewById(R.id.studentpic_programscreenyearlist);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
+        TextView studentpic_programscreenyearlist = (TextView) view.findViewById(R.id.studentpic_programscreenyearlist);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenYearListItems hero = programScreenYearListItems.get(position);
@@ -67,12 +67,12 @@ public class ProgramScreenYearAdapter extends ArrayAdapter<ProgramScreenYearList
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String pgname=hero.getProgramname();
-                String yearname=hero.getYeardetails();
+                String pgname = hero.getProgramname();
+                String yearname = hero.getYeardetails();
 
                 Intent yearintent = new Intent(context, ProgramScreenYearStudentName.class);
-                yearintent.putExtra("yearlist",yearname);
-                yearintent.putExtra("programname",pgname);
+                yearintent.putExtra("yearlist", yearname);
+                yearintent.putExtra("programname", pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
 

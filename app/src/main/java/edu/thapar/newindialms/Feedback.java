@@ -5,10 +5,10 @@ package edu.thapar.newindialms;
  */
 
 public class Feedback {
-    private String feedback_title,feedback_question,feedback_type,id;
+    private String feedback_title, feedback_question, feedback_type, id;
 
     public Feedback(String id, String feedback_title, String feedback_question, String feedback_type) {
-        this.id=id;
+        this.id = id;
         this.feedback_title = feedback_title;
         this.feedback_question = feedback_question;
         this.feedback_type = feedback_type;

@@ -86,16 +86,17 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
             public void onClick(View view) {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
-                String coursename=hero.getRemovecoursename();
-                removeCourse(position,coursename);
+                String coursename = hero.getRemovecoursename();
+                removeCourse(position, coursename);
             }
         });
 
         //finally returning the view
         return view;
     }
+
     //this method will remove the item from the list
-    private void removeCourse(final int position,final String removecoursename) {
+    private void removeCourse(final int position, final String removecoursename) {
         //Creating an alert dialog to confirm the deletion
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Are you sure you want to delete this?");
@@ -139,7 +140,7 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
                     JSONObject j = new JSONObject(response);
                     JSONObject array = jsonArray.getJSONObject(0);
                     String code = array.getString("code");
-                    if(code.equals("Deleted")){
+                    if (code.equals("Deleted")) {
                         builder.setTitle("Deleted");
                         builder.setMessage("Course Deleted successfully");
                         displayAlert("Deleted");
@@ -155,7 +156,7 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

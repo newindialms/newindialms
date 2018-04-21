@@ -5,12 +5,10 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -38,9 +36,10 @@ public class DisenrollCourseFragment extends Fragment {
     View rootview;
     private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
     DiserolledCourseAdapter adapter;
-    private String studentid;
+    private String studentid,studentyear;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
+
     public DisenrollCourseFragment() {
         // Required empty public constructor
     }
@@ -49,8 +48,10 @@ public class DisenrollCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_enrolled_course, container, false);
-        studentid =  getActivity().getIntent().getExtras().getString("studentid");
+        rootview = inflater.inflate(R.layout.fragment_enrolled_course, container, false);
+        studentid = getActivity().getIntent().getExtras().getString("studentid");
+        studentyear =getActivity().getIntent().getExtras().getString("studentyear");
+
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
@@ -72,11 +73,11 @@ public class DisenrollCourseFragment extends Fragment {
 
                     for (int i = 0; i < array.length(); i++) {
                         EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
-                                array.getString(i),studentid
+                                array.getString(i), studentid,studentyear
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new DiserolledCourseAdapter(getActivity(),R.layout.fragment_disenroll_course_listitems,heroList);
+                    adapter = new DiserolledCourseAdapter(getActivity(), R.layout.fragment_disenroll_course_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -91,7 +92,7 @@ public class DisenrollCourseFragment extends Fragment {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -102,6 +103,7 @@ public class DisenrollCourseFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.enrolledcourses_title));
     }

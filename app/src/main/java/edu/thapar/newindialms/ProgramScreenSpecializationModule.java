@@ -25,6 +25,7 @@ public class ProgramScreenSpecializationModule extends AppCompatActivity {
 
     //the listview
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,27 +35,27 @@ public class ProgramScreenSpecializationModule extends AppCompatActivity {
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(SpecializationName);
         setSupportActionBar(studentpic_toolbar);
-        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
-        Studentpic_program_specialization_title=(TextView)findViewById(R.id.Studentpic_program_specializationmodule_title);
+        Studentpic_program_specialization_title = (TextView) findViewById(R.id.Studentpic_program_specializationmodule_title);
         Studentpic_program_specialization_title.setText(SpecializationName);
 
         //initializing objects
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.studentpic_programscreenspecializationmodulelist_ListView);
 
-        ProgramScreenSpecializationModuleListItems pglist= new ProgramScreenSpecializationModuleListItems(SpecializationName);
+        ProgramScreenSpecializationModuleListItems pglist = new ProgramScreenSpecializationModuleListItems(SpecializationName);
         pglist.setSpecializationname(SpecializationName);
 
-        heroList.add(new ProgramScreenSpecializationModuleListItems("Courses",pglist.getSpecializationname()));
+        heroList.add(new ProgramScreenSpecializationModuleListItems("Courses", pglist.getSpecializationname()));
 
         //creating the adapter
         ProgramScreenSpecializationModuleAdapter adapter = new ProgramScreenSpecializationModuleAdapter(this, R.layout.activity_program_screen_specializationmodule_listitems, heroList);
@@ -62,6 +63,7 @@ public class ProgramScreenSpecializationModule extends AppCompatActivity {
         //attaching adapter to the listview
         listView.setAdapter(adapter);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         this.setTitle(SpecializationName);
     }

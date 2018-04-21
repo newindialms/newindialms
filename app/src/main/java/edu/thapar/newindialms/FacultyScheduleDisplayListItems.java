@@ -12,11 +12,11 @@ public class FacultyScheduleDisplayListItems {
     private String course;
 
 
-    public FacultyScheduleDisplayListItems(String program, String starttime,String endtime, String course) {
-       this.program=program;
-        this.starttime=starttime;
-        this.endtime=endtime;
-        this.course=course;
+    public FacultyScheduleDisplayListItems(String program, String starttime, String endtime, String course) {
+        this.program = program;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.course = course;
     }
 
     public String getProgram() {

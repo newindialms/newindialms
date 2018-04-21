@@ -52,8 +52,8 @@ public class StudentPicProgramAdapter extends ArrayAdapter<StudentPicListItems> 
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programlist = (TextView)view.findViewById(R.id.studentpic_programlist);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(studentPicarrow);
+        TextView studentpic_programlist = (TextView) view.findViewById(R.id.studentpic_programlist);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
         final StudentPicListItems hero = studentPicListItems.get(position);
@@ -68,9 +68,9 @@ public class StudentPicProgramAdapter extends ArrayAdapter<StudentPicListItems> 
             public void onClick(View view) {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
-                String pgname=hero.getProgramName();
+                String pgname = hero.getProgramName();
                 Intent programintent = new Intent(context, ProgramScreen.class);
-                programintent.putExtra("programname",pgname);
+                programintent.putExtra("programname", pgname);
                 programintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(programintent);
             }

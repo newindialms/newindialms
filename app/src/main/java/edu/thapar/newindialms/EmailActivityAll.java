@@ -27,9 +27,9 @@ import java.util.ArrayList;
 public class EmailActivityAll extends AppCompatActivity {
 
     private Toolbar toolbar_all_notification;
-   private EditText editTextSubject,editTextMessage;
+    private EditText editTextSubject, editTextMessage;
     private Button buttonSend;
-    private String EMAIL,PASSWORD;
+    private String EMAIL, PASSWORD;
     private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
 
     @Override
@@ -41,9 +41,9 @@ public class EmailActivityAll extends AppCompatActivity {
 
         toolbar_all_notification.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_all_notification);
-        toolbar_all_notification.setNavigationOnClickListener(new View.OnClickListener(){
+        toolbar_all_notification.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -69,10 +69,10 @@ public class EmailActivityAll extends AppCompatActivity {
 
                             JSONObject jsonObject1 = array.getJSONObject(0);
 
-                            EMAIL= jsonObject1.getString("username");
-                            PASSWORD= jsonObject1.getString("password");
+                            EMAIL = jsonObject1.getString("username");
+                            PASSWORD = jsonObject1.getString("password");
 
-                            sendEmail(EMAIL,PASSWORD,EmailList);
+                            sendEmail(EMAIL, PASSWORD, EmailList);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -92,13 +92,13 @@ public class EmailActivityAll extends AppCompatActivity {
         });
     }
 
-    private void sendEmail(String email_address,String Password,ArrayList<String> EmailList) {
+    private void sendEmail(String email_address, String Password, ArrayList<String> EmailList) {
         //Getting content for email
         String subject = editTextSubject.getText().toString().trim();
         String message = editTextMessage.getText().toString().trim();
 
         //Creating SendMail object
-        SendEmailAll sm = new SendEmailAll(this,subject, message,email_address,Password,EmailList);
+        SendEmailAll sm = new SendEmailAll(this, subject, message, email_address, Password, EmailList);
 
         //Executing sendmail to send email
         sm.execute();

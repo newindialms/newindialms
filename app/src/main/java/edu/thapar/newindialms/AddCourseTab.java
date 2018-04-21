@@ -9,9 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 public class AddCourseTab extends AppCompatActivity {
 
@@ -31,6 +29,7 @@ public class AddCourseTab extends AppCompatActivity {
     private ViewPager mViewPager;
     private Toolbar addcoursetoolbar;
     private String pagefragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +41,9 @@ public class AddCourseTab extends AppCompatActivity {
 
         pagefragment = getIntent().getStringExtra("openfragment");
 
-        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 startActivity(new Intent(AddCourseTab.this, ProgramManagerMenu.class));
                 finish();
             }
@@ -62,7 +61,6 @@ public class AddCourseTab extends AppCompatActivity {
     }
 
 
-
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -78,20 +76,19 @@ public class AddCourseTab extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
 
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
+         public static PlaceholderFragment newInstance(int sectionNumber) {
+         PlaceholderFragment fragment = new PlaceholderFragment();
+         Bundle args = new Bundle();
+         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+         fragment.setArguments(args);
+         return fragment;
+         }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_add_course_tab, container, false);
-            return rootView;
-        }*/
+         @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
+         Bundle savedInstanceState) {
+         View rootView = inflater.inflate(R.layout.fragment_add_course_tab, container, false);
+         return rootView;
+         }*/
     }
 
     /**
@@ -106,12 +103,12 @@ public class AddCourseTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    AddCourseFragment addCourseFragment =new AddCourseFragment();
+                    AddCourseFragment addCourseFragment = new AddCourseFragment();
                     return addCourseFragment;
                 case 1:
-                    RemoveCourseFragment removeCourseFragment =new RemoveCourseFragment();
+                    RemoveCourseFragment removeCourseFragment = new RemoveCourseFragment();
                     return removeCourseFragment;
             }
             return null;

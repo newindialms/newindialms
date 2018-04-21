@@ -77,12 +77,12 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String pgname=hero.getProgramname();
-                String yearname=hero.getYearofjoining();
+                String pgname = hero.getProgramname();
+                String yearname = hero.getYearofjoining();
 
                 Intent yearintent = new Intent(context, ProgramScreenYear.class);
-                yearintent.putExtra("yearlist",yearname);
-                yearintent.putExtra("programname",pgname);
+                yearintent.putExtra("yearlist", yearname);
+                yearintent.putExtra("programname", pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
             }
@@ -94,12 +94,12 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String pgname=hero.getProgramname();
-                String specializationname=hero.getYearofspecialization();
+                String pgname = hero.getProgramname();
+                String specializationname = hero.getYearofspecialization();
 
                 Intent yearintent = new Intent(context, ProgramScreenSpecialization.class);
-                yearintent.putExtra("specializationlist",specializationname);
-                yearintent.putExtra("programname",pgname);
+                yearintent.putExtra("specializationlist", specializationname);
+                yearintent.putExtra("programname", pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
             }
@@ -111,12 +111,12 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String pgname=hero.getProgramname();
-                String yearname=hero.getYearofjoining();
+                String pgname = hero.getProgramname();
+                String yearname = hero.getYearofjoining();
 
                 Intent yearintent = new Intent(context, ProgramScreenCourse.class);
-                yearintent.putExtra("yearlist",yearname);
-                yearintent.putExtra("programname",pgname);
+                yearintent.putExtra("yearlist", yearname);
+                yearintent.putExtra("programname", pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
             }
@@ -128,9 +128,9 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String pgname=hero.getProgramname();
+                String pgname = hero.getProgramname();
                 Intent yearintent = new Intent(context, ProgramScreenCoreCourse.class);
-                yearintent.putExtra("programname",pgname);
+                yearintent.putExtra("programname", pgname);
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);
             }

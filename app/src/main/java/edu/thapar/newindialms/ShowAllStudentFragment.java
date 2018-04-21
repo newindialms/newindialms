@@ -32,6 +32,7 @@ public class ShowAllStudentFragment extends Fragment {
     private String HttpUrl = "https://newindialms.000webhostapp.com/AllStudentData.php";
     List<String> IdList = new ArrayList<>();
     public SwipeRefreshLayout swipeRefreshLayout;
+
     public ShowAllStudentFragment() {
         // Required empty public constructor
     }
@@ -41,10 +42,10 @@ public class ShowAllStudentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview= inflater.inflate(R.layout.activity_show_all_students, container, false);
+        View rootview = inflater.inflate(R.layout.activity_show_all_students, container, false);
         StudentListView = (ListView) rootview.findViewById(R.id.all_student_list);
 
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
         new GetHttpResponse(getActivity()).execute();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
@@ -68,16 +69,16 @@ public class ShowAllStudentFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ShowStudentSingleRecordActivity.class);
 
                 // Sending ListView clicked value using intent.
-                    intent.putExtra("ListViewValue", IdList.get(position).toString());
+                intent.putExtra("ListViewValue", IdList.get(position).toString());
 
                 startActivity(intent);
-
 
 
             }
         });
         return rootview;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.navigation_program_enrollstudent));

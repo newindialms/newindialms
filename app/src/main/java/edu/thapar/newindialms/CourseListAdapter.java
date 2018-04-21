@@ -23,13 +23,14 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cardview_program_manager_courselist,parent,false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.cardview_program_manager_courselist, parent, false);
         return new ViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ListItemCourseList listItemCourseList=listItemsCourseLists.get(position);
+        ListItemCourseList listItemCourseList = listItemsCourseLists.get(position);
         holder.textViewTitle.setText(listItemCourseList.getCourseListTitle());
         holder.textViewFaculty.setText(listItemCourseList.getCourseListFaculty());
         holder.textViewCode.setText(listItemCourseList.getCourseListCode());
@@ -40,7 +41,7 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
         return listItemsCourseLists.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView textViewTitle;
         public TextView textViewFaculty;
@@ -48,9 +49,9 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textViewTitle=(TextView) itemView.findViewById(R.id.cardviewCourselistTitle);
-            textViewFaculty=(TextView) itemView.findViewById(R.id.cardviewCourselistFaculty);
-            textViewCode=(TextView) itemView.findViewById(R.id.cardviewCourselistCode);
+            textViewTitle = (TextView) itemView.findViewById(R.id.cardviewCourselistTitle);
+            textViewFaculty = (TextView) itemView.findViewById(R.id.cardviewCourselistFaculty);
+            textViewCode = (TextView) itemView.findViewById(R.id.cardviewCourselistCode);
         }
     }
 }

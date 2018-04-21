@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -46,6 +45,7 @@ public class EnrolledCourseFragment extends Fragment {
     ListView listView;
     SwipeRefreshLayout swipeRefreshLayout;
     private AlertDialog.Builder builder;
+
     public EnrolledCourseFragment() {
         // Required empty public constructor
     }
@@ -54,12 +54,12 @@ public class EnrolledCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_enrolled_course, container, false);
-        studentid =  getActivity().getIntent().getExtras().getString("studentid");
+        rootview = inflater.inflate(R.layout.fragment_enrolled_course, container, false);
+        studentid = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -86,13 +86,12 @@ public class EnrolledCourseFragment extends Fragment {
                     JSONArray array = j.getJSONArray("course_details");
 
                     for (int i = 0; i < array.length(); i++) {
-                        if( array.getString(0).equals("")){
+                        if (array.getString(0).equals("")) {
                             builder = new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
                             builder.setTitle("Records");
-                            builder.setMessage("No Courses Avaliable,Update your specialization and Courses");
+                            builder.setMessage("No Courses available,Update your specialization and Courses");
                             displayAlert();
-                        }
-                        else{
+                        } else {
                             EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
                                     array.getString(i)
                             );
@@ -100,7 +99,7 @@ public class EnrolledCourseFragment extends Fragment {
                         }
 
                     }
-                    adapter = new EnrolledCourseAdapter(getActivity(),R.layout.fragment_enrolled_course_listitems,heroList);
+                    adapter = new EnrolledCourseAdapter(getActivity(), R.layout.fragment_enrolled_course_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -115,7 +114,7 @@ public class EnrolledCourseFragment extends Fragment {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -126,6 +125,7 @@ public class EnrolledCourseFragment extends Fragment {
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("My Courses");
     }

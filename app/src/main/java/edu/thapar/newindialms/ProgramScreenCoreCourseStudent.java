@@ -37,10 +37,9 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
     List<ProgramScreenCoreCourseStudentListItems> heroList;
     ListView listView;
     private int Student_size;
-    ProgramScreenCoreCourseStudentListItems arraycount=new ProgramScreenCoreCourseStudentListItems();
+    ProgramScreenCoreCourseStudentListItems arraycount = new ProgramScreenCoreCourseStudentListItems();
     private TextView Studentpic_programstudentcorecourselist_total;
     public SwipeRefreshLayout swipeRefreshLayout;
-
 
 
     @Override
@@ -51,7 +50,7 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
 
         studentpic_title.setText(corecoursename);
         setSupportActionBar(studentpic_toolbar);
@@ -68,7 +67,7 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.studentpic_programscreenstudentcorecourseList_ListView);
 
         loadRecyclerViewData();
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -111,7 +110,7 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
                         myarraycount(Student_size);
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenCoreCourseStudentAdapter(getApplicationContext(),R.layout.activity_program_screen_corecoursefulllist_listitems,heroList,Student_size);
+                    adapter = new ProgramScreenCoreCourseStudentAdapter(getApplicationContext(), R.layout.activity_program_screen_corecoursefulllist_listitems, heroList, Student_size);
                     listView.setAdapter(adapter);
 
                 } catch (JSONException e) {
@@ -131,9 +130,9 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
     }
 
 
-    public void myarraycount(int rowcount){
-        Studentpic_programstudentcorecourselist_total = (TextView)findViewById(R.id.Studentpic_programstudentcorecourselist_total);
-        Studentpic_programstudentcorecourselist_total.setText("Total Students : "+rowcount);
+    public void myarraycount(int rowcount) {
+        Studentpic_programstudentcorecourselist_total = (TextView) findViewById(R.id.Studentpic_programstudentcorecourselist_total);
+        Studentpic_programstudentcorecourselist_total.setText("Total Students : " + rowcount);
     }
 
 }

@@ -39,7 +39,7 @@ public class ViewFacultyFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.activity_show_all_faculty, container, false);
 
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfaculty_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfaculty_swipe);
         FacultyListView = (ListView) rootview.findViewById(R.id.all_faculty_list);
 
 
@@ -62,7 +62,6 @@ public class ViewFacultyFragment extends Fragment {
         public Context context;
 
         String JSonResult;
-
 
 
         public GetHttpResponse(Context context) {

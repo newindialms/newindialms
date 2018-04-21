@@ -27,9 +27,9 @@ public class EmailActivity extends AppCompatActivity {
 
     private Toolbar toolbar_all_notification;
     private String email_address;
-    private EditText editTextEmail,editTextSubject,editTextMessage;
+    private EditText editTextEmail, editTextSubject, editTextMessage;
     private Button buttonSend;
-    private String EMAIL,PASSWORD;
+    private String EMAIL, PASSWORD;
     private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
 
     @Override
@@ -41,9 +41,9 @@ public class EmailActivity extends AppCompatActivity {
 
         toolbar_all_notification.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_all_notification);
-        toolbar_all_notification.setNavigationOnClickListener(new View.OnClickListener(){
+        toolbar_all_notification.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -70,12 +70,12 @@ public class EmailActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray array = jsonObject.getJSONArray("email_profile");
 
-                                JSONObject jsonObject1 = array.getJSONObject(0);
+                            JSONObject jsonObject1 = array.getJSONObject(0);
 
-                                EMAIL= jsonObject1.getString("username");
-                                PASSWORD= jsonObject1.getString("password");
+                            EMAIL = jsonObject1.getString("username");
+                            PASSWORD = jsonObject1.getString("password");
 
-                            sendEmail(EMAIL,PASSWORD);
+                            sendEmail(EMAIL, PASSWORD);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -95,14 +95,14 @@ public class EmailActivity extends AppCompatActivity {
         });
     }
 
-    private void sendEmail(String email_address,String Password) {
+    private void sendEmail(String email_address, String Password) {
         //Getting content for email
         String email = editTextEmail.getText().toString().trim();
         String subject = editTextSubject.getText().toString().trim();
         String message = editTextMessage.getText().toString().trim();
 
         //Creating SendMail object
-        SendEmail sm = new SendEmail(this, email, subject, message,email_address,Password);
+        SendEmail sm = new SendEmail(this, email, subject, message, email_address, Password);
 
         //Executing sendmail to send email
         sm.execute();

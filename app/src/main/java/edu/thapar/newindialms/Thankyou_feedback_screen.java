@@ -16,17 +16,17 @@ public class Thankyou_feedback_screen extends AppCompatActivity {
 
     private Button close_button;
     private Toolbar studentpic_toolbar;
-    private TextView  myfeedbackenrolledcourses_title;
+    private TextView myfeedbackenrolledcourses_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.thanksfeedback_screen);
-        close_button=(Button)findViewById(R.id.thankyoubutton);
+        close_button = (Button) findViewById(R.id.thankyoubutton);
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title=(TextView)findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
 
         myfeedbackenrolledcourses_title.setText("Thank you");
         setSupportActionBar(studentpic_toolbar);

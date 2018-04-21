@@ -11,9 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.like.LikeButton;
 
 import java.util.List;
 
@@ -53,7 +50,7 @@ public class FacultyFeedackCumulativeDisplayAdapter extends ArrayAdapter<Faculty
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
         TextView text_rating_questions = (TextView) view.findViewById(R.id.text_rating_questions);
         ImageView right_arrow = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow2);
 
@@ -69,12 +66,12 @@ public class FacultyFeedackCumulativeDisplayAdapter extends ArrayAdapter<Faculty
             @Override
             public void onClick(View view) {
                 Intent facultyintent = new Intent(context, FacultyFeedbackCummulativeDashboard.class);
-                facultyintent.putExtra("coursename",hero.getCoursename());
-                facultyintent.putExtra("question",hero.getQuestion());
-                facultyintent.putExtra("type",hero.getType());
-                facultyintent.putExtra("faculty_employeeid",hero.getFacultyid());
-                facultyintent.putExtra("feedback_sent_date",hero.getDateval());
-               // Toast.makeText(getContext(),hero.getCoursename()+hero.getQuestion()+hero.getType()+hero.getFacultyid()+hero.getDateval(),Toast.LENGTH_LONG).show();
+                facultyintent.putExtra("coursename", hero.getCoursename());
+                facultyintent.putExtra("question", hero.getQuestion());
+                facultyintent.putExtra("type", hero.getType());
+                facultyintent.putExtra("faculty_employeeid", hero.getFacultyid());
+                facultyintent.putExtra("feedback_sent_date", hero.getDateval());
+                // Toast.makeText(getContext(),hero.getCoursename()+hero.getQuestion()+hero.getType()+hero.getFacultyid()+hero.getDateval(),Toast.LENGTH_LONG).show();
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
             }

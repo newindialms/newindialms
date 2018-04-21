@@ -15,7 +15,7 @@ public class FacultyCourseListTakeAttendanceListItems implements Serializable {
     private boolean status;
 
 
-    public FacultyCourseListTakeAttendanceListItems(String fname,String studentname, String studentrollno) {
+    public FacultyCourseListTakeAttendanceListItems(String fname, String studentname, String studentrollno) {
         this.studentname = studentname;
         this.fname = fname;
         this.studentrollno = studentrollno;
@@ -23,10 +23,6 @@ public class FacultyCourseListTakeAttendanceListItems implements Serializable {
 
     public String getFname() {
         return fname;
-    }
-
-    public void setFname(String fname) {
-        this.fname = fname;
     }
 
     public String getCoursename() {

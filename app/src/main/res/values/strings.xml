@@ -29,6 +29,7 @@
 
     <string name="registration_error_missingfields_title">Error</string>
     <string name="registration_error_missingfields_text">Please fill in all the fields</string>
+    <string name="registration_error_missingspinner_text">Select the values</string>
 
     <string name="registration_server_response">Success</string>
 
@@ -49,7 +50,7 @@
     <!-- Program Managr Screen-->
     <string name="programid">Program Manager</string>
     <string name="navigation_program_courselist">Course List</string>
-    <string name="navigation_program_schedule">Schedule</string>
+    <string name="navigation_program_schedule">Course Schedule</string>
     <string name="navigation_program_calendar">Academic Calendar</string>
     <string name="navigation_program_picbook">Student Picture Book</string>
     <string name="navigation_program_addcourse">Add Course</string>
@@ -144,7 +145,7 @@
     </string-array>
 
     <string-array name="yeartype">
-        <item></item>
+        <item>Choose Year</item>
         <item>1</item>
         <item>2</item>
     </string-array>
@@ -167,6 +168,9 @@
 
     <string name="faculty_program">Faculty Program</string>
     <string name="faculty_name">Faculty Name</string>
+    <string name="faculty_rollno">Faculty Rollno</string>
+    <string name="faculty_code">Faculty Code</string>
+    <string name="faculty_specialization">Faculty Specialization</string>
 
     <!-- Notificiation -->
     <string name="notificiation_Title">Notification</string>
@@ -243,7 +247,7 @@
     <string name="feedbackadd"> Add Feedback</string>
     <string name="feedbackshow">Show Feedback</string>
 
-    <string name="addfeedbacktitle">New FeedBack</string>
+    <string name="addfeedbacktitle">New Feedback</string>
     <string name="addfeedbackmaintitle"> Feedback Title</string>
     <string name="addfeedbackdescription">Feedback Question</string>
     <string name="question">Question</string>
@@ -260,7 +264,7 @@
     <string name="status">status</string>
 
     <string-array name="feedbacktype">
-        <item></item>
+        <item>Select Feedback Type</item>
         <item>Smiley</item>
         <item>Rate</item>
         <item>Text</item>
@@ -291,6 +295,7 @@
     <string name="addcourse_description">Description of Course</string>
     <string name="addcourse_learningoutcomes">Learning Outcomes</string>
     <string name="addcourse_addbutton">ADD</string>
+    <string name="addcourse_chooseyear">Choose a year</string>
 
 
     <string-array name="semestervalues">
@@ -302,7 +307,7 @@
     </string-array>
 
     <string-array name="coursetype">
-        <item></item>
+        <item>Choose Course Type</item>
         <item>Summer Internship</item>
         <item>Core</item>
         <item>Elective</item>
@@ -310,7 +315,7 @@
     </string-array>
 
     <string-array name="specialization">
-        <item></item>
+        <item>Choose Specialization</item>
         <item>Finance</item>
         <item>Information Systems</item>
         <item>Operations</item>
@@ -368,12 +373,33 @@
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
     <string name="faculty_schedule_title">My Schedule</string>
     <string name="ScheduleButton">Show</string>
+    <string name="select_group">Select Group</string>
+    <string name="select_section">Select Section</string>
+    <string name="questions">Question</string>
+    <string name="median">median</string>
+    <string name="average">average</string>
     <string name="navigation_faculty_program_accademic_calendar">Academic Calendar</string>
+
+
 
     <string-array name="notificationvalues">
         <item></item>
         <item>Student</item>
         <item>Faculty</item>
+    </string-array>
+
+
+    <string-array name="groupvalues">
+        <item>Select Group</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="secvalues">
+        <item>Select Section</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 
@@ -461,6 +487,8 @@
     <string name="to">to</string>
     <string name="from">from</string>
     <string name="core_courses">Core Courses</string>
+    <string name="first_year">First Year</string>
+    <string name="second_year">Second Year</string>
 
 
 

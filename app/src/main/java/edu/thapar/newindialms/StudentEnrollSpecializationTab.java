@@ -31,25 +31,26 @@ public class StudentEnrollSpecializationTab extends AppCompatActivity {
     private ViewPager mViewPager;
     private Toolbar enrollcoursetoolbar;
     private TextView my_title;
-    private String pagefragment,studentyear;
+    private String pagefragment, studentyear;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_enrollspecialization_tab);
 
         enrollcoursetoolbar = (Toolbar) findViewById(R.id.toolbar_enroll_course);
-        my_title=(TextView)findViewById(R.id.itemsselected);
+        my_title = (TextView) findViewById(R.id.itemsselected);
         enrollcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(enrollcoursetoolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        studentyear=getIntent().getStringExtra("studentyear");
+        studentyear = getIntent().getStringExtra("studentyear");
 
         pagefragment = getIntent().getStringExtra("openfragment");
         my_title.setText("Enroll Specilization");
 
-        enrollcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        enrollcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -111,12 +112,12 @@ public class StudentEnrollSpecializationTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    EnrollSpecializationFragment enrollSpecializationFragment =new EnrollSpecializationFragment();
+                    EnrollSpecializationFragment enrollSpecializationFragment = new EnrollSpecializationFragment();
                     return enrollSpecializationFragment;
                 case 1:
-                    DisenrollSpecializationFragment disenrollSpecializationFragment =new DisenrollSpecializationFragment();
+                    DisenrollSpecializationFragment disenrollSpecializationFragment = new DisenrollSpecializationFragment();
                     return disenrollSpecializationFragment;
             }
             return null;

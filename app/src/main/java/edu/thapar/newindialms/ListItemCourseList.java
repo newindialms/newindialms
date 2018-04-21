@@ -10,7 +10,7 @@ public class ListItemCourseList {
     private String CourseListFaculty;
     private String CourseListCode;
 
-    public ListItemCourseList(String courseListTitle, String courseListFaculty,String courseListCode) {
+    public ListItemCourseList(String courseListTitle, String courseListFaculty, String courseListCode) {
         CourseListTitle = courseListTitle;
         CourseListFaculty = courseListFaculty;
         CourseListCode = courseListCode;
@@ -21,16 +21,9 @@ public class ListItemCourseList {
         return CourseListCode;
     }
 
-    public void setCourseListCode(String courseListCode) {
-        CourseListCode = courseListCode;
-    }
 
     public String getCourseListTitle() {
         return CourseListTitle;
-    }
-
-    public void setCourseListTitle(String courseListTitle) {
-        CourseListTitle = courseListTitle;
     }
 
 
@@ -38,8 +31,5 @@ public class ListItemCourseList {
         return CourseListFaculty;
     }
 
-    public void setCourseListFaculty(String courseListFaculty) {
-        CourseListFaculty = courseListFaculty;
-    }
 
 }

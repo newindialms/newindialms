@@ -36,8 +36,8 @@ public class AddFeedbackFragment extends Fragment {
 
     private Spinner feedbackspinner;
     private Button addfeedback;
-    private EditText feedbacktitle,feedbackquestion;
-    private String feedback_title,feedback_question;
+    private EditText feedbacktitle, feedbackquestion;
+    private String feedback_title, feedback_question;
 
     private String feedback_type;
     private ProgressDialog progressDialog;
@@ -54,23 +54,23 @@ public class AddFeedbackFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.add_feedback_layout, container, false);
-        feedbackspinner=(Spinner)rootview.findViewById(R.id.addfeedbackspinner);
+        feedbackspinner = (Spinner) rootview.findViewById(R.id.addfeedbackspinner);
         feedbackspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                feedback_type=feedbackspinner.getSelectedItem().toString();
+                feedback_type = feedbackspinner.getSelectedItem().toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getActivity(),"Nothing selected. Please select one", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Nothing selected. Please select one", Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder = new AlertDialog.Builder(getActivity() , R.style.MyAlertDialogStyle);
-        feedbacktitle=(EditText) rootview.findViewById(R.id.addfeedbackmaintitle);
-        feedbackquestion=(EditText) rootview.findViewById(R.id.addfeedbackdescription);
-        addfeedback=(Button)rootview.findViewById(R.id.addfeedbacksubmit);
+        builder = new AlertDialog.Builder(getActivity(), R.style.MyAlertDialogStyle);
+        feedbacktitle = (EditText) rootview.findViewById(R.id.addfeedbackmaintitle);
+        feedbackquestion = (EditText) rootview.findViewById(R.id.addfeedbackdescription);
+        addfeedback = (Button) rootview.findViewById(R.id.addfeedbacksubmit);
         addfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -6,25 +6,21 @@ package edu.thapar.newindialms;
 
 public class ProgramScreenStudentFullListListItems {
 
-    private String Name,Fname,Rollno;
+    private String Name, Fname, Rollno;
     private int Rowcount;
 
 
     public ProgramScreenStudentFullListListItems() {
     }
 
-    public ProgramScreenStudentFullListListItems(String fname,String name, String rollno) {
-        Fname=fname;
+    public ProgramScreenStudentFullListListItems(String fname, String name, String rollno) {
+        Fname = fname;
         Name = name;
         Rollno = rollno;
     }
 
     public String getFname() {
         return Fname;
-    }
-
-    public void setFname(String fname) {
-        Fname = fname;
     }
 
     public void setRowcount(int rowcount) {
@@ -43,7 +39,4 @@ public class ProgramScreenStudentFullListListItems {
         return Rollno;
     }
 
-    public void setRollno(String rollno) {
-        Rollno = rollno;
-    }
 }

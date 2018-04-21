@@ -34,6 +34,7 @@ public class FeedbackTab extends AppCompatActivity {
     private ViewPager mViewPager;
     private Toolbar addcoursetoolbar;
     private String pagefragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +46,9 @@ public class FeedbackTab extends AppCompatActivity {
 
         pagefragment = getIntent().getStringExtra("openfragment");
 
-        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        addcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -61,7 +62,6 @@ public class FeedbackTab extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
-
 
 
     /**
@@ -109,12 +109,12 @@ public class FeedbackTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    AddFeedbackFragment addFeedbackFragment =new AddFeedbackFragment();
+                    AddFeedbackFragment addFeedbackFragment = new AddFeedbackFragment();
                     return addFeedbackFragment;
                 case 1:
-                    RemoveFeedbackFragment removeFeedbackFragment =new RemoveFeedbackFragment();
+                    RemoveFeedbackFragment removeFeedbackFragment = new RemoveFeedbackFragment();
                     return removeFeedbackFragment;
             }
             return null;

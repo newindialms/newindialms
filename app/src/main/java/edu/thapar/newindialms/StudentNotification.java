@@ -1,26 +1,15 @@
 package edu.thapar.newindialms;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,9 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by kamalshree on 9/26/2017.
@@ -53,7 +40,7 @@ public class StudentNotification extends AppCompatActivity {
         setContentView(R.layout.fragment_student_noticationscreen);
         student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.student_enroll_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
         faculty_title.setText(" Notification");
         setSupportActionBar(student_toolbar);
 
@@ -63,14 +50,14 @@ public class StudentNotification extends AppCompatActivity {
                 finish();
             }
         });
-        recyclerView = (RecyclerView)findViewById(R.id.student_notification_recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.student_notification_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         LoadNotifications();
         notificationScreenDetails = new ArrayList<>();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

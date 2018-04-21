@@ -3,7 +3,6 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
     //the list values in the List of type hero
     List<EnrolledCourseListItems> enrolledCourseListItemses;
     //activity context
-   private Context context;
+    private Context context;
 
     //the layout resource file for the list items
     int resource;

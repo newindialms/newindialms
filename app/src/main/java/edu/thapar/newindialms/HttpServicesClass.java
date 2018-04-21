@@ -36,27 +36,23 @@ public class HttpServicesClass {
 
     public ArrayList<NameValuePair> ArrayListParams;
 
-    public ArrayList <NameValuePair> headers;
+    public ArrayList<NameValuePair> headers;
 
     public String UrlHolder;
 
-    public String getResponse()
-    {
+    public String getResponse() {
         return response;
     }
 
-    public String getErrorMessage()
-    {
+    public String getErrorMessage() {
         return message;
     }
 
-    public int getResponseCode()
-    {
+    public int getResponseCode() {
         return responseCode;
     }
 
-    public HttpServicesClass(String url)
-    {
+    public HttpServicesClass(String url) {
         HttpServicesClass.this.UrlHolder = url;
 
         ArrayListParams = new ArrayList<NameValuePair>();
@@ -64,34 +60,26 @@ public class HttpServicesClass {
         headers = new ArrayList<NameValuePair>();
     }
 
-    public void AddParam(String name, String value)
-    {
+    public void AddParam(String name, String value) {
         ArrayListParams.add(new BasicNameValuePair(name, value));
     }
 
-    public void AddHeader(String name, String value)
-    {
+    public void AddHeader(String name, String value) {
         headers.add(new BasicNameValuePair(name, value));
     }
 
-    public void ExecuteGetRequest() throws Exception
-    {
+    public void ExecuteGetRequest() throws Exception {
         String MixParams = "";
 
-        if(!ArrayListParams.isEmpty())
-        {
+        if (!ArrayListParams.isEmpty()) {
             MixParams += "?";
 
-            for(NameValuePair p : ArrayListParams)
-            {
-                String paramString = p.getName() + "=" + URLEncoder.encode(p.getValue(),"UTF-8");
+            for (NameValuePair p : ArrayListParams) {
+                String paramString = p.getName() + "=" + URLEncoder.encode(p.getValue(), "UTF-8");
 
-                if(MixParams.length() > 1)
-                {
-                    MixParams  +=  "&" + paramString;
-                }
-                else
-                {
+                if (MixParams.length() > 1) {
+                    MixParams += "&" + paramString;
+                } else {
                     MixParams += paramString;
                 }
             }
@@ -99,32 +87,27 @@ public class HttpServicesClass {
 
         HttpGet httpGet = new HttpGet(UrlHolder + MixParams);
 
-        for(NameValuePair h : headers)
-        {
+        for (NameValuePair h : headers) {
             httpGet.addHeader(h.getName(), h.getValue());
         }
 
         executeRequest(httpGet, UrlHolder);
     }
 
-    public void ExecutePostRequest() throws Exception
-    {
+    public void ExecutePostRequest() throws Exception {
         HttpPost httpPost = new HttpPost(UrlHolder);
-        for(NameValuePair h : headers)
-        {
+        for (NameValuePair h : headers) {
             httpPost.addHeader(h.getName(), h.getValue());
         }
 
-        if(!ArrayListParams.isEmpty())
-        {
+        if (!ArrayListParams.isEmpty()) {
             httpPost.setEntity(new UrlEncodedFormEntity(ArrayListParams, HTTP.UTF_8));
         }
 
         executeRequest(httpPost, UrlHolder);
     }
 
-    private void executeRequest(HttpUriRequest request, String url)
-    {
+    private void executeRequest(HttpUriRequest request, String url) {
         HttpParams httpParameters = new BasicHttpParams();
 
         HttpConnectionParams.setConnectionTimeout(httpParameters, 10000);
@@ -134,60 +117,44 @@ public class HttpServicesClass {
         HttpClient httpClient = new DefaultHttpClient(httpParameters);
 
         HttpResponse httpResponse;
-        try
-        {
+        try {
             httpResponse = httpClient.execute(request);
             responseCode = httpResponse.getStatusLine().getStatusCode();
             message = httpResponse.getStatusLine().getReasonPhrase();
 
             HttpEntity entity = httpResponse.getEntity();
-            if (entity != null)
-            {
+            if (entity != null) {
                 InputStream inputStream = entity.getContent();
 
                 response = convertStreamToString(inputStream);
 
                 inputStream.close();
             }
-        }
-        catch (ClientProtocolException e)
-        {
+        } catch (ClientProtocolException e) {
             httpClient.getConnectionManager().shutdown();
             e.printStackTrace();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             httpClient.getConnectionManager().shutdown();
             e.printStackTrace();
         }
     }
 
-    private String convertStreamToString(InputStream is)
-    {
+    private String convertStreamToString(InputStream is) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
 
         StringBuilder stringBuilder = new StringBuilder();
 
         String line = null;
-        try
-        {
-            while ((line = bufferedReader.readLine()) != null)
-            {
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
                 stringBuilder.append(line + "\n");
             }
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
+        } finally {
+            try {
                 is.close();
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

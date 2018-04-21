@@ -47,13 +47,10 @@ public class FacultyFeedackTextDisplayAdapter extends ArrayAdapter<FacultyFeedba
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView textbar=(TextView)view.findViewById(R.id.text_rating);
-        TextView feedback_question=(TextView)view.findViewById(R.id.text_rating_questions);
+        TextView textbar = (TextView) view.findViewById(R.id.text_rating);
+        TextView feedback_question = (TextView) view.findViewById(R.id.text_rating_questions);
         TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
         TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
-
-
-
 
 
         //getting the hero of the specified position

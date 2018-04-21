@@ -4,16 +4,16 @@ package edu.thapar.newindialms;
  * Created by kamalshree on 10/25/2017.
  */
 
-public class ProgramScreenSpecializationModuleListItems  {
+public class ProgramScreenSpecializationModuleListItems {
 
-    private String coursename,specializationname;
+    private String coursename, specializationname;
 
     public ProgramScreenSpecializationModuleListItems(String specializationname) {
         this.specializationname = specializationname;
     }
 
-    public ProgramScreenSpecializationModuleListItems(String coursename,String specializationname) {
-        this.coursename=coursename;
+    public ProgramScreenSpecializationModuleListItems(String coursename, String specializationname) {
+        this.coursename = coursename;
         this.specializationname = specializationname;
     }
 

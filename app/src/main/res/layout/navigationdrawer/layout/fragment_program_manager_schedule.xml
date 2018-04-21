@@ -93,11 +93,11 @@
             android:id="@+id/course_schedule_semesterspinner"
             android:layout_width="286dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/course_schedule_semester"
             android:layout_alignLeft="@+id/course_schedule_dayspinner"
             android:layout_alignStart="@+id/course_schedule_dayspinner"
-            android:entries="@array/semester"/>
+            android:layout_below="@+id/course_schedule_semester"
+            android:layout_marginTop="20dp"
+            android:entries="@array/semester" />
 
         <Button
             android:id="@+id/course_schedule_go"

@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -39,6 +38,7 @@ public class RemoveFeedbackFragment extends Fragment {
     FeedbackAdapter adapter;
     List<Feedback> feedbackList;
     SwipeRefreshLayout swipeRefreshLayout;
+
     public RemoveFeedbackFragment() {
         // Required empty public constructor
     }
@@ -47,9 +47,9 @@ public class RemoveFeedbackFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.show_feedback_layout, container, false);
+        rootview = inflater.inflate(R.layout.show_feedback_layout, container, false);
 
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
 
         builder = new AlertDialog.Builder(getActivity(), R.style.MyAlertDialogStyle);
 

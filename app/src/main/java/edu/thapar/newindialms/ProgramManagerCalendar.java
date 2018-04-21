@@ -26,6 +26,7 @@ public class ProgramManagerCalendar extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_program_manager_calendar, container, false);
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.navigation_program_calendar));

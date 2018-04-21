@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,14 +48,14 @@ public class ProgramScreenAllCoursesAdapter extends ArrayAdapter<ProgramScreenAl
 
 
         //getting the view elements of the list from the view
-        TextView Studentpic_programstudentallcourselist_name = (TextView)view.findViewById(R.id.Studentpic_programstudentallcourselist_name);
-        TextView Studentpic_programstudentallcourselist_rollno = (TextView)view.findViewById(R.id.Studentpic_programstudentallcourselist_rollno);
+        TextView Studentpic_programstudentallcourselist_name = (TextView) view.findViewById(R.id.Studentpic_programstudentallcourselist_name);
+        TextView Studentpic_programstudentallcourselist_rollno = (TextView) view.findViewById(R.id.Studentpic_programstudentallcourselist_rollno);
 
 
         //getting the hero of the specified position
         final ProgramScreenAllCoursesListItems hero = programScreenAllCoursesListItems.get(position);
         //adding values to the list item
-        Studentpic_programstudentallcourselist_name.setText(hero.getName()+" "+hero.getFname());
+        Studentpic_programstudentallcourselist_name.setText(hero.getName() + " " + hero.getFname());
         Studentpic_programstudentallcourselist_rollno.setText(hero.getRollno());
 
         //finally returning the view

@@ -36,7 +36,7 @@ public class NotificationScreenAdapter extends RecyclerView.Adapter<Notification
     @Override
     public void onBindViewHolder(final NotificationScreenViewHolder holder, int position) {
 
-        NotificationScreenDetails notification=notificationScreenDetails.get(position);
+        NotificationScreenDetails notification = notificationScreenDetails.get(position);
 
         holder.msgTitle.setText(notification.getNotificationtitle());
         holder.msgTime.setText(notification.getNotificationtime());
@@ -45,10 +45,10 @@ public class NotificationScreenAdapter extends RecyclerView.Adapter<Notification
             @Override
             public void onClick(View view) {
                 int newPosition = holder.getAdapterPosition();
-                String notification_title=notificationScreenDetails.get(newPosition).getNotificationtitle();
-                String notification_msg=notificationScreenDetails.get(newPosition).getNotificationmsg();
-                String notification_date=notificationScreenDetails.get(newPosition).getNotificationtime();
-                Intent intent = new Intent(view.getContext(),DetailedNotificationScreen.class);
+                String notification_title = notificationScreenDetails.get(newPosition).getNotificationtitle();
+                String notification_msg = notificationScreenDetails.get(newPosition).getNotificationmsg();
+                String notification_date = notificationScreenDetails.get(newPosition).getNotificationtime();
+                Intent intent = new Intent(view.getContext(), DetailedNotificationScreen.class);
 
                 intent.putExtra("notification_title", notification_title);
                 intent.putExtra("notification_msg", notification_msg);
@@ -65,18 +65,18 @@ public class NotificationScreenAdapter extends RecyclerView.Adapter<Notification
         return notificationScreenDetails.size();
     }
 
-    class NotificationScreenViewHolder extends RecyclerView.ViewHolder{
+    class NotificationScreenViewHolder extends RecyclerView.ViewHolder {
 
-        TextView msgTitle,msgTime;
+        TextView msgTitle, msgTime;
         Button msgButton;
         ImageView notificationImage;
 
         public NotificationScreenViewHolder(View itemView) {
             super(itemView);
 
-            msgTitle=(TextView)itemView.findViewById(R.id.faculty_notificationscreen_msgtitle);
-            msgTime=(TextView)itemView.findViewById(R.id.faculty_notificationscreen_msgtime);
-            msgButton=(Button)itemView.findViewById(R.id.faculty_notificationscreen_msgbutton);
+            msgTitle = (TextView) itemView.findViewById(R.id.faculty_notificationscreen_msgtitle);
+            msgTime = (TextView) itemView.findViewById(R.id.faculty_notificationscreen_msgtime);
+            msgButton = (Button) itemView.findViewById(R.id.faculty_notificationscreen_msgbutton);
         }
 
 

@@ -25,9 +25,7 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/enrolledcourses_title"
-        >
+        android:layout_height="match_parent">
     <ListView
         android:id="@+id/enrolledcourselistView"
         android:layout_width="match_parent"

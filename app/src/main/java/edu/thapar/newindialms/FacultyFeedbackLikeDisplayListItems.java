@@ -12,12 +12,11 @@ public class FacultyFeedbackLikeDisplayListItems {
     private String like;
     private String question;
 
-   public FacultyFeedbackLikeDisplayListItems(String like,String question, String daywise_date, String daywise_time) {
-       this.like=like;
-       this.question=question;
+    public FacultyFeedbackLikeDisplayListItems(String like, String question, String daywise_date, String daywise_time) {
+        this.like = like;
+        this.question = question;
         this.daywise_date = daywise_date;
-        this.daywise_time=daywise_time;
-
+        this.daywise_time = daywise_time;
 
 
     }

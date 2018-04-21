@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 /**
  * Created by kamalshree on 10/4/2017.
  */
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -19,10 +20,10 @@ import java.util.Map;
 public class HttpParse {
 
     private String FinalHttpData = "";
-    private String Result ;
-    BufferedWriter bufferedWriter ;
-    OutputStream outputStream ;
-    BufferedReader bufferedReader ;
+    private String Result;
+    BufferedWriter bufferedWriter;
+    OutputStream outputStream;
+    BufferedReader bufferedReader;
     StringBuilder stringBuilder = new StringBuilder();
     URL url;
 
@@ -65,8 +66,7 @@ public class HttpParse {
                         )
                 );
                 FinalHttpData = bufferedReader.readLine();
-            }
-            else {
+            } else {
                 FinalHttpData = "Something Went Wrong";
             }
         } catch (Exception e) {
@@ -76,9 +76,9 @@ public class HttpParse {
         return FinalHttpData;
     }
 
-    public String FinalDataParse(HashMap<String,String> hashMap2) throws UnsupportedEncodingException {
+    public String FinalDataParse(HashMap<String, String> hashMap2) throws UnsupportedEncodingException {
 
-        for(Map.Entry<String,String> map_entry : hashMap2.entrySet()){
+        for (Map.Entry<String, String> map_entry : hashMap2.entrySet()) {
 
             stringBuilder.append("&");
 
@@ -92,6 +92,6 @@ public class HttpParse {
 
         Result = stringBuilder.toString();
 
-        return Result ;
+        return Result;
     }
 }

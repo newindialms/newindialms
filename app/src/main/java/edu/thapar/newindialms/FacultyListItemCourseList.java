@@ -9,15 +9,21 @@ public class FacultyListItemCourseList {
     private String CourseListTitle;
     private String Coursecode;
     private String faculty_employeeid;
+    private String course_type;
 
     public FacultyListItemCourseList(String faculty_employeeid) {
-        this.faculty_employeeid=faculty_employeeid;
+        this.faculty_employeeid = faculty_employeeid;
     }
 
-    public FacultyListItemCourseList(String courseListTitle,String coursecode,String faculty_employeeid) {
+    public FacultyListItemCourseList(String courseListTitle, String coursecode, String course_type, String faculty_employeeid) {
         this.CourseListTitle = courseListTitle;
-        this.Coursecode=coursecode;
-        this.faculty_employeeid=faculty_employeeid;
+        this.Coursecode = coursecode;
+        this.faculty_employeeid = faculty_employeeid;
+        this.course_type = course_type;
+    }
+
+    public String getCourse_type() {
+        return course_type;
     }
 
     public String getCoursecode() {

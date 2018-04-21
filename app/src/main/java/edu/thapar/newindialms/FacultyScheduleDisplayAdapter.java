@@ -53,8 +53,6 @@ public class FacultyScheduleDisplayAdapter extends ArrayAdapter<FacultyScheduleD
         TextView faculty_scheduledisplay_course = (TextView) view.findViewById(R.id.faculty_scheduledisplay_course);
 
 
-
-
         //getting the hero of the specified position
         final FacultyScheduleDisplayListItems hero = facultyScheduleDisplayListItems.get(position);
 

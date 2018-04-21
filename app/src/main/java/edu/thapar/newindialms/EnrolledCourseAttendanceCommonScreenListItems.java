@@ -10,16 +10,18 @@ public class EnrolledCourseAttendanceCommonScreenListItems {
     private String cumulative;
     private String daywise;
     private String studentrollno;
+    private String studentyear;
 
     public EnrolledCourseAttendanceCommonScreenListItems(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
     }
 
-    public EnrolledCourseAttendanceCommonScreenListItems(String daywise, String cumulative, String enrolledcoursename, String studentrollno) {
+    public EnrolledCourseAttendanceCommonScreenListItems(String daywise, String cumulative, String enrolledcoursename, String studentrollno,String studentyear) {
         this.enrolledcoursename = enrolledcoursename;
         this.daywise = daywise;
         this.cumulative = cumulative;
         this.studentrollno = studentrollno;
+        this.studentyear = studentyear;
     }
 
     public String getEnrolledcoursename() {
@@ -28,6 +30,10 @@ public class EnrolledCourseAttendanceCommonScreenListItems {
 
     public void setEnrolledcoursename(String enrolledcoursename) {
         this.enrolledcoursename = enrolledcoursename;
+    }
+
+    public String getStudentyear() {
+        return studentyear;
     }
 
     public String getCumulative() {

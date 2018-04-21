@@ -53,8 +53,6 @@ public class FacultyCourseListViewAttendanceDisplayAdapter extends ArrayAdapter<
         TextView faculty_courselist_display_status = (TextView) view.findViewById(R.id.faculty_courselist_display_status);
 
 
-
-
         //getting the hero of the specified position
         final FacultyCourseListViewAttendanceDisplayListItems hero = facultyCourseListViewAttendanceDisplayListItems.get(position);
 
@@ -63,8 +61,7 @@ public class FacultyCourseListViewAttendanceDisplayAdapter extends ArrayAdapter<
         if (hero.getAttendance_status().equals("Present")) {
 
             faculty_courselist_display_status.setTextColor(Color.GREEN);
-        }
-        else{
+        } else {
             faculty_courselist_display_status.setTextColor(Color.RED);
         }
         faculty_courselist_display_status.setText(hero.getAttendance_status());

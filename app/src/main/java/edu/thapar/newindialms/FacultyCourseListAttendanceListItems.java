@@ -10,16 +10,23 @@ public class FacultyCourseListAttendanceListItems {
     private String takeattendance;
     private String seeattendance;
     private String faculty_employeeid;
+    private String coursetype;
 
-    public FacultyCourseListAttendanceListItems(String coursename) {
+
+    public FacultyCourseListAttendanceListItems(String takeattendance, String seeattendance, String coursename, String faculty_employeeid, String coursetype) {
+        this.takeattendance = takeattendance;
+        this.seeattendance = seeattendance;
         this.coursename = coursename;
+        this.faculty_employeeid = faculty_employeeid;
+        this.coursetype = coursetype;
     }
 
-    public FacultyCourseListAttendanceListItems(String takeattendance, String seeattendance, String coursename,String faculty_employeeid) {
-        this.takeattendance = takeattendance;
-        this.seeattendance=seeattendance;
-        this.coursename=coursename;
-        this.faculty_employeeid=faculty_employeeid;
+    public String getCoursetype() {
+        return coursetype;
+    }
+
+    public void setCoursetype(String coursetype) {
+        this.coursetype = coursetype;
     }
 
     public String getCoursename() {

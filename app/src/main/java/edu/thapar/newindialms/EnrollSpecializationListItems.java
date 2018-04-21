@@ -6,16 +6,17 @@ package edu.thapar.newindialms;
 
 public class EnrollSpecializationListItems {
 
-    private String coursedetails_name,studentid;
+    private String coursedetails_name, studentid;
     private boolean selected;
 
     public EnrollSpecializationListItems(String coursedetails_name) {
-        this.coursedetails_name=coursedetails_name;
+        this.coursedetails_name = coursedetails_name;
 
     }
-    public EnrollSpecializationListItems(String coursedetails_name,String studentid) {
-        this.coursedetails_name=coursedetails_name;
-        this.studentid=studentid;
+
+    public EnrollSpecializationListItems(String coursedetails_name, String studentid) {
+        this.coursedetails_name = coursedetails_name;
+        this.studentid = studentid;
 
     }
 

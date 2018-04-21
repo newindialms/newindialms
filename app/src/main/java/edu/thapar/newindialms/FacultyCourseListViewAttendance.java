@@ -7,28 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by kamalshree on 11/18/2017.
@@ -39,7 +20,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
     private android.widget.CalendarView calendarView;
     private Button ShowButton;
     private String datevalue;
-    private String coursename,faculty_employeeid;
+    private String coursename, faculty_employeeid, coursetype;
     private AlertDialog.Builder builder;
 
     @Override
@@ -48,6 +29,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_courselist_viewattendance);
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+        coursetype = getIntent().getStringExtra("coursetype");
         faculty_toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
@@ -61,14 +43,14 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         });
 
 
-        calendarView= (CalendarView)findViewById(R.id.calendarView);
-        ShowButton=(Button)findViewById(R.id.ChooseButton);
+        calendarView = (CalendarView) findViewById(R.id.calendarView);
+        ShowButton = (Button) findViewById(R.id.ChooseButton);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int yearval, int monthval, int dateval) {
-                datevalue=dateval+"-"+(monthval+1)+"-"+yearval; //date-month-year
-              //  Toast.makeText(FacultyCourseListViewAttendance.this,"The selected Date is... "+datevalue,Toast.LENGTH_LONG).show();
+                datevalue = dateval + "-" + (monthval + 1) + "-" + yearval; //date-month-year
+                //  Toast.makeText(FacultyCourseListViewAttendance.this,"The selected Date is... "+datevalue,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -76,22 +58,42 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListViewAttendanceDisplay.class);
-                facultyintent.putExtra("attendance_date",datevalue);
-                facultyintent.putExtra("faculty_employeeid",faculty_employeeid);
-                facultyintent.putExtra("course_details_name",coursename);
-                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                if (datevalue != null && !datevalue.isEmpty()) {
-                    getApplicationContext().startActivity(facultyintent);
-                }
-                else{
-                    //Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
-                    builder = new AlertDialog.Builder(FacultyCourseListViewAttendance.this, R.style.MyFacultyAlertDialogStyle);
-                    builder.setTitle("Missing");
-                    builder.setMessage("Please choose a Date.");
-                    displayAlert();
-                }
 
+                if (coursetype.equals("1")) {
+                    Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListviewAttendanceGroup.class);
+                    facultyintent.putExtra("attendance_date", datevalue);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.putExtra("course_details_name", coursename);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        getApplicationContext().startActivity(facultyintent);
+                    } else {
+                        //Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyCourseListViewAttendance.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Missing");
+                        builder.setMessage("Please choose a Date.");
+                        displayAlert();
+                    }
+                } else {
+                    Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListViewAttendanceDisplay.class);
+                    facultyintent.putExtra("attendance_date", datevalue);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.putExtra("course_details_name", coursename);
+                    facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    if (datevalue != null && !datevalue.isEmpty()) {
+                        getApplicationContext().startActivity(facultyintent);
+                    } else {
+                        //Toast.makeText(FacultyCourseListViewAttendance.this,"Please Select a Date",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(FacultyCourseListViewAttendance.this, R.style.MyFacultyAlertDialogStyle);
+                        builder.setTitle("Missing");
+                        builder.setMessage("Please choose a Date.");
+                        displayAlert();
+                    }
+                }
             }
         });
 

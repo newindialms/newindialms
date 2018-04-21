@@ -21,7 +21,6 @@
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/student_notificationscreen_title"
         >
     <android.support.v7.widget.RecyclerView
         android:id="@+id/student_notification_recyclerview"

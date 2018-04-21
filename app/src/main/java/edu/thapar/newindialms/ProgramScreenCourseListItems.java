@@ -5,9 +5,9 @@ package edu.thapar.newindialms;
  */
 
 public class ProgramScreenCourseListItems {
-    private String coursename,coursecode;
+    private String coursename, coursecode;
 
-    public ProgramScreenCourseListItems(String coursename,String coursecode) {
+    public ProgramScreenCourseListItems(String coursename, String coursecode) {
         this.coursename = coursename;
         this.coursecode = coursecode;
     }

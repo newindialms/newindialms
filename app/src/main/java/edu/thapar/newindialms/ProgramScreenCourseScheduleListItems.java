@@ -5,9 +5,8 @@ package edu.thapar.newindialms;
  */
 
 public class ProgramScreenCourseScheduleListItems {
-    private String timetable_day,timetable_date,timetable_startdate,timetable_enddate,timetable_course,timetable_faculty,timetable_program;
-    private String course_code,course_name,faculty_code,course_date,course_schedule_day,course_schedule_time,student_group,student_batch,course_classroom;
-
+    private String timetable_day, timetable_date, timetable_startdate, timetable_enddate, timetable_course, timetable_faculty, timetable_program;
+    private String course_code, course_name, faculty_code, course_date, course_schedule_day, course_schedule_time, student_group, student_batch, course_classroom;
 
 
     public ProgramScreenCourseScheduleListItems(String timetable_day, String timetable_date, String timetable_startdate, String timetable_enddate, String timetable_course, String timetable_faculty, String timetable_program) {
@@ -19,6 +18,7 @@ public class ProgramScreenCourseScheduleListItems {
         this.timetable_faculty = timetable_faculty;
         this.timetable_program = timetable_program;
     }
+
     public ProgramScreenCourseScheduleListItems(String course_code, String course_name, String faculty_code, String course_date, String course_schedule_day, String course_schedule_time, String student_group, String student_batch, String course_classroom) {
         this.course_code = course_code;
         this.course_name = course_name;
@@ -29,10 +29,6 @@ public class ProgramScreenCourseScheduleListItems {
         this.student_group = student_group;
         this.student_batch = student_batch;
         this.course_classroom = course_classroom;
-    }
-
-    public String getCourse_code() {
-        return course_code;
     }
 
     public String getCourse_name() {
@@ -87,17 +83,14 @@ public class ProgramScreenCourseScheduleListItems {
     }
 
 
-
     public String getTimetable_course() {
         return timetable_course;
     }
 
 
-
     public String getTimetable_faculty() {
         return timetable_faculty;
     }
-
 
 
     public String getTimetable_program() {

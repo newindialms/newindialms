@@ -16,7 +16,7 @@ import java.util.List;
 
 public class FacultyCourseListAttendance extends AppCompatActivity {
 
-    private String coursename,faculty_employeeid;
+    private String coursename, faculty_employeeid, coursetype;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;
 
@@ -25,36 +25,38 @@ public class FacultyCourseListAttendance extends AppCompatActivity {
 
     //the listview
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_courselist_attendance);
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
+        coursetype = getIntent().getStringExtra("coursetype");
 
         faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title=(TextView)findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
-        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
 
-        facultycourselist_program_title=(TextView)findViewById(R.id.facultycourselist_attendance_title);
-        facultycourselist_program_title.setText(coursename+" Attendance");
+        facultycourselist_program_title = (TextView) findViewById(R.id.facultycourselist_attendance_title);
+        facultycourselist_program_title.setText(coursename + " Attendance");
 
         //initializing objects
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.facultycourselistattendancelist_ListView);
 
-        FacultyCourseListDashboardListItems pglist= new FacultyCourseListDashboardListItems(coursename);
+        FacultyCourseListDashboardListItems pglist = new FacultyCourseListDashboardListItems(coursename);
         pglist.setCoursename(coursename);
 
-        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance","View Attendance",pglist.getCoursename(),faculty_employeeid));
+        heroList.add(new FacultyCourseListAttendanceListItems("Take Attendance", "View Attendance", pglist.getCoursename(), faculty_employeeid, coursetype));
 
         //creating the adapter
         FacultyCourseListAttendanceAdapter adapter = new FacultyCourseListAttendanceAdapter(this, R.layout.activity_faculty_courselist_attendance_listitems, heroList);

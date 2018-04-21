@@ -10,9 +10,9 @@ public class NotificationScreenDetails {
     private String notificationmsg;
     private String notificationtime;
 
-    public NotificationScreenDetails(String notificationtitle, String notificationmsg,String notificationtime) {
+    public NotificationScreenDetails(String notificationtitle, String notificationmsg, String notificationtime) {
         this.notificationtitle = notificationtitle;
-        this.notificationmsg=notificationmsg;
+        this.notificationmsg = notificationmsg;
         this.notificationtime = notificationtime;
     }
 

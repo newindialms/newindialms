@@ -75,22 +75,11 @@
             android:textColor="@color/textHintColor"
             android:textColorHint="@color/textHintColor" />
 
-        <TextView
-            android:id="@+id/showfeedback_typetitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/addfeedbacktypetext"
-            android:textAlignment="center"
-            android:textColor="@color/textColor"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <Spinner
             android:id="@+id/addfeedbackspinner"
             style="@style/mySpinnerItemStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
             android:entries="@array/feedbacktype" />
     </LinearLayout>

@@ -12,7 +12,7 @@ public class SpinnerListItem {
     private String email;
 
 
-    public SpinnerListItem(String lastname,String firstname, String rollno, String email) {
+    public SpinnerListItem(String lastname, String firstname, String rollno, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.rollno = rollno;
@@ -21,10 +21,6 @@ public class SpinnerListItem {
 
     public String getLastname() {
         return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public String getFirstname() {

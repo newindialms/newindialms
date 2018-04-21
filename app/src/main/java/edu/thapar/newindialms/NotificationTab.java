@@ -33,6 +33,7 @@ public class NotificationTab extends AppCompatActivity {
 
     List<NotificationTabListItems> heroList;
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +82,7 @@ public class NotificationTab extends AppCompatActivity {
 
 
                     }
-                    adapter = new NotificationTabAdapter(getApplicationContext(),R.layout.listview_item_notificiation,heroList);
+                    adapter = new NotificationTabAdapter(getApplicationContext(), R.layout.listview_item_notificiation, heroList);
                     listView.setAdapter(adapter);
 
 

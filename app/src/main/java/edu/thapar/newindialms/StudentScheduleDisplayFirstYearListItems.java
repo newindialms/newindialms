@@ -14,11 +14,11 @@ public class StudentScheduleDisplayFirstYearListItems {
 
 
     public StudentScheduleDisplayFirstYearListItems(String course_code, String course_name, String faculty_code, String course_schedule_time, String course_classroom) {
-       this.course_code=course_code;
-        this.course_name=course_name;
-        this.faculty_code=faculty_code;
-        this.course_schedule_time=course_schedule_time;
-        this.course_classroom=course_classroom;
+        this.course_code = course_code;
+        this.course_name = course_name;
+        this.faculty_code = faculty_code;
+        this.course_schedule_time = course_schedule_time;
+        this.course_classroom = course_classroom;
     }
 
     public String getCourse_code() {

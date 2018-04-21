@@ -52,13 +52,13 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
     List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;
     FacultySelectFeedbackScreenAdapter adapter;
     public static ArrayList<String> feedbacklist = new ArrayList<String>();
-    private String coursename,faculty_employeeid,course_time,course_date;
+    private String coursename, faculty_employeeid, course_time, course_date, coursetype, groupname, sectionname;
     private String currentDate;
     Date date = new Date();
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Intent myFeedbackselect;
     String[] feedbacklistarray;
-    private String title,message;
+    private String title, message;
 
     AlertDialog.Builder builder;
 
@@ -72,14 +72,23 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         facultyToolbarTitle = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         facultyToolbarTitle.setText("Select Feedback");
 
-        myFeedbackselect=getIntent();
+        myFeedbackselect = getIntent();
         coursename = myFeedbackselect.getStringExtra("coursename");
         faculty_employeeid = myFeedbackselect.getStringExtra("faculty_employeeid");
         course_date = myFeedbackselect.getStringExtra("course_date");
         course_time = myFeedbackselect.getStringExtra("course_time");
-        currentDate=sdf.format(date);
+        coursetype = myFeedbackselect.getStringExtra("coursetype");
+        coursetype = getIntent().getStringExtra("coursetype");
+        if (coursetype.equals("1")) {
+            groupname = getIntent().getStringExtra("groupname");
+            sectionname = getIntent().getStringExtra("sectionname");
+        } else {
+            groupname = "0";
+            sectionname = "0";
+        }
+        currentDate = sdf.format(date);
 
-        FacultySelectFeedbackScreenDetails storefacultyid=new FacultySelectFeedbackScreenDetails(faculty_employeeid);
+        FacultySelectFeedbackScreenDetails storefacultyid = new FacultySelectFeedbackScreenDetails(faculty_employeeid);
         storefacultyid.setFacultyid(faculty_employeeid);
         setSupportActionBar(facultyToolbar);
         facultyToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -121,7 +130,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
 
                             }
-                           adapter = new FacultySelectFeedbackScreenAdapter(FacultySelectFeedbackScreen.this, facultySelectFeedbackScreenDetails);
+                            adapter = new FacultySelectFeedbackScreenAdapter(FacultySelectFeedbackScreen.this, facultySelectFeedbackScreenDetails);
                             recyclerView.setAdapter(adapter);
 
 
@@ -164,23 +173,22 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         showFeedback();
         InsertSelectedFeedback();
         //send notification to present list
-        myFeedbackselect=getIntent();
+        myFeedbackselect = getIntent();
         coursename = myFeedbackselect.getStringExtra("coursename");
         SendNotificationToPresentList();
     }
 
 
     public void showFeedback() {
-        for (FacultySelectFeedbackScreenDetails p :adapter.getFeedbackDetails()) {
+        for (FacultySelectFeedbackScreenDetails p : adapter.getFeedbackDetails()) {
             feedbacklist.add(p.getFeedbackId());
-          //  Toast.makeText(FacultySelectFeedbackScreen.this,p.getFeedbackId(),Toast.LENGTH_LONG).show();
-           // Toast.makeText(FacultySelectFeedbackScreen.this,coursename+faculty_employeeid+currentDate,Toast.LENGTH_LONG).show();
+            //  Toast.makeText(FacultySelectFeedbackScreen.this,p.getFeedbackId(),Toast.LENGTH_LONG).show();
+            // Toast.makeText(FacultySelectFeedbackScreen.this,coursename+faculty_employeeid+currentDate,Toast.LENGTH_LONG).show();
         }
 
     }
 
-    public void InsertSelectedFeedback()
-    {
+    public void InsertSelectedFeedback() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -226,9 +234,9 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
                     feedbackid.add(adapter.getFeedbackDetails().get(i).getFeedbackId());
                 }
 
-                int j=0;
-                for(String object: feedbackid){
-                    params.put("feedback_id["+(j++)+"]", object);
+                int j = 0;
+                for (String object : feedbackid) {
+                    params.put("feedback_id[" + (j++) + "]", object);
                 }
 
                 params.put("faculty_rollno", faculty_employeeid);
@@ -268,7 +276,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
     public void SendNotificationToPresentList() {
         title = "Submit Feedback";
-        message = "Please submit your feedback for "+coursename;
+        message = "Please submit your feedback for " + coursename;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, notification_url, new Response.Listener<String>() {
             @Override
@@ -296,6 +304,9 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
                 params.put("course_date", course_date);
                 params.put("course_time", course_time);
                 params.put("feedback_course_details", coursename);
+                params.put("coursetype", coursetype);
+                params.put("groupname", groupname);
+                params.put("sectionname", sectionname);
                 return params;
             }
         };

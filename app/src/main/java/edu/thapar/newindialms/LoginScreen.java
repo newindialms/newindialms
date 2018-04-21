@@ -49,7 +49,7 @@ public class LoginScreen extends AppCompatActivity {
     private ProgressDialog progressDialog;
     public View layout;
 
-    private String deviceid,token,type,typeid;
+    private String deviceid, token, type, typeid;
 
 
     @Override
@@ -73,7 +73,7 @@ public class LoginScreen extends AppCompatActivity {
         // Get your custom_toast.xml ayout
         LayoutInflater inflater = getLayoutInflater();
 
-       layout = inflater.inflate(R.layout.custom_toast,
+        layout = inflater.inflate(R.layout.custom_toast,
                 (ViewGroup) findViewById(R.id.custom_toast_layout_id));
         final TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
 
@@ -84,13 +84,13 @@ public class LoginScreen extends AppCompatActivity {
             return;
         }*/
 
-        login_signup=(TextView)findViewById(R.id.login_signup);
+        login_signup = (TextView) findViewById(R.id.login_signup);
 
         login_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
-                startActivity(new Intent(LoginScreen.this,RegisterScreen.class));
+                startActivity(new Intent(LoginScreen.this, RegisterScreen.class));
                 return;
             }
         });
@@ -123,8 +123,8 @@ public class LoginScreen extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             try {
-                                 progressDialog.dismiss();
-                                    JSONArray jsonArray = new JSONArray(response);
+                                progressDialog.dismiss();
+                                JSONArray jsonArray = new JSONArray(response);
                                 JSONObject jsonObject = jsonArray.getJSONObject(0);
                                 String code = jsonObject.getString("code");
                                 if (code.equals("login_failed")) {
@@ -135,7 +135,7 @@ public class LoginScreen extends AppCompatActivity {
 
                                 } else {
 
-                                    if(jsonObject.getString("idtype").equals("student")) {
+                                    if (jsonObject.getString("idtype").equals("student")) {
                                         //student dashboard
                                         String studentname = jsonObject.getString("student_firstname");
                                         String studentlastname = jsonObject.getString("student_lastname");
@@ -143,28 +143,26 @@ public class LoginScreen extends AppCompatActivity {
                                         String studentyear = jsonObject.getString("student_year");
                                         String student_specialization = jsonObject.getString("student_specialization");
                                         finish();
-                                        Intent studentintent=new Intent(getApplicationContext(), StudentMenu.class);
-                                        studentintent.putExtra("studentname",studentname);
-                                        studentintent.putExtra("studentlastname",studentlastname);
-                                        studentintent.putExtra("studentid",studentid);
-                                        studentintent.putExtra("studentyear",studentyear);
-                                        studentintent.putExtra("student_specialization",student_specialization);
+                                        Intent studentintent = new Intent(getApplicationContext(), StudentMenu.class);
+                                        studentintent.putExtra("studentname", studentname);
+                                        studentintent.putExtra("studentlastname", studentlastname);
+                                        studentintent.putExtra("studentid", studentid);
+                                        studentintent.putExtra("studentyear", studentyear);
+                                        studentintent.putExtra("student_specialization", student_specialization);
                                         startActivity(studentintent);
-                                        type="student";
-                                        typeid=studentid;
+                                        type = "student";
+                                        typeid = studentid;
                                         AddDeviceDetailsFunction();
-                                    }
-                                    else if(jsonObject.getString("idtype").equals("programmanager")){
+                                    } else if (jsonObject.getString("idtype").equals("programmanager")) {
                                         //program manager dashboard
                                         finish();
                                         startActivity(new Intent(getApplicationContext(), ProgramManagerMenu.class));
                                         String studentid = jsonObject.getString("studentid");
-                                        type="programmanager";
-                                        typeid=studentid;
+                                        type = "programmanager";
+                                        typeid = studentid;
                                         AddDeviceDetailsFunction();
 
-                                    }
-                                    else{
+                                    } else {
                                         //faculty dashboard
                                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(
                                                 jsonObject.getString("faculty_employeeid")
@@ -173,12 +171,12 @@ public class LoginScreen extends AppCompatActivity {
                                         String facultyname = jsonObject.getString("faculty_firstname");
                                         String facultyid = jsonObject.getString("faculty_employeeid");
                                         finish();
-                                        Intent facultyintent=new Intent(getApplicationContext(), FacultyMenu.class);
-                                        facultyintent.putExtra("facultyname",facultyname);
-                                        facultyintent.putExtra("facultyid",facultyid);
+                                        Intent facultyintent = new Intent(getApplicationContext(), FacultyMenu.class);
+                                        facultyintent.putExtra("facultyname", facultyname);
+                                        facultyintent.putExtra("facultyid", facultyid);
                                         startActivity(facultyintent);
-                                        type="faculty";
-                                        typeid=facultyid;
+                                        type = "faculty";
+                                        typeid = facultyid;
                                         AddDeviceDetailsFunction();
                                     }
                                 }
@@ -221,7 +219,7 @@ public class LoginScreen extends AppCompatActivity {
                     login_phone.setText("");
                 }
                 if (code.equals("network_error")) {
-                   dialoginterface.dismiss();
+                    dialoginterface.dismiss();
                 }
                 if (code.equals("welcome")) {
                     dialoginterface.dismiss();
@@ -232,7 +230,7 @@ public class LoginScreen extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void customToast(){
+    public void customToast() {
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast

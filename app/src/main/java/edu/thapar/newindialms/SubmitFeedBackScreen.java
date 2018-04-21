@@ -51,7 +51,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     ListView listView;
     private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    private String course_name,student_id,course_date,course_time,faculty_id;
+    private String course_name, student_id, course_date, course_time, faculty_id;
     AlertDialog.Builder builder;
     LayoutInflater layoutinflater;
 
@@ -61,17 +61,16 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         setContentView(R.layout.submit_feedback_screen);
 
 
-
         studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title=(TextView)findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
 
 
-        course_name=getIntent().getStringExtra("corecoursename");
-        student_id=getIntent().getStringExtra("studentid");
-        course_date=getIntent().getStringExtra("course_date");
-        course_time=getIntent().getStringExtra("course_time");
-        faculty_id=getIntent().getStringExtra("faculty_employeeid");
+        course_name = getIntent().getStringExtra("corecoursename");
+        student_id = getIntent().getStringExtra("studentid");
+        course_date = getIntent().getStringExtra("course_date");
+        course_time = getIntent().getStringExtra("course_time");
+        faculty_id = getIntent().getStringExtra("faculty_employeeid");
 
 
         //Toast.makeText(SubmitFeedBackScreen.this,"Submitfeedback"+course_name+course_date+course_time+faculty_id,Toast.LENGTH_LONG).show();
@@ -102,16 +101,16 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         Toast.makeText(this,"Smiley array"+adapter.getSmileySubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
         Toast.makeText(this,"Text array"+adapter.getTextSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();*/
         //SubmitFeedBack();
-        if(adapter.getRateSubmittedFeedbackDetails().size()!=0){
+        if (adapter.getRateSubmittedFeedbackDetails().size() != 0) {
             SubmitRateFeedBack();
         }
-        if(adapter.getLikeSubmittedFeedbackDetails().size()!=0){
+        if (adapter.getLikeSubmittedFeedbackDetails().size() != 0) {
             SubmitLikeFeedBack();
         }
-        if(adapter.getSmileySubmittedFeedbackDetails().size()!=0){
+        if (adapter.getSmileySubmittedFeedbackDetails().size() != 0) {
             SubmitSmileyFeedBack();
         }
-        if(adapter.getTextSubmittedFeedbackDetails().size()!=0){
+        if (adapter.getTextSubmittedFeedbackDetails().size() != 0) {
             SubmitTextFeedBack();
         }
         Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
@@ -137,7 +136,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new SubmitFeedBackScreenAdapter(getApplicationContext(),R.layout.submit_feedback_screen_listitems,heroList);
+                    adapter = new SubmitFeedBackScreenAdapter(getApplicationContext(), R.layout.submit_feedback_screen_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -150,7 +149,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -167,8 +166,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     }
 
 
-    public void SubmitRateFeedBack()
-    {
+    public void SubmitRateFeedBack() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -214,8 +212,8 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
 
                 Set set2 = adapter.getRateSubmittedFeedbackDetails().entrySet();
                 Iterator iterator2 = set2.iterator();
-                while(iterator2.hasNext()) {
-                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                while (iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry) iterator2.next();
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
@@ -223,13 +221,13 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(adapter.getRateSubmittedFeedbackDetails().get(i));
                 }*/
 
-                int j=0;
-                for(String object: feedbackresponses){
-                    params.put("feedback_response["+(j++)+"]", object);
+                int j = 0;
+                for (String object : feedbackresponses) {
+                    params.put("feedback_response[" + (j++) + "]", object);
                 }
-                int k=0;
-                for(String object: feedbackquestions){
-                    params.put("feedback_question["+(k++)+"]", object);
+                int k = 0;
+                for (String object : feedbackquestions) {
+                    params.put("feedback_question[" + (k++) + "]", object);
                 }
 
 
@@ -250,8 +248,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void SubmitLikeFeedBack()
-    {
+    public void SubmitLikeFeedBack() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -296,8 +293,8 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                 // feedbacklistarray = new String[adapter.getSubmittedFeedbackDetails().size()];
                 Set set2 = adapter.getLikeSubmittedFeedbackDetails().entrySet();
                 Iterator iterator2 = set2.iterator();
-                while(iterator2.hasNext()) {
-                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                while (iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry) iterator2.next();
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
@@ -305,13 +302,13 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(adapter.getLikeSubmittedFeedbackDetails().get(i));
                 }*/
 
-                int j=0;
-                for(String object: feedbackresponses){
-                    params.put("feedback_response["+(j++)+"]", object);
+                int j = 0;
+                for (String object : feedbackresponses) {
+                    params.put("feedback_response[" + (j++) + "]", object);
                 }
-                int k=0;
-                for(String object: feedbackquestions){
-                    params.put("feedback_question["+(k++)+"]", object);
+                int k = 0;
+                for (String object : feedbackquestions) {
+                    params.put("feedback_question[" + (k++) + "]", object);
                 }
 
 
@@ -332,8 +329,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void SubmitSmileyFeedBack()
-    {
+    public void SubmitSmileyFeedBack() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -379,8 +375,8 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
 
                 Set set2 = adapter.getSmileySubmittedFeedbackDetails().entrySet();
                 Iterator iterator2 = set2.iterator();
-                while(iterator2.hasNext()) {
-                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                while (iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry) iterator2.next();
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
@@ -388,13 +384,13 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(adapter.getSmileySubmittedFeedbackDetails().get(i));
                 }
 */
-                int j=0;
-                for(String object: feedbackresponses){
-                    params.put("feedback_response["+(j++)+"]", object);
+                int j = 0;
+                for (String object : feedbackresponses) {
+                    params.put("feedback_response[" + (j++) + "]", object);
                 }
-                int k=0;
-                for(String object: feedbackquestions){
-                    params.put("feedback_question["+(k++)+"]", object);
+                int k = 0;
+                for (String object : feedbackquestions) {
+                    params.put("feedback_question[" + (k++) + "]", object);
                 }
 
                 params.put("faculty_id", faculty_id);
@@ -414,8 +410,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void SubmitTextFeedBack()
-    {
+    public void SubmitTextFeedBack() {
         //Displaying a progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Saving Details", "Please wait...", false, false);
         //Again creating the string request
@@ -461,8 +456,8 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
 
                 Set set2 = adapter.getTextSubmittedFeedbackDetails().entrySet();
                 Iterator iterator2 = set2.iterator();
-                while(iterator2.hasNext()) {
-                    Map.Entry mentry2 = (Map.Entry)iterator2.next();
+                while (iterator2.hasNext()) {
+                    Map.Entry mentry2 = (Map.Entry) iterator2.next();
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
@@ -470,14 +465,14 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(adapter.getTextSubmittedFeedbackDetails().get(i));
                 }*/
 
-                int j=0;
-                for(String object: feedbackresponses){
-                    params.put("feedback_response["+(j++)+"]", object);
+                int j = 0;
+                for (String object : feedbackresponses) {
+                    params.put("feedback_response[" + (j++) + "]", object);
                 }
 
-                int k=0;
-                for(String object: feedbackquestions){
-                    params.put("feedback_question["+(k++)+"]", object);
+                int k = 0;
+                for (String object : feedbackquestions) {
+                    params.put("feedback_question[" + (k++) + "]", object);
                 }
 
                 params.put("faculty_id", faculty_id);

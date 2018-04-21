@@ -47,13 +47,13 @@ public class RemoveCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootview=inflater.inflate(R.layout.fragment_remove_course, container, false);
+        rootview = inflater.inflate(R.layout.fragment_remove_course, container, false);
 
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.removecourselistView);
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -88,7 +88,7 @@ public class RemoveCourseFragment extends Fragment {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new RemoveCourseAdapter(getActivity(),R.layout.fragmet_remove_course_listitems,heroList);
+                    adapter = new RemoveCourseAdapter(getActivity(), R.layout.fragmet_remove_course_listitems, heroList);
                     listView.setAdapter(adapter);
 
 

@@ -40,9 +40,9 @@ public class StudentPicProgram extends AppCompatActivity {
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentpic_toolbar);
-        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -73,7 +73,7 @@ public class StudentPicProgram extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new StudentPicProgramAdapter(getApplicationContext(),R.layout.studentpic_program_listitem,heroList);
+                    adapter = new StudentPicProgramAdapter(getApplicationContext(), R.layout.studentpic_program_listitem, heroList);
                     listView.setAdapter(adapter);
 
 

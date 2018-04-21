@@ -29,7 +29,7 @@ import java.util.List;
  * Created by kamalshree on 10/25/2017.
  */
 
-public class ProgramScreenCourse  extends AppCompatActivity {
+public class ProgramScreenCourse extends AppCompatActivity {
     private String ProgramName;
     private TextView Studentpic_programCourse_title;
     private Toolbar studentpic_toolbar;
@@ -47,7 +47,7 @@ public class ProgramScreenCourse  extends AppCompatActivity {
 
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(ProgramName);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -58,13 +58,15 @@ public class ProgramScreenCourse  extends AppCompatActivity {
         });
 
         Studentpic_programCourse_title = (TextView) findViewById(R.id.Studentpic_programcourse_title);
-        Studentpic_programCourse_title.setText("course");
+        studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        studentpic_title.setText("Courses");
+        Studentpic_programCourse_title.setText("Courses");
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.studentpic_programscreencourselist_ListView);
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -100,7 +102,7 @@ public class ProgramScreenCourse  extends AppCompatActivity {
 
 
                     }
-                    adapter = new ProgramScreenCourseAdapter(getApplicationContext(),R.layout.activity_program_screencourselistitems,heroList);
+                    adapter = new ProgramScreenCourseAdapter(getApplicationContext(), R.layout.activity_program_screencourselistitems, heroList);
                     listView.setAdapter(adapter);
 
 

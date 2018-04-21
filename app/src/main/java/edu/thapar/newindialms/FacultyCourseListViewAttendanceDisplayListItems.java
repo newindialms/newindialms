@@ -10,10 +10,10 @@ public class FacultyCourseListViewAttendanceDisplayListItems {
     private String attendance_status;
     private String student_name;
 
-   public FacultyCourseListViewAttendanceDisplayListItems(String student_details, String attendance_status,String student_name) {
+    public FacultyCourseListViewAttendanceDisplayListItems(String student_details, String attendance_status, String student_name) {
         this.attendance_status = attendance_status;
-        this.student_details=student_details;
-       this.student_name=student_name;
+        this.student_details = student_details;
+        this.student_name = student_name;
 
     }
 

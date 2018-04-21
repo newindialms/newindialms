@@ -1,24 +1,16 @@
 package edu.thapar.newindialms;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class StudentEnrollCourseTab extends AppCompatActivity {
 
@@ -37,7 +29,8 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     private Toolbar enrollcoursetoolbar;
-    private String pagefragment,studentyear;
+    private String pagefragment, studentyear;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +40,13 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
         enrollcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(enrollcoursetoolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        studentyear=getIntent().getStringExtra("studentyear");
+        studentyear = getIntent().getStringExtra("studentyear");
 
         pagefragment = getIntent().getStringExtra("openfragment");
 
-
-        enrollcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        enrollcoursetoolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
             }
         });
@@ -116,12 +108,12 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            switch(position){
+            switch (position) {
                 case 0:
-                    EnrollCourseFragment enrollCourseFragment =new EnrollCourseFragment();
+                    EnrollCourseFragment enrollCourseFragment = new EnrollCourseFragment();
                     return enrollCourseFragment;
                 case 1:
-                    DisenrollCourseFragment disenrolledCourseFragment =new DisenrollCourseFragment();
+                    DisenrollCourseFragment disenrolledCourseFragment = new DisenrollCourseFragment();
                     return disenrolledCourseFragment;
             }
             return null;

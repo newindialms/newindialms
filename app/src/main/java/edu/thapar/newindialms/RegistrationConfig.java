@@ -19,5 +19,5 @@ public class RegistrationConfig {
     public static final String KEY_OTP = "otp";
 
     //JSON Tag from response from server
-    public static final String TAG_RESPONSE= "ErrorMessage";
+    public static final String TAG_RESPONSE = "ErrorMessage";
 }

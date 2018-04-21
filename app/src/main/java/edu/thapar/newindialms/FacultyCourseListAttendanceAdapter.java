@@ -50,13 +50,12 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        RelativeLayout relative2 = (RelativeLayout)view.findViewById(R.id.relative2);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = (RelativeLayout) view.findViewById(R.id.relative2);
         TextView faculty_courselist_attendance_take = (TextView) view.findViewById(R.id.faculty_courselist_attendance_take);
         ImageView faculty_courselist_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow1);
         TextView faculty_courselist_attendance_see = (TextView) view.findViewById(R.id.faculty_courselist_attendance_see);
         ImageView faculty_courselist_rightarrow2 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow2);
-
 
 
         //getting the hero of the specified position
@@ -70,27 +69,47 @@ public class FacultyCourseListAttendanceAdapter extends ArrayAdapter<FacultyCour
 
         relative1.setOnClickListener(new View.OnClickListener() {
 
-            String coursename=hero.getCoursename();
+            String coursename = hero.getCoursename();
+            String coursetype = hero.getCoursetype();
+
             @Override
             public void onClick(View view) {
-                Intent facultyintent = new Intent(context, FacultyCourseListTakeAttendance.class);
-                facultyintent.putExtra("coursename",coursename);
-                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
-                facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(facultyintent);
+                // Intent facultyintent = new Intent(context, FacultyCourseListTakeAttendance.class);
+                if (coursetype.equals("1")) {
+                    Intent facultyintent = new Intent(context, FacultyCourseListGroup.class);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(facultyintent);
+                } else {
+                    Intent facultyintent = new Intent(context, FacultyCourseListTakeAttendance.class);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(facultyintent);
+                }
+
             }
         });
 
         relative2.setOnClickListener(new View.OnClickListener() {
 
-            String coursename=hero.getCoursename();
+            String coursename = hero.getCoursename();
+            String coursetype = hero.getCoursetype();
+
             @Override
             public void onClick(View view) {
+
                 Intent facultyintent = new Intent(context, FacultyCourseListViewAttendance.class);
-                facultyintent.putExtra("coursename",coursename);
-                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.putExtra("coursename", coursename);
+                facultyintent.putExtra("coursetype", coursetype);
+                facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
+
+
             }
         });
         //finally returning the view

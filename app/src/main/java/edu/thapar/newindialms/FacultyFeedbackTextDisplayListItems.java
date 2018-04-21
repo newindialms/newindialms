@@ -12,12 +12,11 @@ public class FacultyFeedbackTextDisplayListItems {
     private String text;
     private String question;
 
-   public FacultyFeedbackTextDisplayListItems(String text,String question, String daywise_date, String daywise_time) {
-       this.text=text;
-       this.question=question;
+    public FacultyFeedbackTextDisplayListItems(String text, String question, String daywise_date, String daywise_time) {
+        this.text = text;
+        this.question = question;
         this.daywise_date = daywise_date;
-        this.daywise_time=daywise_time;
-
+        this.daywise_time = daywise_time;
 
 
     }

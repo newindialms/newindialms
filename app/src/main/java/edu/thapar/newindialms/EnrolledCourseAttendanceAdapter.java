@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -25,7 +23,7 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
     //the list values in the List of type hero
     List<EnrolledCourseListItems> enrolledCourseListItemses;
     //activity context
-    private  Context context;
+    private Context context;
 
     //the layout resource file for the list items
     int resource;
@@ -52,9 +50,9 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        LinearLayout relative1 = (LinearLayout)view.findViewById(R.id.relative1);
+        LinearLayout relative1 = (LinearLayout) view.findViewById(R.id.relative1);
         TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
-        ImageView enrollattendance_arrow= (ImageView) view.findViewById(R.id.studentPicarrow) ;
+        ImageView enrollattendance_arrow = (ImageView) view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final EnrolledCourseListItems hero = enrolledCourseListItemses.get(position);
@@ -67,12 +65,14 @@ public class EnrolledCourseAttendanceAdapter extends ArrayAdapter<EnrolledCourse
         relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String enrolledcoursename=hero.getEnrolledcoursename();
-                String studentid=hero.getStudentid();
+                String enrolledcoursename = hero.getEnrolledcoursename();
+                String studentid = hero.getStudentid();
+                String studentyear = hero.getStudentyear();
 
                 Intent yearintent = new Intent(context, EnrolledCourseAttendanceCommonScreen.class);
-                yearintent.putExtra("enrolledcoursename",enrolledcoursename);
-                yearintent.putExtra("student_rollnno",studentid);
+                yearintent.putExtra("enrolledcoursename", enrolledcoursename);
+                yearintent.putExtra("student_rollnno", studentid);
+                yearintent.putExtra("studentyear", studentyear);
 
                 yearintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(yearintent);

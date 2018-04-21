@@ -32,7 +32,7 @@ public class SearchStudent extends Fragment {
 
 
     //Declaring an Spinner
-    private Spinner joiningSpinner,programSpinner,specializationSpinner;
+    private Spinner joiningSpinner, programSpinner, specializationSpinner;
 
     //An ArrayList for Spinner Items
     private ArrayList<Integer> studentsyear;
@@ -42,7 +42,8 @@ public class SearchStudent extends Fragment {
     Button spinner_show_button;
 
     //JSON Array
-    private JSONArray resultyear,resultprogram,resultspecialization;
+    private JSONArray resultyear, resultprogram, resultspecialization;
+
     public SearchStudent() {
         // Required empty public constructor
     }
@@ -52,7 +53,7 @@ public class SearchStudent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview= inflater.inflate(R.layout.fragment_search_student, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_search_student, container, false);
 
         studentsyear = new ArrayList<Integer>();
         studentsprogram = new ArrayList<String>();
@@ -63,7 +64,7 @@ public class SearchStudent extends Fragment {
         programSpinner = (Spinner) rootview.findViewById(R.id.program_spinner);
         specializationSpinner = (Spinner) rootview.findViewById(R.id.specialization_spinner);
 
-        spinner_show_button=(Button)rootview.findViewById(R.id.spinner_show_button);
+        spinner_show_button = (Button) rootview.findViewById(R.id.spinner_show_button);
 
         //This method will fetch the data from the URL
         getYearData();
@@ -85,13 +86,14 @@ public class SearchStudent extends Fragment {
 
         return rootview;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle(getResources().getString(R.string.navigation_program_enrollstudent));
     }
 
 
-    private void getYearData(){
+    private void getYearData() {
         //Creating a string request
         StringRequest stringRequest = new StringRequest(StudentConfig.DATA_URL,
                 new Response.Listener<String>() {
@@ -128,9 +130,9 @@ public class SearchStudent extends Fragment {
         requestQueue.add(stringRequest);
     }
 
-    private void getStudentsYear(JSONArray j){
+    private void getStudentsYear(JSONArray j) {
         //Traversing through all the items in the json array
-        for(int i=0;i<j.length();i++){
+        for (int i = 0; i < j.length(); i++) {
             try {
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);
@@ -145,9 +147,10 @@ public class SearchStudent extends Fragment {
         //Setting adapter to show the items in the spinner
         joiningSpinner.setAdapter(new ArrayAdapter<Integer>(getActivity(), android.R.layout.simple_spinner_dropdown_item, studentsyear));
     }
-    private void getStudentsProgram(JSONArray j){
+
+    private void getStudentsProgram(JSONArray j) {
         //Traversing through all the items in the json array
-        for(int i=0;i<j.length();i++){
+        for (int i = 0; i < j.length(); i++) {
             try {
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);
@@ -162,9 +165,10 @@ public class SearchStudent extends Fragment {
         //Setting adapter to show the items in the spinner
         programSpinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, studentsprogram));
     }
-    private void getStudentsSpecialization(JSONArray j){
+
+    private void getStudentsSpecialization(JSONArray j) {
         //Traversing through all the items in the json array
-        for(int i=0;i<j.length();i++){
+        for (int i = 0; i < j.length(); i++) {
             try {
                 //Getting json object
                 JSONObject json = j.getJSONObject(i);

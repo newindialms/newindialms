@@ -11,11 +11,11 @@ public class FacultyFeedbackCumulativeDashboardListItems {
     private String type;
 
 
-   public FacultyFeedbackCumulativeDashboardListItems(String average, String median, String question,String type) {
-       this.question=question;
+    public FacultyFeedbackCumulativeDashboardListItems(String average, String median, String question, String type) {
+        this.question = question;
         this.average = average;
-        this.median=median;
-        this.type=type;
+        this.median = median;
+        this.type = type;
     }
 
     public String getQuestion() {
@@ -30,16 +30,8 @@ public class FacultyFeedbackCumulativeDashboardListItems {
         return average;
     }
 
-    public void setAverage(String average) {
-        this.average = average;
-    }
-
     public String getMedian() {
         return median;
-    }
-
-    public void setMedian(String median) {
-        this.median = median;
     }
 
     public String getType() {

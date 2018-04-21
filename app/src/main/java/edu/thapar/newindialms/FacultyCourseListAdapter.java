@@ -50,10 +50,10 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        TextView faculty_cardviewCourselistTitle = (TextView)view.findViewById(R.id.faculty_cardviewCourselistTitle);
-        TextView faculty_cardviewCourselistCode = (TextView)view.findViewById(R.id.faculty_cardviewCourselistCode);
-        ImageView faculty_courselist_rightarrow = (ImageView)view.findViewById(R.id.faculty_courselist_rightarrow);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        TextView faculty_cardviewCourselistTitle = (TextView) view.findViewById(R.id.faculty_cardviewCourselistTitle);
+        TextView faculty_cardviewCourselistCode = (TextView) view.findViewById(R.id.faculty_cardviewCourselistCode);
+        ImageView faculty_courselist_rightarrow = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow);
 
         //getting the hero of the specified position
         final FacultyListItemCourseList hero = facultyListItemCourseLists.get(position);
@@ -64,15 +64,17 @@ public class FacultyCourseListAdapter extends ArrayAdapter<FacultyListItemCourse
         faculty_courselist_rightarrow.setImageResource(R.drawable.faculty_rightarrow);
 
 
-
         relative1.setOnClickListener(new View.OnClickListener() {
 
-            String coursename=hero.getCourseListTitle();
+            String coursename = hero.getCourseListTitle();
+            String coursetype = hero.getCourse_type();
+
             @Override
             public void onClick(View view) {
                 Intent facultyintent = new Intent(context, FacultyCourseListDashboard.class);
-                facultyintent.putExtra("coursename",coursename);
-                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.putExtra("coursename", coursename);
+                facultyintent.putExtra("coursetype", coursetype);
+                facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
             }

@@ -24,7 +24,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
 
     //the list values in the List of type hero
     List<FacultyFeedbackDashboardListItems> facultyFeedbackDashboardListItems;
-    Fragment fragment=null;
+    Fragment fragment = null;
     //activity context
     private Context context;
 
@@ -52,10 +52,9 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
         TextView faculty_feedback_dashboard_attendance = (TextView) view.findViewById(R.id.faculty_feedback_dashboard_type);
         ImageView faculty_feedback_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_feedback_rightarrow1);
-
 
 
         //getting the hero of the specified position
@@ -69,10 +68,10 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
         relative1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String faculty_employeeid=hero.getFaculty_employeeid();
-                String coursename=hero.getCoursename();
-                String feedback_type=hero.getFeedbackType();
-                String datevalue=hero.getDatevalue();
+                String faculty_employeeid = hero.getFaculty_employeeid();
+                String coursename = hero.getCoursename();
+                String feedback_type = hero.getFeedbackType();
+                String datevalue = hero.getDatevalue();
                 //Intent feedbackintent = new Intent(context, FacultyFeedbackScheduleDisplay.class);
                 /*Intent feedbackintent = new Intent(context, FacultyFeedbackDashboard.class);
                 feedbackintent.putExtra("feedback_type",hero.getFeedbackType());
@@ -81,7 +80,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
                 //Toast.makeText(getContext(), "adapter"  + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
 
                 //context.startActivity(feedbackintent);
-                if(feedback_type.equals("Rate")) {
+                if (feedback_type.equals("Rate")) {
                     Intent facultyintent = new Intent(context, FacultyFeedbackRateDisplay.class);
                     facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
                     facultyintent.putExtra("coursename", coursename);
@@ -97,7 +96,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
                         Toast.makeText(context, "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
-                if(feedback_type.equals("Smiley")){
+                if (feedback_type.equals("Smiley")) {
                     Intent facultyintent = new Intent(context, FacultyFeedbackSmileyDisplay.class);
                     facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
                     facultyintent.putExtra("coursename", coursename);
@@ -113,7 +112,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
                         Toast.makeText(context, "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
-                if(feedback_type.equals("Text")){
+                if (feedback_type.equals("Text")) {
                     Intent facultyintent = new Intent(context, FacultyFeedbackTextDisplay.class);
                     facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
                     facultyintent.putExtra("coursename", coursename);
@@ -129,7 +128,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
                         Toast.makeText(context, "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
                 }
-                if(feedback_type.equals("Like")){
+                if (feedback_type.equals("Like")) {
                     Intent facultyintent = new Intent(context, FacultyFeedbackLikeDisplay.class);
                     facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
                     facultyintent.putExtra("coursename", coursename);
@@ -144,8 +143,7 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
                     } else {
                         Toast.makeText(context, "Please Select a Date", Toast.LENGTH_LONG).show();
                     }
-                }
-                else{
+                } else {
                     //
                 }
             }

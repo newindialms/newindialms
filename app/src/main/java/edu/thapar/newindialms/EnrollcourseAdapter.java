@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +20,7 @@ import java.util.List;
 public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
 
     //the list values in the List of type hero
-     List<EnrollcourseListItems> enrollcourseListItemses;
+    List<EnrollcourseListItems> enrollcourseListItemses;
 
     //activity context
     private Context context;
@@ -41,6 +40,7 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
     public int getViewTypeCount() {
         return 2;
     }
+
     //this will return the ListView Item as a View
     @NonNull
     @Override
@@ -55,11 +55,11 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentenrollcourse_name = (TextView)view.findViewById(R.id.studentenrollcourse_name);
-        TextView studentenrollcourse_code = (TextView)view.findViewById(R.id.studentenrollcourse_code);
-        TextView studentenrollcourse_faculty = (TextView)view.findViewById(R.id.studentenrollcourse_faculty);
-        TextView studentenrollcourse_credits = (TextView)view.findViewById(R.id.studentenrollcourse_credits);
-        CheckBox studentenrollcourse_checkbox = (CheckBox)view.findViewById(R.id.enrollcheckBox);
+        TextView studentenrollcourse_name = (TextView) view.findViewById(R.id.studentenrollcourse_name);
+        TextView studentenrollcourse_code = (TextView) view.findViewById(R.id.studentenrollcourse_code);
+        TextView studentenrollcourse_faculty = (TextView) view.findViewById(R.id.studentenrollcourse_faculty);
+        TextView studentenrollcourse_credits = (TextView) view.findViewById(R.id.studentenrollcourse_credits);
+        CheckBox studentenrollcourse_checkbox = (CheckBox) view.findViewById(R.id.enrollcheckBox);
         //Button enrollButton=(Button)view1.findViewById(R.id.EnrollButton);
         //getting the hero of the specified position
         final EnrollcourseListItems hero1 = enrollcourseListItemses.get(position);
@@ -73,15 +73,15 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         studentenrollcourse_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
-                if(ischecked){
+                if (ischecked) {
                     hero1.setSelected(ischecked);
                     //selectedStrings.add(hero1.getCoursedetails_name());
                 }
-                if(!ischecked){
+                if (!ischecked) {
                     hero1.setSelected(false);
-                   // selectedStrings.remove(hero1.getCoursedetails_name());
+                    // selectedStrings.remove(hero1.getCoursedetails_name());
                 }
-               // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
+                // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
             }
         });
         studentenrollcourse_checkbox.setChecked(hero1.isSelected());

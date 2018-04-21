@@ -11,11 +11,11 @@ public class FacultyFeedbackDashboardListItems {
     private String faculty_employeeid;
     private String datevalue;
 
-    public FacultyFeedbackDashboardListItems(String feedbackType,String coursename,String faculty_employeeid,String datevalue) {
+    public FacultyFeedbackDashboardListItems(String feedbackType, String coursename, String faculty_employeeid, String datevalue) {
         this.feedbackType = feedbackType;
-        this.coursename=coursename;
-        this.faculty_employeeid=faculty_employeeid;
-        this.datevalue=datevalue;
+        this.coursename = coursename;
+        this.faculty_employeeid = faculty_employeeid;
+        this.datevalue = datevalue;
     }
 
     public String getDatevalue() {

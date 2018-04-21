@@ -50,10 +50,10 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreencoursemodulelist = (TextView)view.findViewById(R.id.studentpic_programscreencoursemodulelist);
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        TextView studentpic_programscreencoursemodulecode = (TextView)view.findViewById(R.id.studentpic_programscreencoursemodulelistcode);
-        ImageView studentpic_programlistarrow = (ImageView)view.findViewById(R.id.studentPicarrow);
+        TextView studentpic_programscreencoursemodulelist = (TextView) view.findViewById(R.id.studentpic_programscreencoursemodulelist);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        TextView studentpic_programscreencoursemodulecode = (TextView) view.findViewById(R.id.studentpic_programscreencoursemodulelistcode);
+        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenCourseModuleListItems hero1 = programScreenCourseModuleListItems.get(position);
@@ -70,10 +70,10 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
                 //we will call this method to remove the selected value from the list
                 //we are passing the position which is to be removed in the method
 
-                String szname=hero1.getCoursemodulelist();
+                String szname = hero1.getCoursemodulelist();
 
                 Intent studentintent = new Intent(context, ProgramScreenStudentFullList.class);
-                studentintent.putExtra("coursesname",szname);
+                studentintent.putExtra("coursesname", szname);
                 studentintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(studentintent);
 

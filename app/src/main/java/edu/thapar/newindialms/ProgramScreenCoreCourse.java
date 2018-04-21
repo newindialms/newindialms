@@ -39,16 +39,17 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
     List<ProgramScreenCoreCourseListItems> heroList;
     ListView listView;
     public SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_screen_corecourses);
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
-        studentpic_title.setText("Core courses");
-        screen_title=(TextView)findViewById(R.id.Studentpic_programcorecourses_title);
-        screen_title.setText("Core courses");
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        studentpic_title.setText("Core Courses");
+        screen_title = (TextView) findViewById(R.id.Studentpic_programcorecourses_title);
+        screen_title.setText("Core Courses");
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +63,7 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -81,7 +82,7 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,corecourselist_url , new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, corecourselist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
@@ -97,7 +98,7 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenCoreCourseAdapter(getApplicationContext(),R.layout.activity_program_screen_corecourseslistitems,heroList);
+                    adapter = new ProgramScreenCoreCourseAdapter(getApplicationContext(), R.layout.activity_program_screen_corecourseslistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -116,6 +117,7 @@ public class ProgramScreenCoreCourse extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
+
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         this.setTitle("Core courses");
     }

@@ -26,6 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:paddingTop="5dp"
                 android:text="@string/studentpic_program"
                 android:textAlignment="center"
@@ -79,7 +81,7 @@
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="Course"
+                android:text="@string/course"
                 android:textColor="@color/textColor"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -99,7 +101,7 @@
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="time"
+                android:text="@string/time"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -118,7 +120,7 @@
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="classroom"
+                android:text="@string/classroom"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -171,7 +173,7 @@
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
-                android:text="group"
+                android:text="@string/select_group"
                 android:textColor="@color/textColor"
                 android:textSize="20sp" />
 
@@ -187,7 +189,7 @@
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
                 android:paddingStart="10dp"
-                android:text="batch"
+                android:text="@string/select_section"
                 android:textColor="@color/textColor"
                 android:textSize="20sp" />
 

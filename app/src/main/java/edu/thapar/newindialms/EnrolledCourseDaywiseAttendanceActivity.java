@@ -1,7 +1,9 @@
 package edu.thapar.newindialms;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -32,10 +34,11 @@ import java.util.Map;
 
 public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
     public static final String daywise_attendancedetails_url = "https://newindialms.000webhostapp.com/get_daywise_attendance.php";
-    private String student_rollnno, course_details_name;
+    private String student_rollnno, course_details_name,studentyear;
     private TextView daywise_toolbar_title;
     private Toolbar daywise_toolbar;
     EnrolledCourseDaywiseAttendanceAdapter adapter;
+    private AlertDialog.Builder builder;
 
     List<EnrolledCourseDaywiseAttendanceListItems> heroList;
     ListView listView;
@@ -46,12 +49,13 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enrolled_course_daywise);
         course_details_name = getIntent().getStringExtra("course_details_name");
         student_rollnno = getIntent().getStringExtra("student_rollnno");
+        studentyear = getIntent().getStringExtra("studentyear");
 
         daywise_toolbar = (Toolbar) findViewById(R.id.enrollcoursetoolbar);
         daywise_toolbar.setNavigationIcon(R.drawable.ic_left);
 
         TextView daywise_title = (TextView) findViewById(R.id.enrolled_daywise_title);
-        daywise_title.setText(course_details_name+ " Daywise");
+        daywise_title.setText(course_details_name + " Daywise");
         setSupportActionBar(daywise_toolbar);
 
         daywise_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -78,7 +82,7 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
                 try {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("attendancelist");
-
+                    if (array != null && array.length() > 0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
                         EnrolledCourseDaywiseAttendanceListItems listItemProgramList = new EnrolledCourseDaywiseAttendanceListItems(
@@ -90,9 +94,15 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new EnrolledCourseDaywiseAttendanceAdapter(getApplicationContext(),R.layout.activity_enrolled_course_daywise_listitems,heroList);
+                    adapter = new EnrolledCourseDaywiseAttendanceAdapter(getApplicationContext(), R.layout.activity_enrolled_course_daywise_listitems, heroList);
                     listView.setAdapter(adapter);
-
+                    } else {
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(EnrolledCourseDaywiseAttendanceActivity.this, R.style.MyStudentAlertDialogStyle);
+                        builder.setTitle("Feedback");
+                        builder.setMessage("No Records available for the selected search.");
+                        displayAlert();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -103,19 +113,28 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("course_details_name", course_details_name);
                 params.put("student_rollnno", student_rollnno);
+                params.put("studentyear", studentyear);
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-    }
 
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

@@ -1,8 +1,10 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,15 +33,16 @@ import java.util.List;
 import java.util.Map;
 
 public class SpinnerStudentList extends AppCompatActivity {
-    private String program,specialization;
+    private String program, specialization;
     private String year;
     private Toolbar studentlist_toolbar;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
+    private AlertDialog.Builder builder;
 
     private List<SpinnerListItem> listItems;
     private List<String> EmaillistItems;
-    private static final String spinnerlisturl="https://newindialms.000webhostapp.com/spinner_studentlist.php";
+    private static final String spinnerlisturl = "https://newindialms.000webhostapp.com/spinner_studentlist.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,18 +61,18 @@ public class SpinnerStudentList extends AppCompatActivity {
         });
 
 
-        String yearsstring=Integer.toString(getIntent().getIntExtra("year",1));
+        String yearsstring = Integer.toString(getIntent().getIntExtra("year", 1));
         year = yearsstring;
         program = getIntent().getStringExtra("program");
         specialization = getIntent().getStringExtra("specialization");
 
-        recyclerView=(RecyclerView)findViewById(R.id.spinnerstudentlist_recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.spinnerstudentlist_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        listItems=new ArrayList<>();
-        EmaillistItems=new ArrayList<>();
+        listItems = new ArrayList<>();
+        EmaillistItems = new ArrayList<>();
         loadSpinnerData();
     }
 
@@ -86,7 +88,7 @@ public class SpinnerStudentList extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.feedbacksendall) {
-            Intent intent = new Intent(getApplicationContext(),EmailActivityAll.class);
+            Intent intent = new Intent(getApplicationContext(), EmailActivityAll.class);
             intent.putStringArrayListExtra("emaillist", (ArrayList<String>) EmaillistItems);
             startActivity(intent);
             return true;
@@ -94,35 +96,42 @@ public class SpinnerStudentList extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    private void loadSpinnerData(){
-        final ProgressDialog progressDialog=new ProgressDialog(this);
+
+    private void loadSpinnerData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading Data");
         progressDialog.show();
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 spinnerlisturl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 try {
-                    JSONObject jsonObject=new JSONObject(response);
-                    JSONArray jsonArray=jsonObject.getJSONArray("result");
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("result");
+                    if (jsonArray != null && jsonArray.length() > 0) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            EmaillistItems.add(jsonObject1.getString("student_email"));
+                            SpinnerListItem spinnerListItem = new SpinnerListItem(
+                                    jsonObject1.getString("student_lastname"),
+                                    jsonObject1.getString("student_firstname"),
+                                    jsonObject1.getString("student_rollnno"),
+                                    jsonObject1.getString("student_email")
+                            );
+                            listItems.add(spinnerListItem);
 
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        EmaillistItems.add(jsonObject1.getString("student_email"));
-                        SpinnerListItem spinnerListItem = new SpinnerListItem(
-                                jsonObject1.getString("student_lastname"),
-                                jsonObject1.getString("student_firstname"),
-                                jsonObject1.getString("student_rollnno"),
-                                jsonObject1.getString("student_email")
-                        );
-                        listItems.add(spinnerListItem);
-
+                        }
+                        adapter = new SpinnerAdapter(listItems, getApplicationContext());
+                        recyclerView.setAdapter(adapter);
+                    } else {
+                        //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
+                        builder = new AlertDialog.Builder(SpinnerStudentList.this, R.style.MyAlertDialogStyle);
+                        builder.setTitle("Result");
+                        builder.setMessage("No Records available for the selected search.");
+                        displayAlert();
                     }
-                    adapter = new SpinnerAdapter(listItems,getApplicationContext());
-                    recyclerView.setAdapter(adapter);
-
                 } catch (JSONException e) {
                     progressDialog.dismiss();
                     e.printStackTrace();
@@ -134,7 +143,7 @@ public class SpinnerStudentList extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }) {
             @Override
@@ -146,8 +155,19 @@ public class SpinnerStudentList extends AppCompatActivity {
                 return params;
             }
         };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void displayAlert() {
+        builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

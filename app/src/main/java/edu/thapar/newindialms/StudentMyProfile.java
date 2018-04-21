@@ -1,7 +1,5 @@
 package edu.thapar.newindialms;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,9 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -52,13 +48,13 @@ public class StudentMyProfile extends AppCompatActivity {
 
     private String UPLOAD_URL = "http://newindialms.000webhostapp.com/student_upload_image.php";
 
-    private TextView studentprofile_name,studentprofile_rollno,studentprofile_email,studentprofile_program,studentprofile_specialization;
+    private TextView studentprofile_name, studentprofile_rollno, studentprofile_email, studentprofile_program, studentprofile_specialization;
     private String studentid;
-    private String FinalJSonObject ;
-    private HashMap<String,String> ResultHash = new HashMap<>();
-    private String ParseResult ;
+    private String FinalJSonObject;
+    private HashMap<String, String> ResultHash = new HashMap<>();
+    private String ParseResult;
     HttpParse httpParse = new HttpParse();
-    private String studentprofilename,studentprofilelastname,studentprofilerollno,studentprofileemail,studentprofileprogram,studentprofilespecialization,studentprofileurl;
+    private String studentprofilename, studentprofilelastname, studentprofilerollno, studentprofileemail, studentprofileprogram, studentprofilespecialization, studentprofileurl;
     private Toolbar studentprofile_toolbar;
     ImageView imageView;
     //Image request code
@@ -73,6 +69,7 @@ public class StudentMyProfile extends AppCompatActivity {
     private Uri filePath;
 
     Button uploadbutton, choosebutton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +79,9 @@ public class StudentMyProfile extends AppCompatActivity {
         studentprofile_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentprofile_toolbar);
         studentprofile_toolbar.setTitle(getResources().getString(R.string.navigation_program_myprofile));
-        studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 finish();
 
             }
@@ -93,7 +90,7 @@ public class StudentMyProfile extends AppCompatActivity {
         //Requesting storage permission
         requestStoragePermission();
 
-        TextView studentpic_title=(TextView)findViewById(R.id.studentprofile_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentprofile_title);
 
         studentpic_title.setText("My Profile");
         studentid = getIntent().getStringExtra("studentid");
@@ -104,9 +101,9 @@ public class StudentMyProfile extends AppCompatActivity {
         studentprofile_program = (TextView) findViewById(R.id.textviewstudent_Program);
         studentprofile_specialization = (TextView) findViewById(R.id.textviewstudent_specialization);
 
-        uploadbutton=(Button) findViewById(R.id.studentImageUpload);
-        choosebutton=(Button) findViewById(R.id.studentImageChoose);
-        imageView=(ImageView) findViewById(R.id.studentprofile_image);
+        uploadbutton = (Button) findViewById(R.id.studentImageUpload);
+        choosebutton = (Button) findViewById(R.id.studentImageChoose);
+        imageView = (ImageView) findViewById(R.id.studentprofile_image);
 
         HttpWebCall(studentid);
         choosebutton.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +178,7 @@ public class StudentMyProfile extends AppCompatActivity {
                     .setNotificationConfig(new UploadNotificationConfig())
                     .setMaxRetries(2)
                     .startUpload(); //Starting the upload
-            builder=new AlertDialog.Builder(StudentMyProfile.this, R.style.MyStudentAlertDialogStyle);
+            builder = new AlertDialog.Builder(StudentMyProfile.this, R.style.MyStudentAlertDialogStyle);
             builder.setTitle("Upload");
             builder.setMessage("Image Uploaded Successfully");
             displayAlert();
@@ -203,7 +200,7 @@ public class StudentMyProfile extends AppCompatActivity {
 
     //Requesting permission
     private void requestStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this,android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             return;
 
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
@@ -234,9 +231,9 @@ public class StudentMyProfile extends AppCompatActivity {
     }
 
     //Method to show current record Current Selected Record
-    public void HttpWebCall(final String PreviousListViewClickedItem){
+    public void HttpWebCall(final String PreviousListViewClickedItem) {
 
-        class HttpWebCallFunction extends AsyncTask<String,Void,String> {
+        class HttpWebCallFunction extends AsyncTask<String, Void, String> {
 
             @Override
             protected void onPreExecute() {
@@ -249,7 +246,7 @@ public class StudentMyProfile extends AppCompatActivity {
                 super.onPostExecute(httpResponseMsg);
 
                 //Storing Complete JSon Object into String Variable.
-                FinalJSonObject = httpResponseMsg ;
+                FinalJSonObject = httpResponseMsg;
 
                 //Parsing the Stored JSOn String to GetHttpResponse Method.
                 new GetHttpResponse(StudentMyProfile.this).execute();
@@ -259,7 +256,7 @@ public class StudentMyProfile extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
 
-                ResultHash.put("studentid",params[0]);
+                ResultHash.put("studentid", params[0]);
 
                 ParseResult = httpParse.postRequest(ResultHash, HttpURL);
 
@@ -274,28 +271,22 @@ public class StudentMyProfile extends AppCompatActivity {
 
 
     // Parsing Complete JSON Object.
-    private class GetHttpResponse extends AsyncTask<Void, Void, Void>
-    {
+    private class GetHttpResponse extends AsyncTask<Void, Void, Void> {
         public Context context;
 
-        public GetHttpResponse(Context context)
-        {
+        public GetHttpResponse(Context context) {
             this.context = context;
         }
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             super.onPreExecute();
         }
 
         @Override
-        protected Void doInBackground(Void... arg0)
-        {
-            try
-            {
-                if(FinalJSonObject != null)
-                {
+        protected Void doInBackground(Void... arg0) {
+            try {
+                if (FinalJSonObject != null) {
                     JSONArray jsonArray = null;
 
                     try {
@@ -303,8 +294,7 @@ public class StudentMyProfile extends AppCompatActivity {
 
                         JSONObject jsonObject;
 
-                        for(int i=0; i<jsonArray.length(); i++)
-                        {
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             jsonObject = jsonArray.getJSONObject(i);
 
                             // Storing Student Name, Phone Number, Class into Variables.
@@ -317,16 +307,13 @@ public class StudentMyProfile extends AppCompatActivity {
                             studentprofileurl = jsonObject.getString("url");
 
                         }
-                        loadImageFromURL(studentprofileurl,imageView);
-                    }
-                    catch (JSONException e) {
+                        loadImageFromURL(studentprofileurl, imageView);
+                    } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -334,11 +321,10 @@ public class StudentMyProfile extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Void result)
-        {
+        protected void onPostExecute(Void result) {
 
             // Setting Student Name, Phone Number, Class into TextView after done all process .
-            studentprofile_name.setText(studentprofilelastname+" "+studentprofilename);
+            studentprofile_name.setText(studentprofilelastname + " " + studentprofilename);
             studentprofile_rollno.setText(studentprofilerollno);
             studentprofile_email.setText(studentprofileemail);
             studentprofile_program.setText(studentprofileprogram);
@@ -346,27 +332,26 @@ public class StudentMyProfile extends AppCompatActivity {
 
 
             // Drawable drawable = LoadImageFromWebOperations(studentprofileurl);
-           // imageView.setImageDrawable(drawable);
+            // imageView.setImageDrawable(drawable);
         }
     }
 
-    private Drawable LoadImageFromWebOperations(String url)
-    {
-        try{
+    private Drawable LoadImageFromWebOperations(String url) {
+        try {
             InputStream is = (InputStream) new URL(url).getContent();
             Drawable d = Drawable.createFromStream(is, "src name");
             return d;
-        }catch (Exception e) {
-            System.out.println("Exc="+e);
+        } catch (Exception e) {
+            System.out.println("Exc=" + e);
             return null;
         }
     }
 
     public boolean loadImageFromURL(String fileUrl,
-                                    ImageView iv){
+                                    ImageView iv) {
         try {
 
-            URL myFileUrl = new URL (fileUrl);
+            URL myFileUrl = new URL(fileUrl);
             HttpURLConnection conn =
                     (HttpURLConnection) myFileUrl.openConnection();
             conn.setDoInput(true);
@@ -395,7 +380,7 @@ public class StudentMyProfile extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-    
+
 }
 
 

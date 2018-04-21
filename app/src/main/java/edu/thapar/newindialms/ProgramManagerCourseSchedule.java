@@ -36,9 +36,9 @@ import java.util.Map;
  */
 
 public class ProgramManagerCourseSchedule extends AppCompatActivity {
-String issue_details,day_details,semester_details;
+    String issue_details, day_details, semester_details;
     private Toolbar studentpic_toolbar;
-    private TextView timetable_title3,timetable_title2,timetable_title5,timetable_title6,timetable_title4;
+    private TextView timetable_title3, timetable_title2, timetable_title5, timetable_title6, timetable_title4;
 
     private String course_schedule_issue_url = "https://newindialms.000webhostapp.com/get_course_schedule_issue.php";
     private String time_table_issue_url = "https://newindialms.000webhostapp.com/get_timetable.php";
@@ -58,7 +58,7 @@ String issue_details,day_details,semester_details;
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText("MBA Program Time Table");
 
         setSupportActionBar(studentpic_toolbar);
@@ -75,19 +75,19 @@ String issue_details,day_details,semester_details;
 
         layoutinflater = getLayoutInflater();
 
-        ViewGroup footer = (ViewGroup)layoutinflater.inflate(R.layout.activity_timetable_footer,listView,false);
+        ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_timetable_footer, listView, false);
         listView.addFooterView(footer);
 
-        TextView timetable_table=(TextView)findViewById(R.id.timetable_table);
+        TextView timetable_table = (TextView) findViewById(R.id.timetable_table);
         timetable_table.setPaintFlags(timetable_table.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         timetable_table.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent i = new Intent(Intent.ACTION_VIEW);
-               i.setData(Uri.parse("https://newindialms.000webhostapp.com/timetable.php"));
-               startActivity(i);
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://newindialms.000webhostapp.com/timetable.php"));
+                startActivity(i);
 
-           }
+            }
         });
     }
 
@@ -104,7 +104,7 @@ String issue_details,day_details,semester_details;
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("Issue");
                     JSONObject jsonObject1 = array.getJSONObject(0);
-                        myarraycount(jsonObject1.getString("course_schedule_from"), jsonObject1.getString("course_schedule_to"),jsonObject1.getString("course_schedule_duration"));
+                    myarraycount(jsonObject1.getString("course_schedule_from"), jsonObject1.getString("course_schedule_to"), jsonObject1.getString("course_schedule_duration"));
 
                 } catch (JSONException e) {
                     progressDialog.dismiss();
@@ -117,7 +117,7 @@ String issue_details,day_details,semester_details;
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -131,16 +131,15 @@ String issue_details,day_details,semester_details;
     }
 
 
+    public void myarraycount(String from, String to, String Duration) {
+        timetable_title3 = (TextView) findViewById(R.id.timetable_title3);
+        timetable_title2 = (TextView) findViewById(R.id.timetable_title2);
 
-    public void myarraycount(String from,String to,String Duration){
-        timetable_title3 = (TextView)findViewById(R.id.timetable_title3);
-        timetable_title2 = (TextView)findViewById(R.id.timetable_title2);
+        timetable_title5 = (TextView) findViewById(R.id.timetable_title5);
+        timetable_title6 = (TextView) findViewById(R.id.timetable_title6);
+        timetable_title4 = (TextView) findViewById(R.id.timetable_title4);
 
-        timetable_title5 = (TextView)findViewById(R.id.timetable_title5);
-        timetable_title6 = (TextView)findViewById(R.id.timetable_title6);
-        timetable_title4 = (TextView)findViewById(R.id.timetable_title4);
-
-        timetable_title3.setText("Issue: "+issue_details);
+        timetable_title3.setText("Issue: " + issue_details);
         timetable_title2.setText(semester_details);
         timetable_title6.setText(from);
         timetable_title5.setText(to);
@@ -173,7 +172,7 @@ String issue_details,day_details,semester_details;
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new ProgramScreenCourseScheduleAdapter(getApplicationContext(),R.layout.activity_program_screencourseschedulelistitems,heroList);
+                    adapter = new ProgramScreenCourseScheduleAdapter(getApplicationContext(), R.layout.activity_program_screencourseschedulelistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -188,7 +187,7 @@ String issue_details,day_details,semester_details;
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

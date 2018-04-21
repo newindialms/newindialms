@@ -50,13 +50,12 @@ public class FacultyCourseListDashboardAdapter extends ArrayAdapter<FacultyCours
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout)view.findViewById(R.id.relative1);
-        RelativeLayout relative2 = (RelativeLayout)view.findViewById(R.id.relative2);
+        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = (RelativeLayout) view.findViewById(R.id.relative2);
         TextView faculty_courselist_dashboard_attendance = (TextView) view.findViewById(R.id.faculty_courselist_dashboard_attendance);
         ImageView faculty_courselist_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow1);
         TextView faculty_courselist_dashboard_feedback = (TextView) view.findViewById(R.id.faculty_courselist_dashboard_feedback);
         ImageView faculty_courselist_rightarrow2 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow2);
-
 
 
         //getting the hero of the specified position
@@ -70,12 +69,14 @@ public class FacultyCourseListDashboardAdapter extends ArrayAdapter<FacultyCours
 
         relative1.setOnClickListener(new View.OnClickListener() {
 
-            String coursename=hero.getCoursename();
+            String coursename = hero.getCoursename();
+
             @Override
             public void onClick(View view) {
                 Intent facultyintent = new Intent(context, FacultyCourseListAttendance.class);
-                facultyintent.putExtra("coursename",coursename);
-                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.putExtra("coursename", coursename);
+                facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
+                facultyintent.putExtra("coursetype", hero.getCoursetype());
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
             }
@@ -83,12 +84,13 @@ public class FacultyCourseListDashboardAdapter extends ArrayAdapter<FacultyCours
 
         relative2.setOnClickListener(new View.OnClickListener() {
 
-            String coursename=hero.getCoursename();
+            String coursename = hero.getCoursename();
+
             @Override
             public void onClick(View view) {
                 Intent facultyintent = new Intent(context, FacultyFeedbackWiseDashboard.class);
-                facultyintent.putExtra("coursename",coursename);
-                facultyintent.putExtra("faculty_employeeid",hero.getFaculty_employeeid());
+                facultyintent.putExtra("coursename", coursename);
+                facultyintent.putExtra("faculty_employeeid", hero.getFaculty_employeeid());
                 facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(facultyintent);
             }

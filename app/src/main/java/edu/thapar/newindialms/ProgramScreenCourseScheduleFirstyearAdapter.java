@@ -47,16 +47,16 @@ public class ProgramScreenCourseScheduleFirstyearAdapter extends ArrayAdapter<Pr
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView timetable_day = (TextView)view.findViewById(R.id.timetable_day);
-        TextView timetable_date = (TextView)view.findViewById(R.id.timetable_date);
-        TextView timetable_startdate = (TextView)view.findViewById(R.id.timetable_startdate);
-        TextView timetable_enddate = (TextView)view.findViewById(R.id.timetable_enddate);
-        TextView timetable_course = (TextView)view.findViewById(R.id.timetable_course);
-        TextView textView13 = (TextView)view.findViewById(R.id.textView13);
-        TextView timetable_faculty = (TextView)view.findViewById(R.id.timetable_faculty);
-        TextView timetable_program = (TextView)view.findViewById(R.id.timetable_program);
-        TextView timetable_program_group = (TextView)view.findViewById(R.id.timetable_program_group);
-        TextView timetable_program_batch = (TextView)view.findViewById(R.id.timetable_program_batch);
+        TextView timetable_day = (TextView) view.findViewById(R.id.timetable_day);
+        TextView timetable_date = (TextView) view.findViewById(R.id.timetable_date);
+        TextView timetable_startdate = (TextView) view.findViewById(R.id.timetable_startdate);
+        TextView timetable_enddate = (TextView) view.findViewById(R.id.timetable_enddate);
+        TextView timetable_course = (TextView) view.findViewById(R.id.timetable_course);
+        TextView textView13 = (TextView) view.findViewById(R.id.textView13);
+        TextView timetable_faculty = (TextView) view.findViewById(R.id.timetable_faculty);
+        TextView timetable_program = (TextView) view.findViewById(R.id.timetable_program);
+        TextView timetable_program_group = (TextView) view.findViewById(R.id.timetable_program_group);
+        TextView timetable_program_batch = (TextView) view.findViewById(R.id.timetable_program_batch);
 
 
         //getting the hero of the specified position
@@ -65,20 +65,20 @@ public class ProgramScreenCourseScheduleFirstyearAdapter extends ArrayAdapter<Pr
         //adding values to the list item
         timetable_day.setText(hero.getCourse_schedule_day());
         timetable_date.setText(hero.getCourse_date());
-        timetable_startdate.setText("Time- "+hero.getCourse_schedule_time());
+        timetable_startdate.setText("Time- " + hero.getCourse_schedule_time());
 
 
-        timetable_enddate.setText("Classroom- "+hero.getCourse_classroom());
+        timetable_enddate.setText("Classroom- " + hero.getCourse_classroom());
         timetable_course.setText(hero.getCourse_name());
 
-        String textView13text=textView13.getText().toString();
+        String textView13text = textView13.getText().toString();
         textView13.setText(textView13text);
 
         timetable_faculty.setText(hero.getFaculty_code());
         timetable_program.setText(hero.getTimetable_program());
 
-        timetable_program_group.setText("Group- "+hero.getStudent_group());
-        timetable_program_batch.setText("Section- "+hero.getStudent_batch());
+        timetable_program_group.setText("Group- " + hero.getStudent_group());
+        timetable_program_batch.setText("Section- " + hero.getStudent_batch());
         //finally returning the view
         return view;
     }

@@ -17,22 +17,22 @@ public class FcmMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-       super.onMessageReceived(remoteMessage);
-       showNotification(remoteMessage.getNotification());
+        super.onMessageReceived(remoteMessage);
+        showNotification(remoteMessage.getNotification());
     }
 
-    private void showNotification(RemoteMessage.Notification notification){
-        Intent intent=new Intent(this,CalendarView.class);
+    private void showNotification(RemoteMessage.Notification notification) {
+        Intent intent = new Intent(this, CalendarView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent=PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
-        android.support.v7.app.NotificationCompat.Builder notificationBuilder= new android.support.v7.app.NotificationCompat.Builder(this);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        android.support.v7.app.NotificationCompat.Builder notificationBuilder = new android.support.v7.app.NotificationCompat.Builder(this);
         notificationBuilder.setContentTitle(notification.getTitle());
         notificationBuilder.setContentText(notification.getBody());
         notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
         notificationBuilder.setAutoCancel(true);
         notificationBuilder.setContentIntent(pendingIntent);
-        NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0,notificationBuilder.build());
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(0, notificationBuilder.build());
     }
 
 }

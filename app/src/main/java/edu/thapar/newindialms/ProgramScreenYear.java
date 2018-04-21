@@ -32,7 +32,7 @@ import java.util.Map;
  */
 
 public class ProgramScreenYear extends AppCompatActivity {
-    private String ProgramName,YearList;
+    private String ProgramName, YearList;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String yearlist_url = "https://newindialms.000webhostapp.com/get_yearofjoining.php";
@@ -41,6 +41,7 @@ public class ProgramScreenYear extends AppCompatActivity {
     List<ProgramScreenYearListItems> heroList;
     ListView listView;
     ProgramScreenListItems pglist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class ProgramScreenYear extends AppCompatActivity {
         studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title=(TextView)findViewById(R.id.studentpic_title);
+        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
         studentpic_title.setText(YearList);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -65,7 +66,7 @@ public class ProgramScreenYear extends AppCompatActivity {
         Studentpic_program_title.setText(YearList);
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.studentpic_programscreenyearlist_ListView);
-        pglist= new ProgramScreenListItems(ProgramName);
+        pglist = new ProgramScreenListItems(ProgramName);
         pglist.setProgramname(ProgramName);
         loadRecyclerViewData();
 
@@ -95,7 +96,7 @@ public class ProgramScreenYear extends AppCompatActivity {
 
 
                     }
-                    adapter = new ProgramScreenYearAdapter(getApplicationContext(),R.layout.activity_program_screenyearlistitems,heroList);
+                    adapter = new ProgramScreenYearAdapter(getApplicationContext(), R.layout.activity_program_screenyearlistitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -110,7 +111,7 @@ public class ProgramScreenYear extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

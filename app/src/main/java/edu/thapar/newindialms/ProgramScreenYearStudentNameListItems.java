@@ -10,11 +10,11 @@ public class ProgramScreenYearStudentNameListItems {
     private String studentrollno;
     private String studentspecialization;
 
-    public ProgramScreenYearStudentNameListItems(String studnetfirstname,String studentname,String rollno,String specialization) {
-        this.studentname=studentname;
-        this.studnetfirstname=studnetfirstname;
-        this.studentrollno=rollno;
-        this.studentspecialization=specialization;
+    public ProgramScreenYearStudentNameListItems(String studnetfirstname, String studentname, String rollno, String specialization) {
+        this.studentname = studentname;
+        this.studnetfirstname = studnetfirstname;
+        this.studentrollno = rollno;
+        this.studentspecialization = specialization;
 
     }
 
@@ -38,15 +38,8 @@ public class ProgramScreenYearStudentNameListItems {
         return studentrollno;
     }
 
-    public void setStudentrollno(String studentrollno) {
-        this.studentrollno = studentrollno;
-    }
-
     public String getStudentspecialization() {
         return studentspecialization;
     }
 
-    public void setStudentspecialization(String studentspecialization) {
-        this.studentspecialization = studentspecialization;
-    }
 }

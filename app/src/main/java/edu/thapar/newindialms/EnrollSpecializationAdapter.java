@@ -20,7 +20,7 @@ import java.util.List;
 public class EnrollSpecializationAdapter extends ArrayAdapter<EnrollSpecializationListItems> {
 
     //the list values in the List of type hero
-     List<EnrollSpecializationListItems> enrollcourseListItemses;
+    List<EnrollSpecializationListItems> enrollcourseListItemses;
 
     //activity context
     private Context context;
@@ -40,6 +40,7 @@ public class EnrollSpecializationAdapter extends ArrayAdapter<EnrollSpecializati
     public int getViewTypeCount() {
         return 2;
     }
+
     //this will return the ListView Item as a View
     @NonNull
     @Override
@@ -54,8 +55,8 @@ public class EnrollSpecializationAdapter extends ArrayAdapter<EnrollSpecializati
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentenrollcourse_name = (TextView)view.findViewById(R.id.studentenrollcourse_name);
-        CheckBox studentenrollcourse_checkbox = (CheckBox)view.findViewById(R.id.enrollcheckBox);
+        TextView studentenrollcourse_name = (TextView) view.findViewById(R.id.studentenrollcourse_name);
+        CheckBox studentenrollcourse_checkbox = (CheckBox) view.findViewById(R.id.enrollcheckBox);
         //Button enrollButton=(Button)view1.findViewById(R.id.EnrollButton);
         //getting the hero of the specified position
         final EnrollSpecializationListItems hero1 = enrollcourseListItemses.get(position);
@@ -66,15 +67,15 @@ public class EnrollSpecializationAdapter extends ArrayAdapter<EnrollSpecializati
         studentenrollcourse_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean ischecked) {
-                if(ischecked){
+                if (ischecked) {
                     hero1.setSelected(ischecked);
                     //selectedStrings.add(hero1.getCoursedetails_name());
                 }
-                if(!ischecked){
+                if (!ischecked) {
                     hero1.setSelected(false);
-                   // selectedStrings.remove(hero1.getCoursedetails_name());
+                    // selectedStrings.remove(hero1.getCoursedetails_name());
                 }
-               // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
+                // Toast.makeText(context,selectedStrings+"Selected Strings",Toast.LENGTH_LONG).show();
             }
         });
         studentenrollcourse_checkbox.setChecked(hero1.isSelected());

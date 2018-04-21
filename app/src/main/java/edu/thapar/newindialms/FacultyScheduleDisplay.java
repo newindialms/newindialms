@@ -32,8 +32,8 @@ import java.util.Map;
  * Created by kamalshree on 11/20/2017.
  */
 
-public class FacultyScheduleDisplay  extends AppCompatActivity {
-    private String datevalue,faculty_employeeid;
+public class FacultyScheduleDisplay extends AppCompatActivity {
+    private String datevalue, faculty_employeeid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
     private String schedule_url = "https://newindialms.000webhostapp.com/get_faculty_schedule.php";
@@ -85,7 +85,7 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
                     JSONObject j = new JSONObject(response);
                     JSONArray array = j.getJSONArray("schedulelist");
 
-                    if (array != null&& array.length()>0) {
+                    if (array != null && array.length() > 0) {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside if "+array,Toast.LENGTH_LONG).show();
                         for (int i = 0; i < array.length(); i++) {
                             JSONObject jsonObject1 = array.getJSONObject(i);
@@ -99,11 +99,11 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
                         }
                         adapter = new FacultyScheduleDisplayAdapter(getApplicationContext(), R.layout.activity_faculty_schedule_display_listitems, heroList);
                         listView.setAdapter(adapter);
-                    }else{
+                    } else {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();
                         builder = new AlertDialog.Builder(FacultyScheduleDisplay.this, R.style.MyFacultyAlertDialogStyle);
                         builder.setTitle("Records");
-                        builder.setMessage("No Records avaliable for the selected Day.");
+                        builder.setMessage("No Records available for the selected Day.");
                         displayAlert();
                     }
 
@@ -119,7 +119,7 @@ public class FacultyScheduleDisplay  extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

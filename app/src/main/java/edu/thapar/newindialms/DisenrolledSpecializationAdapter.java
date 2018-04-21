@@ -38,7 +38,7 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
     //the list values in the List of type hero
     List<EnrollSpecializationListItems> enrolledCourseListItemses;
     //activity context
-   private Context context;
+    private Context context;
     private AlertDialog.Builder builder;
     //the layout resource file for the list items
     private String removecourselist_url = "https://newindialms.000webhostapp.com/disenrolledspecialization.php";
@@ -79,11 +79,12 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
         cancelcourselist_name.setImageResource(R.drawable.cancel);
 
         relative1.setOnClickListener(new View.OnClickListener() {
-            String coursename=hero.getCoursedetails_name();
-            String student_rollno=hero.getStudentid();
+            String coursename = hero.getCoursedetails_name();
+            String student_rollno = hero.getStudentid();
+
             @Override
             public void onClick(View view) {
-                removeCourse(position,coursename,student_rollno);
+                removeCourse(position, coursename, student_rollno);
 
             }
         });
@@ -91,7 +92,7 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
         return view;
     }
 
-    private void removeCourse(final int position,final String removecoursename,final String student_rollno) {
+    private void removeCourse(final int position, final String removecoursename, final String student_rollno) {
         //Creating an alert dialog to confirm the deletion
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Are you sure you want to delete this?");
@@ -103,7 +104,7 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
 
                 //removing the item
                 enrolledCourseListItemses.remove(position);
-                removeCoursefromDB(removecoursename,student_rollno);
+                removeCoursefromDB(removecoursename, student_rollno);
                 //remove from database
 
                 //reloading the list
@@ -125,17 +126,17 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
     }
 
 
-    private void removeCoursefromDB(final String removecoursename,final String student_rollno) {
+    private void removeCoursefromDB(final String removecoursename, final String student_rollno) {
         builder = new AlertDialog.Builder(getContext(), R.style.MyAlertDialogStyle);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, removecourselist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 JSONArray jsonArray = null;
                 try {
-                    JSONObject j = new JSONObject(response);
+                    //JSONObject j = new JSONObject(response);
                     JSONObject array = jsonArray.getJSONObject(0);
                     String code = array.getString("code");
-                    if(code.equals("Deleted")){
+                    if (code.equals("Deleted")) {
                         builder.setTitle("Deleted");
                         builder.setMessage("Course Deleted successfully");
                         displayAlert("Deleted");
@@ -151,7 +152,7 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

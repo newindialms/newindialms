@@ -90,17 +90,6 @@
             android:layout_gravity="center"
             android:layout_margin="10dp">
 
-            <TextView
-                android:id="@+id/registration_select"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="@string/registration_select"
-                android:textColor="@color/textColor"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
             <CheckBox
                 android:id="@+id/registration_checkbox1"
                 android:layout_width="wrap_content"

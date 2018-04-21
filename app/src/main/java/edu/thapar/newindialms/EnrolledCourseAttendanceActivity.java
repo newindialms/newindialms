@@ -3,7 +3,6 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +36,7 @@ import java.util.Map;
 public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
     private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
     EnrolledCourseAttendanceAdapter adapter;
-    private  String studentid;
+    private String studentid,studentyear;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
     private Toolbar student_toolbar;
@@ -59,25 +58,26 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         setSupportActionBar(student_toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        student_toolbar_title=(TextView) findViewById(R.id.student_enroll_toolbar_title);
+        student_toolbar_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
         student_toolbar_title.setText("My Attendance");
 
-        student_toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+        student_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 //Intent intent = new Intent(EnrolledCourseAttendanceActivity.this, StudentMenu.class);
                 finish();
             }
         });
 
-        Intent intent=getIntent();
-        studentid =  intent.getStringExtra("studentid");
+        Intent intent = getIntent();
+        studentid = intent.getStringExtra("studentid");
+        studentyear = intent.getStringExtra("studentyear");
 
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
 
-        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -102,12 +102,12 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
 
                     for (int i = 0; i < array.length(); i++) {
                         EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
-                               array.getString(i),studentid
+                                array.getString(i), studentid,studentyear
                         );
                         listItemProgramList.setStudentid(studentid);
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new EnrolledCourseAttendanceAdapter(getApplicationContext(),R.layout.activity_enrolled_course_attendance_listitems,heroList);
+                    adapter = new EnrolledCourseAttendanceAdapter(getApplicationContext(), R.layout.activity_enrolled_course_attendance_listitems, heroList);
                     listView.setAdapter(adapter);
 
 
@@ -120,7 +120,7 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

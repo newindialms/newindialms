@@ -47,9 +47,9 @@ public class NotificationTabAdapter extends ArrayAdapter<NotificationTabListItem
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView notification_title = (TextView)view.findViewById(R.id.notification_title);
-        TextView notification_message = (TextView)view.findViewById(R.id.notification_message);
-        TextView notification_date = (TextView)view.findViewById(R.id.notification_date);
+        TextView notification_title = (TextView) view.findViewById(R.id.notification_title);
+        TextView notification_message = (TextView) view.findViewById(R.id.notification_message);
+        TextView notification_date = (TextView) view.findViewById(R.id.notification_date);
 
         //getting the hero of the specified position
         final NotificationTabListItems hero = notificationTabListItems.get(position);
