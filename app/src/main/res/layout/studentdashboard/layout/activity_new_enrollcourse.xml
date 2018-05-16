@@ -34,15 +34,19 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/studentcolorPrimaryDark"
+                    android:background="@drawable/ripple_effect_student_button"
+                    android:clickable="true"
                     android:text="@string/enroll"
                     android:textColor="@color/textColor" />
-
-                <ListView
-                    android:id="@+id/enrollcourses_ListView"
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/showfeedback_swipe"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                    android:layout_height="match_parent">
+                    <ListView
+                        android:id="@+id/enrollcourses_ListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </android.support.v4.widget.SwipeRefreshLayout>
             </LinearLayout>
 
 

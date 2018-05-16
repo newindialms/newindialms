@@ -32,7 +32,7 @@ import java.util.Map;
 
 public class FacultyFeedbackCummulativeDashboard extends AppCompatActivity {
 
-    public static final String rate_url = "http://newindialms.000webhostapp.com/get_faculty_cumulativedashboard.php";
+    public static final String rate_url = "https://www.newindialms.com/get_faculty_cumulativedashboard.php";
     private String faculty_id, coursename, feedback_sent_date, type, question;
     private Toolbar rate_toolbar;
     FacultyFeedackCumulativeDasboardAdapter adapter;

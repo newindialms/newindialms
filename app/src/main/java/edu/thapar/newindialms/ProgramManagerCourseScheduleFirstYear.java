@@ -40,8 +40,8 @@ public class ProgramManagerCourseScheduleFirstYear extends AppCompatActivity {
     private Toolbar studentpic_toolbar;
     private TextView timetable_title3, timetable_title2, timetable_title5, timetable_title6, timetable_title4;
 
-    private String course_schedule_issue_url = "https://newindialms.000webhostapp.com/get_course_schedule_issue_firstyear.php";
-    private String time_table_issue_url = "https://newindialms.000webhostapp.com/get_timetablefirstyear.php";
+    private String course_schedule_issue_url = "https://www.newindialms.com/get_course_schedule_issue_firstyear.php";
+    private String time_table_issue_url = "https://www.newindialms.com/get_timetablefirstyear.php";
     List<ProgramScreenCourseScheduleListItems> heroList;
     ProgramScreenCourseScheduleFirstyearAdapter adapter;
     ListView listView;
@@ -84,7 +84,7 @@ public class ProgramManagerCourseScheduleFirstYear extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://newindialms.000webhostapp.com/timetable.php"));
+                i.setData(Uri.parse("https://www.newindialms.com/timetable.php"));
                 startActivity(i);
 
             }

@@ -91,7 +91,8 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="13dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:padding="5dp"
             android:text="@string/faculty_notificationscreen_sendnotification"
             android:textColor="@color/textColor" />

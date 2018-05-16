@@ -43,8 +43,8 @@ public class LoginScreen extends AppCompatActivity {
     private Button login_button;
     private AlertDialog.Builder builder;
     private String studentid, phonenumber;
-    private String login_url = "https://newindialms.000webhostapp.com/login.php";
-    public static final String token_url = "http://newindialms.000webhostapp.com/login_success_device_details.php";
+    private String login_url = "https://www.newindialms.com/login.php";
+    public static final String token_url = "https://www.newindialms.com/login_success_device_details.php";
     private Context context;
     private ProgressDialog progressDialog;
     public View layout;

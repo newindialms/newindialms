@@ -32,7 +32,7 @@ import java.util.Map;
  */
 
 public class EnrolledCourseCumulativeAttendanceActivity extends AppCompatActivity {
-    public static final String cumulative_attendancedetails_url = "https://newindialms.000webhostapp.com/get_cumulative_attendance.php";
+    public static final String cumulative_attendancedetails_url = "https://www.newindialms.com/get_cumulative_attendance.php";
     private String student_rollnno, course_details_name,studentyear;
     private TextView daywise_toolbar_title;
     private Toolbar daywise_toolbar;

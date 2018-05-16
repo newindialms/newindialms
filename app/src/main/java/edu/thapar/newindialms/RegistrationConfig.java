@@ -6,9 +6,9 @@ package edu.thapar.newindialms;
 
 public class RegistrationConfig {
     //URLs to register.php and confirm.php file
-    public static final String REGISTER_URL = "https://newindialms.000webhostapp.com/register.php";
-    public static final String CONFIRM_URL = "https://newindialms.000webhostapp.com/confirm_otp.php";
-    public static final String EMAILPROFILE_URL = "https://newindialms.000webhostapp.com/email_profile.php";
+    public static final String REGISTER_URL = "https://www.newindialms.com/register.php";
+    public static final String CONFIRM_URL = "https://www.newindialms.com/confirm_otp.php";
+    public static final String EMAILPROFILE_URL = "https://www.newindialms.com/email_profile.php";
 
     //Keys to send username, password, phone and otp
     public static final String KEY_STUDENTID = "studentid";

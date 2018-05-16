@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +38,8 @@ import java.util.Map;
 public class EnrollCourseFragment extends Fragment {
     View rootview;
     String student_specialization, studentid, student_rollnno;
-    String enrollallcourselist_url = "https://newindialms.000webhostapp.com/AllCourseList.php";
-    String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollcourse.php";
+    String enrollallcourselist_url = "https://www.newindialms.com/AllCourseList.php";
+    String insertenroll_url = "https://www.newindialms.com/insert_enrollcourse.php";
     List<EnrollcourseListItems> heroList;
     EnrollcourseAdapter adapter;
     ListView listView;
@@ -46,6 +47,7 @@ public class EnrollCourseFragment extends Fragment {
     AlertDialog.Builder builder;
     String student_year = "2";
     String enrollist = "";
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     public EnrollCourseFragment() {
         // Required empty public constructor
@@ -72,7 +74,16 @@ public class EnrollCourseFragment extends Fragment {
                 onClickData(view);
             }
         });
-
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+                loadRecyclerViewData();
+            }
+        });
 
         return rootview;
 
@@ -181,7 +192,8 @@ public class EnrollCourseFragment extends Fragment {
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                getActivity().finish();
+                heroList.clear();
+                loadRecyclerViewData();
             }
         });
         AlertDialog alertDialog = builder.create();

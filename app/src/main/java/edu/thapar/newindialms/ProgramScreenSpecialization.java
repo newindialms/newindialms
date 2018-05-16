@@ -36,7 +36,7 @@ public class ProgramScreenSpecialization extends AppCompatActivity {
     private String ProgramName, SpecializationList;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
-    private String specializationlist_url = "https://newindialms.000webhostapp.com/get_yearofSpecialization.php";
+    private String specializationlist_url = "https://www.newindialms.com/get_yearofSpecialization.php";
     ProgramScreenSpecializationAdapter adapter;
     public SwipeRefreshLayout swipeRefreshLayout;
     List<ProgramScreenSpecializationListItems> heroList;

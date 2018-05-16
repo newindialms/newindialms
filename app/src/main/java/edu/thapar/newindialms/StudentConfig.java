@@ -7,7 +7,7 @@ package edu.thapar.newindialms;
 public class StudentConfig {
 
     //JSON URL
-    public static final String DATA_URL = "https://newindialms.000webhostapp.com/SearchStudent.php";
+    public static final String DATA_URL = "https://www.newindialms.com/SearchStudent.php";
 
     //Tags used in the JSON String
     public static final String TAG_year = "student_joining";

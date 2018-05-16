@@ -28,7 +28,7 @@ import java.util.List;
 
 public class NotificationTab extends AppCompatActivity {
     private Toolbar toolbar_all_notiifcation;
-    private String notification_url = "https://newindialms.000webhostapp.com/get_notification.php";
+    private String notification_url = "https://www.newindialms.com/get_notification.php";
     NotificationTabAdapter adapter;
 
     List<NotificationTabListItems> heroList;

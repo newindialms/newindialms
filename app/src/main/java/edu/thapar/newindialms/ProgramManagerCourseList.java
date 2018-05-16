@@ -33,7 +33,7 @@ import java.util.List;
 public class ProgramManagerCourseList extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private String menucourselist_url = "https://newindialms.000webhostapp.com/menu_courselist.php";
+    private String menucourselist_url = "https://www.newindialms.com/menu_courselist.php";
 
     private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private List<ListItemCourseList> listItemCourseLists;

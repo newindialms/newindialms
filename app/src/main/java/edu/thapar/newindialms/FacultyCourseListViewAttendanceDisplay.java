@@ -34,7 +34,7 @@ import java.util.Map;
  */
 
 public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
-    public static final String attendancedetails_url = "https://newindialms.000webhostapp.com/get_attendancedetails.php";
+    public static final String attendancedetails_url = "https://www.newindialms.com/get_attendancedetails.php";
     String attendance_date, course_details_name, faculty_employeeid, groupname, sectionname, coursetype;
     TextView facultycourselist_attendancedisplay_title;
     Toolbar faculty_toolbar;

@@ -31,7 +31,7 @@ public class StudentNotification extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<NotificationScreenDetails> notificationScreenDetails;
     private Toolbar student_toolbar;
-    private static final String NOTIFICATION_URL = "http://newindialms.000webhostapp.com/get_student_notification.php";
+    private static final String NOTIFICATION_URL = "https://www.newindialms.com/get_student_notification.php";
     public SwipeRefreshLayout swipeRefreshLayout;
 
     @Override

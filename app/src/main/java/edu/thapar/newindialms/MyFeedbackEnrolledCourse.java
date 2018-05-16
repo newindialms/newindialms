@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
-    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     MyfeedbackEnrolledCourseAdapter adapter;
     List<MyfeedbackEnrolledCourseListItems> heroList;
     ListView listView;

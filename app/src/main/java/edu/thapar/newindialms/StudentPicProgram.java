@@ -27,7 +27,7 @@ public class StudentPicProgram extends AppCompatActivity {
 
     List<StudentPicListItems> heroList;
     ListView listView;
-    private String programlist_url = "https://newindialms.000webhostapp.com/get_program.php";
+    private String programlist_url = "https://www.newindialms.com/get_program.php";
     private Toolbar studentpic_toolbar;
     StudentPicProgramAdapter adapter;
 

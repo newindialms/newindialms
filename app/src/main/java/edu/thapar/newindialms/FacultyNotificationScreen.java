@@ -31,7 +31,7 @@ public class FacultyNotificationScreen extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<NotificationScreenDetails> notificationScreenDetails;
     private Toolbar faculty_toolbar;
-    private static final String NOTIFICATION_URL = "http://newindialms.000webhostapp.com/get_faculty_notification.php";
+    private static final String NOTIFICATION_URL = "https://www.newindialms.com/get_faculty_notification.php";
     public SwipeRefreshLayout swipeRefreshLayout;
 
 

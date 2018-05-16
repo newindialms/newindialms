@@ -33,7 +33,7 @@ public class RemoveFeedbackFragment extends Fragment {
     View rootview;
     private AlertDialog.Builder builder;
 
-    private String getfeedback_url = "https://newindialms.000webhostapp.com/get_feedback.php";
+    private String getfeedback_url = "https://www.newindialms.com/get_feedback.php";
     RecyclerView recyclerView;
     FeedbackAdapter adapter;
     List<Feedback> feedbackList;

@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class RemoveCourseFragment extends Fragment {
     View rootview;
-    private String removelist_url = "https://newindialms.000webhostapp.com/get_courselist.php";
+    private String removelist_url = "https://www.newindialms.com/get_courselist.php";
     RemoveCourseAdapter adapter;
     public SwipeRefreshLayout swipeRefreshLayout;
 

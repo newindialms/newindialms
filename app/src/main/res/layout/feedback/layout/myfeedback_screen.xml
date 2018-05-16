@@ -62,8 +62,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/student_rounded_button"
+        android:background="@drawable/ripple_effect_student_button"
+        android:clickable="true"
+        android:textColor="@color/textColor"
         android:text="@string/myfeedback_screen_button"
-        android:textColor="@color/studentcolorPrimaryDark" />
+        />
 
 </RelativeLayout>

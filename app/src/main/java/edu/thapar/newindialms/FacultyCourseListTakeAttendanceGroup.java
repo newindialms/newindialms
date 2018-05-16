@@ -39,8 +39,8 @@ import java.util.Map;
 
 public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
     private static final String TAG = "FacultyCourseListTakeAttendance";
-    public static final String enrolledstudent_url = "https://newindialms.000webhostapp.com/faculty_group_firstyear.php";
-    public static final String saveattendance_URL = "https://newindialms.000webhostapp.com/saveattendancegroup.php";
+    public static final String enrolledstudent_url = "https://www.newindialms.com/faculty_group_firstyear.php";
+    public static final String saveattendance_URL = "https://www.newindialms.com/saveattendancegroup.php";
     private String coursename, faculty_employeeid, course_date, course_time, groupname, sectionname, coursetype;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;

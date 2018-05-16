@@ -44,9 +44,9 @@ import java.util.UUID;
  */
 
 public class StudentMyProfile extends AppCompatActivity {
-    private String HttpURL = "https://newindialms.000webhostapp.com/student_profile.php";
+    private String HttpURL = "https://www.newindialms.com/student_profile.php";
 
-    private String UPLOAD_URL = "http://newindialms.000webhostapp.com/student_upload_image.php";
+    private String UPLOAD_URL = "https://www.newindialms.com/student_upload_image.php";
 
     private TextView studentprofile_name, studentprofile_rollno, studentprofile_email, studentprofile_program, studentprofile_specialization;
     private String studentid;

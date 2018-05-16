@@ -27,7 +27,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     private Button register_button;
     private Button login_button;
     private String deviceid, token;
-    public static final String token_url = "http://newindialms.000webhostapp.com/device_details.php";
+    public static final String token_url = "https://www.newindialms.com/device_details.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

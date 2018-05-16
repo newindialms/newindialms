@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +35,12 @@ import java.util.Map;
  */
 public class DisenrollCourseFragment extends Fragment {
     View rootview;
-    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     DiserolledCourseAdapter adapter;
     private String studentid,studentyear;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     public DisenrollCourseFragment() {
         // Required empty public constructor
@@ -55,6 +57,16 @@ public class DisenrollCourseFragment extends Fragment {
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+                loadRecyclerViewData();
+            }
+        });
         return rootview;
     }
 

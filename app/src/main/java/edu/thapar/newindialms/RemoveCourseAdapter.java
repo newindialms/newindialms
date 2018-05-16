@@ -43,7 +43,7 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
     //the layout resource file for the list items
     private int resource;
 
-    private String removecourselist_url = "https://newindialms.000webhostapp.com/get_removecourselist.php";
+    private String removecourselist_url = "https://www.newindialms.com/get_removecourselist.php";
     RemoveCourseAdapter adapter;
 
 

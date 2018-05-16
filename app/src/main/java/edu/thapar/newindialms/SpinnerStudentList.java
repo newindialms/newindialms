@@ -42,7 +42,7 @@ public class SpinnerStudentList extends AppCompatActivity {
 
     private List<SpinnerListItem> listItems;
     private List<String> EmaillistItems;
-    private static final String spinnerlisturl = "https://newindialms.000webhostapp.com/spinner_studentlist.php";
+    private static final String spinnerlisturl = "https://www.newindialms.com/spinner_studentlist.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -41,6 +41,7 @@ public class StudentScheduleDisplayFirstYearAdapter extends RecyclerView.Adapter
         holder.student_scheduledisplay_course.setText(hero.getCourse_code());
         holder.student_scheduledisplay_classroom.setText(hero.getCourse_classroom());
         holder.student_scheduledisplay_starttimes.setText(hero.getCourse_schedule_time());
+        holder.student_scheduledisplay_starttime.setText(hero.getCourse_schedule_time());
         holder.student_scheduledisplay_faculty.setText(hero.getFaculty_code());
         holder.imageView.setImageResource(R.drawable.schedule_arrow_down);
         holder.linearLayout.setVisibility(View.GONE);

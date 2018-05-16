@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 
 public class StudentCourseFeedback extends Fragment {
 
-  /*  private String facultycourselist_url = "http://newindialms.000webhostapp.com/faculty_courselist.php";
+  /*  private String facultycourselist_url = "https://www.newindialms.com/faculty_courselist.php";
     FacultyCourseListAdapter adapter;
     private String faculty_employeeid;
     List<FacultyListItemCourseList> heroList;

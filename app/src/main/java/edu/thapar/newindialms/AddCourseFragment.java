@@ -43,9 +43,9 @@ public class AddCourseFragment extends Fragment {
     private Button btnSubmit;
     private ArrayList<String> facultylist;
     private JSONArray resultfaculty;
-    public static final String facultyspinner_URL = "https://newindialms.000webhostapp.com/get_facultyname.php";
-    public static final String newcourse_url = "https://newindialms.000webhostapp.com/new_course.php";
-    public static final String firstnewcourse_url = "https://newindialms.000webhostapp.com/add_first_course.php";
+    public static final String facultyspinner_URL = "https://www.newindialms.com/get_facultyname.php";
+    public static final String newcourse_url = "https://www.newindialms.com/new_course.php";
+    public static final String firstnewcourse_url = "https://www.newindialms.com/add_first_course.php";
     private AlertDialog.Builder builder;
     private ProgressDialog progressDialog;
 

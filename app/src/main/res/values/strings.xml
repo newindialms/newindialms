@@ -41,7 +41,7 @@
     <string name="login_signup">New User Signup?</string>
     <string name="thankyou_logo">Thank you</string>
     <string name="welcome">Welcome</string>
-    <string name="success_verification">Congragulations,You have successfully verified your phone number</string>
+    <string name="success_verification">Congratulations,You have successfully verified your phone number</string>
 
     <string name="menu_logout">Logout</string>
     <string name="menu_studentid">StudentId</string>

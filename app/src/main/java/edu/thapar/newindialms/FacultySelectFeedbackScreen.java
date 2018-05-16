@@ -44,9 +44,9 @@ import java.util.Map;
 public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
     private Toolbar facultyToolbar;
-    private static final String FEEDBACK_URL = "http://newindialms.000webhostapp.com/get_feedback.php";
-    private static final String SELECTED_FEEDBACK_URL = "http://newindialms.000webhostapp.com/insert_selected_feedback.php";
-    private String notification_url = "https://newindialms.000webhostapp.com/send_selected_feedback_notification.php";
+    private static final String FEEDBACK_URL = "https://www.newindialms.com/get_feedback.php";
+    private static final String SELECTED_FEEDBACK_URL = "https://www.newindialms.com/insert_selected_feedback.php";
+    private String notification_url = "https://www.newindialms.com/send_selected_feedback_notification.php";
     private RecyclerView recyclerView;
     private TextView facultyToolbarTitle;
     List<FacultySelectFeedbackScreenDetails> facultySelectFeedbackScreenDetails;

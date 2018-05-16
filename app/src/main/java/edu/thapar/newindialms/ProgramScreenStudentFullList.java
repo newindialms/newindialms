@@ -36,7 +36,7 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
     private String coursesname;
     private TextView Studentpic_programspecialization_title;
 
-    private String studentfulllist_url = "https://newindialms.000webhostapp.com/get_student_fulllist.php";
+    private String studentfulllist_url = "https://www.newindialms.com/get_student_fulllist.php";
     ProgramScreenStudentFullListAdapter adapter;
     List<ProgramScreenStudentFullListListItems> heroList;
     ListView listView;

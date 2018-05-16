@@ -34,7 +34,7 @@ import java.util.Map;
 public class ListFacultyRemoveAdapter extends BaseAdapter {
     Context context;
     List<Faculty> valueList;
-    String removefacultylist_url = "https://newindialms.000webhostapp.com/DeleteFaculty.php";
+    String removefacultylist_url = "https://www.newindialms.com/DeleteFaculty.php";
     AlertDialog.Builder builder;
     public ListFacultyRemoveAdapter(List<Faculty> listValue, Context context)
     {

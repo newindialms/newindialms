@@ -41,7 +41,7 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
     private Context context;
     private AlertDialog.Builder builder;
     //the layout resource file for the list items
-    private String removecourselist_url = "https://newindialms.000webhostapp.com/disenrolledspecialization.php";
+    private String removecourselist_url = "https://www.newindialms.com/disenrolledspecialization.php";
     int resource;
 
 
@@ -85,7 +85,6 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
             @Override
             public void onClick(View view) {
                 removeCourse(position, coursename, student_rollno);
-
             }
         });
         //finally returning the view
@@ -131,14 +130,15 @@ public class DisenrolledSpecializationAdapter extends ArrayAdapter<EnrollSpecial
         StringRequest stringRequest = new StringRequest(Request.Method.POST, removecourselist_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONArray jsonArray = null;
+
                 try {
+                    JSONArray jsonArray = new JSONArray(response);
                     //JSONObject j = new JSONObject(response);
                     JSONObject array = jsonArray.getJSONObject(0);
                     String code = array.getString("code");
                     if (code.equals("Deleted")) {
                         builder.setTitle("Deleted");
-                        builder.setMessage("Course Deleted successfully");
+                        builder.setMessage("Specialization deleted successfully");
                         displayAlert("Deleted");
                     }
 

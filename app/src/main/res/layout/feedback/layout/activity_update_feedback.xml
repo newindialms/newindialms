@@ -98,7 +98,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:text="@string/update"
             android:textColor="@color/textColor" />
 
@@ -108,7 +109,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:text="@string/buttonDelete"
             android:textColor="@color/textColor" />
     </LinearLayout>

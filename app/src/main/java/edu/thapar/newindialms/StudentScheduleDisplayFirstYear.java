@@ -37,7 +37,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
     private String datevalue, studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
-    private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule_firstyear.php";
+    private String schedule_url = "https://www.newindialms.com/get_student_schedule_firstyear.php";
     StudentScheduleDisplayFirstYearAdapter adapter;
     private AlertDialog.Builder builder;
 

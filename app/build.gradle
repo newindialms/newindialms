@@ -13,6 +13,7 @@ android {
         useLibrary 'org.apache.http.legacy'
         multiDexEnabled true
         resConfigs "en"
+        setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
     }
     buildTypes {
         release {

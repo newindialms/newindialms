@@ -84,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="0.71"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:text="@string/notification_email_button"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark" />

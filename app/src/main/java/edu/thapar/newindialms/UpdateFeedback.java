@@ -37,8 +37,8 @@ public class UpdateFeedback extends AppCompatActivity {
     private Button udpateButton, deleteButton;
     private Spinner feedbackspinner;
     private String feedback_title, feedback_question, feedback_type, id;
-    private String updatefeedback_url = "https://newindialms.000webhostapp.com/update_feedback.php";
-    private String deletefeedback_url = "https://newindialms.000webhostapp.com/delete_feedback.php";
+    private String updatefeedback_url = "https://www.newindialms.com/update_feedback.php";
+    private String deletefeedback_url = "https://www.newindialms.com/delete_feedback.php";
 
     AlertDialog.Builder builder;
 

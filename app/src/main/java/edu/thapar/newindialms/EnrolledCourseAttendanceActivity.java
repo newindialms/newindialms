@@ -34,7 +34,7 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
-    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     EnrolledCourseAttendanceAdapter adapter;
     private String studentid,studentyear;
     List<EnrolledCourseListItems> heroList;

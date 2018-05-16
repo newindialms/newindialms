@@ -30,7 +30,7 @@ public class EmailActivity extends AppCompatActivity {
     private EditText editTextEmail, editTextSubject, editTextMessage;
     private Button buttonSend;
     private String EMAIL, PASSWORD;
-    private String emailprofile_url = "https://newindialms.000webhostapp.com/email_profile.php";
+    private String emailprofile_url = "https://www.newindialms.com/email_profile.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

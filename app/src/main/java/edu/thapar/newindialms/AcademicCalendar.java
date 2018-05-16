@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class AcademicCalendar extends AppCompatActivity {
     private Toolbar calendarToolbar;
-    private String calendarDetails_Url = "https://newindialms.000webhostapp.com/get_calendardetails.php";
+    private String calendarDetails_Url = "https://www.newindialms.com/get_calendardetails.php";
     private TextView accademicCalendar, fallYear, fallSemesterSesion, springYear,
             springSemesterSesion,
             fallClassesSemester3,

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,10 +38,11 @@ import java.util.Map;
  */
 public class DisenrollSpecializationFragment extends Fragment {
     View rootview;
-    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledspecilization.php";
+    private String enrolled_courselist = "https://www.newindialms.com/listenrolledspecilization.php";
     DisenrolledSpecializationAdapter adapter;
     private String studentid;
     List<EnrollSpecializationListItems> heroList;
+    public SwipeRefreshLayout swipeRefreshLayout;
     ListView listView;
 
     //private AlertDialog.Builder builder;
@@ -56,7 +58,19 @@ public class DisenrollSpecializationFragment extends Fragment {
         studentid = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
+
         loadRecyclerViewData();
+
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+                loadRecyclerViewData();
+            }
+        });
         return rootview;
     }
 

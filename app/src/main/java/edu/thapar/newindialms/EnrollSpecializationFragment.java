@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,14 +38,15 @@ import java.util.Map;
 public class EnrollSpecializationFragment extends Fragment {
     View rootview;
     String studentid, student_rollnno;
-    String getspecializationlist_url = "https://newindialms.000webhostapp.com/get_specializationname.php";
-    String insertenroll_url = "https://newindialms.000webhostapp.com/insert_enrollspecialization.php";
+    String getspecializationlist_url = "https://www.newindialms.com/get_specializationname.php";
+    String insertenroll_url = "https://www.newindialms.com/insert_enrollspecialization.php";
     List<EnrollSpecializationListItems> heroList;
     EnrollSpecializationAdapter adapter;
     ListView listView;
     Button EnrollButton;
     AlertDialog.Builder builder;
     String enrollist = "";
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     public EnrollSpecializationFragment() {
         // Required empty public constructor
@@ -70,7 +72,16 @@ public class EnrollSpecializationFragment extends Fragment {
                 onClickData(view);
             }
         });
-
+        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // cancel the Visual indication of a refresh
+                swipeRefreshLayout.setRefreshing(false);
+                heroList.clear();
+                loadRecyclerViewData();
+            }
+        });
 
         return rootview;
 
@@ -137,9 +148,9 @@ public class EnrollSpecializationFragment extends Fragment {
                     JSONArray array = j.getJSONArray("specialization");
 
                     for (int i = 0; i < array.length(); i++) {
-                        JSONObject jsonObject1 = array.getJSONObject(i);
+                        //JSONObject jsonObject1 = array.getJSONObject(i);
                         EnrollSpecializationListItems listItemProgramList = new EnrollSpecializationListItems(
-                                jsonObject1.getString("course_details_specialization")
+                                array.getString(i)
                         );
                         heroList.add(listItemProgramList);
                     }
@@ -158,7 +169,14 @@ public class EnrollSpecializationFragment extends Fragment {
                 progressDialog.dismiss();
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("student_rollnno", studentid);
+                return params;
+            }
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
@@ -166,7 +184,9 @@ public class EnrollSpecializationFragment extends Fragment {
     public void displayAlert() {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
-                getActivity().finish();
+               // getActivity().finish();
+                heroList.clear();
+                loadRecyclerViewData();
             }
         });
         AlertDialog alertDialog = builder.create();

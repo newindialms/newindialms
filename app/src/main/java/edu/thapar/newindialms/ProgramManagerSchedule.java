@@ -33,8 +33,8 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class ProgramManagerSchedule extends AppCompatActivity {
-    private String issue_url = "https://newindialms.000webhostapp.com/get_issue.php";
-    private String day_url = "https://newindialms.000webhostapp.com/get_days.php";
+    private String issue_url = "https://www.newindialms.com/get_issue.php";
+    private String day_url = "https://www.newindialms.com/get_days.php";
     private Spinner issuespinner, dayspinner, semesterspinner;
     private ArrayList<String> issuelist, daylist;
     private JSONArray resultissue, resultday;

@@ -33,7 +33,7 @@ import java.util.Map;
 public class OpenCalendar extends AppCompatActivity {
     private static final String TAG = "OpenCalendar";
     private Button open_calendar_details, SendNotification;
-    private String notification_url = "https://newindialms.000webhostapp.com/send_notification.php";
+    private String notification_url = "https://www.newindialms.com/send_notification.php";
     private EditText message_notification, title_notification;
     private String title, message;
     private AlertDialog.Builder builder;

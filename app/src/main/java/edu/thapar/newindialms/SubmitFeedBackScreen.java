@@ -40,12 +40,12 @@ import java.util.Set;
 
 public class SubmitFeedBackScreen extends AppCompatActivity {
 
-    private String feedbacklist = "https://newindialms.000webhostapp.com/getFeedbacklist.php";
+    private String feedbacklist = "https://www.newindialms.com/getFeedbacklist.php";
 
-    private String submitratefeedbacklist = "https://newindialms.000webhostapp.com/submitRateFeedbacklist.php";
-    private String submitlikefeedbacklist = "https://newindialms.000webhostapp.com/submitLikeFeedbacklist.php";
-    private String submittextfeedbacklist = "https://newindialms.000webhostapp.com/submitTextFeedbacklist.php";
-    private String submitsmileyfeedbacklist = "https://newindialms.000webhostapp.com/submitSmileyFeedbacklist.php";
+    private String submitratefeedbacklist = "https://www.newindialms.com/submitRateFeedbacklist.php";
+    private String submitlikefeedbacklist = "https://www.newindialms.com/submitLikeFeedbacklist.php";
+    private String submittextfeedbacklist = "https://www.newindialms.com/submitTextFeedbacklist.php";
+    private String submitsmileyfeedbacklist = "https://www.newindialms.com/submitSmileyFeedbacklist.php";
     SubmitFeedBackScreenAdapter adapter;
     List<SubmitFeedbackScreenListItems> heroList;
     ListView listView;

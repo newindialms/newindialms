@@ -42,7 +42,7 @@ public class AddFeedbackFragment extends Fragment {
     private String feedback_type;
     private ProgressDialog progressDialog;
     private AlertDialog.Builder builder;
-    private String feedback_url = "https://newindialms.000webhostapp.com/add_feedback.php";
+    private String feedback_url = "https://www.newindialms.com/add_feedback.php";
 
     public AddFeedbackFragment() {
         // Required empty public constructor

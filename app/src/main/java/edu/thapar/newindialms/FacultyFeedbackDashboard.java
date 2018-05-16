@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 public class FacultyFeedbackDashboard extends AppCompatActivity {
-    public static final String feedack_type_url = "http://newindialms.000webhostapp.com/get_feedbacktype.php";
+    public static final String feedack_type_url = "https://www.newindialms.com/get_feedbacktype.php";
     private String coursename, faculty_employeeid, datevalue;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;

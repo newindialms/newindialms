@@ -76,9 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="100dp"
-            android:background="@color/facultycolorPrimary"
+            android:background="@drawable/ripple_effect_faculty_button"
+            android:clickable="true"
             android:text="@string/ScheduleButton"
-            android:textColor="@color/facultytextMenu" />
+            android:textColor="@color/textColor" />
 
     </LinearLayout>
 

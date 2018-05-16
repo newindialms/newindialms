@@ -106,7 +106,8 @@
             android:layout_below="@+id/course_schedule_semesterspinner"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:text="@string/course_schedule_go"
             android:textColor="@color/textColor" />
     </RelativeLayout>

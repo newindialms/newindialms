@@ -36,7 +36,7 @@ public class ProgramScreenYearStudentName extends AppCompatActivity {
     private String ProgramName, YearList;
     private Toolbar studentpic_toolbar;
     private TextView Studentpic_programstudentname_title;
-    private String yearlist_url = "https://newindialms.000webhostapp.com/get_student_name.php";
+    private String yearlist_url = "https://www.newindialms.com/get_student_name.php";
     ProgramScreenYearAdapterStudentName adapter;
     public SwipeRefreshLayout swipeRefreshLayout;
 

@@ -26,10 +26,10 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
     ProgressDialog pDialog;
 
     // Http Url For Filter Student Data from Id Sent from previous activity.
-    private String HttpURL = "https://newindialms.000webhostapp.com/FilterStudentData.php";
+    private String HttpURL = "https://www.newindialms.com/FilterStudentData.php";
 
     // Http URL for delete Already Open Student Record.
-    private String HttpUrlDeleteRecord = "https://newindialms.000webhostapp.com/DeleteStudent.php";
+    private String HttpUrlDeleteRecord = "https://www.newindialms.com/DeleteStudent.php";
     private Toolbar toolbar_delete_students;
     private String finalResult;
     HashMap<String, String> hashMap = new HashMap<>();

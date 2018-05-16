@@ -90,7 +90,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="23dp"
             android:layout_marginRight="23dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:padding="5dp"
             android:text="@string/faculty_notificationscreen_sendnotification"
             android:textColor="@color/textColor" />
@@ -105,7 +106,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="18dp"
             android:layout_marginStart="18dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ripple_effect_program_button"
+            android:clickable="true"
             android:padding="10dp"
             android:text="@string/show_calendar"
             android:textColor="@color/textColor" />

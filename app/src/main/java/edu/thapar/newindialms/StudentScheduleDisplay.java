@@ -37,7 +37,7 @@ public class StudentScheduleDisplay extends AppCompatActivity {
     private String datevalue, student_specialization, studentid;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
-    private String schedule_url = "https://newindialms.000webhostapp.com/get_student_schedule.php";
+    private String schedule_url = "https://www.newindialms.com/get_student_schedule.php";
     StudentScheduleDisplayAdapter adapter;
     private AlertDialog.Builder builder;
     List<StudentScheduleDisplayListItems> heroList;

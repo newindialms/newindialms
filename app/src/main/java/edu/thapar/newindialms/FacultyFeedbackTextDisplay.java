@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class FacultyFeedbackTextDisplay extends AppCompatActivity {
 
-    public static final String rate_url = "https://newindialms.000webhostapp.com/get_all_text_feedback.php";
+    public static final String rate_url = "https://www.newindialms.com/get_all_text_feedback.php";
     private String faculty_id, coursename, feedback_sent_date;
     private Toolbar rate_toolbar;
     private AlertDialog.Builder builder;

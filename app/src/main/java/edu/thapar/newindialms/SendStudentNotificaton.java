@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class SendStudentNotificaton extends AppCompatActivity {
     private Button SendNotification;
-    private String notification_url = "https://newindialms.000webhostapp.com/send_student_notification.php";
+    private String notification_url = "https://www.newindialms.com/send_student_notification.php";
     private EditText message_notification, title_notification;
     private String title, message;
     private AlertDialog.Builder builder;

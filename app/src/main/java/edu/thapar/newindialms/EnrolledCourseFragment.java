@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public class EnrolledCourseFragment extends Fragment {
     View rootview;
-    private String enrolled_courselist = "https://newindialms.000webhostapp.com/listenrolledcourses.php";
+    private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     EnrolledCourseAdapter adapter;
     private String studentid;
     List<EnrolledCourseListItems> heroList;

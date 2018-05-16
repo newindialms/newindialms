@@ -25,7 +25,7 @@ import java.util.List;
 public class RemoveFacultyFragment extends Fragment {
     View rootview;
     private ListView FacultyListView;
-    private String HttpUrl = "https://newindialms.000webhostapp.com/AllFacultyData.php";
+    private String HttpUrl = "https://www.newindialms.com/AllFacultyData.php";
     List<String> IdList = new ArrayList<>();
     List<Faculty> facultyList;
     SwipeRefreshLayout swipeRefreshLayout;

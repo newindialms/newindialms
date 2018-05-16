@@ -33,7 +33,7 @@ import java.util.Map;
  */
 
 public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
-    public static final String daywise_attendancedetails_url = "https://newindialms.000webhostapp.com/get_daywise_attendance.php";
+    public static final String daywise_attendancedetails_url = "https://www.newindialms.com/get_daywise_attendance.php";
     private String student_rollnno, course_details_name,studentyear;
     private TextView daywise_toolbar_title;
     private Toolbar daywise_toolbar;

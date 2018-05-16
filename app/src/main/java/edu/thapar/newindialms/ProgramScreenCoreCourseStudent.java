@@ -32,7 +32,7 @@ public class ProgramScreenCoreCourseStudent extends AppCompatActivity {
     private Toolbar studentpic_toolbar;
     private TextView Studentpic_programcorecourselist_title;
     private String corecoursename;
-    private String corecoursestudent_url = "https://newindialms.000webhostapp.com//get_corecourse_student.php";
+    private String corecoursestudent_url = "https://www.newindialms.com//get_corecourse_student.php";
     ProgramScreenCoreCourseStudentAdapter adapter;
     List<ProgramScreenCoreCourseStudentListItems> heroList;
     ListView listView;

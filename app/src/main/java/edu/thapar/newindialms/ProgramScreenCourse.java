@@ -33,7 +33,7 @@ public class ProgramScreenCourse extends AppCompatActivity {
     private String ProgramName;
     private TextView Studentpic_programCourse_title;
     private Toolbar studentpic_toolbar;
-    private String coursespecificlist_url = "https://newindialms.000webhostapp.com/get_course_specific.php";
+    private String coursespecificlist_url = "https://www.newindialms.com/get_course_specific.php";
     ProgramScreenCourseAdapter adapter;
     public SwipeRefreshLayout swipeRefreshLayout;
     List<ProgramScreenCourseListItems> heroList;

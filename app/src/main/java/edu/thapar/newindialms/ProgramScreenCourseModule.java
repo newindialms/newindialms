@@ -36,7 +36,7 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
     private String specializationname;
     private TextView Studentpic_programycoursemodule_title;
     private Toolbar studentpic_toolbar;
-    private String coursemodulelist_url = "https://newindialms.000webhostapp.com/get_coursemodule.php";
+    private String coursemodulelist_url = "https://www.newindialms.com/get_coursemodule.php";
     ProgramScreenCourseModuleAdapter adapter;
     ProgramScreenCourseModuleListItems pglist;
     List<ProgramScreenCourseModuleListItems> heroList;

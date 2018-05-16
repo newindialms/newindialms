@@ -35,7 +35,7 @@ public class ProgramScreenYear extends AppCompatActivity {
     private String ProgramName, YearList;
     private TextView Studentpic_program_title;
     private Toolbar studentpic_toolbar;
-    private String yearlist_url = "https://newindialms.000webhostapp.com/get_yearofjoining.php";
+    private String yearlist_url = "https://www.newindialms.com/get_yearofjoining.php";
     ProgramScreenYearAdapter adapter;
 
     List<ProgramScreenYearListItems> heroList;
