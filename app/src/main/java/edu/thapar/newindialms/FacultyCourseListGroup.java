@@ -93,7 +93,12 @@ public class FacultyCourseListGroup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (groupval.equals("") || sectionval.equals("")) {
+                groupSpinner = (Spinner) findViewById(R.id.spinner1);
+                sectionSpinner = (Spinner) findViewById(R.id.spinner2);
+                groupval = groupSpinner.getSelectedItem().toString();
+                sectionval = sectionSpinner.getSelectedItem().toString();
+
+                if (groupval.equals("Select Group") || sectionval.equals("Select Section")) {
                     builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
                     builder.setMessage(getResources().getString(R.string.registration_error_missingspinner_text));
                     displayAlert("missing_fields");

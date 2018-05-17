@@ -97,7 +97,7 @@ public class FacultyCourseListviewAttendanceGroup extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (groupval.equals("") || sectionval.equals("")) {
+                if (groupval.equals("Select Group") || sectionval.equals("Select Section")) {
                     builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
                     builder.setMessage(getResources().getString(R.string.registration_error_missingspinner_text));
                     displayAlert("missing_fields");

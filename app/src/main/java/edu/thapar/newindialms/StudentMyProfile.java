@@ -68,7 +68,7 @@ public class StudentMyProfile extends AppCompatActivity {
     //Uri to store the image uri
     private Uri filePath;
 
-    Button uploadbutton, choosebutton;
+    ImageView choosebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +101,7 @@ public class StudentMyProfile extends AppCompatActivity {
         studentprofile_program = (TextView) findViewById(R.id.textviewstudent_Program);
         studentprofile_specialization = (TextView) findViewById(R.id.textviewstudent_specialization);
 
-        uploadbutton = (Button) findViewById(R.id.studentImageUpload);
-        choosebutton = (Button) findViewById(R.id.studentImageChoose);
+        choosebutton = (ImageView) findViewById(R.id.studentImageChoose);
         imageView = (ImageView) findViewById(R.id.studentprofile_image);
 
         HttpWebCall(studentid);
@@ -110,12 +109,6 @@ public class StudentMyProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showFileChooser();
-            }
-        });
-        uploadbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uploadMultipart();
             }
         });
 
@@ -131,7 +124,7 @@ public class StudentMyProfile extends AppCompatActivity {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 imageView.setImageBitmap(bitmap);
-
+                uploadMultipart();
             } catch (IOException e) {
                 e.printStackTrace();
             }

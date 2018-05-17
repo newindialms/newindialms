@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/studentcolorPrimary"
-        app:titleTextColor="@color/textColor"
-        app:popupTheme="@style/MyTheme.PopupOverlay" />
+        app:popupTheme="@style/MyTheme.PopupOverlay"
+        app:titleTextColor="@color/textColor" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,10 +23,10 @@
         android:layout_below="@+id/studentprofile_toolbar">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/StudentImage">
+            android:id="@+id/StudentImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/studentprofile_title"
@@ -43,40 +43,40 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/studentprofile_image"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:layout_weight="0.55"
-                android:contentDescription="@string/my_profile"
-                app:srcCompat="@drawable/image_upload" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.55"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/studentImageUpload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/studentprofile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/upload"
-                    android:textColor="@color/studentcolorPrimaryDark" />
+                    android:layout_weight="70"
+                    android:contentDescription="@string/my_profile"
+                    android:src="@drawable/image_upload">
 
-                <Button
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <ImageView
                     android:id="@+id/studentImageChoose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/choose"
-                    android:textColor="@color/studentcolorPrimaryDark" />
-            </LinearLayout>
+                    android:layout_toEndOf="@+id/studentprofile_image"
+                    android:layout_toRightOf="@+id/studentprofile_image"
+                    android:layout_weight="30"
+                    android:contentDescription="@string/my_profile"
+                    android:src="@drawable/ic_upload_picture" />
+
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textviewstudent_name"
@@ -84,9 +84,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"
                 android:padding="10dp"
+                android:text="@string/removecourse_name"
                 android:textAlignment="center"
-                android:textColor="@color/studentcolorPrimaryDark"
-                android:text="@string/removecourse_name" />
+                android:textColor="@color/studentcolorPrimaryDark" />
 
             <TextView
                 android:id="@+id/textviewstudent_rollno"
@@ -94,9 +94,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"
                 android:padding="10dp"
+                android:text="@string/myfeedback_screen_title_rollno"
                 android:textAlignment="center"
-                android:textColor="@color/studentcolorPrimaryDark"
-                android:text="@string/myfeedback_screen_title_rollno" />
+                android:textColor="@color/studentcolorPrimaryDark" />
 
             <TextView
                 android:id="@+id/textviewstudent_email"
@@ -104,9 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"
                 android:padding="10dp"
+                android:text="@string/registration_email"
                 android:textAlignment="center"
-                android:textColor="@color/studentcolorPrimaryDark"
-                android:text="@string/registration_email" />
+                android:textColor="@color/studentcolorPrimaryDark" />
 
             <TextView
                 android:id="@+id/textviewstudent_Program"
@@ -114,9 +114,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"
                 android:padding="10dp"
+                android:text="@string/enrollprogram"
                 android:textAlignment="center"
-                android:textColor="@color/studentcolorPrimaryDark"
-                android:text="@string/enrollprogram" />
+                android:textColor="@color/studentcolorPrimaryDark" />
 
             <TextView
                 android:id="@+id/textviewstudent_specialization"
@@ -124,9 +124,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"
                 android:padding="10dp"
+                android:text="@string/specialization"
                 android:textAlignment="center"
-                android:textColor="@color/studentcolorPrimaryDark"
-                android:text="@string/specialization" />
+                android:textColor="@color/studentcolorPrimaryDark" />
 
         </LinearLayout>
     </ScrollView>

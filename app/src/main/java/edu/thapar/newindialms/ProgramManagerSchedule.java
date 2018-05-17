@@ -81,7 +81,7 @@ public class ProgramManagerSchedule extends AppCompatActivity {
                 semester_details = semesterspinner.getSelectedItem().toString();
 
                 if (semester_details.equals("") || day_details.equals("") || issue_details.equals("")) {
-                    builder = new AlertDialog.Builder(getApplicationContext(), R.style.MyAlertDialogStyle);
+                    builder = new AlertDialog.Builder(ProgramManagerSchedule.this, R.style.MyAlertDialogStyle);
                     builder.setTitle("Missing");
                     builder.setMessage("Please choose the Issue,Day and Semester ");
                     displayAlert();
