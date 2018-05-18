@@ -81,22 +81,23 @@ public class EnrolledCourseFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
+                if(response.equals("")){
+                    builder = new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
+                    builder.setTitle("Records");
+                    builder.setMessage("No Courses available,Update your specialization and Courses or check with Program Manager for the enrollment Dates.");
+                    displayAlert();
+
+                }
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("course_details");
 
-                    for (int i = 0; i < array.length(); i++) {
-                        if (array.getString(0).equals("")) {
-                            builder = new AlertDialog.Builder(getContext(), R.style.MyStudentAlertDialogStyle);
-                            builder.setTitle("Records");
-                            builder.setMessage("No Courses available,Update your specialization and Courses");
-                            displayAlert();
-                        } else {
+                        JSONArray array = j.getJSONArray("course_details");
+                        for (int i = 0; i < array.length(); i++) {
+
                             EnrolledCourseListItems listItemProgramList = new EnrolledCourseListItems(
                                     array.getString(i)
                             );
                             heroList.add(listItemProgramList);
-                        }
 
                     }
                     adapter = new EnrolledCourseAdapter(getActivity(), R.layout.fragment_enrolled_course_listitems, heroList);
@@ -134,10 +135,7 @@ public class EnrolledCourseFragment extends Fragment {
         builder.setPositiveButton(getResources().getString(R.string.about_us_button), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialoginterface, int i) {
                 dialoginterface.dismiss();
-                Intent specializationintent = new Intent(getContext(), StudentEnrollSpecializationTab.class);
-                specializationintent.putExtra("openfragment", "0");
-                specializationintent.putExtra("studentid", studentid);
-                startActivity(specializationintent);
+                getActivity().finish();
             }
         });
         AlertDialog alertDialog = builder.create();
