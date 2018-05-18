@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.StudentEnrollCourseTab">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/studentprofile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/navigation_program_myspecialization"
+        app:titleTextColor="@color/white"
+        android:background="@color/studentcolorPrimary" />
+
+    <TextView
+        android:id="@+id/specialization_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/studentprofile_toolbar"
+        android:text="@string/navigation_program_myspecialization"
+        android:textColor="@color/studentcolorPrimaryDark"
+
+        android:textSize="24sp"/>
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/showfeedback_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/specialization_title"
+        android:layout_marginTop="20dp">
+
+            <ListView
+                android:id="@+id/enrolledcourselistView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

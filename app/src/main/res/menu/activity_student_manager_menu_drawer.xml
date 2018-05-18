@@ -15,6 +15,12 @@
         android:icon="@drawable/student_attendance"
         android:title="@string/navigation_program_mycourses"
         android:checkable="true"/>
+    <item
+        android:id="@+id/navigation_program_myspecialization"
+        android:icon="@drawable/enroll_specialization"
+        android:title="@string/navigation_program_myspecialization"
+        android:visible="false"
+        android:checkable="true"/>
     <!--<item
         android:id="@+id/navigation_program_coursefeedback"
         android:icon="@drawable/ic_feedback"

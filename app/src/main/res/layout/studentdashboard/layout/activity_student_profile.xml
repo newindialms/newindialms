@@ -49,19 +49,18 @@
                 android:orientation="horizontal"
                 android:weightSum="100">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/studentprofile_image"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_height="120dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="70"
                     android:contentDescription="@string/my_profile"
-                    android:src="@drawable/image_upload">
+                    android:src="@drawable/profile_rectangle">
 
-
-                </de.hdodenhof.circleimageview.CircleImageView>
+                </ImageView>
 
                 <ImageView
                     android:id="@+id/studentImageChoose"

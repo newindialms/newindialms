@@ -48,7 +48,6 @@ public class LoginScreen extends AppCompatActivity {
     private Context context;
     private ProgressDialog progressDialog;
     public View layout;
-
     private String deviceid, token, type, typeid;
 
 
@@ -142,6 +141,9 @@ public class LoginScreen extends AppCompatActivity {
                                         String studentid = jsonObject.getString("student_rollnno");
                                         String studentyear = jsonObject.getString("student_year");
                                         String student_specialization = jsonObject.getString("student_specialization");
+                                        JSONObject jsonObject1 = jsonArray.getJSONObject(1);
+                                        String from_date = jsonObject1.getString("start_date");
+                                        String to_date = jsonObject1.getString("end_date");
                                         finish();
                                         Intent studentintent = new Intent(getApplicationContext(), StudentMenu.class);
                                         studentintent.putExtra("studentname", studentname);
@@ -149,6 +151,8 @@ public class LoginScreen extends AppCompatActivity {
                                         studentintent.putExtra("studentid", studentid);
                                         studentintent.putExtra("studentyear", studentyear);
                                         studentintent.putExtra("student_specialization", student_specialization);
+                                        studentintent.putExtra("from_date", from_date);
+                                        studentintent.putExtra("to_date", to_date);
                                         startActivity(studentintent);
                                         type = "student";
                                         typeid = studentid;

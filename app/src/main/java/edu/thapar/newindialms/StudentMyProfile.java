@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
@@ -341,7 +343,7 @@ public class StudentMyProfile extends AppCompatActivity {
     }
 
     public boolean loadImageFromURL(String fileUrl,
-                                    ImageView iv) {
+                                   ImageView iv) {
         try {
 
             URL myFileUrl = new URL(fileUrl);
@@ -352,7 +354,6 @@ public class StudentMyProfile extends AppCompatActivity {
 
             InputStream is = conn.getInputStream();
             iv.setImageBitmap(BitmapFactory.decodeStream(is));
-
             return true;
 
         } catch (MalformedURLException e) {

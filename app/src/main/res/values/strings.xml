@@ -404,6 +404,7 @@
 
 
     <string name="navigation_program_mycourses">My Courses</string>
+    <string name="navigation_program_myspecialization">My Specialization</string>
     <string name="navigation_program_coursefeedback">Course Feedback</string>
     <string name="navigation_program_Attendance">My Attendance</string>
     <string name="navigation_program_myschedule">My Schedule</string>

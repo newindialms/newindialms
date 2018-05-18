@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
@@ -199,6 +200,11 @@
         </activity>
         <activity
             android:name=".StudentEnrollCourseTab"
+            android:label="Student"
+            android:theme="@style/StudentTheme">
+        </activity>
+        <activity
+            android:name=".SpecializationScreen"
             android:label="Student"
             android:theme="@style/StudentTheme">
         </activity>

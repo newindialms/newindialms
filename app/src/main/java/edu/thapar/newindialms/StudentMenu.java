@@ -1,5 +1,6 @@
 package edu.thapar.newindialms;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 /**
  * Created by kamalshree on 11/13/2017.
  */
@@ -29,6 +46,12 @@ public class StudentMenu extends AppCompatActivity
     private String studentname, studentlastname, studentid, studentyear, student_specialization;
     private TextView student_toolbar_name, student_toolbar_id;
     private AlertDialog.Builder builder;
+    private String enroll_dates = "https://www.newindialms.com/get_enrolldate.php";
+
+    String from_date;// mm/dd/yyyy
+    String to_date;
+
+    Boolean your_date_is_outdated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +65,8 @@ public class StudentMenu extends AppCompatActivity
         studentid = getIntent().getStringExtra("studentid");
         studentyear = getIntent().getStringExtra("studentyear");
         student_specialization = getIntent().getStringExtra("student_specialization");
+        from_date = getIntent().getStringExtra("from_date").replaceAll("\\\\/", "/");
+        to_date = getIntent().getStringExtra("to_date").replaceAll("\\\\/", "/");
         //Toast.makeText(StudentMenu.this,"Specialization"+student_specialization,Toast.LENGTH_LONG).show();
 
         if (studentyear.equals("2")) {
@@ -49,8 +74,28 @@ public class StudentMenu extends AppCompatActivity
             Menu menu = navigationView.getMenu();
             MenuItem target = menu.findItem(R.id.navigation_program_enrollcourse);
             MenuItem targetspecialization = menu.findItem(R.id.navigation_program_specialization);
-            target.setVisible(true);
-            targetspecialization.setVisible(true);
+            MenuItem mspecialization = menu.findItem(R.id.navigation_program_myspecialization);
+            //target.setVisible(true);
+            //targetspecialization.setVisible(true);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+           try {
+               //Toast.makeText(StudentMenu.this,"from_date"+from_date,Toast.LENGTH_LONG).show();
+               //Toast.makeText(StudentMenu.this,"to_date"+to_date,Toast.LENGTH_LONG).show();
+               Date fromDate = sdf.parse(from_date);
+               Date toDate = sdf.parse(to_date);
+
+               if (System.currentTimeMillis()>=fromDate.getTime() && System.currentTimeMillis()<=toDate.getTime()) {
+                   your_date_is_outdated = true;
+                   target.setVisible(true);
+                   targetspecialization.setVisible(true);
+               } else {
+                   your_date_is_outdated = false;
+                   mspecialization.setVisible(true);
+               }
+           }catch (ParseException e){
+               e.printStackTrace();
+           }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.student_drawer_layout);
@@ -116,6 +161,11 @@ public class StudentMenu extends AppCompatActivity
                 studentmyprofileintent.putExtra("studentid", studentid);
                 studentmyprofileintent.putExtra("studentyear", studentyear);
                 startActivity(studentmyprofileintent);
+                break;
+            case R.id.navigation_program_myspecialization:
+                Intent intent = new Intent(getApplicationContext(), SpecializationScreen.class);
+                intent.putExtra("studentid", studentid);
+                startActivity(intent);
                 break;
             case R.id.navigation_program_mycourses:
                 fragment = new EnrolledCourseFragment();
@@ -209,4 +259,6 @@ public class StudentMenu extends AppCompatActivity
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+
 }
