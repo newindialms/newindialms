@@ -50,6 +50,7 @@
         <activity android:name=".AcademicCalendar" />
         <activity android:name=".ProgramManagerCourseScheduleFirstYear" />
         <activity android:name=".ProgramManagerFirtYearSchedule" />
+        <activity android:name=".ProgramManagerCourseList" />
         <activity android:name=".ProgramManagerSchedule" />
         <activity android:name=".ProgramScreenYearStudentName" />
         <activity android:name=".ProgramScreenCourse" />

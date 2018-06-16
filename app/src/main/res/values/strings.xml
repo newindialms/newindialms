@@ -372,6 +372,7 @@
     <string name="facultycourselist_viewattendance_title">Select Date</string>
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
     <string name="faculty_schedule_title">My Schedule</string>
+    <string name="faculty_schedule_Month">Month Year</string>
     <string name="ScheduleButton">Show</string>
     <string name="select_group">Select Group</string>
     <string name="select_section">Select Section</string>

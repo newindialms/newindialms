@@ -83,6 +83,18 @@ public class ProgramManagerMenu extends AppCompatActivity
         Intent intent = new Intent(getApplicationContext(), ProgramManagerSchedule.class);
         startActivity(intent);
     }
+    public void GoToFirstYearCourses(View v) {
+        Intent intent = new Intent(getApplicationContext(), ProgramManagerCourseList.class);
+        intent.putExtra("year", "1");
+        startActivity(intent);
+    }
+
+    public void GoToSecondYearCourses(View v) {
+        // fragment=new ProgramManagerSchedule();
+        Intent intent = new Intent(getApplicationContext(), ProgramManagerCourseList.class);
+        intent.putExtra("year", "2");
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed() {
@@ -102,7 +114,7 @@ public class ProgramManagerMenu extends AppCompatActivity
                 fragment = new ProgramManagerHome();
                 break;
             case R.id.navigation_program_courselist:
-                fragment = new ProgramManagerCourseList();
+                fragment = new ProgramManagerCourseSelector();
                 break;
             case R.id.navigation_program_schedule:
                 fragment = new ProgramManagerSelector();

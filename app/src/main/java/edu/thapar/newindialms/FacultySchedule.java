@@ -10,7 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.threeten.bp.LocalDate;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import solar.blaz.date.week.WeekDatePicker;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -21,23 +29,38 @@ public class FacultySchedule extends Fragment {
     private String faculty_employeeid;
     View rootView;
     private Button ScheduleButton;
-    private String datevalue;
-    private android.widget.CalendarView calendarView;
+    private String datevalue,yearval,month_name;
+    private TextView monthval;
+    private solar.blaz.date.week.WeekDatePicker calendarView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_schedule, null);
         FacultyMenu activity = (FacultyMenu) getActivity();
         faculty_employeeid = activity.getEmployeeid();
-        calendarView = (android.widget.CalendarView) rootView.findViewById(R.id.schedule_calendarView);
+        calendarView = (solar.blaz.date.week.WeekDatePicker) rootView.findViewById(R.id.schedule_calendarView);
+        monthval=(TextView) rootView.findViewById(R.id.faculty_schedule_month);
         ScheduleButton = (Button) rootView.findViewById(R.id.ScheduleButton);
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        Calendar cal= Calendar.getInstance();
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+        month_name  = month_date.format(cal.getTime());
+        yearval=Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        monthval.setText(month_name+" "+yearval);
+
+        calendarView.setOnDateSelectedListener(new WeekDatePicker.OnDateSelected() {
+            @Override
+            public void onDateSelected(LocalDate date) {
+                datevalue=date.toString();
+               // Toast.makeText(getContext(), datevalue, Toast.LENGTH_SHORT).show();
+            }
+        });
+       /* calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 datevalue = i2 + "-" + (i1 + 1) + "-" + i;
             }
-        });
+        });*/
 
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override

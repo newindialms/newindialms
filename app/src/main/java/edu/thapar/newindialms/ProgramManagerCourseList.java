@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,43 +31,57 @@ import java.util.List;
  * Created by kamalshree on 9/26/2017.
  */
 
-public class ProgramManagerCourseList extends Fragment {
+public class ProgramManagerCourseList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private String menucourselist_url = "https://www.newindialms.com/menu_courselist.php";
-
-    private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
+    String yearVal;
+    private Toolbar toolbar_all_notiifcation;
     private List<ListItemCourseList> listItemCourseLists;
     public SwipeRefreshLayout swipeRefreshLayout;
-    View rootView;
+    private TextView toolbar_title,CourselistTitle;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_program_manager_courselist, null);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.courselistRecyclerview);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_program_manager_courselist);
+        yearVal=getIntent().getStringExtra("year");
+        CourselistTitle = (TextView) findViewById(R.id.CourselistTitle);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.showfeedback_swipe);
+        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
+
+
+        setSupportActionBar(toolbar_all_notiifcation);
+        toolbar_all_notiifcation.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        recyclerView = (RecyclerView) findViewById(R.id.courselistRecyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
 
         listItemCourseLists = new ArrayList<>();
-        loadRecyclerViewDatafirstyear();
 
-       /* rootView.setFocusableInTouchMode(true);
-        rootView.requestFocus();
-        rootView.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                Log.i(TAG_FRAGMENT, "keyCode: " + keyCode);
-                if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
-                    Log.i(TAG_FRAGMENT, "onKey Back listener is working!!!");
-                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                    return true;
-                }
-                return false;
-            }
-        });*/
+        if(yearVal.equals("1")){
+            toolbar_title.setText("First Year Courses");
+            CourselistTitle.setText("First Year Course List");
+            loadRecyclerViewDatafirstyear();
+        }
+        else{
+            toolbar_title.setText("Second Year Courses");
+            CourselistTitle.setText("Second Year Course List");
+            loadRecyclerViewDatasecondyear();
+        }
+
+
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -77,11 +92,10 @@ public class ProgramManagerCourseList extends Fragment {
                 loadRecyclerViewDatafirstyear();
             }
         });
-        return rootView;
     }
 
-    private void loadRecyclerViewDatafirstyear() {
-        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+    private void loadRecyclerViewDatasecondyear() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Refreshing Data");
         progressDialog.show();
 
@@ -92,7 +106,6 @@ public class ProgramManagerCourseList extends Fragment {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray array = jsonObject.getJSONArray("Course_List");
-                    JSONArray array1 = jsonObject.getJSONArray("Course_List_first");
 
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);
@@ -103,16 +116,7 @@ public class ProgramManagerCourseList extends Fragment {
                         );
                         listItemCourseLists.add(listItemCourseList);
                     }
-                    for (int i = 0; i < array1.length(); i++) {
-                        JSONObject jsonObject1 = array1.getJSONObject(i);
-                        ListItemCourseList listItemCourseList = new ListItemCourseList(
-                                jsonObject1.getString("first_year_course_list_name"),
-                                jsonObject1.getString("first_year_course_list_faculty"),
-                                jsonObject1.getString("first_year_course_list_code")
-                        );
-                        listItemCourseLists.add(listItemCourseList);
-                    }
-                    adapter = new CourseListAdapter(listItemCourseLists, getContext());
+                    adapter = new CourseListAdapter(listItemCourseLists, getApplicationContext());
                     recyclerView.setAdapter(adapter);
 
 
@@ -126,15 +130,54 @@ public class ProgramManagerCourseList extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ProgramManagerCourseList.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.navigation_program_courselist));
+
+    private void loadRecyclerViewDatafirstyear() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Refreshing Data");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, menucourselist_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray array1 = jsonObject.getJSONArray("Course_List_first");
+
+                    for (int i = 0; i < array1.length(); i++) {
+                        JSONObject jsonObject1 = array1.getJSONObject(i);
+                        ListItemCourseList listItemCourseList = new ListItemCourseList(
+                                jsonObject1.getString("first_year_course_list_name"),
+                                jsonObject1.getString("first_year_course_list_faculty"),
+                                jsonObject1.getString("first_year_course_list_code")
+                        );
+                        listItemCourseLists.add(listItemCourseList);
+                    }
+                    adapter = new CourseListAdapter(listItemCourseLists, getApplicationContext());
+                    recyclerView.setAdapter(adapter);
+
+
+                } catch (JSONException e) {
+                    swipeRefreshLayout.setRefreshing(false);
+                    progressDialog.dismiss();
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(ProgramManagerCourseList.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }

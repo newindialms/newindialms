@@ -28,6 +28,7 @@ public class FacultyCourseListGroup extends AppCompatActivity {
     private String groupval, sectionval;
     private Button submitButton;
     AlertDialog.Builder builder;
+    private String CCP_Course="0";
     //a List of type hero for holding list items
     List<FacultyCourseListDashboardListItems> heroList;
 
@@ -59,9 +60,19 @@ public class FacultyCourseListGroup extends AppCompatActivity {
         facultycourselist_program_title = (TextView) findViewById(R.id.facultycourselist_program_title);
         facultycourselist_program_title.setText(coursename);
 
-
         groupSpinner = (Spinner) findViewById(R.id.spinner1);
         sectionSpinner = (Spinner) findViewById(R.id.spinner2);
+       // Toast.makeText(this, coursename, Toast.LENGTH_SHORT).show();
+        if(coursename.equals("Communication and Consultative Problem Solving-I") || coursename.equals("Communication and Consultative Problem Solving-II")) {
+            groupSpinner.setVisibility(View.VISIBLE);
+            sectionSpinner.setVisibility(View.GONE);
+            CCP_Course="1";
+        }
+        else{
+            groupSpinner.setVisibility(View.GONE);
+            sectionSpinner.setVisibility(View.VISIBLE);
+        }
+
 
 
         groupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -98,11 +109,7 @@ public class FacultyCourseListGroup extends AppCompatActivity {
                 groupval = groupSpinner.getSelectedItem().toString();
                 sectionval = sectionSpinner.getSelectedItem().toString();
 
-                if (groupval.equals("Select Group") || sectionval.equals("Select Section")) {
-                    builder.setTitle(getResources().getString(R.string.registration_error_missingfields_title));
-                    builder.setMessage(getResources().getString(R.string.registration_error_missingspinner_text));
-                    displayAlert("missing_fields");
-                } else {
+
                     Intent facultyintent = new Intent(getApplicationContext(), FacultyCourseListTakeAttendanceGroup.class);
                     //Toast.makeText(getApplication(),groupval+sectionval+coursename+faculty_employeeid,Toast.LENGTH_LONG).show();
                     facultyintent.putExtra("coursename", coursename);
@@ -110,9 +117,10 @@ public class FacultyCourseListGroup extends AppCompatActivity {
                     facultyintent.putExtra("groupname", groupval);
                     facultyintent.putExtra("sectionname", sectionval);
                     facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.putExtra("CCP_Course", CCP_Course);
                     facultyintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(facultyintent);
-                }
+
             }
         });
 

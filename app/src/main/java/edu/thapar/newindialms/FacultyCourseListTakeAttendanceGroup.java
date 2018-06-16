@@ -41,7 +41,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
     private static final String TAG = "FacultyCourseListTakeAttendance";
     public static final String enrolledstudent_url = "https://www.newindialms.com/faculty_group_firstyear.php";
     public static final String saveattendance_URL = "https://www.newindialms.com/saveattendancegroup.php";
-    private String coursename, faculty_employeeid, course_date, course_time, groupname, sectionname, coursetype;
+    private String coursename, faculty_employeeid, course_date, course_time, groupname, sectionname, coursetype,CCP_Course;
     private TextView facultycourselist_program_title;
     private Toolbar faculty_toolbar;
     LayoutInflater layoutinflater;
@@ -65,6 +65,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
         groupname = getIntent().getStringExtra("groupname");
         sectionname = getIntent().getStringExtra("sectionname");
         coursetype = getIntent().getStringExtra("coursetype");
+        CCP_Course = getIntent().getStringExtra("CCP_Course");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
 
@@ -198,6 +199,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
                 params.put("attendance_status", attendance_status);
                 params.put("groupname", groupname);
                 params.put("sectionname", sectionname);
+                params.put("CCP_Course", CCP_Course);
                 return params;
 
             }
@@ -273,6 +275,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
                 params.put("attendance_status", attendance_status);
                 params.put("groupname", groupname);
                 params.put("sectionname", sectionname);
+                params.put("CCP_Course", CCP_Course);
                 return params;
             }
         };
@@ -330,6 +333,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("groupname", groupname);
                 params.put("sectionname", sectionname);
+                params.put("CCP_Course", CCP_Course);
                 return params;
             }
         };

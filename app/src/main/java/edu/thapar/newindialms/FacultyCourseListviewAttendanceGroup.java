@@ -68,6 +68,17 @@ public class FacultyCourseListviewAttendanceGroup extends AppCompatActivity {
         groupSpinner = (Spinner) findViewById(R.id.spinner1);
         sectionSpinner = (Spinner) findViewById(R.id.spinner2);
 
+        if(course_details_name.equals("Communication and Consultative Problem Solving-I") || course_details_name.equals("Communication and Consultative Problem Solving-II")) {
+            groupSpinner.setVisibility(View.VISIBLE);
+            sectionSpinner.setVisibility(View.GONE);
+            sectionval="0";
+        }
+        else{
+            groupSpinner.setVisibility(View.GONE);
+            sectionSpinner.setVisibility(View.VISIBLE);
+            groupval="0";
+        }
+
 
         groupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
