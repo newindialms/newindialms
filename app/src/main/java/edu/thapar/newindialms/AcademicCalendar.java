@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +24,24 @@ import org.json.JSONObject;
 public class AcademicCalendar extends AppCompatActivity {
     private Toolbar calendarToolbar;
     private String calendarDetails_Url = "https://www.newindialms.com/get_calendardetails.php";
+    private LinearLayout fall_calendar_layout, spring_calendar_layout;
+    private String CalendarVal;
     private TextView accademicCalendar, fallYear, fallSemesterSesion, springYear,
             springSemesterSesion,
+            textViewClassesRegistrationFall,
+            fallclassessemester3registrationtext,
+            fallclassessemester3Registration,
+            registrationtextfall,
+            feefallSub1,
+            feefallSub2,
+            feefallSubcomment,
+            textViewClassesRegistrationSpring,
+            springclassessemester24registrationtext,
+            springclassessemester24Registration,
+            registrationtextspring,
+            feespringSub1,
+            feespringSub2,
+            feespringSubcomment,
             fallClassesSemester3,
             sprigClassesSemester24,
             fallClassesSemester2,
@@ -47,13 +64,15 @@ public class AcademicCalendar extends AppCompatActivity {
             fallClosingDays,
             backlogDates,
             fallWinterBreak,
-            springSummerBreak;
+            springSummerBreak,
+            sringcalendar,
+            textView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academic_calendar);
-
+        CalendarVal = getIntent().getStringExtra("CalendarVal");
         calendarToolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
         calendarToolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(calendarToolbar);
@@ -64,11 +83,35 @@ public class AcademicCalendar extends AppCompatActivity {
             }
         });
 
+        fall_calendar_layout = (LinearLayout) findViewById(R.id.fall_calendar_layout);
+        spring_calendar_layout = (LinearLayout) findViewById(R.id.spring_calendar_layout);
+
+        sringcalendar = (TextView) findViewById(R.id.sringcalendar);
+        textView5 = (TextView) findViewById(R.id.textView5);
+
         accademicCalendar = (TextView) findViewById(R.id.accademic_calendar);
         fallYear = (TextView) findViewById(R.id.fall_year);
         fallSemesterSesion = (TextView) findViewById(R.id.fall_semester_sesion);
         springYear = (TextView) findViewById(R.id.spring_year);
         springSemesterSesion = (TextView) findViewById(R.id.spring_semester_sesion);
+
+        textViewClassesRegistrationFall = (TextView) findViewById(R.id.textViewClassesRegistrationFall);
+        springclassessemester24registrationtext = (TextView) findViewById(R.id.spring_classes_semester24_registration_text);
+        feefallSub1 = (TextView) findViewById(R.id.fee_fall_sub_1);
+        fallclassessemester3Registration = (TextView) findViewById(R.id.fall_classes_semester3_registration);
+        registrationtextfall = (TextView) findViewById(R.id.registrationtextfall);
+        feefallSub2 = (TextView) findViewById(R.id.fee_fall_sub_2);
+        feefallSubcomment = (TextView) findViewById(R.id.fee_fall_sub_comment);
+
+        textViewClassesRegistrationSpring = (TextView) findViewById(R.id.textViewClassesRegistrationSpring);
+        fallclassessemester3registrationtext = (TextView) findViewById(R.id.fall_classes_semester3_registration_text);
+        springclassessemester24Registration = (TextView) findViewById(R.id.spring_classes_semester24_registration);
+        registrationtextspring = (TextView) findViewById(R.id.registrationtextspring);
+        feespringSub1 = (TextView) findViewById(R.id.fee_spring_sub_1);
+        feespringSub2 = (TextView) findViewById(R.id.fee_spring_sub_2);
+        feespringSubcomment = (TextView) findViewById(R.id.fee_spring_sub_comment);
+
+
         fallClassesSemester3 = (TextView) findViewById(R.id.fall_classes_semester3);
         sprigClassesSemester24 = (TextView) findViewById(R.id.sprig_classes_semester24);
         fallClassesSemester2 = (TextView) findViewById(R.id.fall_classes_semester2);
@@ -93,10 +136,19 @@ public class AcademicCalendar extends AppCompatActivity {
         fallWinterBreak = (TextView) findViewById(R.id.fall_winter_break);
         springSummerBreak = (TextView) findViewById(R.id.spring_summer_break);
 
-        loadCalendarDetails();
+        if (CalendarVal.equals("Spring")) {
+            loadSpringCalendarDetails();
+            fall_calendar_layout.setVisibility(View.GONE);
+            textView5.setVisibility(View.GONE);
+        } else {
+            loadFallCalendarDetails();
+            spring_calendar_layout.setVisibility(View.GONE);
+            sringcalendar.setVisibility(View.GONE);
+        }
+
     }
 
-    private void loadCalendarDetails() {
+    private void loadFallCalendarDetails() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarDetails_Url,
                 new Response.Listener<String>() {
                     @Override
@@ -138,34 +190,35 @@ public class AcademicCalendar extends AppCompatActivity {
                                 String fallwinterbreak = jsonobject.getString("fall_winter_break");
                                 String springsummerbreak = jsonobject.getString("spring_summer_break");
 
+                                String fallclassessemester3registration = jsonobject.getString("fall_classes_semester3_registration");
+                                String feefallsub1 = jsonobject.getString("fee_fall_sub_1");
+                                String feefallsub2 = jsonobject.getString("fee_fall_sub_2");
+                                String fee_fall_sub_comment = jsonobject.getString("fee_spring_sub_comment");
+
                                 accademicCalendar.setText(accademiccalendar);
                                 fallYear.setText(fallyear);
                                 fallSemesterSesion.setText(fallsemestersesion);
-                                springYear.setText(springyear);
-                                springSemesterSesion.setText(springsemestersesion);
                                 fallClassesSemester3.setText(fallclassessemester3);
-                                sprigClassesSemester24.setText(sprigclassessemester24);
                                 fallClassesSemester2.setText(fallclassessemester2);
                                 fallClassesSemester1.setText(fallclassessemester1);
                                 fallTeachingSemester3.setText(fallteachingsemester3);
-                                springTeachingSemester24.setText(springteachingsemester24);
                                 fallTeachingSemester1.setText(fallteachingsemester1);
                                 fallMidendSemester13.setText(fallmidendsemester13);
-                                springMidendSemester24.setText(springmidendsemester24);
                                 fallTeachingSemestersecond.setText(fallteachingsemestersecond);
-                                springTeachingSemestersecond.setText(springteachingsemestersecond);
                                 fallBreakSemester13.setText(fallbreaksemester13);
-                                springBreakSemester24.setText(springbreaksemester24);
                                 fallTeachingSemesterthird.setText(fallteachingsemesterthird);
-                                springWeekendDays.setText(springweekenddays);
                                 fallendBreakSemester13.setText(fallendbreaksemester13);
-                                springClosingDays.setText(springclosingdays);
                                 fallWeekendDays.setText(fallweekenddays);
-                                internshipDays.setText(internshipdays);
                                 fallClosingDays.setText(fallclosingdays);
+                                internshipDays.setText(internshipdays);
                                 backlogDates.setText(backlogdates);
                                 fallWinterBreak.setText(fallwinterbreak);
-                                springSummerBreak.setText(springsummerbreak);
+
+                                fallclassessemester3Registration.setText(fallclassessemester3registration);
+                                feefallSub1.setText(feefallsub1);
+                                feefallSub2.setText(feefallsub2);
+                                feefallSubcomment.setText(fee_fall_sub_comment);
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -186,5 +239,94 @@ public class AcademicCalendar extends AppCompatActivity {
 
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
+
+    private void loadSpringCalendarDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarDetails_Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray jsonarray = new JSONArray(response);
+
+                            for (int i = 0; i < jsonarray.length(); i++) {
+
+                                JSONObject jsonobject = jsonarray.getJSONObject(i);
+
+                                String accademiccalendar = jsonobject.getString("accademic_calendar");
+                                String fallyear = jsonobject.getString("fall_year");
+                                String fallsemestersesion = jsonobject.getString("fall_semester_sesion");
+                                String springyear = jsonobject.getString("spring_year");
+                                String springsemestersesion = jsonobject.getString("spring_semester_sesion");
+                                String fallclassessemester3 = jsonobject.getString("fall_classes_semester3");
+                                String sprigclassessemester24 = jsonobject.getString("sprig_classes_semester24");
+                                String fallclassessemester2 = jsonobject.getString("fall_classes_semester2");
+                                String fallclassessemester1 = jsonobject.getString("fall_classes_semester1");
+                                String fallteachingsemester3 = jsonobject.getString("fall_teaching_semester3");
+                                String springteachingsemester24 = jsonobject.getString("spring_teaching_semester24");
+                                String fallteachingsemester1 = jsonobject.getString("fall_teaching_semester1");
+                                String fallmidendsemester13 = jsonobject.getString("fall_midend_semester13");
+                                String springmidendsemester24 = jsonobject.getString("spring_midend_semester24");
+                                String fallteachingsemestersecond = jsonobject.getString("fall_teaching_semestersecond");
+                                String springteachingsemestersecond = jsonobject.getString("spring_teaching_semestersecond");
+                                String fallbreaksemester13 = jsonobject.getString("fall_break_semester13");
+                                String springbreaksemester24 = jsonobject.getString("spring_break_semester24");
+                                String fallteachingsemesterthird = jsonobject.getString("fall_teaching_semesterthird");
+                                String springweekenddays = jsonobject.getString("spring_weekend_days");
+                                String fallendbreaksemester13 = jsonobject.getString("fallend_break_semester13");
+                                String springclosingdays = jsonobject.getString("spring_closing_days");
+                                String fallweekenddays = jsonobject.getString("fall_weekend_days");
+                                String internshipdays = jsonobject.getString("internship_days");
+                                String fallclosingdays = jsonobject.getString("fall_closing_days");
+                                String backlogdates = jsonobject.getString("backlog_dates");
+                                String fallwinterbreak = jsonobject.getString("fall_winter_break");
+                                String springsummerbreak = jsonobject.getString("spring_summer_break");
+
+                                String springclassessemester24registration = jsonobject.getString("spring_classes_semester24_registration");
+                                String feespringsub1 = jsonobject.getString("fee_spring_sub_1");
+                                String feespringsub2 = jsonobject.getString("fee_spring_sub_2");
+                                String feespringsubcomment = jsonobject.getString("fee_spring_sub_comment");
+
+
+
+                                accademicCalendar.setText(accademiccalendar);
+                                springYear.setText(springyear);
+                                springSemesterSesion.setText(springsemestersesion);
+                                sprigClassesSemester24.setText(sprigclassessemester24);
+                                springTeachingSemester24.setText(springteachingsemester24);
+                                springMidendSemester24.setText(springmidendsemester24);
+                                springTeachingSemestersecond.setText(springteachingsemestersecond);
+                                springBreakSemester24.setText(springbreaksemester24);
+                                springWeekendDays.setText(springweekenddays);
+                                springClosingDays.setText(springclosingdays);
+                                springSummerBreak.setText(springsummerbreak);
+                                backlogDates.setText(backlogdates);
+                                internshipDays.setText(internshipdays);
+
+                                springclassessemester24Registration.setText(springclassessemester24registration);
+                                feespringSub1.setText(feespringsub1);
+                                feespringSub2.setText(feespringsub2);
+                                feespringSubcomment.setText(feespringsubcomment);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error != null) {
+
+                            Toast.makeText(getApplicationContext(), "Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+        );
+
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
+
 
 }

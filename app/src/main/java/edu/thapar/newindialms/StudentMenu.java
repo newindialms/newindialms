@@ -43,11 +43,12 @@ import java.text.SimpleDateFormat;
 public class StudentMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment = null;
+    private String CalendarVal;
     private String studentname, studentlastname, studentid, studentyear, student_specialization;
     private TextView student_toolbar_name, student_toolbar_id;
     private AlertDialog.Builder builder;
     private String enroll_dates = "https://www.newindialms.com/get_enrolldate.php";
-
+    private String calendarValDetails_Url = "https://www.newindialms.com/get_calendarValdetails.php";
     String from_date;// mm/dd/yyyy
     String to_date;
 
@@ -59,7 +60,7 @@ public class StudentMenu extends AppCompatActivity
         setContentView(R.layout.activity_student_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.student_toolbar);
         setSupportActionBar(toolbar);
-
+        loadCalendarValDetails();
         studentname = getIntent().getStringExtra("studentname");
         studentlastname = getIntent().getStringExtra("studentlastname");
         studentid = getIntent().getStringExtra("studentid");
@@ -191,7 +192,10 @@ public class StudentMenu extends AppCompatActivity
                 fragment.setArguments(bundle);
                 break;
             case R.id.navigation_program_academiccalendar:
+                Bundle bundlecal = new Bundle();
+                bundlecal.putString("CalendarVal", CalendarVal);
                 fragment = new StudentAcademicCalendar();
+                fragment.setArguments(bundlecal);
                 break;
             case R.id.navigation_program_enrollcourse:
                 Intent enrollcourseintent = new Intent(getApplicationContext(), StudentEnrollCourseTab.class);
@@ -258,6 +262,39 @@ public class StudentMenu extends AppCompatActivity
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void loadCalendarValDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarValDetails_Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray jsonarray = new JSONArray(response);
+
+                            JSONObject jsonobject = jsonarray.getJSONObject(0);
+
+                            CalendarVal = jsonobject.getString("calendar_val");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error != null) {
+
+                            Toast.makeText(StudentMenu.this, "Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+        );
+
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
 

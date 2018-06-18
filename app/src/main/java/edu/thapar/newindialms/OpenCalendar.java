@@ -26,6 +26,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.ghyeok.stickyswitch.widget.StickySwitch;
+
 /**
  * Created by kamalshree on 10/8/2017.
  */
@@ -33,7 +35,11 @@ import java.util.Map;
 public class OpenCalendar extends AppCompatActivity {
     private static final String TAG = "OpenCalendar";
     private Button open_calendar_details, SendNotification;
+    private String CalendarVal;
+
     private String notification_url = "https://www.newindialms.com/send_notification.php";
+    private String calendarValDetails_Url = "https://www.newindialms.com/get_calendarValdetails.php";
+
     private EditText message_notification, title_notification;
     private String title, message;
     private AlertDialog.Builder builder;
@@ -42,6 +48,8 @@ public class OpenCalendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.academic_calendar_layout);
+
+        loadCalendarValDetails();
 
         Toolbar calendar_toolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
         calendar_toolbar.setNavigationIcon(R.drawable.ic_left);
@@ -83,6 +91,7 @@ public class OpenCalendar extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent calendarintent = new Intent(getApplicationContext(), AcademicCalendar.class);
+                calendarintent.putExtra("CalendarVal", CalendarVal);
                 startActivity(calendarintent);
             }
         });
@@ -140,5 +149,39 @@ public class OpenCalendar extends AppCompatActivity {
         MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
     }
 
+
+
+    private void loadCalendarValDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarValDetails_Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray jsonarray = new JSONArray(response);
+
+                            JSONObject jsonobject = jsonarray.getJSONObject(0);
+
+                            CalendarVal = jsonobject.getString("calendar_val");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error != null) {
+
+                            Toast.makeText(OpenCalendar.this, "Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+        );
+
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
 }
 

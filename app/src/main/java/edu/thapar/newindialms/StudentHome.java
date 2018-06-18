@@ -6,12 +6,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by kamalshree on 9/26/2017.
  */
 
 public class StudentHome extends Fragment {
+    private String CalendarVal;
+    private String calendarValDetails_Url = "https://www.newindialms.com/get_calendarValdetails.php";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,4 +37,37 @@ public class StudentHome extends Fragment {
 
     }
 
+    private void loadCalendarValDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarValDetails_Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray jsonarray = new JSONArray(response);
+
+                            JSONObject jsonobject = jsonarray.getJSONObject(0);
+
+                            CalendarVal = jsonobject.getString("calendar_val");
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error != null) {
+
+                            Toast.makeText(getContext(), "Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+        );
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(stringRequest);
+    }
 }

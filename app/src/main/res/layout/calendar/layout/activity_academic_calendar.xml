@@ -59,6 +59,7 @@
                 android:layout_below="@+id/accademic_calendar">
 
                 <LinearLayout
+                    android:id="@+id/fall_calendar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -130,6 +131,110 @@
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
+
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
+
+                    <TextView
+                        android:id="@+id/textViewClassesRegistrationFall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Registration**"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fall_classes_semester3_registration_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Semester III"
+                            android:padding="5dp"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                        android:id="@+id/fall_classes_semester3_registration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:textAlignment="center"
+                        android:inputType="textPersonName"
+                        android:padding="5dp"
+                        android:textColor="@color/textColor" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
+
+                        <TextView
+                            android:id="@+id/registrationtextfall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Following late Registration fee shall be applicable"
+                            android:padding="5dp"
+                            android:textColor="@color/textColor" />
+
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
+
+                    </LinearLayout>
+
 
                     <View
                         android:layout_width="fill_parent"
@@ -710,6 +815,7 @@
                 android:visibility="visible">
 
                 <LinearLayout
+                    android:id="@+id/spring_calendar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -783,6 +889,107 @@
                             android:padding="5dp"
                             android:textColor="@color/textColor" />
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
+
+                    <TextView
+                        android:id="@+id/textViewClassesRegistrationSpring"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Registration**"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/textColor"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/spring_classes_semester24_registration_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Semester II and IV"
+                            android:padding="5dp"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                            android:id="@+id/spring_classes_semester24_registration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:textColor="@color/textColor" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
+
+                        <TextView
+                            android:id="@+id/registrationtextspring"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Following late Registration fee shall be applicable"
+                            android:padding="5dp"
+                            android:textColor="@color/textColor" />
+
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/textColor" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/windowBackground" />
+
+                    </LinearLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
@@ -1222,6 +1429,47 @@
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
+
+
+            <TextView
+                android:id="@+id/note1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="*subject to change; ** ‘Registration’ shall be treated as completed, provided: "
+                android:textColor="@color/textColor" />
+
+            <TextView
+                android:id="@+id/note2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="1. He/she has deposited the semester fee within the prescribed period for each semester."
+                android:textColor="@color/textColor" />
+            <TextView
+                android:id="@+id/note3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="2. He/she has to secure a ‘fee slip’ from the accounts section to confirm registration within that prescribed period. Kindly bring the proof of deposit of fee to the accounts section to get the fee slip."
+                android:textColor="@color/textColor" />
+            <TextView
+                android:id="@+id/note4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="5"
+                android:maxLines="5"
+                android:text="In case a student fails in either of the above within the prescribed time, he/she will be deemed as ‘not registered’ and can be registered only by paying ‘late registration fee of Rs. 1000/- or Rs. 5000/- till the last dates of registration mentioned above. The approval of Director, LMTSM, is required after the elapse of period mentioned for ‘late registration’ above."
+                android:textColor="@color/textColor" />
+
+
 
             <TextView
                 android:id="@+id/textView14"

@@ -6,9 +6,11 @@
     android:background="@color/textColor"
     tools:context="edu.thapar.newindialms.AcademicCalendar">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/calendar_toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp">
@@ -24,9 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/accademic_calendar_fall"
+                android:text="Accademic Calendar Fall"
                 android:textAlignment="center"
-                android:textColor="@color/facultytextMenu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -34,19 +36,25 @@
                 android:id="@+id/accademic_calendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/textView5"
+                android:layout_centerHorizontal="true"
                 android:ems="10"
+                android:inputType="textPersonName"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/facultytextMenu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="24sp" />
 
             <ScrollView
                 android:id="@+id/fallscroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-               >
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/accademic_calendar">
 
                 <LinearLayout
+                    android:id="@+id/fall_calendar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -68,9 +76,9 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_weight="1"
                             android:padding="5dp"
-                            android:text="@string/fall"
+                            android:text="Fall"
                             android:textAlignment="center"
-                            android:textColor="@color/facultytextMenu"
+                            android:textColor="@color/facultyMenu"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -102,7 +110,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/full_semester"
+                            android:text="(Full Semester Session:)"
                             android:layout_gravity="center_horizontal"
                             android:textAlignment="center"
                             android:textColor="@color/facultyMenu"
@@ -119,16 +127,17 @@
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
 
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
-                        android:id="@+id/textViewClassesBegin"
+                        android:id="@+id/textViewClassesRegistrationFall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/classes_begin"
+                        android:text="Registration**"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:textSize="18sp"
@@ -136,7 +145,110 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fall_classes_semester3_registration_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Semester III"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/fall_classes_semester3_registration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/facultycolorPrimary" />
+
+                        <TextView
+                            android:id="@+id/registrationtextfall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Following late Registration fee shall be applicable"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/fee_fall_sub_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/facultycolorPrimary" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/facultycolorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/textViewClassesBegin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Classes Begin"
+                        android:textAlignment="center"
+                        android:textColor="@color/facultyMenu"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -150,7 +262,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_3"
+                            android:text="Semester III"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -163,6 +275,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -184,7 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_1"
+                            android:text="Semester I (Orientation Program)"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -196,6 +309,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -218,7 +332,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_1_text"
+                            android:text="Semester I"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -231,6 +345,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -238,13 +353,13 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewteachingsession"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/semester_1_teaching"
+                        android:text="1st teaching session"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:textSize="18sp"
@@ -252,7 +367,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -265,7 +380,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_3"
+                            android:text="Semester III"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -278,13 +393,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="1dp"
-                            android:background="@color/facultycolorPrimary" />
+                            android:background="@color/facultyMenu" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -299,7 +415,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_1"
+                            android:text="Semester I"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -311,19 +427,20 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewmidsemestertest"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/mid_semester"
+                        android:text="Mid/End Semester Test"
                         android:textAlignment="center"
                         android:textColor="@color/facultyMenu"
                         android:gravity="center"
@@ -332,7 +449,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -345,7 +462,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/semester_13"
+                            android:text="Semester I and III"
                             android:textColor="@color/facultyMenu"
                             android:textStyle="bold"
                             android:padding="5dp"
@@ -357,6 +474,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -364,7 +482,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewsecondteachingsession"
@@ -379,7 +497,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -404,13 +522,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewmidbreak"
@@ -425,7 +544,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -451,13 +570,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewthirdteachingsession"
@@ -472,7 +592,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -496,13 +616,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewendsemestertest"
@@ -516,7 +637,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -542,13 +663,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewweekendteachingdays"
@@ -563,7 +685,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -588,7 +710,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewfallclosing"
                         android:layout_width="match_parent"
@@ -602,7 +724,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -627,7 +749,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewwinterbreak"
                         android:layout_width="match_parent"
@@ -641,7 +763,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -669,11 +791,12 @@
                 android:id="@+id/sringcalendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/fallscroll"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Accademic Calendar Spring"
                 android:textAlignment="center"
-                android:textColor="@color/facultytextMenu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -681,9 +804,13 @@
                 android:id="@+id/springscroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/fallscroll"
                 android:visibility="visible">
 
                 <LinearLayout
+                    android:id="@+id/spring_calendar_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -707,13 +834,13 @@
                             android:padding="5dp"
                             android:text="Spring"
                             android:textAlignment="center"
-                            android:textColor="@color/facultytextMenu"
+                            android:textColor="@color/facultyMenu"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="1dp"
-                            android:background="@color/facultyMenu"/>
+                            android:background="@color/facultycolorPrimary"/>
 
                         <TextView
                             android:id="@+id/spring_year"
@@ -753,13 +880,115 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/textViewClassesRegistrationSpring"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Registration**"
+                        android:textAlignment="center"
+                        android:textColor="@color/facultyMenu"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/facultycolorPrimary"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/spring_classes_semester24_registration_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Semester II and IV"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/spring_classes_semester24_registration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/facultycolorPrimary" />
+
+                        <TextView
+                            android:id="@+id/registrationtextspring"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:textAlignment="center"
+                            android:text="Following late Registration fee shall be applicable"
+                            android:padding="5dp"
+                            android:textColor="@color/facultyMenu" />
+
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+
+                        <TextView
+                            android:id="@+id/fee_spring_sub_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:lines="3"
+                            android:maxLines="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/facultyMenu" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/facultycolorPrimary" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewspringClassesBegin"
                         android:layout_width="match_parent"
@@ -772,7 +1001,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -797,14 +1026,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <TextView
                         android:id="@+id/textViewspringteachingsession"
@@ -818,7 +1047,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -843,7 +1072,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
@@ -851,7 +1080,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViespringwmidsemestertest"
                         android:layout_width="match_parent"
@@ -864,7 +1093,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -890,7 +1119,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
 
@@ -898,7 +1127,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewspringsecondteachingsession"
                         android:layout_width="match_parent"
@@ -911,7 +1140,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -936,14 +1165,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewspringendsemestertest"
                         android:layout_width="match_parent"
@@ -956,7 +1185,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -981,14 +1210,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:textColor="@color/facultyMenu"
                             android:padding="5dp"/>
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewsweekendteachingsession"
                         android:layout_width="match_parent"
@@ -1002,7 +1231,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1026,7 +1255,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewschoolcollegeclose"
                         android:layout_width="match_parent"
@@ -1040,7 +1269,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1064,7 +1293,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewsummerinternship"
                         android:layout_width="match_parent"
@@ -1077,7 +1306,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1103,7 +1332,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
-
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:gravity="center"
                             android:textColor="@color/facultyMenu" />
@@ -1111,7 +1340,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewsummersemester"
                         android:layout_width="match_parent"
@@ -1125,7 +1354,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1151,13 +1380,14 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:textAlignment="center"
+                            android:inputType="textPersonName"
                             android:padding="5dp"
                             android:textColor="@color/facultyMenu" />
                     </LinearLayout>
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
                     <TextView
                         android:id="@+id/textViewsummerbreak"
                         android:layout_width="match_parent"
@@ -1171,7 +1401,7 @@
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
-                        android:background="@color/facultyMenu"/>
+                        android:background="@color/facultycolorPrimary"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1195,6 +1425,47 @@
                 </LinearLayout>
             </ScrollView>
 
+
+            <TextView
+                android:id="@+id/note1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="*subject to change; ** ‘Registration’ shall be treated as completed, provided: "
+                android:textColor="@color/facultyMenu" />
+
+            <TextView
+                android:id="@+id/note2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="1. He/she has deposited the semester fee within the prescribed period for each semester."
+                android:textColor="@color/facultyMenu" />
+            <TextView
+                android:id="@+id/note3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:text="2. He/she has to secure a ‘fee slip’ from the accounts section to confirm registration within that prescribed period. Kindly bring the proof of deposit of fee to the accounts section to get the fee slip."
+                android:textColor="@color/facultyMenu" />
+            <TextView
+                android:id="@+id/note4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lines="5"
+                android:maxLines="5"
+                android:text="In case a student fails in either of the above within the prescribed time, he/she will be deemed as ‘not registered’ and can be registered only by paying ‘late registration fee of Rs. 1000/- or Rs. 5000/- till the last dates of registration mentioned above. The approval of Director, LMTSM, is required after the elapse of period mentioned for ‘late registration’ above."
+                android:textColor="@color/facultyMenu" />
+
+
+
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
@@ -1205,7 +1476,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Notes:"
                 android:textAlignment="center"
-                android:textColor="@color/facultytextMenu"
+                android:textColor="@color/facultyMenu"
                 android:textSize="14sp" />
 
             <TextView
@@ -1216,8 +1487,7 @@
                 android:lines="5"
                 android:maxLines="5"
                 android:text="&#8226; In case of shortage of slots for MST &amp; EST, the examinations can even be held on Sundays. The classes, if require, can also be scheduled on Saturdays and Sundays."
-                android:textColor="@color/facultytextMenu"
-                />
+                android:textColor="@color/facultyMenu" />
 
             <TextView
                 android:id="@+id/multiAutoCompleteTextView2"
@@ -1227,8 +1497,7 @@
                 android:lines="5"
                 android:maxLines="5"
                 android:text="&#8226; A faculty can avail maximum 60 days’ vacations out of total days of vacations as per the winter and summer vacation circular of the University."
-                android:textColor="@color/facultytextMenu"
-                />
+                android:textColor="@color/facultyMenu" />
 
         </LinearLayout>
 

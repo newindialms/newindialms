@@ -68,10 +68,10 @@ public class ProgramManagerMenu extends AppCompatActivity
 
 
     //Calendar
-    public void GoToCalendar(View v) {
+   /* public void GoToCalendar(View v) {
         Intent intent = new Intent(getApplicationContext(), AcademicCalendar.class);
         startActivity(intent);
-    }
+    }*/
 
     public void GoToFirstYearSchedule(View v) {
         Intent intent = new Intent(getApplicationContext(), ProgramManagerFirtYearSchedule.class);

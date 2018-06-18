@@ -3,6 +3,7 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -18,6 +19,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import io.ghyeok.stickyswitch.widget.StickySwitch;
+
 /**
  * Created by kamalshree on 11/13/2017.
  */
@@ -25,9 +37,12 @@ import android.widget.Toast;
 public class FacultyMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Fragment fragment = null;
+    private String CalendarVal;
     private String facultyname, facultyid;
     private TextView faculty_toolbar_name, faculty_toolbar_id;
     private AlertDialog.Builder builder;
+    private String calendarValDetails_Url = "https://www.newindialms.com/get_calendarValdetails.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +50,7 @@ public class FacultyMenu extends AppCompatActivity
         setContentView(R.layout.activity_faculty_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.faculty_toolbar);
         setSupportActionBar(toolbar);
+        loadCalendarValDetails();
 
         facultyname = getIntent().getStringExtra("facultyname");
         facultyid = getIntent().getStringExtra("facultyid");
@@ -107,7 +123,10 @@ public class FacultyMenu extends AppCompatActivity
                 fragment = new FacultySchedule();
                 break;
             case R.id.navigation_faculty_program_accademic_calendar:
+                Bundle bundle = new Bundle();
+                bundle.putString("CalendarVal", CalendarVal);
                 fragment = new FacultyAccademicCalendar();
+                fragment.setArguments(bundle);
                 break;
             case R.id.navigation_faculty_program_notification:
                 Intent notificationitent = new Intent(getApplicationContext(), FacultyNotificationScreen.class);
@@ -160,4 +179,38 @@ public class FacultyMenu extends AppCompatActivity
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    private void loadCalendarValDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, calendarValDetails_Url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray jsonarray = new JSONArray(response);
+
+                            JSONObject jsonobject = jsonarray.getJSONObject(0);
+
+                            CalendarVal = jsonobject.getString("calendar_val");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error != null) {
+
+                            Toast.makeText(FacultyMenu.this, "Something went wrong.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+        );
+
+        MySingleton.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+    }
+
 }
