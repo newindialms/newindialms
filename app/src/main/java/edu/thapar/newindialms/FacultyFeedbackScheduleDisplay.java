@@ -26,7 +26,7 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_faculty_schedule);
+        setContentView(R.layout.fragment_faculty_feedback_schedule);
 
         //feedback_type=getIntent().getStringExtra("feedback_type");
         coursename = getIntent().getStringExtra("coursename");

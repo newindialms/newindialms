@@ -27,7 +27,7 @@ public class FacultyFeedbackCummulativeScheduleDisplay extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_faculty_schedule);
+        setContentView(R.layout.fragment_faculty_cummulative_schedule);
 
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");

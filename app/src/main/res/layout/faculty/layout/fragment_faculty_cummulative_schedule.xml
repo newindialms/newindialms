@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    tools:context="edu.thapar.newindialms.FacultyFeedbackCummulativeScheduleDisplay">
+
+    <include
+        android:id="@+id/facultycourselist_toolbar"
+        layout="@layout/facultycourselist_toolbar"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/faculty_schedule_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/facultycourselist_toolbar"
+        android:text="@string/facultycourselist_viewattendance_title"
+        android:textAlignment="center"
+        android:textColor="@color/facultytextMenu"
+        android:textSize="24sp" />
+
+    <CalendarView
+        android:id="@+id/schedule_calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/faculty_schedule_title"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/CalenderViewCustom"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"/>
+
+    <Button
+        android:id="@+id/ScheduleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_faculty_button"
+        android:clickable="true"
+        android:textColor="@color/textColor"
+        android:text="@string/ScheduleButton"
+        android:layout_below="@+id/schedule_calendarView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
+</RelativeLayout>
