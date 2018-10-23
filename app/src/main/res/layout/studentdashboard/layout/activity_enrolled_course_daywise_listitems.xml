@@ -6,11 +6,7 @@
     android:background="@color/textColor"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:paddingBottom="10dp">
+
 
         <TableRow
             android:id="@+id/tableRow2"
@@ -20,10 +16,12 @@
 
             <TextView
                 android:id="@+id/enrollcourse_daywise_display_date"
-                android:layout_width="wrap_content"
+                android:layout_width="137dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:padding="10dp"
                 android:text="@string/date"
+                android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/studentcolorPrimaryDark"
                 android:textSize="18sp" />
@@ -50,16 +48,16 @@
 
             <TextView
                 android:id="@+id/enrollcourse_daywise_display_status"
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:background="@color/textColor"
                 android:padding="10dp"
                 android:text="@string/status"
+                android:textAlignment="textStart"
                 android:textAllCaps="true"
                 android:textColor="@color/studentcolorPrimaryDark"
                 android:textSize="18sp" />
         </TableRow>
-    </RelativeLayout>
 
 
 </LinearLayout>

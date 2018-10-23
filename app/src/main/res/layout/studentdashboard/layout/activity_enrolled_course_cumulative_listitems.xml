@@ -41,6 +41,15 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/enrollcourse_cumulative_display_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Feedback_status"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="18sp" />
+
+        <TextView
             android:id="@+id/enrollcourse_cumulative_display_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

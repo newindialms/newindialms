@@ -61,7 +61,11 @@ public class FacultyCourseListViewAttendanceDisplayAdapter extends ArrayAdapter<
         if (hero.getAttendance_status().equals("Present")) {
 
             faculty_courselist_display_status.setTextColor(Color.GREEN);
-        } else {
+        }
+        else if (hero.getAttendance_status().equals("Feedback Pending")) {
+
+            faculty_courselist_display_status.setTextColor(Color.BLUE);
+        }else {
             faculty_courselist_display_status.setTextColor(Color.RED);
         }
         faculty_courselist_display_status.setText(hero.getAttendance_status());

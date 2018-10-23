@@ -50,6 +50,7 @@ public class EnrolledCourseCumulativeAttendanceAdapter extends ArrayAdapter<Enro
         TextView enrollcourse_cumulative_display_total = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_total);
         TextView enrollcourse_cumulative_display_present = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_present);
         TextView enrollcourse_cumulative_display_absent = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_absent);
+        TextView enrollcourse_cumulative_display_feedback = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_feedback);
         TextView enrollcourse_cumulative_display_percentage = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_percentage);
 
 
@@ -60,6 +61,7 @@ public class EnrolledCourseCumulativeAttendanceAdapter extends ArrayAdapter<Enro
         enrollcourse_cumulative_display_total.setText(hero.getTotal_count());
         enrollcourse_cumulative_display_present.setText(hero.getPresent_count());
         enrollcourse_cumulative_display_absent.setText(hero.getAbsent_count());
+        enrollcourse_cumulative_display_feedback.setText(hero.getFeedback_count());
         enrollcourse_cumulative_display_percentage.setText(hero.getPercentage());
 
         //finally returning the view

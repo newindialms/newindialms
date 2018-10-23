@@ -62,7 +62,12 @@ public class EnrolledCourseDaywiseAttendanceAdapter extends ArrayAdapter<Enrolle
         if (hero.getDaywise_status().equals("Present")) {
 
             enrollcourse_daywise_display_status.setTextColor(Color.GREEN);
-        } else {
+        }
+        else if (hero.getDaywise_status().equals("Feedback Pending")) {
+
+            enrollcourse_daywise_display_status.setTextColor(Color.BLUE);
+        }
+        else {
             enrollcourse_daywise_display_status.setTextColor(Color.RED);
         }
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());

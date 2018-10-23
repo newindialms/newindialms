@@ -368,6 +368,7 @@
     <string name="studentrollno">studentrollno</string>
     <string name="present_status">Absent</string>
     <string name="absent_status">Present</string>
+    <string name="Feedback_status">Feedback_pending</string>
 
     <string name="facultycourselist_viewattendance_title">Select Date</string>
     <string name="facultycourselist_viewattendance_courses">Select Course</string>
@@ -460,6 +461,7 @@
     <string name="total_lectures">Total Lectures</string>
     <string name="present_count">Present Count</string>
     <string name="absent_count">Absent Count</string>
+    <string name="feedback_count">Feedback Pending</string>
     <string name="percentage_attendance">Percentage Attendance</string>
 
     <string name="total">Total</string>

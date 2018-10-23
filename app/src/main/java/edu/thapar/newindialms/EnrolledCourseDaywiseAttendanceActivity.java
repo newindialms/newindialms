@@ -81,7 +81,7 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("attendancelist");
+                    JSONArray array = j.getJSONArray("DayWiseattendancelist");
                     if (array != null && array.length() > 0) {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject jsonObject1 = array.getJSONObject(i);

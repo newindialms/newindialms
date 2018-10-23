@@ -46,6 +46,8 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     private String submitlikefeedbacklist = "https://www.newindialms.com/submitLikeFeedbacklist.php";
     private String submittextfeedbacklist = "https://www.newindialms.com/submitTextFeedbacklist.php";
     private String submitsmileyfeedbacklist = "https://www.newindialms.com/submitSmileyFeedbacklist.php";
+    private String submit_attendance_after_feedback = "https://www.newindialms.com/submit_attendance_after_feedback.php";
+
     SubmitFeedBackScreenAdapter adapter;
     List<SubmitFeedbackScreenListItems> heroList;
     ListView listView;
@@ -113,8 +115,44 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         if (adapter.getTextSubmittedFeedbackDetails().size() != 0) {
             SubmitTextFeedBack();
         }
+        SubmitAttendanceAfterFeedback();
         Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
         startActivity(thankyoufeedbackintent);
+    }
+
+    private void SubmitAttendanceAfterFeedback() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, submit_attendance_after_feedback, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                JSONArray jsonArray = null;
+                try {
+                    JSONObject j = new JSONObject(response);
+                    JSONObject array = jsonArray.getJSONObject(0);
+                } catch (JSONException e) {
+
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("course_name", course_name);
+                params.put("student_id", student_id);
+                params.put("course_date", course_date);
+                params.put("course_time", course_time);
+                params.put("faculty_id", faculty_id);
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 
     private void loadRecyclerViewData() {

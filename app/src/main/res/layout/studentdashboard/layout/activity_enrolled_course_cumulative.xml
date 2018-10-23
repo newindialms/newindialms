@@ -64,6 +64,15 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="20sp" />
+        <TextView
+            android:id="@+id/totalfeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/feedback_count"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/percentageAttendance"

@@ -10,12 +10,14 @@ public class EnrolledCourseCumulativeAttendanceListItems {
     private String total_count;
     private String present_count;
     private String absent_count;
+    private String feedback_count;
     private String percentage;
 
-    public EnrolledCourseCumulativeAttendanceListItems(String total_count, String present_count, String absent_count, String percentage) {
+    public EnrolledCourseCumulativeAttendanceListItems(String total_count, String present_count, String absent_count,String feedback_count, String percentage) {
         this.total_count = total_count;
         this.present_count = present_count;
         this.absent_count = absent_count;
+        this.feedback_count = feedback_count;
         this.percentage = percentage;
 
     }
@@ -35,6 +37,13 @@ public class EnrolledCourseCumulativeAttendanceListItems {
         return absent_count;
     }
 
+    public String getFeedback_count() {
+        return feedback_count;
+    }
+
+    public void setFeedback_count(String feedback_count) {
+        this.feedback_count = feedback_count;
+    }
 
     public String getPercentage() {
         return percentage;

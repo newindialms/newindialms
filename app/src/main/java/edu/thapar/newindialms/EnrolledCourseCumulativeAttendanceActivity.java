@@ -88,6 +88,7 @@ public class EnrolledCourseCumulativeAttendanceActivity extends AppCompatActivit
                                 jsonObject1.getString("Total_count"),
                                 jsonObject1.getString("Present_count"),
                                 jsonObject1.getString("Absent_count"),
+                                jsonObject1.getString("Feedback_count"),
                                 jsonObject1.getString("Percentage_count")
 
                         );
