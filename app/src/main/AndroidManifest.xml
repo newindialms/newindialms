@@ -213,7 +213,7 @@
             android:name=".StudentEnrollSpecializationTab"
             android:label="Student"
             android:theme="@style/StudentTheme">
-        </activity>s
+        </activity>
         <activity
             android:name=".EnrolledCourseAttendanceActivity"
             android:label="Student"
@@ -236,6 +236,19 @@
             android:theme="@style/StudentTheme" />
         <activity
             android:name=".StudentScheduleDisplayFirstYear"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseDetailsFirstYearDashboard"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".FirstYearFaculty"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+
+        <activity
+            android:name=".FacultyDirectory"
             android:label="Student"
             android:theme="@style/StudentTheme" />
 

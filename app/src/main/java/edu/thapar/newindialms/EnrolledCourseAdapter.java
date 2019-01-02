@@ -1,12 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -21,16 +23,17 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
     List<EnrolledCourseListItems> enrolledCourseListItemses;
     //activity context
     private Context context;
-
+    private String studentYear;
     //the layout resource file for the list items
     int resource;
 
 
     //constructor initializing the values
-    public EnrolledCourseAdapter(Context context, int resource, List<EnrolledCourseListItems> enrolledCourseListItems) {
+    public EnrolledCourseAdapter(Context context, int resource, List<EnrolledCourseListItems> enrolledCourseListItems, String studentYear) {
         super(context, resource, enrolledCourseListItems);
         this.context = context;
         this.resource = resource;
+        this.studentYear=studentYear;
         this.enrolledCourseListItemses = enrolledCourseListItems;
     }
 
@@ -48,6 +51,7 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
 
         //getting the view elements of the list from the view
         TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
+        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativelayout_courses);
 
 
         //getting the hero of the specified position
@@ -56,6 +60,22 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
         //adding values to the list item
         enrolledcourselist_name.setText(hero.getEnrolledcoursename());
 
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (studentYear.equals("1")) {
+                    String courseName=hero.getEnrolledcoursename();
+                    Intent couseDetailsIntent = new Intent(context, EnrolledCourseDetailsFirstYearDashboard.class);
+                    couseDetailsIntent.putExtra("enrolledcoursename", courseName);
+
+                    couseDetailsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(couseDetailsIntent);
+                }
+
+            }
+        });
 
         //finally returning the view
         return view;

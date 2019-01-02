@@ -59,6 +59,7 @@
     <string name="navigation_program_enrollfaculty">Faculty View</string>
     <string name="navigation_program_feedback">Feedback Module</string>
     <string name="navigation_program_notification">Notification</string>
+    <string name="navigation_program_directory">Directory</string>
     <string name="navigation_program_logout">Logout</string>
 
 
@@ -402,6 +403,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>9</item>
     </string-array>
 
 
@@ -494,6 +496,13 @@
     <string name="first_year">First Year</string>
     <string name="second_year">Second Year</string>
 
+    <!-- Course Details First year -->
+
+    <string name="course_details_coursename">CourseName</string>
+    <string name="course_details_schedule">Class Schedule</string>
+    <string name="course_details_details">Course Details</string>
+    <string name="course_details_notification">Notification</string>
+    <string name="course_details_marks">Marks</string>
 
 
 </resources>

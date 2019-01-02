@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:paddingTop="30dp">
+
+    <RelativeLayout
+        android:id="@+id/relative_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/student_rounded_button">
+
+        <TextView
+            android:id="@+id/course_details_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/course_details_schedule"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/studentPicarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/student_right_arrow" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/student_rounded_button">
+
+        <TextView
+            android:id="@+id/course_details_details"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/course_details_details"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/studentPicarrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/student_right_arrow" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/student_rounded_button">
+
+        <TextView
+            android:id="@+id/course_details_notification"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/course_details_notification"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/studentPicarrow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/student_right_arrow" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_marks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/student_rounded_button">
+
+        <TextView
+            android:id="@+id/course_details_marks"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/course_details_marks"
+            android:textColor="@color/studentcolorPrimaryDark"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/studentPicarrow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/student_right_arrow" />
+    </RelativeLayout>
+
+</LinearLayout>

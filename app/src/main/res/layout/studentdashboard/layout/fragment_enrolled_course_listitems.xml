@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/textColor"
@@ -7,6 +8,7 @@
     android:padding="15dp">
 
     <RelativeLayout
+        android:id="@+id/relativelayout_courses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/student_rounded_button">
@@ -26,6 +28,18 @@
             android:text="@string/enrolledcourses_title"
             android:textColor="@color/studentcolorPrimaryDark"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/studentPicarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:contentDescription="@string/next"
+            app:srcCompat="@drawable/student_right_arrow" />
     </RelativeLayout>
 
 

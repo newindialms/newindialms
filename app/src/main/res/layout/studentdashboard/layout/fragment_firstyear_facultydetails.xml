@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar_student_attendance"
+        layout="@layout/student_enroll_toolbar"/>
+
+    <TextView
+        android:id="@+id/faculty_firstyear_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faculty Details"
+        android:textAlignment="center"
+        android:textColor="@color/studentcolorPrimaryDark"
+        android:textSize="24sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/faculty_firstyear_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/faculty_firstyear_title" >
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

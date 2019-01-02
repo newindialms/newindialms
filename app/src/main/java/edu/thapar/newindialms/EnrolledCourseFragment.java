@@ -40,7 +40,7 @@ public class EnrolledCourseFragment extends Fragment {
     View rootview;
     private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     EnrolledCourseAdapter adapter;
-    private String studentid;
+    private String studentid, studentyear;
     List<EnrolledCourseListItems> heroList;
     ListView listView;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -56,6 +56,7 @@ public class EnrolledCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_enrolled_course, container, false);
         studentid = getActivity().getIntent().getExtras().getString("studentid");
+        studentyear = getArguments().getString("studentyear");
         heroList = new ArrayList<>();
         listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
@@ -100,7 +101,7 @@ public class EnrolledCourseFragment extends Fragment {
                             heroList.add(listItemProgramList);
 
                     }
-                    adapter = new EnrolledCourseAdapter(getActivity(), R.layout.fragment_enrolled_course_listitems, heroList);
+                    adapter = new EnrolledCourseAdapter(getActivity(), R.layout.fragment_enrolled_course_listitems, heroList, studentyear);
                     listView.setAdapter(adapter);
 
 

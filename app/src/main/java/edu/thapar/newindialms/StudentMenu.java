@@ -169,7 +169,10 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.navigation_program_mycourses:
+                Bundle bundlecourse = new Bundle();
+                bundlecourse.putString("studentyear", studentyear);
                 fragment = new EnrolledCourseFragment();
+                fragment.setArguments(bundlecourse);
                 break;
            /* case R.id.navigation_program_coursefeedback:
                 Intent myfeedback=new Intent(getApplicationContext(),MyFeedbackEnrolledCourse.class);
@@ -213,8 +216,13 @@ public class StudentMenu extends AppCompatActivity
                 startActivity(specializationintent);
                 break;
             case R.id.navigation_program_notification:
-                Intent notificationitent = new Intent(getApplicationContext(), StudentNotification.class);
-                startActivity(notificationitent);
+                Intent notificationintent = new Intent(getApplicationContext(), StudentNotification.class);
+                startActivity(notificationintent);
+                break;
+
+            case R.id.navigation_program_directory:
+                Intent directoryintent = new Intent(getApplicationContext(), FacultyDirectory.class);
+                startActivity(directoryintent);
                 break;
         }
 
