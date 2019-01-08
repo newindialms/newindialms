@@ -243,7 +243,15 @@
             android:label="Student"
             android:theme="@style/StudentTheme" />
         <activity
+            android:name=".EnrolledCourseDetailsSecondYearDashboard"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
             android:name=".FirstYearFaculty"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".SecondYearFaculty"
             android:label="Student"
             android:theme="@style/StudentTheme" />
 
@@ -251,6 +259,19 @@
             android:name=".FacultyDirectory"
             android:label="Student"
             android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseDetailsSecondYearMainCourseDashboard"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCourseActivity"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+        <activity
+            android:name=".EnrolledCoreCourseActivity"
+            android:label="Student"
+            android:theme="@style/StudentTheme" />
+
 
         <service android:name=".FcmMessagingService">
             <intent-filter>

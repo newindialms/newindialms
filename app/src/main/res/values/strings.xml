@@ -504,5 +504,8 @@
     <string name="course_details_notification">Notification</string>
     <string name="course_details_marks">Marks</string>
 
+    <string name="second_year_maincourse_elective">Elective Courses</string>
+    <string name="second_year_maincourse_core">Core Courses</string>
+
 
 </resources>

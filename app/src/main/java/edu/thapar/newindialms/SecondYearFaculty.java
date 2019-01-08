@@ -10,7 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -21,27 +23,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by kamalshree on 12/31/2018.
+ * Created by kamalshree on 12/25/2018.
  */
 
-public class FacultyDirectory extends AppCompatActivity {
+public class SecondYearFaculty extends AppCompatActivity {
     private RecyclerView recyclerView;
-    List<FacultyDirectoryDetails> facultyDirectoryDetails;
+    List<SecondYearFacultyDetails> secondyearfacultyDetails;
     private Toolbar student_toolbar;
-    private static final String FACULTY_URL = "https://www.newindialms.com/get_directory.php";
+    private String coursename;
+    private static final String FACULTYDETAILS_URL = "https://www.newindialms.com/get_second_year_faculty_name.php";
     public SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_faculty_directoryscreen);
+        setContentView(R.layout.fragment_firstyear_facultydetails);
+        coursename=getIntent().getStringExtra("coursename");
         student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
-        faculty_title.setText("Directory");
+        faculty_title.setText("Course Details");
         setSupportActionBar(student_toolbar);
 
         student_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -50,50 +56,36 @@ public class FacultyDirectory extends AppCompatActivity {
                 finish();
             }
         });
-        recyclerView = (RecyclerView) findViewById(R.id.faculty_directoryscreen_recyclerview);
+        secondyearfacultyDetails = new ArrayList<>();
+        recyclerView = (RecyclerView) findViewById(R.id.faculty_firstyear_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        LoadDirectory();
-        facultyDirectoryDetails = new ArrayList<>();
-
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showdirectory_swipe);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // cancel the Visual indication of a refresh
-                swipeRefreshLayout.setRefreshing(false);
-                facultyDirectoryDetails.clear();
-
-                LoadDirectory();
-            }
-        });
-
+        LoadFacultyDetails();
     }
 
-    private void LoadDirectory() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, FACULTY_URL,
+    private void LoadFacultyDetails() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, FACULTYDETAILS_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
                             JSONObject j = new JSONObject(response);
-                            JSONArray array = j.getJSONArray("faculty_directory");
+                            JSONArray array = j.getJSONArray("facultydetails");
 
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject jsonObject1 = array.getJSONObject(i);
-                                FacultyDirectoryDetails listItemProgramList = new FacultyDirectoryDetails(
+                                SecondYearFacultyDetails listItemProgramList = new SecondYearFacultyDetails(
                                         jsonObject1.getString("faculty_firstname"),
                                         jsonObject1.getString("faculty_lastname"),
                                         jsonObject1.getString("faculty_phone"),
                                         jsonObject1.getString("faculty_email"),
-                                        jsonObject1.getString("faculty_specialization")
+                                        jsonObject1.getString("course_credits")
                                 );
-                                facultyDirectoryDetails.add(listItemProgramList);
-
+                                secondyearfacultyDetails.add(listItemProgramList);
 
                             }
-                            FacultyDirectoryAdapter adapter = new FacultyDirectoryAdapter(getApplicationContext(), facultyDirectoryDetails);
+                            SecondYearFacultyDetailsAdapter adapter = new SecondYearFacultyDetailsAdapter(getApplicationContext(), secondyearfacultyDetails);
                             recyclerView.setAdapter(adapter);
 
 
@@ -107,12 +99,21 @@ public class FacultyDirectory extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                });
+                }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("coursename", coursename);
+                return params;
+            }
+        };
 
         //adding our stringrequest to queue
-        Volley.newRequestQueue(this).add(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
     }
 }

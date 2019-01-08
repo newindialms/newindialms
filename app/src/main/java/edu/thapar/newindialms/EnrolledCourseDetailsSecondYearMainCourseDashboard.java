@@ -15,14 +15,14 @@ import java.util.List;
  * Created by kamalshree on 10/21/2017.
  */
 
-public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
+public class EnrolledCourseDetailsSecondYearMainCourseDashboard extends AppCompatActivity {
 
-    private String CourseName;
+    private String studentyear,studentid;
     private TextView course_details_coursename,studentpic_title;
     private Toolbar studentprofile_toolbar;
 
     //a List of type hero for holding list items
-    List<EnrolledCourseDetailsFirstYearDashboardListItems> heroList;
+    List<EnrolledCourseDetailsSecondYearMainCourseDashboardListItems> heroList;
 
     //the listview
     ListView listView;
@@ -31,17 +31,18 @@ public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details_dashboard);
-        CourseName = getIntent().getStringExtra("enrolledcoursename");
+        studentyear = getIntent().getStringExtra("studentyear");
+        studentid = getIntent().getStringExtra("studentid");
 
         course_details_coursename = (TextView) findViewById(R.id.course_details_coursename);
-        course_details_coursename.setText(CourseName);
+        course_details_coursename.setText("My Course Dashboard");
+
 
         studentprofile_toolbar = (Toolbar) findViewById(R.id.studentprofile_toolbar);
         studentprofile_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentprofile_toolbar);
         studentpic_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
-        studentpic_title.setText(CourseName);
-        studentprofile_toolbar.setTitle("My Course Dashboard");
+        studentpic_title.setText("My Course Dashboard");
         studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,22 +55,20 @@ public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
         heroList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.course_details_ListView);
 
-        ProgramScreenListItems pglist = new ProgramScreenListItems(CourseName);
-        pglist.setProgramname(CourseName);
+        ProgramScreenListItems pglist = new ProgramScreenListItems(studentid);
+        pglist.setProgramname(studentid);
 
-        heroList.add(new EnrolledCourseDetailsFirstYearDashboardListItems(
-                "Class Schedule", "Course Details",
-                "Notifications", "Marks",
-                CourseName));
+        heroList.add(new EnrolledCourseDetailsSecondYearMainCourseDashboardListItems(
+                "Elective Courses", "Core Courses",studentid,studentyear));
 
         //creating the adapter
-        EnrolledCourseDetailsFirstYearDashboardAdapter adapter = new EnrolledCourseDetailsFirstYearDashboardAdapter(this, R.layout.activity_course_details_dashboard_listitems, heroList);
+        EnrolledCourseDetailsSecondYearMainCourseDashboardAdapter adapter = new EnrolledCourseDetailsSecondYearMainCourseDashboardAdapter(this, R.layout.activity_secondyear_maincourse_dashboard_listitems, heroList);
 
         //attaching adapter to the listview
         listView.setAdapter(adapter);
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        this.setTitle(CourseName);
+        this.setTitle("");
     }
 }

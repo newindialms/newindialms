@@ -170,10 +170,19 @@ public class StudentMenu extends AppCompatActivity
                 break;
             case R.id.navigation_program_mycourses:
                 Bundle bundlecourse = new Bundle();
-                bundlecourse.putString("studentyear", studentyear);
-                fragment = new EnrolledCourseFragment();
-                fragment.setArguments(bundlecourse);
-                break;
+                if (studentyear.equals("1")) {
+                    bundlecourse.putString("studentyear", studentyear);
+                    fragment = new EnrolledCourseFragment();
+                    fragment.setArguments(bundlecourse);
+                    break;
+                }else{
+                    Intent secondyeardashboard = new Intent(getApplicationContext(), EnrolledCourseDetailsSecondYearMainCourseDashboard.class);
+                    secondyeardashboard.putExtra("studentyear", studentyear);
+                    secondyeardashboard.putExtra("studentid", studentid);
+                    startActivity(secondyeardashboard);
+                    break;
+                }
+
            /* case R.id.navigation_program_coursefeedback:
                 Intent myfeedback=new Intent(getApplicationContext(),MyFeedbackEnrolledCourse.class);
                 myfeedback.putExtra("studentid", studentid);

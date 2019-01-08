@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    android:orientation="vertical"
+    tools:context="edu.thapar.newindialms.StudentEnrollCourseTab">
+
+    <include
+        android:id="@+id/studentprofile_toolbar"
+        layout="@layout/student_enroll_toolbar"/>
+
+    <TextView
+        android:id="@+id/enrolledcourses_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="40dp"
+        android:text="@string/navigation_program_mycourses"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/studentcolorPrimaryDark"/>
+
+    <ListView
+        android:id="@+id/enrolledcourselistView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enrolledcourses_title"
+        />
+</LinearLayout>

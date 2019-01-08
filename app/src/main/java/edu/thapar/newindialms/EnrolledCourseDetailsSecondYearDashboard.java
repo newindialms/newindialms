@@ -15,14 +15,14 @@ import java.util.List;
  * Created by kamalshree on 10/21/2017.
  */
 
-public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
+public class EnrolledCourseDetailsSecondYearDashboard extends AppCompatActivity {
 
     private String CourseName;
     private TextView course_details_coursename,studentpic_title;
     private Toolbar studentprofile_toolbar;
 
     //a List of type hero for holding list items
-    List<EnrolledCourseDetailsFirstYearDashboardListItems> heroList;
+    List<EnrolledCourseDetailsSecondYearDashboardListItems> heroList;
 
     //the listview
     ListView listView;
@@ -41,7 +41,6 @@ public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
         setSupportActionBar(studentprofile_toolbar);
         studentpic_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
         studentpic_title.setText(CourseName);
-        studentprofile_toolbar.setTitle("My Course Dashboard");
         studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,13 +56,13 @@ public class EnrolledCourseDetailsFirstYearDashboard extends AppCompatActivity {
         ProgramScreenListItems pglist = new ProgramScreenListItems(CourseName);
         pglist.setProgramname(CourseName);
 
-        heroList.add(new EnrolledCourseDetailsFirstYearDashboardListItems(
-                "Class Schedule", "Course Details",
-                "Notifications", "Marks",
+        heroList.add(new EnrolledCourseDetailsSecondYearDashboardListItems(
+                "Class Schedule.", "Course Details.",
+                "Notifications.", "Marks.",
                 CourseName));
 
         //creating the adapter
-        EnrolledCourseDetailsFirstYearDashboardAdapter adapter = new EnrolledCourseDetailsFirstYearDashboardAdapter(this, R.layout.activity_course_details_dashboard_listitems, heroList);
+        EnrolledCourseDetailsSecondYearDashboardAdapter adapter = new EnrolledCourseDetailsSecondYearDashboardAdapter(this, R.layout.activity_course_details_dashboard_listitems, heroList);
 
         //attaching adapter to the listview
         listView.setAdapter(adapter);

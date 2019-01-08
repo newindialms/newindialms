@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -52,14 +53,14 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
         //getting the view elements of the list from the view
         TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativelayout_courses);
-
+        ImageView studentPicarrow = (ImageView) view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final EnrolledCourseListItems hero = enrolledCourseListItemses.get(position);
 
         //adding values to the list item
         enrolledcourselist_name.setText(hero.getEnrolledcoursename());
-
+        studentPicarrow.setImageResource(R.drawable.student_right_arrow);
 
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +74,15 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
                     couseDetailsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(couseDetailsIntent);
                 }
+                else{
+                    String courseName=hero.getEnrolledcoursename();
+                    Intent couseDetailsIntent = new Intent(context, EnrolledCourseDetailsSecondYearDashboard.class);
+                    couseDetailsIntent.putExtra("enrolledcoursename", courseName);
+
+                    couseDetailsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(couseDetailsIntent);
+                }
+
 
             }
         });
