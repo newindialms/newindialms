@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -259,6 +261,12 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
 
                 if (code.equals("input_success")) {
                     finish();
+                    Intent facultyintent = new Intent(getApplicationContext(),FacultyCourseListDashboard.class);
+                    facultyintent.putExtra("coursename", coursename);
+                    facultyintent.putExtra("coursetype", coursetype);
+                    facultyintent.putExtra("faculty_employeeid", faculty_employeeid);
+                    facultyintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(facultyintent);
                     //
                 } else if (code.equals("input_error")) {
                     //
