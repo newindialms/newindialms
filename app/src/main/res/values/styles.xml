@@ -21,6 +21,11 @@
         <item name="android:windowBackground">@color/facultywindowBackground</item>
     </style>
 
+    <style name="CheckboxStyle" parent="FacultyTheme.base">
+        <item name="colorAccent">#08C6C9</item>  // for checked
+        <item name="android:textColorSecondary">#08C6C9</item>  // for unchecked
+    </style>
+
     <style name="StudentTheme.base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. #32D9D6-->
         <item name="colorPrimary">#f99716</item>

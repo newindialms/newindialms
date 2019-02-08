@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -49,10 +51,10 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
     private AlertDialog.Builder builder;
     private String attendance_status;
     //a List of type hero for holding list items
-    FacultyCourseListTakeAttendanceAdapter adapter;
+    FacultyCourseListAttendanceGroupAdapter adapter;
 
     List<FacultyCourseListTakeAttendanceListItems> heroList;
-    ListView listView;
+    RecyclerView listView;
 
     public static ArrayList<String> presentlist = new ArrayList<String>();
     public static ArrayList<String> absentlist = new ArrayList<String>();
@@ -60,7 +62,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty_courselist_takeattendance);
+        setContentView(R.layout.activity_faculty_courselist_takeattendance_group);
         coursename = getIntent().getStringExtra("coursename");
         groupname = getIntent().getStringExtra("groupname");
         sectionname = getIntent().getStringExtra("sectionname");
@@ -83,7 +85,9 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
 
         facultycourselist_program_title = (TextView) findViewById(R.id.facultycourselist_takeattendance_title);
         facultycourselist_program_title.setText(coursename + " Take Attendance");
-        listView = (ListView) findViewById(R.id.facultycourselisttakeattendancelist_ListView);
+        listView = (RecyclerView) findViewById(R.id.facultycourselisttakeattendancelist_ListView);
+        listView.setHasFixedSize(true);
+        listView.setLayoutManager(new LinearLayoutManager(this));
         heroList = new ArrayList<>();
         loadRecyclerViewData();
 
@@ -307,7 +311,7 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
                         );
                         heroList.add(listItemProgramList);
                     }
-                    adapter = new FacultyCourseListTakeAttendanceAdapter(getApplicationContext(), R.layout.activity_faculty_courselist_takeattendance_listitems, heroList);
+                    adapter = new FacultyCourseListAttendanceGroupAdapter(getApplicationContext(), heroList);
                     listView.setAdapter(adapter);
                     } else {
                         //Toast.makeText(FacultyScheduleDisplay.this,"inside else",Toast.LENGTH_LONG).show();

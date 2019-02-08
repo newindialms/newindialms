@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/textColor"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@color/textColor"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/faculty_courselist_attendance_take"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/student_name"
+            android:textAllCaps="true"
+            android:textColor="@color/facultyMenu"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/faculty_courselist_attendance_take_roolno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/faculty_courselist_attendance_take"
+            android:layout_alignStart="@+id/faculty_courselist_attendance_take"
+            android:layout_below="@+id/faculty_courselist_attendance_take"
+            android:layout_marginTop="10dp"
+            android:text="@string/studentrollno"
+            android:textAllCaps="true"
+            android:textColor="@color/facultyMenu"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/simpleSwitchtakeattendance"
+            android:theme="@style/CheckboxStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/faculty_courselist_attendance_take"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:checked="true"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
