@@ -38,7 +38,8 @@ public class StudentScheduleDisplayFirstYearAdapter extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(final HeroViewHolder holder, final int position) {
         StudentScheduleDisplayFirstYearListItems hero = heroList.get(position);
-        holder.student_scheduledisplay_course.setText(hero.getCourse_code());
+        holder.student_scheduledisplay_course.setText(hero.getCourse_name());
+        holder.student_scheduledisplay_course_code.setText(hero.getCourse_code());
         holder.student_scheduledisplay_classroom.setText(hero.getCourse_classroom());
         holder.student_scheduledisplay_starttimes.setText(hero.getCourse_schedule_time());
         holder.student_scheduledisplay_starttime.setText(hero.getCourse_schedule_time());
@@ -75,7 +76,7 @@ public class StudentScheduleDisplayFirstYearAdapter extends RecyclerView.Adapter
     }
 
     class HeroViewHolder extends RecyclerView.ViewHolder {
-        TextView student_scheduledisplay_program, student_scheduledisplay_course, student_scheduledisplay_classroom, student_scheduledisplay_starttime, student_scheduledisplay_starttimes, student_scheduledisplay_faculty;
+        TextView student_scheduledisplay_program,student_scheduledisplay_course_code, student_scheduledisplay_course, student_scheduledisplay_classroom, student_scheduledisplay_starttime, student_scheduledisplay_starttimes, student_scheduledisplay_faculty;
         LinearLayout linearLayout;
         ImageView imageView;
 
@@ -84,6 +85,7 @@ public class StudentScheduleDisplayFirstYearAdapter extends RecyclerView.Adapter
 
             student_scheduledisplay_starttime = (TextView) itemView.findViewById(R.id.student_scheduledisplay_starttime);
             student_scheduledisplay_course = (TextView) itemView.findViewById(R.id.student_scheduledisplay_course);
+            student_scheduledisplay_course_code = (TextView) itemView.findViewById(R.id.student_scheduledisplay_course_code);
             student_scheduledisplay_classroom = (TextView) itemView.findViewById(R.id.student_scheduledisplay_classroom);
             student_scheduledisplay_starttimes = (TextView) itemView.findViewById(R.id.student_scheduledisplay_starttimes);
             student_scheduledisplay_faculty = (TextView) itemView.findViewById(R.id.student_scheduledisplay_faculty);

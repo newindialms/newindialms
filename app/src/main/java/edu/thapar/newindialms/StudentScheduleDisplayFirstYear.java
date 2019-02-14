@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -65,7 +66,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
         });
 
         Studentpic_program_title = (TextView) findViewById(R.id.studentschedule_display_title);
-        Studentpic_program_title.setText("My schedule on " + datevalue);
+        Studentpic_program_title.setText("My schedule on " + reverse(datevalue));
         heroList = new ArrayList<>();
         listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylistfirstyear_ListView);
         listView.setHasFixedSize(true);
@@ -73,6 +74,14 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
 
         loadRecyclerViewData();
 
+    }
+
+    public static String reverse(String toReverse) {
+        String firstChar=toReverse.substring(0,4);
+        String lastChar=toReverse.substring(8,10);
+        String monChar=toReverse.substring(5,7);
+        String sb=lastChar+'-'+monChar+'-'+firstChar;
+        return sb.toString();
     }
 
     private void loadRecyclerViewData() {

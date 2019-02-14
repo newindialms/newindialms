@@ -437,6 +437,8 @@
     <string name="dislike">Dislike</string>
     <string name="stars">Stars</string>
     <string name="course">Course</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_code">Course Code</string>
     <string name="starttime">Start Time</string>
     <string name="endtime">End time</string>
     <string name="dash">-</string>

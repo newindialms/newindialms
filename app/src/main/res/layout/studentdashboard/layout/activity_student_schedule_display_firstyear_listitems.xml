@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -53,13 +53,32 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/studentcolorPrimaryDark"
-                            android:text="@string/course" />
+                            android:text="@string/course_name"
+                            android:textColor="@color/studentcolorPrimaryDark" />
 
                         <TextView
                             android:id="@+id/student_scheduledisplay_course"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="@string/enrollprogram"
+                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/course_code"
+                            android:textColor="@color/studentcolorPrimaryDark" />
+
+                        <TextView
+                            android:id="@+id/student_scheduledisplay_course_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
                             android:text="@string/enrollprogram"
                             android:textColor="@color/studentcolorPrimaryDark"
                             android:textStyle="bold" />
@@ -77,8 +96,9 @@
                             android:id="@+id/student_scheduledisplay_classroom"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:layout_marginLeft="5dp"
                             android:text="@string/course"
+                            android:textColor="@color/studentcolorPrimaryDark"
                             android:textStyle="bold" />
                     </TableRow>
 
@@ -94,8 +114,9 @@
                             android:id="@+id/student_scheduledisplay_starttimes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:layout_marginLeft="5dp"
                             android:text="@string/starttime"
+                            android:textColor="@color/studentcolorPrimaryDark"
                             android:textStyle="bold" />
                     </TableRow>
 
@@ -104,15 +125,16 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/studentcolorPrimaryDark"
-                            android:text="@string/faculty" />
+                            android:text="@string/faculty"
+                            android:textColor="@color/studentcolorPrimaryDark" />
 
                         <TextView
                             android:id="@+id/student_scheduledisplay_faculty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/studentcolorPrimaryDark"
+                            android:layout_marginLeft="5dp"
                             android:text="@string/faculty"
+                            android:textColor="@color/studentcolorPrimaryDark"
                             android:textStyle="bold" />
                     </TableRow>
 
