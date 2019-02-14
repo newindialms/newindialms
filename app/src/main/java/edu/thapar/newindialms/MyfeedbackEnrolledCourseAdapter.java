@@ -27,7 +27,7 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
     //activity context
     private Context context;
     private AlertDialog.Builder builder;
-    String coursename;
+    String coursename,enrolledCourse;
 
     //the layout resource file for the list items
     private int resource;
@@ -61,8 +61,16 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
         //getting the hero of the specified position
         final MyfeedbackEnrolledCourseListItems hero = myfeedbackEnrolledCourseListItems.get(position);
 
-        //adding values to the list item
-        enrolledcourselist_name.setText(hero.getEnrolledcoursename());
+        coursename = hero.getCoursename();
+        enrolledCourse= hero.getEnrolledcoursename();
+
+        if(coursename.equals(enrolledCourse)){
+            //adding values to the list item
+            enrolledcourselist_name.setText(hero.getEnrolledcoursename());
+        }
+        else{
+            relative1.setVisibility(View.GONE);
+        }
 
         relative1.setOnClickListener(new View.OnClickListener() {
             String corecoursename = hero.getEnrolledcoursename();

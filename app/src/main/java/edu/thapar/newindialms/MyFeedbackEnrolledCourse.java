@@ -1,6 +1,7 @@
 package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,14 +36,12 @@ import java.util.Map;
 
 public class MyFeedbackEnrolledCourse extends AppCompatActivity {
 
-    private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
-    MyfeedbackEnrolledCourseAdapter adapter;
+    //private String enrolled_courselist = "https://www.newindialms.com/listenrolledcourses.php";
     List<MyfeedbackEnrolledCourseListItems> heroList;
-    ListView listView;
     private TextView myfeedbackenrolledcourses_title;
     private Toolbar studentpic_toolbar;
-    public SwipeRefreshLayout swipeRefreshLayout;
     private String studentid, course_date, course_time, faculty_employeeid, coursename;
+    TextView enrolledcourselist_name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,70 +69,23 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
             }
         });
 
-        heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.myfeedbackenrolledcourselistView);
 
-        loadRecyclerViewData();
+        RelativeLayout relative1 = (RelativeLayout) findViewById(R.id.relative1);
+        enrolledcourselist_name = (TextView) findViewById(R.id.myfeedbackenrolledcourselist_name);
+        enrolledcourselist_name.setText(coursename);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        relative1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRefresh() {
-                // cancel the Visual indication of a refresh
-                swipeRefreshLayout.setRefreshing(false);
-                heroList.clear();
-
-                loadRecyclerViewData();
+            public void onClick(View view) {
+                Intent submitfeedbackintent = new Intent(getApplicationContext(), SubmitFeedBackScreen.class);
+                submitfeedbackintent.putExtra("corecoursename", coursename);
+                submitfeedbackintent.putExtra("studentid", studentid);
+                submitfeedbackintent.putExtra("course_date", course_date);
+                submitfeedbackintent.putExtra("course_time", course_time);
+                submitfeedbackintent.putExtra("faculty_employeeid", faculty_employeeid);
+                submitfeedbackintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(submitfeedbackintent);
             }
         });
-
-
     }
-
-    private void loadRecyclerViewData() {
-        final ProgressDialog progressDialog = new ProgressDialog(MyFeedbackEnrolledCourse.this);
-        progressDialog.setMessage("Refreshing Data");
-        progressDialog.show();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, enrolled_courselist, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                try {
-                    JSONObject j = new JSONObject(response);
-                    JSONArray array = j.getJSONArray("course_details");
-
-                    for (int i = 0; i < array.length(); i++) {
-                        MyfeedbackEnrolledCourseListItems listItemProgramList = new MyfeedbackEnrolledCourseListItems(
-                                array.getString(i), studentid, course_date, course_time, faculty_employeeid, coursename
-                        );
-                        heroList.add(listItemProgramList);
-                    }
-                    adapter = new MyfeedbackEnrolledCourseAdapter(MyFeedbackEnrolledCourse.this, R.layout.myfeedback_enrolled_course_listitems, heroList);
-                    listView.setAdapter(adapter);
-
-
-                } catch (JSONException e) {
-                    progressDialog.dismiss();
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(MyFeedbackEnrolledCourse.this, error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("student_rollno", studentid);
-                return params;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(MyFeedbackEnrolledCourse.this);
-        requestQueue.add(stringRequest);
-    }
-
 }
