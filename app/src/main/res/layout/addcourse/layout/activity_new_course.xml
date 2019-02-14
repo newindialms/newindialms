@@ -140,7 +140,7 @@
                     android:textColor="@color/textColor"
                     android:textSize="18sp" />
 
-                <Spinner
+                <edu.thapar.newindialms.MultiSelectionSpinner
                     android:id="@+id/facultyspinner"
                     android:layout_width="match_parent"
                     android:layout_height="50dp" />

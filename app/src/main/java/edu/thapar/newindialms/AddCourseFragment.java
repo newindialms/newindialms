@@ -31,15 +31,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddCourseFragment extends Fragment {
+public class AddCourseFragment extends Fragment implements MultiSelectionSpinner.OnMultipleItemsSelectedListener {
     private View rootview;
-    private Spinner facultyspinner, coursetypespinner, specializationtypespinner, yeartypespinner;
+    private edu.thapar.newindialms.MultiSelectionSpinner facultyspinner;
+    private Spinner coursetypespinner, specializationtypespinner, yeartypespinner;
     private Button btnSubmit;
     private ArrayList<String> facultylist;
     private JSONArray resultfaculty;
@@ -143,14 +145,14 @@ public class AddCourseFragment extends Fragment {
     //Spinner for faculty
     public void addListenerOnFacultySpinnerItemSelection() {
         facultylist = new ArrayList<String>();
-        facultyspinner = (Spinner) rootview.findViewById(R.id.facultyspinner);
+        facultyspinner = (MultiSelectionSpinner) rootview.findViewById(R.id.facultyspinner);
         getFacultyData();
 
     }
 
     private void getFacultyData() {
 
-        facultyspinner = (Spinner) rootview.findViewById(R.id.facultyspinner);
+        facultyspinner = (MultiSelectionSpinner) rootview.findViewById(R.id.facultyspinner);
         //Creating a string request
         StringRequest stringRequest = new StringRequest(facultyspinner_URL,
                 new Response.Listener<String>() {
@@ -200,7 +202,8 @@ public class AddCourseFragment extends Fragment {
         }
 
         //Setting adapter to show the items in the spinner
-        facultyspinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, facultylist));
+        facultyspinner.setItems(facultylist);
+        facultyspinner.setListener(this);
     }
 
     public void AddCourseFunction() {
@@ -350,5 +353,15 @@ public class AddCourseFragment extends Fragment {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void selectedIndices(List<Integer> indices) {
+
+    }
+
+    @Override
+    public void selectedStrings(List<String> strings) {
+        // Toast.makeText(getContext(), strings.toString(), Toast.LENGTH_LONG).show();
     }
 }
