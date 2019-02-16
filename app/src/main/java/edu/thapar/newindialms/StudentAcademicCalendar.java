@@ -70,6 +70,8 @@ public class StudentAcademicCalendar extends Fragment {
             fallWinterBreak,
             springSummerBreak,
             sringcalendar,
+            subj1,subj2,subj3,subj4,
+            note1,note2,
             textView5;
     private View rootview;
 
@@ -132,6 +134,12 @@ public class StudentAcademicCalendar extends Fragment {
         backlogDates = (TextView) rootview.findViewById(R.id.backlog_dates);
         fallWinterBreak = (TextView) rootview.findViewById(R.id.fall_winter_break);
         springSummerBreak = (TextView) rootview.findViewById(R.id.spring_summer_break);
+        subj1 = (TextView) rootview.findViewById(R.id.sub1);
+        subj2 = (TextView) rootview.findViewById(R.id.sub2);
+        subj3 = (TextView) rootview.findViewById(R.id.sub3);
+        subj4 = (TextView) rootview.findViewById(R.id.sub4);
+        note1 = (TextView) rootview.findViewById(R.id.note_one);
+        note2 = (TextView) rootview.findViewById(R.id.note_two);
 
         if (CalendarVal.equals("Spring")) {
             loadSpringCalendarDetails();
@@ -186,6 +194,12 @@ public class StudentAcademicCalendar extends Fragment {
                                 String backlogdates = jsonobject.getString("backlog_dates");
                                 String fallwinterbreak = jsonobject.getString("fall_winter_break");
                                 String springsummerbreak = jsonobject.getString("spring_summer_break");
+                                String subject1 = jsonobject.getString("subject1");
+                                String subject2 = jsonobject.getString("subject2");
+                                String subject3 = jsonobject.getString("subject3");
+                                String subject4 = jsonobject.getString("subject4");
+                                String note_one = jsonobject.getString("note1");
+                                String note_two = jsonobject.getString("note2");
 
                                 String fallclassessemester3registration = jsonobject.getString("fall_classes_semester3_registration");
                                 String feefallsub1 = jsonobject.getString("fee_fall_sub_1");
@@ -210,6 +224,12 @@ public class StudentAcademicCalendar extends Fragment {
                                 internshipDays.setText(internshipdays);
                                 backlogDates.setText(backlogdates);
                                 fallWinterBreak.setText(fallwinterbreak);
+                                subj1.setText(subject1);
+                                subj2.setText(subject2);
+                                subj3.setText(subject3);
+                                subj4.setText(subject4);
+                                note1.setText(note_one);
+                                note2.setText(note_two);
 
                                 fallclassessemester3Registration.setText(fallclassessemester3registration);
                                 feefallSub1.setText(feefallsub1);
@@ -278,6 +298,12 @@ public class StudentAcademicCalendar extends Fragment {
                                 String backlogdates = jsonobject.getString("backlog_dates");
                                 String fallwinterbreak = jsonobject.getString("fall_winter_break");
                                 String springsummerbreak = jsonobject.getString("spring_summer_break");
+                                String subject1 = jsonobject.getString("subject1");
+                                String subject2 = jsonobject.getString("subject2");
+                                String subject3 = jsonobject.getString("subject3");
+                                String subject4 = jsonobject.getString("subject4");
+                                String note_one = jsonobject.getString("note1");
+                                String note_two = jsonobject.getString("note2");
 
                                 String springclassessemester24registration = jsonobject.getString("spring_classes_semester24_registration");
                                 String feespringsub1 = jsonobject.getString("fee_spring_sub_1");
@@ -304,6 +330,12 @@ public class StudentAcademicCalendar extends Fragment {
                                 feespringSub1.setText(feespringsub1);
                                 feespringSub2.setText(feespringsub2);
                                 feespringSubcomment.setText(feespringsubcomment);
+                                subj1.setText(subject1);
+                                subj2.setText(subject2);
+                                subj3.setText(subject3);
+                                subj4.setText(subject4);
+                                note1.setText(note_one);
+                                note2.setText(note_two);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

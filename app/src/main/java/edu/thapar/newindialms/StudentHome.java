@@ -28,6 +28,7 @@ public class StudentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        loadCalendarValDetails();
         return inflater.inflate(R.layout.content_student_menu, container, false);
     }
 

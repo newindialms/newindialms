@@ -1427,43 +1427,55 @@
 
 
             <TextView
-                android:id="@+id/note1"
+                android:id="@+id/subjecttochanges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Subject to Changes:"
+                android:textAlignment="center"
+                android:textColor="@color/studentcolorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/sub1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="3"
                 android:maxLines="3"
-                android:text="*subject to change; ** ‘Registration’ shall be treated as completed, provided: "
+                android:text=""
                 android:textColor="@color/studentcolorPrimary" />
 
             <TextView
-                android:id="@+id/note2"
+                android:id="@+id/sub2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="3"
                 android:maxLines="3"
-                android:text="1. He/she has deposited the semester fee within the prescribed period for each semester."
+                android:text=""
                 android:textColor="@color/studentcolorPrimary" />
             <TextView
-                android:id="@+id/note3"
+                android:id="@+id/sub3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="3"
                 android:maxLines="3"
-                android:text="2. He/she has to secure a ‘fee slip’ from the accounts section to confirm registration within that prescribed period. Kindly bring the proof of deposit of fee to the accounts section to get the fee slip."
+                android:text=""
                 android:textColor="@color/studentcolorPrimary" />
             <TextView
-                android:id="@+id/note4"
+                android:id="@+id/sub4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="5"
                 android:maxLines="5"
-                android:text="In case a student fails in either of the above within the prescribed time, he/she will be deemed as ‘not registered’ and can be registered only by paying ‘late registration fee of Rs. 1000/- or Rs. 5000/- till the last dates of registration mentioned above. The approval of Director, LMTSM, is required after the elapse of period mentioned for ‘late registration’ above."
+                android:text=""
                 android:textColor="@color/studentcolorPrimary" />
-
 
 
             <TextView
@@ -1477,26 +1489,26 @@
                 android:text="Notes:"
                 android:textAlignment="center"
                 android:textColor="@color/studentcolorPrimary"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/multiAutoCompleteTextView"
+                android:id="@+id/note_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="5"
                 android:maxLines="5"
-                android:text="&#8226; In case of shortage of slots for MST &amp; EST, the examinations can even be held on Sundays. The classes, if require, can also be scheduled on Saturdays and Sundays."
+                android:text=""
                 android:textColor="@color/studentcolorPrimary" />
 
             <TextView
-                android:id="@+id/multiAutoCompleteTextView2"
+                android:id="@+id/note_two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:lines="5"
                 android:maxLines="5"
-                android:text="&#8226; A faculty can avail maximum 60 days’ vacations out of total days of vacations as per the winter and summer vacation circular of the University."
+                android:text="note2"
                 android:textColor="@color/studentcolorPrimary" />
 
         </LinearLayout>
