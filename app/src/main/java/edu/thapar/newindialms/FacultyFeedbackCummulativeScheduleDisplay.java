@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -32,14 +33,14 @@ public class FacultyFeedbackCummulativeScheduleDisplay extends AppCompatActivity
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
-        faculty_schedule_title = (TextView) findViewById(R.id.faculty_schedule_title);
+        faculty_schedule_title = findViewById(R.id.faculty_schedule_title);
         faculty_schedule_title.setText("Select a Date");
 
-        faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar = findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setVisibility(View.VISIBLE);
 
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
         faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -51,8 +52,8 @@ public class FacultyFeedbackCummulativeScheduleDisplay extends AppCompatActivity
 
         //Toast.makeText(getApplicationContext(), "value is "  + faculty_employeeid + coursename + feedback_type, Toast.LENGTH_LONG).show();
 
-        calendarView = (CalendarView) findViewById(R.id.schedule_calendarView);
-        ScheduleButton = (Button) findViewById(R.id.ScheduleButton);
+        calendarView = findViewById(R.id.schedule_calendarView);
+        ScheduleButton = findViewById(R.id.ScheduleButton);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

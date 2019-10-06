@@ -8,11 +8,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +48,7 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_single_record);
 
-        toolbar_delete_students = (Toolbar) findViewById(R.id.toolbar_delete_students);
+        toolbar_delete_students = findViewById(R.id.toolbar_delete_students);
         toolbar_delete_students.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_delete_students);
         toolbar_delete_students.setNavigationOnClickListener(new View.OnClickListener() {
@@ -58,11 +59,11 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
         });
 
 
-        FIRSTNAME = (TextView) findViewById(R.id.textFirstName);
-        PHONE_NUMBER = (TextView) findViewById(R.id.textPhone);
-        ROLLNO = (TextView) findViewById(R.id.textRollno);
+        FIRSTNAME = findViewById(R.id.textFirstName);
+        PHONE_NUMBER = findViewById(R.id.textPhone);
+        ROLLNO = findViewById(R.id.textRollno);
 
-        DeleteButton = (Button) findViewById(R.id.buttonDelete);
+        DeleteButton = findViewById(R.id.buttonDelete);
 
         //Receiving the ListView Clicked item value send by previous activity.
         TempItem = getIntent().getStringExtra("ListViewValue");
@@ -198,10 +199,10 @@ public class ShowStudentSingleRecordActivity extends AppCompatActivity {
                             jsonObject = jsonArray.getJSONObject(i);
 
                             // Storing Student Name, Phone Number, Class into Variables.
-                            FirstNameHolder = jsonObject.getString("student_firstname").toString();
-                            lastNameHolder = jsonObject.getString("student_lastname").toString();
-                            PhoneHolder = jsonObject.getString("student_phone").toString();
-                            RollnoHolder = jsonObject.getString("student_rollnno").toString();
+                            FirstNameHolder = jsonObject.getString("student_firstname");
+                            lastNameHolder = jsonObject.getString("student_lastname");
+                            PhoneHolder = jsonObject.getString("student_phone");
+                            RollnoHolder = jsonObject.getString("student_rollnno");
 
                         }
                     } catch (JSONException e) {

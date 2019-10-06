@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.hsalf.smilerating.SmileRating;
 import com.like.LikeButton;
@@ -71,13 +72,13 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        final TextView feedbackquestion = (TextView) view.findViewById(R.id.submitfeedbackscreenlist_question);
-        final TextView feedbackquestionclick = (TextView) view.findViewById(R.id.submitfeedbackscreenlist_clickme);
-        feedbackanswer = (EditText) view.findViewById(R.id.submitfeedbackscreenlist_editext);
-        final RatingBar feedbackrate = (RatingBar) view.findViewById(R.id.submitfeedbackscreenlist_ratebar);
-        final SmileRating smileRating = (SmileRating) view.findViewById(R.id.smile_rating);
-        final LikeButton likerating = (LikeButton) view.findViewById(R.id.submitfeedbackscreenlist_like);
-        final ImageView dislikeButton = (ImageView) view.findViewById(R.id.dislikeButton);
+        final TextView feedbackquestion = view.findViewById(R.id.submitfeedbackscreenlist_question);
+        final TextView feedbackquestionclick = view.findViewById(R.id.submitfeedbackscreenlist_clickme);
+        feedbackanswer = view.findViewById(R.id.submitfeedbackscreenlist_editext);
+        final RatingBar feedbackrate = view.findViewById(R.id.submitfeedbackscreenlist_ratebar);
+        final SmileRating smileRating = view.findViewById(R.id.smile_rating);
+        final LikeButton likerating = view.findViewById(R.id.submitfeedbackscreenlist_like);
+        final ImageView dislikeButton = view.findViewById(R.id.dislikeButton);
 
         //getting the hero of the specified position
         final SubmitFeedbackScreenListItems hero = submitFeedbackScreenListItems.get(position);
@@ -120,7 +121,7 @@ public class SubmitFeedBackScreenAdapter extends ArrayAdapter<SubmitFeedbackScre
                     View promptsView = li.inflate(R.layout.textview_dialog_layout, null, false);
                     alertbox.setView(promptsView);
 
-                    final EditText userInput = (EditText) promptsView
+                    final EditText userInput = promptsView
                             .findViewById(R.id.editTextDialogUserInput);
                     userInput.setTextColor(Color.parseColor("#d63d0a"));
                     alertbox.setNeutralButton("OK",

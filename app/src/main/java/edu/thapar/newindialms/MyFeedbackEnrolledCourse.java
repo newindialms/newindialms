@@ -2,12 +2,13 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.List;
 
@@ -29,9 +30,9 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myfeedback_enrolled_course);
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
+        studentpic_toolbar = findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = findViewById(R.id.student_enroll_toolbar_title);
 
         studentid = getIntent().getStringExtra("studentid");
         course_date = getIntent().getStringExtra("course_date");
@@ -51,8 +52,8 @@ public class MyFeedbackEnrolledCourse extends AppCompatActivity {
         });
 
 
-        RelativeLayout relative1 = (RelativeLayout) findViewById(R.id.relative1);
-        enrolledcourselist_name = (TextView) findViewById(R.id.myfeedbackenrolledcourselist_name);
+        RelativeLayout relative1 = findViewById(R.id.relative1);
+        enrolledcourselist_name = findViewById(R.id.myfeedbackenrolledcourselist_name);
         enrolledcourselist_name.setText(coursename);
 
         relative1.setOnClickListener(new View.OnClickListener() {

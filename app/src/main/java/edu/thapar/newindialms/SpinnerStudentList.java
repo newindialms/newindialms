@@ -4,16 +4,17 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,7 +50,7 @@ public class SpinnerStudentList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner_student_list);
 
-        studentlist_toolbar = (Toolbar) findViewById(R.id.studentlist_toolbar);
+        studentlist_toolbar = findViewById(R.id.studentlist_toolbar);
         studentlist_toolbar.setNavigationIcon(R.drawable.ic_left);
 
         setSupportActionBar(studentlist_toolbar);
@@ -66,7 +67,7 @@ public class SpinnerStudentList extends AppCompatActivity {
         program = getIntent().getStringExtra("program");
         specialization = getIntent().getStringExtra("specialization");
 
-        recyclerView = (RecyclerView) findViewById(R.id.spinnerstudentlist_recyclerview);
+        recyclerView = findViewById(R.id.spinnerstudentlist_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

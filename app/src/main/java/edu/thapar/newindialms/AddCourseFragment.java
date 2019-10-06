@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -68,7 +69,7 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
         addListenerOnSpecializationSpinnerItemSelection();
 
         builder = new AlertDialog.Builder(getActivity(), R.style.MyAlertDialogStyle);
-        btnSubmit = (Button) rootview.findViewById(R.id.addcourse_addbutton);
+        btnSubmit = rootview.findViewById(R.id.addcourse_addbutton);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +85,7 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
 
     //Spinner for coursetype
     public void addListenerOnCourseSpinnerItemSelection() {
-        coursetypespinner = (Spinner) rootview.findViewById(R.id.coursetypespinner);
+        coursetypespinner = rootview.findViewById(R.id.coursetypespinner);
         coursetypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -100,12 +101,12 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
 
     //Spinner for Year
     public void addListenerOnYearSpinnerItemSelection() {
-        yeartypespinner = (Spinner) rootview.findViewById(R.id.specialization_spinner_year);
+        yeartypespinner = rootview.findViewById(R.id.specialization_spinner_year);
         yeartypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                specializationtypespinner = (Spinner) rootview.findViewById(R.id.specialization_spinner);
-                coursetypespinner = (Spinner) rootview.findViewById(R.id.coursetypespinner);
+                specializationtypespinner = rootview.findViewById(R.id.specialization_spinner);
+                coursetypespinner = rootview.findViewById(R.id.coursetypespinner);
 
                 course_details_year = yeartypespinner.getSelectedItem().toString();
                 if (course_details_year.equals("1")) {
@@ -126,7 +127,7 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
 
     //Spinner for Specialization
     public void addListenerOnSpecializationSpinnerItemSelection() {
-        specializationtypespinner = (Spinner) rootview.findViewById(R.id.specialization_spinner);
+        specializationtypespinner = rootview.findViewById(R.id.specialization_spinner);
         specializationtypespinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -143,14 +144,14 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
     //Spinner for faculty
     public void addListenerOnFacultySpinnerItemSelection() {
         facultylist = new ArrayList<String>();
-        facultyspinner = (MultiSelectionSpinner) rootview.findViewById(R.id.facultyspinner);
+        facultyspinner = rootview.findViewById(R.id.facultyspinner);
         getFacultyData();
 
     }
 
     private void getFacultyData() {
 
-        facultyspinner = (MultiSelectionSpinner) rootview.findViewById(R.id.facultyspinner);
+        facultyspinner = rootview.findViewById(R.id.facultyspinner);
         //Creating a string request
         StringRequest stringRequest = new StringRequest(facultyspinner_URL,
                 new Response.Listener<String>() {
@@ -209,10 +210,10 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
         progressDialog.setMessage("Inserting Data");
         progressDialog.show();
 
-        coursename = (EditText) rootview.findViewById(R.id.addcourse_name);
-        coursecode = (EditText) rootview.findViewById(R.id.addcourse_code);
-        coursecredits = (EditText) rootview.findViewById(R.id.addcourse_credits);
-        courseabbr = (EditText) rootview.findViewById(R.id.addcourse_abbr);
+        coursename = rootview.findViewById(R.id.addcourse_name);
+        coursecode = rootview.findViewById(R.id.addcourse_code);
+        coursecredits = rootview.findViewById(R.id.addcourse_credits);
+        courseabbr = rootview.findViewById(R.id.addcourse_abbr);
 
 
         course_details_name = coursename.getText().toString();
@@ -276,10 +277,10 @@ public class AddCourseFragment extends Fragment implements MultiSelectionSpinner
         progressDialog.setMessage("Inserting Data");
         progressDialog.show();
 
-        coursename = (EditText) rootview.findViewById(R.id.addcourse_name);
-        coursecode = (EditText) rootview.findViewById(R.id.addcourse_code);
-        coursecredits = (EditText) rootview.findViewById(R.id.addcourse_credits);
-        courseabbr = (EditText) rootview.findViewById(R.id.addcourse_abbr);
+        coursename = rootview.findViewById(R.id.addcourse_name);
+        coursecode = rootview.findViewById(R.id.addcourse_code);
+        coursecredits = rootview.findViewById(R.id.addcourse_credits);
+        courseabbr = rootview.findViewById(R.id.addcourse_abbr);
 
 
         course_details_name = coursename.getText().toString();

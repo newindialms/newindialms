@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -49,11 +50,11 @@ public class EnrolledCourseDetailsFirstYearDashboardAdapter extends ArrayAdapter
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative_details = (RelativeLayout) view.findViewById(R.id.relative_details);
-        TextView course_details_schedule = (TextView) view.findViewById(R.id.course_details_schedule);
-        TextView course_details_details = (TextView) view.findViewById(R.id.course_details_details);
-        TextView course_details_notification = (TextView) view.findViewById(R.id.course_details_notification);
-        TextView course_details_marks = (TextView) view.findViewById(R.id.course_details_marks);
+        RelativeLayout relative_details = view.findViewById(R.id.relative_details);
+        TextView course_details_schedule = view.findViewById(R.id.course_details_schedule);
+        TextView course_details_details = view.findViewById(R.id.course_details_details);
+        TextView course_details_notification = view.findViewById(R.id.course_details_notification);
+        TextView course_details_marks = view.findViewById(R.id.course_details_marks);
 
 
 

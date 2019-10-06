@@ -2,12 +2,13 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +38,7 @@ public class StudentPicProgram extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_pic_program);
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
+        studentpic_toolbar = findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -48,7 +49,7 @@ public class StudentPicProgram extends AppCompatActivity {
         });
 
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programlist_ListView);
+        listView = findViewById(R.id.studentpic_programlist_ListView);
 
         loadRecyclerViewData();
     }

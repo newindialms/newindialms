@@ -1,11 +1,12 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -54,7 +55,7 @@ public class CalendarViewFaculty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academic_calendar_faculty);
 
-        calendar_toolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
+        calendar_toolbar = findViewById(R.id.calendar_toolbar);
         calendar_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(calendar_toolbar);
         calendar_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -64,34 +65,34 @@ public class CalendarViewFaculty extends AppCompatActivity {
             }
         });
 
-        accademic_calendar = (TextView) findViewById(R.id.accademic_calendar);
-        fall_year = (TextView) findViewById(R.id.fall_year);
-        fall_semester_sesion = (TextView) findViewById(R.id.fall_semester_sesion);
-        spring_year = (TextView) findViewById(R.id.spring_year);
-        spring_semester_sesion = (TextView) findViewById(R.id.spring_semester_sesion);
-        fall_classes_semester3 = (TextView) findViewById(R.id.fall_classes_semester3);
-        sprig_classes_semester24 = (TextView) findViewById(R.id.sprig_classes_semester24);
-        fall_classes_semester2 = (TextView) findViewById(R.id.fall_classes_semester2);
-        fall_classes_semester1 = (TextView) findViewById(R.id.fall_classes_semester1);
-        fall_teaching_semester3 = (TextView) findViewById(R.id.fall_teaching_semester3);
-        spring_teaching_semester24 = (TextView) findViewById(R.id.spring_teaching_semester24);
-        fall_teaching_semester1 = (TextView) findViewById(R.id.fall_teaching_semester1);
-        fall_midend_semester13 = (TextView) findViewById(R.id.fall_midend_semester13);
-        spring_midend_semester24 = (TextView) findViewById(R.id.spring_midend_semester24);
-        fall_teaching_semestersecond = (TextView) findViewById(R.id.fall_teaching_semestersecond);
-        spring_teaching_semestersecond = (TextView) findViewById(R.id.spring_teaching_semestersecond);
-        fall_break_semester13 = (TextView) findViewById(R.id.fall_break_semester13);
-        spring_break_semester24 = (TextView) findViewById(R.id.spring_break_semester24);
-        fall_teaching_semesterthird = (TextView) findViewById(R.id.fall_teaching_semesterthird);
-        spring_weekend_days = (TextView) findViewById(R.id.spring_weekend_days);
-        fallend_break_semester13 = (TextView) findViewById(R.id.fallend_break_semester13);
-        spring_closing_days = (TextView) findViewById(R.id.spring_closing_days);
-        fall_weekend_days = (TextView) findViewById(R.id.fall_weekend_days);
-        internship_days = (TextView) findViewById(R.id.internship_days);
-        fall_closing_days = (TextView) findViewById(R.id.fall_closing_days);
-        backlog_dates = (TextView) findViewById(R.id.backlog_dates);
-        fall_winter_break = (TextView) findViewById(R.id.fall_winter_break);
-        spring_summer_break = (TextView) findViewById(R.id.spring_summer_break);
+        accademic_calendar = findViewById(R.id.accademic_calendar);
+        fall_year = findViewById(R.id.fall_year);
+        fall_semester_sesion = findViewById(R.id.fall_semester_sesion);
+        spring_year = findViewById(R.id.spring_year);
+        spring_semester_sesion = findViewById(R.id.spring_semester_sesion);
+        fall_classes_semester3 = findViewById(R.id.fall_classes_semester3);
+        sprig_classes_semester24 = findViewById(R.id.sprig_classes_semester24);
+        fall_classes_semester2 = findViewById(R.id.fall_classes_semester2);
+        fall_classes_semester1 = findViewById(R.id.fall_classes_semester1);
+        fall_teaching_semester3 = findViewById(R.id.fall_teaching_semester3);
+        spring_teaching_semester24 = findViewById(R.id.spring_teaching_semester24);
+        fall_teaching_semester1 = findViewById(R.id.fall_teaching_semester1);
+        fall_midend_semester13 = findViewById(R.id.fall_midend_semester13);
+        spring_midend_semester24 = findViewById(R.id.spring_midend_semester24);
+        fall_teaching_semestersecond = findViewById(R.id.fall_teaching_semestersecond);
+        spring_teaching_semestersecond = findViewById(R.id.spring_teaching_semestersecond);
+        fall_break_semester13 = findViewById(R.id.fall_break_semester13);
+        spring_break_semester24 = findViewById(R.id.spring_break_semester24);
+        fall_teaching_semesterthird = findViewById(R.id.fall_teaching_semesterthird);
+        spring_weekend_days = findViewById(R.id.spring_weekend_days);
+        fallend_break_semester13 = findViewById(R.id.fallend_break_semester13);
+        spring_closing_days = findViewById(R.id.spring_closing_days);
+        fall_weekend_days = findViewById(R.id.fall_weekend_days);
+        internship_days = findViewById(R.id.internship_days);
+        fall_closing_days = findViewById(R.id.fall_closing_days);
+        backlog_dates = findViewById(R.id.backlog_dates);
+        fall_winter_break = findViewById(R.id.fall_winter_break);
+        spring_summer_break = findViewById(R.id.spring_summer_break);
 
         loadCalendarDetails();
     }

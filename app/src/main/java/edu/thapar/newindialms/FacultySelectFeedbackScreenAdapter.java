@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,10 +68,10 @@ public class FacultySelectFeedbackScreenAdapter extends RecyclerView.Adapter<Fac
         public FacultySelectFeedbackScreenViewHolder(View itemView) {
             super(itemView);
 
-            feedbackTitle = (TextView) itemView.findViewById(R.id.faculty_select_feedbackscreen_questions_title);
-            feedbackMsg = (TextView) itemView.findViewById(R.id.faculty_select_feedbackscreen_questions_description);
-            feedbackType = (TextView) itemView.findViewById(R.id.faculty_select_feedbackscreen_selectQ);
-            selectedFeedback = (CheckBox) itemView.findViewById(R.id.faculty_select_feedbackscreen_checkbox);
+            feedbackTitle = itemView.findViewById(R.id.faculty_select_feedbackscreen_questions_title);
+            feedbackMsg = itemView.findViewById(R.id.faculty_select_feedbackscreen_questions_description);
+            feedbackType = itemView.findViewById(R.id.faculty_select_feedbackscreen_selectQ);
+            selectedFeedback = itemView.findViewById(R.id.faculty_select_feedbackscreen_checkbox);
         }
 
     }

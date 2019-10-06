@@ -3,9 +3,6 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -48,7 +49,7 @@ public class UpdateFeedback extends AppCompatActivity {
         setContentView(R.layout.activity_update_feedback);
         builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
 
-        showfeedback_toolbar = (Toolbar) findViewById(R.id.showfeedback_toolbar);
+        showfeedback_toolbar = findViewById(R.id.showfeedback_toolbar);
         showfeedback_toolbar.setNavigationIcon(R.drawable.ic_left);
 
         setSupportActionBar(showfeedback_toolbar);
@@ -59,12 +60,12 @@ public class UpdateFeedback extends AppCompatActivity {
             }
         });
 
-        showfeedback_id = (TextView) findViewById(R.id.showfeedback_id);
-        feedback_udpate_title = (EditText) findViewById(R.id.feedback_udpate_title);
-        feedback_udpate_question = (EditText) findViewById(R.id.feedback_udpate_question);
+        showfeedback_id = findViewById(R.id.showfeedback_id);
+        feedback_udpate_title = findViewById(R.id.feedback_udpate_title);
+        feedback_udpate_question = findViewById(R.id.feedback_udpate_question);
 
-        udpateButton = (Button) findViewById(R.id.feedback_update);
-        deleteButton = (Button) findViewById(R.id.feedback_delete);
+        udpateButton = findViewById(R.id.feedback_update);
+        deleteButton = findViewById(R.id.feedback_delete);
 
         id = getIntent().getStringExtra("id");
         feedback_title = getIntent().getStringExtra("feedback_title");
@@ -72,7 +73,7 @@ public class UpdateFeedback extends AppCompatActivity {
         feedback_type = getIntent().getStringExtra("feedback_type");
 
 
-        feedbackspinner = (Spinner) findViewById(R.id.addfeedbackspinner);
+        feedbackspinner = findViewById(R.id.addfeedbackspinner);
 
         feedbackspinner.setSelection(((ArrayAdapter<String>) feedbackspinner.getAdapter()).getPosition(feedback_type));
 

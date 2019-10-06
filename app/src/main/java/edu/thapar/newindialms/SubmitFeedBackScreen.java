@@ -4,10 +4,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +12,11 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -65,9 +66,9 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         setContentView(R.layout.submit_feedback_screen);
 
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
+        studentpic_toolbar = findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = findViewById(R.id.student_enroll_toolbar_title);
 
 
         course_name = getIntent().getStringExtra("corecoursename");
@@ -89,7 +90,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         });
 
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.submitfeedbackscreenlistView);
+        listView = findViewById(R.id.submitfeedbackscreenlistView);
         builder = new AlertDialog.Builder(this, R.style.MyStudentAlertDialogStyle);
         loadRecyclerViewData();
 

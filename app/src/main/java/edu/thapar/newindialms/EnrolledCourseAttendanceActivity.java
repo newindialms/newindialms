@@ -3,14 +3,15 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -53,12 +54,12 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enrolled_course_attendance);
 
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
+        student_toolbar = findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(student_toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        student_toolbar_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        student_toolbar_title = findViewById(R.id.student_enroll_toolbar_title);
         student_toolbar_title.setText("My Attendance");
 
         student_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -74,10 +75,10 @@ public class EnrolledCourseAttendanceActivity extends AppCompatActivity {
         studentyear = intent.getStringExtra("studentyear");
 
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.enrolledcourselistView);
+        listView = findViewById(R.id.enrolledcourselistView);
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

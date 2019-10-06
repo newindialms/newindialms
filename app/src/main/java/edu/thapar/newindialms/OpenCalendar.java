@@ -3,15 +3,16 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,7 +50,7 @@ public class OpenCalendar extends AppCompatActivity {
 
         loadCalendarValDetails();
 
-        Toolbar calendar_toolbar = (Toolbar) findViewById(R.id.calendar_toolbar);
+        Toolbar calendar_toolbar = findViewById(R.id.calendar_toolbar);
         calendar_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(calendar_toolbar);
         calendar_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,10 +60,10 @@ public class OpenCalendar extends AppCompatActivity {
             }
         });
 
-        open_calendar_details = (Button) findViewById(R.id.open_calendar_details);
-        SendNotification = (Button) findViewById(R.id.sendnotification_button);
-        title_notification = (EditText) findViewById(R.id.title_notification);
-        message_notification = (EditText) findViewById(R.id.message_notification);
+        open_calendar_details = findViewById(R.id.open_calendar_details);
+        SendNotification = findViewById(R.id.sendnotification_button);
+        title_notification = findViewById(R.id.title_notification);
+        message_notification = findViewById(R.id.message_notification);
 
 
         SendNotification.setOnClickListener(new View.OnClickListener() {

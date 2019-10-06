@@ -3,14 +3,15 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -62,9 +63,9 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
             sectionname = "0";
         }
 
-        faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar = findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(course_details_name);
         setSupportActionBar(faculty_toolbar);
         faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -74,12 +75,12 @@ public class FacultyCourseListViewAttendanceDisplay extends AppCompatActivity {
             }
         });
 
-        facultycourselist_attendancedisplay_title = (TextView) findViewById(R.id.facultycourselist_attendancedisplay_title);
+        facultycourselist_attendancedisplay_title = findViewById(R.id.facultycourselist_attendancedisplay_title);
         facultycourselist_attendancedisplay_title.setText(course_details_name + " Attendance");
-        listView = (ListView) findViewById(R.id.facultycourselistattendancedisplaylist_ListView);
+        listView = findViewById(R.id.facultycourselistattendancedisplaylist_ListView);
         heroList = new ArrayList<>();
         loadRecyclerViewData();
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

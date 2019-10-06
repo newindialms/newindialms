@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -52,8 +53,8 @@ public class StudentPicProgramAdapter extends ArrayAdapter<StudentPicListItems> 
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programlist = (TextView) view.findViewById(R.id.studentpic_programlist);
-        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(studentPicarrow);
+        TextView studentpic_programlist = view.findViewById(R.id.studentpic_programlist);
+        ImageView studentpic_programlistarrow = view.findViewById(studentPicarrow);
 
         //getting the hero of the specified position
         final StudentPicListItems hero = studentPicListItems.get(position);

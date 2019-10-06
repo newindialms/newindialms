@@ -3,12 +3,13 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -28,7 +29,7 @@ public class ProgramManagerStudentPic extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_program_manager_student_pic, container, false);
-        studentPicProgram = (TextView) rootview.findViewById(R.id.student_PicProgram);
+        studentPicProgram = rootview.findViewById(R.id.student_PicProgram);
 
         studentPicProgram.setOnClickListener(new View.OnClickListener() {
             @Override

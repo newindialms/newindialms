@@ -2,8 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -51,9 +52,9 @@ public class EnrolledCourseAdapter extends ArrayAdapter<EnrolledCourseListItems>
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView enrolledcourselist_name = (TextView) view.findViewById(R.id.enrolledcourselist_name);
-        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.relativelayout_courses);
-        ImageView studentPicarrow = (ImageView) view.findViewById(R.id.studentPicarrow);
+        TextView enrolledcourselist_name = view.findViewById(R.id.enrolledcourselist_name);
+        RelativeLayout relativeLayout = view.findViewById(R.id.relativelayout_courses);
+        ImageView studentPicarrow = view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final EnrolledCourseListItems hero = enrolledCourseListItemses.get(position);

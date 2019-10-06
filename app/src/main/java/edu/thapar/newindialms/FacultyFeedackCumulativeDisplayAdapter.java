@@ -2,8 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -50,9 +51,9 @@ public class FacultyFeedackCumulativeDisplayAdapter extends ArrayAdapter<Faculty
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
-        TextView text_rating_questions = (TextView) view.findViewById(R.id.text_rating_questions);
-        ImageView right_arrow = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow2);
+        RelativeLayout relative1 = view.findViewById(R.id.relative1);
+        TextView text_rating_questions = view.findViewById(R.id.text_rating_questions);
+        ImageView right_arrow = view.findViewById(R.id.faculty_courselist_rightarrow2);
 
 
         //getting the hero of the specified position

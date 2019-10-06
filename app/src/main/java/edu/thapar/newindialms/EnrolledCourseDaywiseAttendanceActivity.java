@@ -2,14 +2,14 @@ package edu.thapar.newindialms;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -51,10 +51,10 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
         student_rollnno = getIntent().getStringExtra("student_rollnno");
         studentyear = getIntent().getStringExtra("studentyear");
 
-        daywise_toolbar = (Toolbar) findViewById(R.id.enrollcoursetoolbar);
+        daywise_toolbar = findViewById(R.id.enrollcoursetoolbar);
         daywise_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView daywise_title = (TextView) findViewById(R.id.enrolled_daywise_title);
+        TextView daywise_title = findViewById(R.id.enrolled_daywise_title);
         daywise_title.setText(course_details_name + " Daywise");
         setSupportActionBar(daywise_toolbar);
 
@@ -65,9 +65,9 @@ public class EnrolledCourseDaywiseAttendanceActivity extends AppCompatActivity {
             }
         });
 
-        daywise_toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        daywise_toolbar_title = findViewById(R.id.itemsselected);
         daywise_toolbar_title.setText("Daywise");
-        listView = (ListView) findViewById(R.id.enrolledcourse_daywise_list_ListView);
+        listView = findViewById(R.id.enrolledcourse_daywise_list_ListView);
         heroList = new ArrayList<>();
         loadRecyclerViewData();
 

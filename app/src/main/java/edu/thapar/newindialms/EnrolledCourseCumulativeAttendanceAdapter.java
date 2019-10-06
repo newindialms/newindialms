@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -47,11 +48,11 @@ public class EnrolledCourseCumulativeAttendanceAdapter extends ArrayAdapter<Enro
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView enrollcourse_cumulative_display_total = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_total);
-        TextView enrollcourse_cumulative_display_present = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_present);
-        TextView enrollcourse_cumulative_display_absent = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_absent);
-        TextView enrollcourse_cumulative_display_feedback = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_feedback);
-        TextView enrollcourse_cumulative_display_percentage = (TextView) view.findViewById(R.id.enrollcourse_cumulative_display_percentage);
+        TextView enrollcourse_cumulative_display_total = view.findViewById(R.id.enrollcourse_cumulative_display_total);
+        TextView enrollcourse_cumulative_display_present = view.findViewById(R.id.enrollcourse_cumulative_display_present);
+        TextView enrollcourse_cumulative_display_absent = view.findViewById(R.id.enrollcourse_cumulative_display_absent);
+        TextView enrollcourse_cumulative_display_feedback = view.findViewById(R.id.enrollcourse_cumulative_display_feedback);
+        TextView enrollcourse_cumulative_display_percentage = view.findViewById(R.id.enrollcourse_cumulative_display_percentage);
 
 
         //getting the hero of the specified position

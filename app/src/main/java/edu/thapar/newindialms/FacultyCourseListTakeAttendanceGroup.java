@@ -4,11 +4,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -70,9 +71,9 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
 
 
-        faculty_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar = findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
         faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -82,9 +83,9 @@ public class FacultyCourseListTakeAttendanceGroup extends AppCompatActivity {
             }
         });
 
-        facultycourselist_program_title = (TextView) findViewById(R.id.facultycourselist_takeattendance_title);
+        facultycourselist_program_title = findViewById(R.id.facultycourselist_takeattendance_title);
         facultycourselist_program_title.setText(coursename + " Take Attendance");
-        listView = (RecyclerView) findViewById(R.id.facultycourselisttakeattendancelist_ListView);
+        listView = findViewById(R.id.facultycourselisttakeattendancelist_ListView);
         listView.setHasFixedSize(true);
         listView.setLayoutManager(new LinearLayoutManager(this));
         heroList = new ArrayList<>();

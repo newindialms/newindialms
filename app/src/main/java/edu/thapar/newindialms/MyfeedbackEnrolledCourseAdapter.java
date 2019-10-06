@@ -3,9 +3,6 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import java.util.List;
 
@@ -54,9 +55,9 @@ public class MyfeedbackEnrolledCourseAdapter extends ArrayAdapter<MyfeedbackEnro
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        enrolledcourselist_name = (TextView) view.findViewById(R.id.myfeedbackenrolledcourselist_name);
-        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(R.id.myfeedback_rightarrow);
-        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
+        enrolledcourselist_name = view.findViewById(R.id.myfeedbackenrolledcourselist_name);
+        ImageView studentpic_programlistarrow = view.findViewById(R.id.myfeedback_rightarrow);
+        RelativeLayout relative1 = view.findViewById(R.id.relative1);
 
         //getting the hero of the specified position
         final MyfeedbackEnrolledCourseListItems hero = myfeedbackEnrolledCourseListItems.get(position);

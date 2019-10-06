@@ -1,8 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -55,11 +56,11 @@ public class EnrollcourseAdapter extends ArrayAdapter<EnrollcourseListItems> {
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentenrollcourse_name = (TextView) view.findViewById(R.id.studentenrollcourse_name);
-        TextView studentenrollcourse_code = (TextView) view.findViewById(R.id.studentenrollcourse_code);
-        TextView studentenrollcourse_faculty = (TextView) view.findViewById(R.id.studentenrollcourse_faculty);
-        TextView studentenrollcourse_credits = (TextView) view.findViewById(R.id.studentenrollcourse_credits);
-        CheckBox studentenrollcourse_checkbox = (CheckBox) view.findViewById(R.id.enrollcheckBox);
+        TextView studentenrollcourse_name = view.findViewById(R.id.studentenrollcourse_name);
+        TextView studentenrollcourse_code = view.findViewById(R.id.studentenrollcourse_code);
+        TextView studentenrollcourse_faculty = view.findViewById(R.id.studentenrollcourse_faculty);
+        TextView studentenrollcourse_credits = view.findViewById(R.id.studentenrollcourse_credits);
+        CheckBox studentenrollcourse_checkbox = view.findViewById(R.id.enrollcheckBox);
         //Button enrollButton=(Button)view1.findViewById(R.id.EnrollButton);
         //getting the hero of the specified position
         final EnrollcourseListItems hero1 = enrollcourseListItemses.get(position);

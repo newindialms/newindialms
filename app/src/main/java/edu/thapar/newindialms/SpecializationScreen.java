@@ -3,13 +3,13 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,7 +49,7 @@ public class SpecializationScreen extends AppCompatActivity {
         setContentView(R.layout.activity_enrolled_specialization);
         studentid = getIntent().getExtras().getString("studentid");
 
-        studentprofile_toolbar = (Toolbar) findViewById(R.id.studentprofile_toolbar);
+        studentprofile_toolbar = findViewById(R.id.studentprofile_toolbar);
         studentprofile_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentprofile_toolbar);
         studentprofile_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -60,11 +60,11 @@ public class SpecializationScreen extends AppCompatActivity {
             }
         });
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.enrolledcourselistView);
+        listView = findViewById(R.id.enrolledcourselistView);
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

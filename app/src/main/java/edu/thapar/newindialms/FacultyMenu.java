@@ -3,26 +3,26 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import com.google.android.material.navigation.NavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,25 +46,25 @@ public class FacultyMenu extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_menu);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.faculty_toolbar);
+        Toolbar toolbar = findViewById(R.id.faculty_toolbar);
         setSupportActionBar(toolbar);
         loadCalendarValDetails();
 
         facultyname = getIntent().getStringExtra("facultyname");
         facultyid = getIntent().getStringExtra("facultyid");
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.faculty_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.faculty_nav_view);
+        NavigationView navigationView = findViewById(R.id.faculty_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View header = navigationView.getHeaderView(0);
-        faculty_toolbar_name = (TextView) header.findViewById(R.id.faculty_toolbar_name);
-        faculty_toolbar_id = (TextView) header.findViewById(R.id.faculty_toolbar_id);
+        faculty_toolbar_name = header.findViewById(R.id.faculty_toolbar_name);
+        faculty_toolbar_id = header.findViewById(R.id.faculty_toolbar_id);
         faculty_toolbar_name.setText(facultyname);
         faculty_toolbar_id.setText(facultyid);
 
@@ -100,7 +100,7 @@ public class FacultyMenu extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.faculty_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -133,13 +133,13 @@ public class FacultyMenu extends AppCompatActivity
         }
 
         if (fragment != null) {
-            RelativeLayout layout = (RelativeLayout) findViewById(R.id.faculty_courselist_fragment);
+            RelativeLayout layout = findViewById(R.id.faculty_courselist_fragment);
             layout.removeAllViewsInLayout();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.faculty_courselist_fragment, fragment);
             fragmentTransaction.commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.faculty_drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.faculty_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 

@@ -2,15 +2,16 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -50,17 +51,17 @@ public class FacultyCourseList extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_faculty_courselist, null);
         FacultyMenu activity = (FacultyMenu) getActivity();
         faculty_employeeid = activity.getEmployeeid();
-        TextView studentpic_title = (TextView) rootView.findViewById(R.id.faculty_courselist_title);
+        TextView studentpic_title = rootView.findViewById(R.id.faculty_courselist_title);
         studentpic_title.setText("CourseList");
 
         pglist = new FacultyListItemCourseList(faculty_employeeid);
         pglist.setFaculty_employeeid(faculty_employeeid);
 
         heroList = new ArrayList<>();
-        listView = (ListView) rootView.findViewById(R.id.faculty_courselist_ListView);
+        listView = rootView.findViewById(R.id.faculty_courselist_ListView);
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = rootView.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

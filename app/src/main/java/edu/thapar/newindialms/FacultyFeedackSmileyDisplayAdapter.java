@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.hsalf.smilerating.SmileRating;
 
@@ -49,10 +50,10 @@ public class FacultyFeedackSmileyDisplayAdapter extends ArrayAdapter<FacultyFeed
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        SmileRating smileybar = (SmileRating) view.findViewById(R.id.smile_rating);
-        TextView smileyquestion = (TextView) view.findViewById(R.id.text_rating_questions);
-        TextView enrollcourse_daywise_display_date = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_date);
-        TextView enrollcourse_daywise_display_time = (TextView) view.findViewById(R.id.enrollcourse_daywise_display_time);
+        SmileRating smileybar = view.findViewById(R.id.smile_rating);
+        TextView smileyquestion = view.findViewById(R.id.text_rating_questions);
+        TextView enrollcourse_daywise_display_date = view.findViewById(R.id.enrollcourse_daywise_display_date);
+        TextView enrollcourse_daywise_display_time = view.findViewById(R.id.enrollcourse_daywise_display_time);
 
 
         //getting the hero of the specified position

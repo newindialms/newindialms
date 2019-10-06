@@ -1,12 +1,13 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +33,10 @@ public class ProgramScreenSpecializationModule extends AppCompatActivity {
         setContentView(R.layout.activity_program_screen_specializationmodule);
         SpecializationName = getIntent().getStringExtra("specializationname");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
+        studentpic_toolbar = findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        TextView studentpic_title = findViewById(R.id.studentpic_title);
         studentpic_title.setText(SpecializationName);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -45,12 +46,12 @@ public class ProgramScreenSpecializationModule extends AppCompatActivity {
             }
         });
 
-        Studentpic_program_specialization_title = (TextView) findViewById(R.id.Studentpic_program_specializationmodule_title);
+        Studentpic_program_specialization_title = findViewById(R.id.Studentpic_program_specializationmodule_title);
         Studentpic_program_specialization_title.setText(SpecializationName);
 
         //initializing objects
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreenspecializationmodulelist_ListView);
+        listView = findViewById(R.id.studentpic_programscreenspecializationmodulelist_ListView);
 
         ProgramScreenSpecializationModuleListItems pglist = new ProgramScreenSpecializationModuleListItems(SpecializationName);
         pglist.setSpecializationname(SpecializationName);

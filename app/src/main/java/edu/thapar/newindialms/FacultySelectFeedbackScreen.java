@@ -4,18 +4,19 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -67,9 +68,9 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faculty_select_feedbackscreen);
 
-        facultyToolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        facultyToolbar = findViewById(R.id.facultycourselist_toolbar);
         facultyToolbar.setNavigationIcon(R.drawable.ic_left);
-        facultyToolbarTitle = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        facultyToolbarTitle = findViewById(R.id.facultydashboard_toolbar_title);
         facultyToolbarTitle.setText("Select Feedback");
 
         myFeedbackselect = getIntent();
@@ -99,7 +100,7 @@ public class FacultySelectFeedbackScreen extends AppCompatActivity {
         });
 
 
-        recyclerView = (RecyclerView) findViewById(R.id.faculty_select_feedbackscreen_recyclerview);
+        recyclerView = findViewById(R.id.faculty_select_feedbackscreen_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplication()));
 

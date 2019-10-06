@@ -3,14 +3,15 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -60,11 +61,11 @@ public class SearchStudent extends Fragment {
         studentsspecilization = new ArrayList<String>();
 
         //Initializing Spinner
-        joiningSpinner = (Spinner) rootview.findViewById(R.id.joining_spinner);
-        programSpinner = (Spinner) rootview.findViewById(R.id.program_spinner);
-        specializationSpinner = (Spinner) rootview.findViewById(R.id.specialization_spinner);
+        joiningSpinner = rootview.findViewById(R.id.joining_spinner);
+        programSpinner = rootview.findViewById(R.id.program_spinner);
+        specializationSpinner = rootview.findViewById(R.id.specialization_spinner);
 
-        spinner_show_button = (Button) rootview.findViewById(R.id.spinner_show_button);
+        spinner_show_button = rootview.findViewById(R.id.spinner_show_button);
 
         //This method will fetch the data from the URL
         getYearData();

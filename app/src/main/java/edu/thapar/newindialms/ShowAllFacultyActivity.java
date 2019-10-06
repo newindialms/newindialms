@@ -8,12 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +37,7 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_show_all_faculty);
 
-        FacultyListView = (ListView) findViewById(R.id.all_faculty_list);
+        FacultyListView = findViewById(R.id.all_faculty_list);
 
 
         new GetHttpResponse(ShowAllFacultyActivity.this).execute();
@@ -51,7 +52,7 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
                 Intent intent = new Intent(ShowAllFacultyActivity.this, ShowFacultySingleRecordActivity.class);
 
                 // Sending ListView clicked value using intent.
-                intent.putExtra("ListViewValue", IdList.get(position).toString());
+                intent.putExtra("ListViewValue", IdList.get(position));
 
                 startActivity(intent);
 
@@ -107,11 +108,11 @@ public class ShowAllFacultyActivity extends AppCompatActivity {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Faculty Id TO IdList Array.
-                                IdList.add(jsonObject.getString("facultydetails_ID").toString());
+                                IdList.add(jsonObject.getString("facultydetails_ID"));
 
                                 //Adding Faculty Name.
-                                faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
-                                faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
+                                faculty.FacultyName = jsonObject.getString("faculty_firstname");
+                                faculty.FacultyProgram = jsonObject.getString("faculty_program");
                                 facultyList.add(faculty);
 
                             }

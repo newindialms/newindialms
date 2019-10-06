@@ -1,16 +1,14 @@
 package edu.thapar.newindialms;
+
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.appcompat.widget.AppCompatCheckBox;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,11 +58,11 @@ public class FacultyCourseListAttendanceGroupAdapter extends RecyclerView.Adapte
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     status = "Present";
-                    presentlist.add(hero.getStudentrollno().toString());
+                    presentlist.add(hero.getStudentrollno());
                     hero.setStatus(false);
                 } else {
                     status = "Absent";
-                    absentlist.add(hero.getStudentrollno().toString());
+                    absentlist.add(hero.getStudentrollno());
                     hero.setStatus(true);
                 }
             }
@@ -85,9 +83,9 @@ public class FacultyCourseListAttendanceGroupAdapter extends RecyclerView.Adapte
             super(itemView);
 
             //getting the view elements of the list from the view
-            faculty_courselist_attendance_take = (TextView) itemView.findViewById(R.id.faculty_courselist_attendance_take);
-            faculty_courselist_attendance_take_roolno = (TextView) itemView.findViewById(R.id.faculty_courselist_attendance_take_roolno);
-            attendance_switch = (CheckBox) itemView.findViewById(R.id.simpleSwitchtakeattendance);
+            faculty_courselist_attendance_take = itemView.findViewById(R.id.faculty_courselist_attendance_take);
+            faculty_courselist_attendance_take_roolno = itemView.findViewById(R.id.faculty_courselist_attendance_take_roolno);
+            attendance_switch = itemView.findViewById(R.id.simpleSwitchtakeattendance);
         }
 
     }

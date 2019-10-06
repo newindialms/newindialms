@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -49,14 +50,14 @@ public class ProgramScreenAdapter extends ArrayAdapter<ProgramScreenListItems> {
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreenyear = (TextView) view.findViewById(R.id.studentpic_programscreenyear);
-        TextView studentpic_programscreenspecialization = (TextView) view.findViewById(R.id.studentpic_programscreenspecialization);
-        TextView studentpic_programscreenourse = (TextView) view.findViewById(R.id.studentpic_programscreenourse);
-        TextView studentpic_programscreencorecourses = (TextView) view.findViewById(R.id.studentpic_programscreencorecourses);
-        ImageView studentPicarrow1 = (ImageView) view.findViewById(R.id.studentPicarrow1);
-        ImageView studentPicarrow2 = (ImageView) view.findViewById(R.id.studentPicarrow2);
-        ImageView studentPicarrow3 = (ImageView) view.findViewById(R.id.studentPicarrow3);
-        ImageView studentPicarrow4 = (ImageView) view.findViewById(R.id.studentPicarrow4);
+        TextView studentpic_programscreenyear = view.findViewById(R.id.studentpic_programscreenyear);
+        TextView studentpic_programscreenspecialization = view.findViewById(R.id.studentpic_programscreenspecialization);
+        TextView studentpic_programscreenourse = view.findViewById(R.id.studentpic_programscreenourse);
+        TextView studentpic_programscreencorecourses = view.findViewById(R.id.studentpic_programscreencorecourses);
+        ImageView studentPicarrow1 = view.findViewById(R.id.studentPicarrow1);
+        ImageView studentPicarrow2 = view.findViewById(R.id.studentPicarrow2);
+        ImageView studentPicarrow3 = view.findViewById(R.id.studentPicarrow3);
+        ImageView studentPicarrow4 = view.findViewById(R.id.studentPicarrow4);
 
 
         //getting the hero of the specified position

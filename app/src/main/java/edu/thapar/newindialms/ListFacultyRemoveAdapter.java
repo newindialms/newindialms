@@ -3,13 +3,14 @@ package edu.thapar.newindialms;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -73,11 +74,11 @@ public class ListFacultyRemoveAdapter extends BaseAdapter {
 
             convertView = layoutInfiater.inflate(R.layout.listview_removefaculty_item, null);
 
-            viewItem.TextViewFacultyName = (TextView)convertView.findViewById(R.id.faculty_text_view);
-            viewItem.TextViewFacultyRollno = (TextView)convertView.findViewById(R.id.facultyrollno_text_view);
-            viewItem.TextViewFacultyCode= (TextView)convertView.findViewById(R.id.facultyCode_text_view);
-            viewItem.TextViewFacultyspecialization = (TextView)convertView.findViewById(R.id.facultyspecialization_text_view);
-            viewItem.FacultyBin = (ImageView) convertView.findViewById(R.id.facultydeletebin);
+            viewItem.TextViewFacultyName = convertView.findViewById(R.id.faculty_text_view);
+            viewItem.TextViewFacultyRollno = convertView.findViewById(R.id.facultyrollno_text_view);
+            viewItem.TextViewFacultyCode= convertView.findViewById(R.id.facultyCode_text_view);
+            viewItem.TextViewFacultyspecialization = convertView.findViewById(R.id.facultyspecialization_text_view);
+            viewItem.FacultyBin = convertView.findViewById(R.id.facultydeletebin);
             convertView.setTag(viewItem);
         }
         else

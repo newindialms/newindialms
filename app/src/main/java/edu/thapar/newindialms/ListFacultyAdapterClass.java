@@ -55,10 +55,10 @@ public class ListFacultyAdapterClass extends BaseAdapter {
 
             convertView = layoutInfiater.inflate(R.layout.listview_faculty_item, null);
 
-            viewItem.TextViewFacultyName = (TextView)convertView.findViewById(R.id.faculty_text_view);
-            viewItem.TextViewFacultyProgram = (TextView)convertView.findViewById(R.id.facultyprogram_text_view);
-            viewItem.TextViewFacultyCode = (TextView)convertView.findViewById(R.id.facultyprogram_code);
-            viewItem.TextViewFacultySpecialization = (TextView)convertView.findViewById(R.id.facultyprogram_specialization);
+            viewItem.TextViewFacultyName = convertView.findViewById(R.id.faculty_text_view);
+            viewItem.TextViewFacultyProgram = convertView.findViewById(R.id.facultyprogram_text_view);
+            viewItem.TextViewFacultyCode = convertView.findViewById(R.id.facultyprogram_code);
+            viewItem.TextViewFacultySpecialization = convertView.findViewById(R.id.facultyprogram_specialization);
 
             convertView.setTag(viewItem);
         }

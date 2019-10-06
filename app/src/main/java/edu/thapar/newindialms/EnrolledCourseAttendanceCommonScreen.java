@@ -1,11 +1,12 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,14 +36,14 @@ public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
         student_rollnno = getIntent().getStringExtra("student_rollnno");
         studentyear = getIntent().getStringExtra("studentyear");
 
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
+        student_toolbar = findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        student_title = (TextView) findViewById(R.id.enrolledcourses_title);
+        student_title = findViewById(R.id.enrolledcourses_title);
 
         student_title.setText("My Attendance " + enrolledcoursename);
 
-        student_toolbar_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        student_toolbar_title = findViewById(R.id.student_enroll_toolbar_title);
         student_toolbar_title.setText(enrolledcoursename);
 
         setSupportActionBar(student_toolbar);
@@ -56,7 +57,7 @@ public class EnrolledCourseAttendanceCommonScreen extends AppCompatActivity {
 
         //initializing objects
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.enrolledcourselistView);
+        listView = findViewById(R.id.enrolledcourselistView);
 
         EnrolledCourseAttendanceCommonScreenListItems pglist = new EnrolledCourseAttendanceCommonScreenListItems(enrolledcoursename);
         pglist.setEnrolledcoursename(enrolledcoursename);

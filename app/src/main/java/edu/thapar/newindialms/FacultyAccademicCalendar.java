@@ -1,14 +1,15 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -18,7 +19,6 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.widget.LinearLayout;
 
 /**
  * Created by kamalshree on 9/26/2017.
@@ -81,57 +81,57 @@ public class FacultyAccademicCalendar extends Fragment {
 
         CalendarVal = getArguments().getString("CalendarVal");
 
-        fall_calendar_layout = (LinearLayout) rootview.findViewById(R.id.fall_calendar_layout);
-        spring_calendar_layout = (LinearLayout) rootview.findViewById(R.id.spring_calendar_layout);
+        fall_calendar_layout = rootview.findViewById(R.id.fall_calendar_layout);
+        spring_calendar_layout = rootview.findViewById(R.id.spring_calendar_layout);
 
-        sringcalendar = (TextView) rootview.findViewById(R.id.sringcalendar);
-        textView5 = (TextView) rootview.findViewById(R.id.textView5);
+        sringcalendar = rootview.findViewById(R.id.sringcalendar);
+        textView5 = rootview.findViewById(R.id.textView5);
 
-        accademicCalendar = (TextView) rootview.findViewById(R.id.accademic_calendar);
-        fallYear = (TextView) rootview.findViewById(R.id.fall_year);
-        fallSemesterSesion = (TextView) rootview.findViewById(R.id.fall_semester_sesion);
-        springYear = (TextView) rootview.findViewById(R.id.spring_year);
-        springSemesterSesion = (TextView) rootview.findViewById(R.id.spring_semester_sesion);
+        accademicCalendar = rootview.findViewById(R.id.accademic_calendar);
+        fallYear = rootview.findViewById(R.id.fall_year);
+        fallSemesterSesion = rootview.findViewById(R.id.fall_semester_sesion);
+        springYear = rootview.findViewById(R.id.spring_year);
+        springSemesterSesion = rootview.findViewById(R.id.spring_semester_sesion);
 
-        textViewClassesRegistrationFall = (TextView) rootview.findViewById(R.id.textViewClassesRegistrationFall);
-        springclassessemester24registrationtext = (TextView) rootview.findViewById(R.id.spring_classes_semester24_registration_text);
-        feefallSub1 = (TextView) rootview.findViewById(R.id.fee_fall_sub_1);
-        fallclassessemester3Registration = (TextView) rootview.findViewById(R.id.fall_classes_semester3_registration);
-        registrationtextfall = (TextView) rootview.findViewById(R.id.registrationtextfall);
-        feefallSub2 = (TextView) rootview.findViewById(R.id.fee_fall_sub_2);
-        feefallSubcomment = (TextView) rootview.findViewById(R.id.fee_fall_sub_comment);
+        textViewClassesRegistrationFall = rootview.findViewById(R.id.textViewClassesRegistrationFall);
+        springclassessemester24registrationtext = rootview.findViewById(R.id.spring_classes_semester24_registration_text);
+        feefallSub1 = rootview.findViewById(R.id.fee_fall_sub_1);
+        fallclassessemester3Registration = rootview.findViewById(R.id.fall_classes_semester3_registration);
+        registrationtextfall = rootview.findViewById(R.id.registrationtextfall);
+        feefallSub2 = rootview.findViewById(R.id.fee_fall_sub_2);
+        feefallSubcomment = rootview.findViewById(R.id.fee_fall_sub_comment);
 
-        textViewClassesRegistrationSpring = (TextView) rootview.findViewById(R.id.textViewClassesRegistrationSpring);
-        fallclassessemester3registrationtext = (TextView) rootview.findViewById(R.id.fall_classes_semester3_registration_text);
-        springclassessemester24Registration = (TextView) rootview.findViewById(R.id.spring_classes_semester24_registration);
-        registrationtextspring = (TextView) rootview.findViewById(R.id.registrationtextspring);
-        feespringSub1 = (TextView) rootview.findViewById(R.id.fee_spring_sub_1);
-        feespringSub2 = (TextView) rootview.findViewById(R.id.fee_spring_sub_2);
-        feespringSubcomment = (TextView) rootview.findViewById(R.id.fee_spring_sub_comment);
+        textViewClassesRegistrationSpring = rootview.findViewById(R.id.textViewClassesRegistrationSpring);
+        fallclassessemester3registrationtext = rootview.findViewById(R.id.fall_classes_semester3_registration_text);
+        springclassessemester24Registration = rootview.findViewById(R.id.spring_classes_semester24_registration);
+        registrationtextspring = rootview.findViewById(R.id.registrationtextspring);
+        feespringSub1 = rootview.findViewById(R.id.fee_spring_sub_1);
+        feespringSub2 = rootview.findViewById(R.id.fee_spring_sub_2);
+        feespringSubcomment = rootview.findViewById(R.id.fee_spring_sub_comment);
 
-        fallClassesSemester3 = (TextView) rootview.findViewById(R.id.fall_classes_semester3);
-        sprigClassesSemester24 = (TextView) rootview.findViewById(R.id.sprig_classes_semester24);
-        fallClassesSemester2 = (TextView) rootview.findViewById(R.id.fall_classes_semester2);
-        fallClassesSemester1 = (TextView) rootview.findViewById(R.id.fall_classes_semester1);
-        fallTeachingSemester3 = (TextView) rootview.findViewById(R.id.fall_teaching_semester3);
-        springTeachingSemester24 = (TextView) rootview.findViewById(R.id.spring_teaching_semester24);
-        fallTeachingSemester1 = (TextView) rootview.findViewById(R.id.fall_teaching_semester1);
-        fallMidendSemester13 = (TextView) rootview.findViewById(R.id.fall_midend_semester13);
-        springMidendSemester24 = (TextView) rootview.findViewById(R.id.spring_midend_semester24);
-        fallTeachingSemestersecond = (TextView) rootview.findViewById(R.id.fall_teaching_semestersecond);
-        springTeachingSemestersecond = (TextView) rootview.findViewById(R.id.spring_teaching_semestersecond);
-        fallBreakSemester13 = (TextView) rootview.findViewById(R.id.fall_break_semester13);
-        springBreakSemester24 = (TextView) rootview.findViewById(R.id.spring_break_semester24);
-        fallTeachingSemesterthird = (TextView) rootview.findViewById(R.id.fall_teaching_semesterthird);
-        springWeekendDays = (TextView) rootview.findViewById(R.id.spring_weekend_days);
-        fallendBreakSemester13 = (TextView) rootview.findViewById(R.id.fallend_break_semester13);
-        springClosingDays = (TextView) rootview.findViewById(R.id.spring_closing_days);
-        fallWeekendDays = (TextView) rootview.findViewById(R.id.fall_weekend_days);
-        internshipDays = (TextView) rootview.findViewById(R.id.internship_days);
-        fallClosingDays = (TextView) rootview.findViewById(R.id.fall_closing_days);
-        backlogDates = (TextView) rootview.findViewById(R.id.backlog_dates);
-        fallWinterBreak = (TextView) rootview.findViewById(R.id.fall_winter_break);
-        springSummerBreak = (TextView) rootview.findViewById(R.id.spring_summer_break);
+        fallClassesSemester3 = rootview.findViewById(R.id.fall_classes_semester3);
+        sprigClassesSemester24 = rootview.findViewById(R.id.sprig_classes_semester24);
+        fallClassesSemester2 = rootview.findViewById(R.id.fall_classes_semester2);
+        fallClassesSemester1 = rootview.findViewById(R.id.fall_classes_semester1);
+        fallTeachingSemester3 = rootview.findViewById(R.id.fall_teaching_semester3);
+        springTeachingSemester24 = rootview.findViewById(R.id.spring_teaching_semester24);
+        fallTeachingSemester1 = rootview.findViewById(R.id.fall_teaching_semester1);
+        fallMidendSemester13 = rootview.findViewById(R.id.fall_midend_semester13);
+        springMidendSemester24 = rootview.findViewById(R.id.spring_midend_semester24);
+        fallTeachingSemestersecond = rootview.findViewById(R.id.fall_teaching_semestersecond);
+        springTeachingSemestersecond = rootview.findViewById(R.id.spring_teaching_semestersecond);
+        fallBreakSemester13 = rootview.findViewById(R.id.fall_break_semester13);
+        springBreakSemester24 = rootview.findViewById(R.id.spring_break_semester24);
+        fallTeachingSemesterthird = rootview.findViewById(R.id.fall_teaching_semesterthird);
+        springWeekendDays = rootview.findViewById(R.id.spring_weekend_days);
+        fallendBreakSemester13 = rootview.findViewById(R.id.fallend_break_semester13);
+        springClosingDays = rootview.findViewById(R.id.spring_closing_days);
+        fallWeekendDays = rootview.findViewById(R.id.fall_weekend_days);
+        internshipDays = rootview.findViewById(R.id.internship_days);
+        fallClosingDays = rootview.findViewById(R.id.fall_closing_days);
+        backlogDates = rootview.findViewById(R.id.backlog_dates);
+        fallWinterBreak = rootview.findViewById(R.id.fall_winter_break);
+        springSummerBreak = rootview.findViewById(R.id.spring_summer_break);
 
         if (CalendarVal.equals("Spring")) {
             loadSpringCalendarDetails();

@@ -4,14 +4,15 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -45,13 +46,13 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_register_screen);
 
 
-        register_id = (EditText) findViewById(R.id.registration_id);
-        register_phone = (EditText) findViewById(R.id.registration_phone);
-        register_email = (EditText) findViewById(R.id.registration_email);
-        register_password = (EditText) findViewById(R.id.registration_password);
-        register_checkbox1 = (CheckBox) findViewById(R.id.registration_checkbox1);
-        register_checkbox2 = (CheckBox) findViewById(R.id.registration_checkbox2);
-        register_button = (Button) findViewById(R.id.registration_button);
+        register_id = findViewById(R.id.registration_id);
+        register_phone = findViewById(R.id.registration_phone);
+        register_email = findViewById(R.id.registration_email);
+        register_password = findViewById(R.id.registration_password);
+        register_checkbox1 = findViewById(R.id.registration_checkbox1);
+        register_checkbox2 = findViewById(R.id.registration_checkbox2);
+        register_button = findViewById(R.id.registration_button);
         //Initializing the RequestQueue
         requestQueue = Volley.newRequestQueue(this);
 
@@ -145,8 +146,8 @@ public class RegisterScreen extends AppCompatActivity implements View.OnClickLis
         View confirmDialog = li.inflate(R.layout.otp_screen, null);
 
         //Initizliaing confirm button fo dialog box and edittext of dialog box
-        otp_button = (Button) confirmDialog.findViewById(R.id.otpsubmit);
-        editTextConfirmOtp = (EditText) confirmDialog.findViewById(R.id.editTextOtp);
+        otp_button = confirmDialog.findViewById(R.id.otpsubmit);
+        editTextConfirmOtp = confirmDialog.findViewById(R.id.editTextOtp);
 
         //Creating an alertdialog builder
         AlertDialog.Builder alert = new AlertDialog.Builder(this);

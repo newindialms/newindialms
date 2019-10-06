@@ -56,8 +56,8 @@ public class ListAdapterClass extends BaseAdapter {
 
             convertView = layoutInfiater.inflate(R.layout.listview_item, null);
 
-            viewItem.TextViewStudentName = (TextView)convertView.findViewById(R.id.student_text_view);
-            viewItem.TextViewStudentRollno = (TextView)convertView.findViewById(R.id.student_text_view_rollnno);
+            viewItem.TextViewStudentName = convertView.findViewById(R.id.student_text_view);
+            viewItem.TextViewStudentRollno = convertView.findViewById(R.id.student_text_view_rollnno);
 
             convertView.setTag(viewItem);
         }

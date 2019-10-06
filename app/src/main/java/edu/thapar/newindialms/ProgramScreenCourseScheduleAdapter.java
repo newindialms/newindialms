@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -47,15 +48,15 @@ public class ProgramScreenCourseScheduleAdapter extends ArrayAdapter<ProgramScre
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView timetable_day = (TextView) view.findViewById(R.id.timetable_day);
-        TextView timetable_date = (TextView) view.findViewById(R.id.timetable_date);
-        TextView timetable_startdate = (TextView) view.findViewById(R.id.timetable_startdate);
-        TextView textView10 = (TextView) view.findViewById(R.id.textView10);
-        TextView timetable_enddate = (TextView) view.findViewById(R.id.timetable_enddate);
-        TextView timetable_course = (TextView) view.findViewById(R.id.timetable_course);
-        TextView textView13 = (TextView) view.findViewById(R.id.textView13);
-        TextView timetable_faculty = (TextView) view.findViewById(R.id.timetable_faculty);
-        TextView timetable_program = (TextView) view.findViewById(R.id.timetable_program);
+        TextView timetable_day = view.findViewById(R.id.timetable_day);
+        TextView timetable_date = view.findViewById(R.id.timetable_date);
+        TextView timetable_startdate = view.findViewById(R.id.timetable_startdate);
+        TextView textView10 = view.findViewById(R.id.textView10);
+        TextView timetable_enddate = view.findViewById(R.id.timetable_enddate);
+        TextView timetable_course = view.findViewById(R.id.timetable_course);
+        TextView textView13 = view.findViewById(R.id.textView13);
+        TextView timetable_faculty = view.findViewById(R.id.timetable_faculty);
+        TextView timetable_program = view.findViewById(R.id.timetable_program);
 
 
         //getting the hero of the specified position

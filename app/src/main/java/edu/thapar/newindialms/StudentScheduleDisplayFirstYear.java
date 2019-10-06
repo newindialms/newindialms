@@ -3,14 +3,15 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -51,9 +52,9 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
         studentid = getIntent().getStringExtra("studentid");
         datevalue = getIntent().getStringExtra("datevalue");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
+        studentpic_toolbar = findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView student_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        TextView student_title = findViewById(R.id.student_enroll_toolbar_title);
         student_title.setText("My Schedule");
 
         setSupportActionBar(studentpic_toolbar);
@@ -64,10 +65,10 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
             }
         });
 
-        Studentpic_program_title = (TextView) findViewById(R.id.studentschedule_display_title);
-        Studentpic_program_title.setText("My schedule on " + reverse(datevalue));
+        Studentpic_program_title = findViewById(R.id.studentschedule_display_title);
+        Studentpic_program_title.setText("My schedule on " + datevalue);
         heroList = new ArrayList<>();
-        listView = (RecyclerView) findViewById(R.id.studentcheduledisplaylistfirstyear_ListView);
+        listView = findViewById(R.id.studentcheduledisplaylistfirstyear_ListView);
         listView.setHasFixedSize(true);
         listView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -80,7 +81,7 @@ public class StudentScheduleDisplayFirstYear extends AppCompatActivity {
         String lastChar=toReverse.substring(8,10);
         String monChar=toReverse.substring(5,7);
         String sb=lastChar+'-'+monChar+'-'+firstChar;
-        return sb.toString();
+        return sb;
     }
 
     private void loadRecyclerViewData() {

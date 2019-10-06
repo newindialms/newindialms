@@ -1,18 +1,20 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class StudentEnrollCourseTab extends AppCompatActivity {
 
@@ -38,7 +40,7 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_enrollcourse_tab);
 
-        enrollcoursetoolbar = (Toolbar) findViewById(R.id.toolbar_enroll_course);
+        enrollcoursetoolbar = findViewById(R.id.toolbar_enroll_course);
         enrollcoursetoolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(enrollcoursetoolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,10 +59,10 @@ public class StudentEnrollCourseTab extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(Integer.parseInt(pagefragment));
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
 

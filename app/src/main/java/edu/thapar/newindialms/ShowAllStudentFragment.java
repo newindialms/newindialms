@@ -5,15 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,9 +44,9 @@ public class ShowAllStudentFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.activity_show_all_students, container, false);
-        StudentListView = (ListView) rootview.findViewById(R.id.all_student_list);
+        StudentListView = rootview.findViewById(R.id.all_student_list);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = rootview.findViewById(R.id.showfeedback_swipe);
         new GetHttpResponse(getActivity()).execute();
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
@@ -69,7 +70,7 @@ public class ShowAllStudentFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ShowStudentSingleRecordActivity.class);
 
                 // Sending ListView clicked value using intent.
-                intent.putExtra("ListViewValue", IdList.get(position).toString());
+                intent.putExtra("ListViewValue", IdList.get(position));
 
                 startActivity(intent);
 
@@ -130,12 +131,12 @@ public class ShowAllStudentFragment extends Fragment {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Student Id TO IdList Array.
-                                IdList.add(jsonObject.getString("studentdetails_ID").toString());
+                                IdList.add(jsonObject.getString("studentdetails_ID"));
 
                                 //Adding Student Name.
-                                student.StudentName = jsonObject.getString("student_lastname").toString();
-                                student.StudentFirstName = jsonObject.getString("student_firstname").toString();
-                                student.Studentrollno = jsonObject.getString("student_rollnno").toString();
+                                student.StudentName = jsonObject.getString("student_lastname");
+                                student.StudentFirstName = jsonObject.getString("student_firstname");
+                                student.Studentrollno = jsonObject.getString("student_rollnno");
 
                                 studentList.add(student);
 

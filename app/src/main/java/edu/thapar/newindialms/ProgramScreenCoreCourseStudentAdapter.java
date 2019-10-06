@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -48,8 +49,8 @@ public class ProgramScreenCoreCourseStudentAdapter extends ArrayAdapter<ProgramS
 
 
         //getting the view elements of the list from the view
-        TextView Studentpic_programstudentcorecourselist_name = (TextView) view.findViewById(R.id.Studentpic_programstudentcorecourselist_name);
-        TextView Studentpic_programstudentcorecourselist_rollno = (TextView) view.findViewById(R.id.Studentpic_programstudentcorecourselist_rollno);
+        TextView Studentpic_programstudentcorecourselist_name = view.findViewById(R.id.Studentpic_programstudentcorecourselist_name);
+        TextView Studentpic_programstudentcorecourselist_rollno = view.findViewById(R.id.Studentpic_programstudentcorecourselist_rollno);
 
 
         //getting the hero of the specified position

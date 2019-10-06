@@ -4,10 +4,6 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +11,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -50,8 +51,8 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_program_manager_schedule);
 
-        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
-        toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        toolbar_all_notiifcation = findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_title = findViewById(R.id.itemsselected);
         toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
         toolbar_title.setText("First Year Course Schedule");
 
@@ -67,17 +68,17 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
         addListenerOnDaysSpinnerItemSelection();
 
 
-        gobutton = (Button) findViewById(R.id.course_schedule_go);
+        gobutton = findViewById(R.id.course_schedule_go);
         gobutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                issuespinner = (Spinner) findViewById(R.id.course_schedule_issuespinner);
+                issuespinner = findViewById(R.id.course_schedule_issuespinner);
                 issue_details = issuespinner.getSelectedItem().toString();
 
-                dayspinner = (Spinner) findViewById(R.id.course_schedule_dayspinner);
+                dayspinner = findViewById(R.id.course_schedule_dayspinner);
                 day_details = dayspinner.getSelectedItem().toString();
 
-                semesterspinner = (Spinner) findViewById(R.id.course_schedule_semesterspinner);
+                semesterspinner = findViewById(R.id.course_schedule_semesterspinner);
                 semester_details = semesterspinner.getSelectedItem().toString();
 
                 if (semester_details.equals("") || day_details.equals("") || issue_details.equals("")) {
@@ -98,7 +99,7 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
     }
 
     public void addListenerOnCourseSpinnerItemSelection() {
-        semesterspinner = (Spinner) findViewById(R.id.course_schedule_semesterspinner);
+        semesterspinner = findViewById(R.id.course_schedule_semesterspinner);
         semesterspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -121,7 +122,7 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
 
     private void getIssueData() {
 
-        issuespinner = (Spinner) findViewById(R.id.course_schedule_issuespinner);
+        issuespinner = findViewById(R.id.course_schedule_issuespinner);
         //Creating a string request
         StringRequest stringRequest = new StringRequest(issue_url,
                 new Response.Listener<String>() {
@@ -183,7 +184,7 @@ public class ProgramManagerFirtYearSchedule extends AppCompatActivity {
 
     private void getDaysData() {
 
-        dayspinner = (Spinner) findViewById(R.id.course_schedule_dayspinner);
+        dayspinner = findViewById(R.id.course_schedule_dayspinner);
         //Creating a string request
         StringRequest stringRequest = new StringRequest(day_url,
                 new Response.Listener<String>() {

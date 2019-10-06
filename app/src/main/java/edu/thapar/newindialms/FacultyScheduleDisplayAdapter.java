@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -47,10 +48,10 @@ public class FacultyScheduleDisplayAdapter extends ArrayAdapter<FacultyScheduleD
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView faculty_scheduledisplay_program = (TextView) view.findViewById(R.id.faculty_scheduledisplay_program);
-        TextView faculty_scheduledisplay_starttime = (TextView) view.findViewById(R.id.faculty_scheduledisplay_starttime);
-        TextView faculty_scheduledisplay_endtime = (TextView) view.findViewById(R.id.faculty_scheduledisplay_endtime);
-        TextView faculty_scheduledisplay_course = (TextView) view.findViewById(R.id.faculty_scheduledisplay_course);
+        TextView faculty_scheduledisplay_program = view.findViewById(R.id.faculty_scheduledisplay_program);
+        TextView faculty_scheduledisplay_starttime = view.findViewById(R.id.faculty_scheduledisplay_starttime);
+        TextView faculty_scheduledisplay_endtime = view.findViewById(R.id.faculty_scheduledisplay_endtime);
+        TextView faculty_scheduledisplay_course = view.findViewById(R.id.faculty_scheduledisplay_course);
 
 
         //getting the hero of the specified position

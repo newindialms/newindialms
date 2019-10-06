@@ -3,13 +3,14 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -50,9 +51,9 @@ public class FacultyScheduleDisplay extends AppCompatActivity {
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
         datevalue = getIntent().getStringExtra("datevalue");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        studentpic_toolbar = findViewById(R.id.facultycourselist_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText("My Schedule");
 
         setSupportActionBar(studentpic_toolbar);
@@ -63,10 +64,10 @@ public class FacultyScheduleDisplay extends AppCompatActivity {
             }
         });
 
-        Studentpic_program_title = (TextView) findViewById(R.id.facultyschedule_display_title);
+        Studentpic_program_title = findViewById(R.id.facultyschedule_display_title);
         Studentpic_program_title.setText(datevalue);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.facultyscheduledisplaylist_ListView);
+        listView = findViewById(R.id.facultyscheduledisplaylist_ListView);
 
         loadRecyclerViewData();
 

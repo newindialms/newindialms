@@ -2,9 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
@@ -52,9 +53,9 @@ public class FacultyFeedbackDashboardAdapter extends ArrayAdapter<FacultyFeedbac
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
-        TextView faculty_feedback_dashboard_attendance = (TextView) view.findViewById(R.id.faculty_feedback_dashboard_type);
-        ImageView faculty_feedback_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_feedback_rightarrow1);
+        RelativeLayout relative1 = view.findViewById(R.id.relative1);
+        TextView faculty_feedback_dashboard_attendance = view.findViewById(R.id.faculty_feedback_dashboard_type);
+        ImageView faculty_feedback_rightarrow1 = view.findViewById(R.id.faculty_feedback_rightarrow1);
 
 
         //getting the hero of the specified position

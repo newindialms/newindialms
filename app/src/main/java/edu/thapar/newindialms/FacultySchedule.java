@@ -2,22 +2,19 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.CalendarView;
 import android.widget.Toast;
 
-import org.threeten.bp.LocalDate;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import solar.blaz.date.week.WeekDatePicker;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -29,37 +26,37 @@ public class FacultySchedule extends Fragment {
     View rootView;
     private Button ScheduleButton;
     private String datevalue,yearval,month_name;
-    private TextView monthval;
-    private solar.blaz.date.week.WeekDatePicker calendarView;
+    //private TextView monthval;
+    private CalendarView calendarView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_faculty_schedule, null);
         FacultyMenu activity = (FacultyMenu) getActivity();
         faculty_employeeid = activity.getEmployeeid();
-        calendarView = (solar.blaz.date.week.WeekDatePicker) rootView.findViewById(R.id.schedule_calendarView);
-        monthval=(TextView) rootView.findViewById(R.id.faculty_schedule_month);
-        ScheduleButton = (Button) rootView.findViewById(R.id.ScheduleButton);
+        calendarView = rootView.findViewById(R.id.schedule_calendarView);
+       // monthval=(TextView) rootView.findViewById(R.id.faculty_schedule_month);
+        ScheduleButton = rootView.findViewById(R.id.ScheduleButton);
 
         Calendar cal= Calendar.getInstance();
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         month_name  = month_date.format(cal.getTime());
         yearval=Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
-        monthval.setText(month_name+" "+yearval);
+        //monthval.setText(month_name+" "+yearval);
 
-        calendarView.setOnDateSelectedListener(new WeekDatePicker.OnDateSelected() {
-            @Override
-            public void onDateSelected(LocalDate date) {
-                datevalue=date.toString();
-               // Toast.makeText(getContext(), datevalue, Toast.LENGTH_SHORT).show();
-            }
-        });
-       /* calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+//        calendarView.setOnDateSelectedListener(new WeekDatePicker.OnDateSelected() {
+//            @Override
+//            public void onDateSelected(LocalDate date) {
+//                datevalue=date.toString();
+//               // Toast.makeText(getContext(), datevalue, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 datevalue = i2 + "-" + (i1 + 1) + "-" + i;
             }
-        });*/
+        });
 
         ScheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override

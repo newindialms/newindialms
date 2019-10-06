@@ -2,12 +2,13 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -75,10 +76,10 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
         FeedbackViewHolder(View itemView) {
             super(itemView);
 
-            textViewtitle = (TextView) itemView.findViewById(R.id.showfeedback_title);
-            textViewquestion = (TextView) itemView.findViewById(R.id.showfeedback_question);
-            textViewtype = (TextView) itemView.findViewById(R.id.showfeedback_type);
-            showfeedback_linearlayout = (LinearLayout) itemView.findViewById(R.id.showfeedback_linearlayout);
+            textViewtitle = itemView.findViewById(R.id.showfeedback_title);
+            textViewquestion = itemView.findViewById(R.id.showfeedback_question);
+            textViewtype = itemView.findViewById(R.id.showfeedback_type);
+            showfeedback_linearlayout = itemView.findViewById(R.id.showfeedback_linearlayout);
         }
     }
 }

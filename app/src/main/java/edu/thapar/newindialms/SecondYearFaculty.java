@@ -1,14 +1,15 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -44,9 +45,9 @@ public class SecondYearFaculty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_firstyear_facultydetails);
         coursename=getIntent().getStringExtra("coursename");
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
+        student_toolbar = findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        TextView faculty_title = findViewById(R.id.student_enroll_toolbar_title);
         faculty_title.setText("Course Details");
         setSupportActionBar(student_toolbar);
 
@@ -57,7 +58,7 @@ public class SecondYearFaculty extends AppCompatActivity {
             }
         });
         secondyearfacultyDetails = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.faculty_firstyear_recyclerview);
+        recyclerView = findViewById(R.id.faculty_firstyear_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -2,13 +2,14 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -48,9 +49,9 @@ public class FacultyCourseListViewAttendanceDisplayAdapter extends ArrayAdapter<
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView faculty_courselist_attendance_display_rollno = (TextView) view.findViewById(R.id.faculty_courselist_attendance_display_rollno);
-        TextView faculty_courselist_attendance_display_name = (TextView) view.findViewById(R.id.faculty_courselist_attendance_display_name);
-        TextView faculty_courselist_display_status = (TextView) view.findViewById(R.id.faculty_courselist_display_status);
+        TextView faculty_courselist_attendance_display_rollno = view.findViewById(R.id.faculty_courselist_attendance_display_rollno);
+        TextView faculty_courselist_attendance_display_name = view.findViewById(R.id.faculty_courselist_attendance_display_name);
+        TextView faculty_courselist_display_status = view.findViewById(R.id.faculty_courselist_display_status);
 
 
         //getting the hero of the specified position

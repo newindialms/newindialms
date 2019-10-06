@@ -12,17 +12,17 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
@@ -75,7 +75,7 @@ public class StudentMyProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_profile);
 
-        studentprofile_toolbar = (Toolbar) findViewById(R.id.studentprofile_toolbar);
+        studentprofile_toolbar = findViewById(R.id.studentprofile_toolbar);
         studentprofile_toolbar.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(studentprofile_toolbar);
         studentprofile_toolbar.setTitle(getResources().getString(R.string.navigation_program_myprofile));
@@ -90,19 +90,19 @@ public class StudentMyProfile extends AppCompatActivity {
         //Requesting storage permission
         requestStoragePermission();
 
-        TextView studentpic_title = (TextView) findViewById(R.id.studentprofile_title);
+        TextView studentpic_title = findViewById(R.id.studentprofile_title);
 
         studentpic_title.setText("My Profile");
         studentid = getIntent().getStringExtra("studentid");
 
-        studentprofile_name = (TextView) findViewById(R.id.textviewstudent_name);
-        studentprofile_rollno = (TextView) findViewById(R.id.textviewstudent_rollno);
-        studentprofile_email = (TextView) findViewById(R.id.textviewstudent_email);
-        studentprofile_program = (TextView) findViewById(R.id.textviewstudent_Program);
-        studentprofile_specialization = (TextView) findViewById(R.id.textviewstudent_specialization);
+        studentprofile_name = findViewById(R.id.textviewstudent_name);
+        studentprofile_rollno = findViewById(R.id.textviewstudent_rollno);
+        studentprofile_email = findViewById(R.id.textviewstudent_email);
+        studentprofile_program = findViewById(R.id.textviewstudent_Program);
+        studentprofile_specialization = findViewById(R.id.textviewstudent_specialization);
 
-        choosebutton = (ImageView) findViewById(R.id.studentImageChoose);
-        imageView = (ImageView) findViewById(R.id.studentprofile_image);
+        choosebutton = findViewById(R.id.studentImageChoose);
+        imageView = findViewById(R.id.studentprofile_image);
 
         HttpWebCall(studentid);
         choosebutton.setOnClickListener(new View.OnClickListener() {

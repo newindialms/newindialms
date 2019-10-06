@@ -3,8 +3,6 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -54,7 +55,7 @@ public class AddFeedbackFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.add_feedback_layout, container, false);
-        feedbackspinner = (Spinner) rootview.findViewById(R.id.addfeedbackspinner);
+        feedbackspinner = rootview.findViewById(R.id.addfeedbackspinner);
         feedbackspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -68,9 +69,9 @@ public class AddFeedbackFragment extends Fragment {
         });
 
         builder = new AlertDialog.Builder(getActivity(), R.style.MyAlertDialogStyle);
-        feedbacktitle = (EditText) rootview.findViewById(R.id.addfeedbackmaintitle);
-        feedbackquestion = (EditText) rootview.findViewById(R.id.addfeedbackdescription);
-        addfeedback = (Button) rootview.findViewById(R.id.addfeedbacksubmit);
+        feedbacktitle = rootview.findViewById(R.id.addfeedbackmaintitle);
+        feedbackquestion = rootview.findViewById(R.id.addfeedbackdescription);
+        addfeedback = rootview.findViewById(R.id.addfeedbacksubmit);
         addfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

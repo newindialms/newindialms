@@ -1,14 +1,15 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -38,9 +39,9 @@ public class FacultyDirectory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_faculty_directoryscreen);
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
+        student_toolbar = findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        TextView faculty_title = findViewById(R.id.student_enroll_toolbar_title);
         faculty_title.setText("Directory");
         setSupportActionBar(student_toolbar);
 
@@ -50,14 +51,14 @@ public class FacultyDirectory extends AppCompatActivity {
                 finish();
             }
         });
-        recyclerView = (RecyclerView) findViewById(R.id.faculty_directoryscreen_recyclerview);
+        recyclerView = findViewById(R.id.faculty_directoryscreen_recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         LoadDirectory();
         facultyDirectoryDetails = new ArrayList<>();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showdirectory_swipe);
+        swipeRefreshLayout = findViewById(R.id.showdirectory_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

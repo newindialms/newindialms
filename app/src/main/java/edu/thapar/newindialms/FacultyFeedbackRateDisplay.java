@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,10 +53,10 @@ public class FacultyFeedbackRateDisplay extends AppCompatActivity {
         feedback_sent_date = getIntent().getStringExtra("datevalue");
 
 
-        rate_toolbar = (Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        rate_toolbar = findViewById(R.id.facultycourselist_toolbar);
         rate_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView daywise_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView daywise_title = findViewById(R.id.facultydashboard_toolbar_title);
         daywise_title.setText("Rating");
         setSupportActionBar(rate_toolbar);
 
@@ -66,7 +67,7 @@ public class FacultyFeedbackRateDisplay extends AppCompatActivity {
             }
         });
 
-        listView = (ListView) findViewById(R.id.starrate_list_ListView);
+        listView = findViewById(R.id.starrate_list_ListView);
         heroList = new ArrayList<>();
         loadRecyclerViewData();
 

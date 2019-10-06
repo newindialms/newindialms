@@ -5,11 +5,12 @@ package edu.thapar.newindialms;
  */
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +38,7 @@ public class EmailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_activity);
 
-        toolbar_all_notification = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_all_notification = findViewById(R.id.toolbar_all_notiifcation);
 
         toolbar_all_notification.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_all_notification);
@@ -52,12 +53,12 @@ public class EmailActivity extends AppCompatActivity {
         email_address = getIntent().getStringExtra("email_address");
 
 
-        editTextEmail = (EditText) findViewById(R.id.emailid);
+        editTextEmail = findViewById(R.id.emailid);
         editTextEmail.setText(email_address);
-        editTextSubject = (EditText) findViewById(R.id.subject);
-        editTextMessage = (EditText) findViewById(R.id.message);
+        editTextSubject = findViewById(R.id.subject);
+        editTextMessage = findViewById(R.id.message);
 
-        buttonSend = (Button) findViewById(R.id.notification_email_button);
+        buttonSend = findViewById(R.id.notification_email_button);
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override

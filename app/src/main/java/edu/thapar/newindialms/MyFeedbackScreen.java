@@ -2,12 +2,13 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by kamalshree on 3/3/2018.
@@ -25,9 +26,9 @@ public class MyFeedbackScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myfeedback_screen);
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.student_enroll_toolbar);
+        studentpic_toolbar = findViewById(R.id.student_enroll_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        myfeedbackenrolledcourses_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        myfeedbackenrolledcourses_title = findViewById(R.id.student_enroll_toolbar_title);
         myfeedbackenrolledcourses_title.setText("My Feedback ");
 
 
@@ -61,7 +62,7 @@ public class MyFeedbackScreen extends AppCompatActivity {
             }
         }
 
-        myfeedback_button = (Button) findViewById(R.id.myfeedback_button);
+        myfeedback_button = findViewById(R.id.myfeedback_button);
 
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {

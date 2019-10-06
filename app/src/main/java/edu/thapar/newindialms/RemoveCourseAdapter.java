@@ -2,15 +2,16 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -68,9 +69,9 @@ public class RemoveCourseAdapter extends ArrayAdapter<RemoveCourseListItems> {
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView removecourselist_name = (TextView) view.findViewById(R.id.removecourselist_name);
-        TextView removecourselist_code = (TextView) view.findViewById(R.id.removecourselist_code);
-        ImageView studentdeletearrow = (ImageView) view.findViewById(R.id.studentdeletearrow);
+        TextView removecourselist_name = view.findViewById(R.id.removecourselist_name);
+        TextView removecourselist_code = view.findViewById(R.id.removecourselist_code);
+        ImageView studentdeletearrow = view.findViewById(R.id.studentdeletearrow);
 
 
         //getting the hero of the specified position

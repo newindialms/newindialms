@@ -2,9 +2,10 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by kamalshree on 11/7/2017.
@@ -20,7 +21,7 @@ public class Success extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success);
-        login_button = (Button) findViewById(R.id.success_login_button);
+        login_button = findViewById(R.id.success_login_button);
         login_button.setOnClickListener(this);
     }
 

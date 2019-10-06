@@ -3,15 +3,14 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,8 +48,8 @@ public class ProgramManagerCalendar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootview=inflater.inflate(R.layout.fragment_program_manager_calendar, container, false);
-        stickySwitch = (StickySwitch) rootview.findViewById(R.id.sticky_switch);
-        Button calendar_button = (Button) rootview.findViewById(R.id.calendar_button);
+        stickySwitch = rootview.findViewById(R.id.sticky_switch);
+        Button calendar_button = rootview.findViewById(R.id.calendar_button);
         loadCalendarValDetails();
 
 

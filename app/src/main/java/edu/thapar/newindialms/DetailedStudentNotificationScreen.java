@@ -1,10 +1,11 @@
 package edu.thapar.newindialms;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * Created by kamalshree on 2/20/2018.
@@ -20,9 +21,9 @@ public class DetailedStudentNotificationScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_student_notification_screen);
 
-        student_toolbar = (Toolbar) findViewById(R.id.toolbar_student_attendance);
+        student_toolbar = findViewById(R.id.toolbar_student_attendance);
         student_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.student_enroll_toolbar_title);
+        TextView faculty_title = findViewById(R.id.student_enroll_toolbar_title);
         faculty_title.setText(" Notification");
         setSupportActionBar(student_toolbar);
 
@@ -36,9 +37,9 @@ public class DetailedStudentNotificationScreen extends AppCompatActivity {
         detailedMessage = getIntent().getExtras().getString("notification_msg");
         detailedTime = getIntent().getExtras().getString("notification_date");
 
-        notification_title = (TextView) findViewById(R.id.detailed_notification_title);
-        notification_msg = (TextView) findViewById(R.id.detailed_notification_msg);
-        notification_time = (TextView) findViewById(R.id.detailed_notification_time);
+        notification_title = findViewById(R.id.detailed_notification_title);
+        notification_msg = findViewById(R.id.detailed_notification_msg);
+        notification_time = findViewById(R.id.detailed_notification_time);
 
         notification_title.setText(detailedTitle);
         notification_msg.setText(detailedMessage);

@@ -2,12 +2,13 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -70,10 +71,10 @@ public class SpinnerAdapter extends RecyclerView.Adapter<SpinnerAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
 
-            firstname = (TextView) itemView.findViewById(R.id.spinner_firstname);
-            rollno = (TextView) itemView.findViewById(R.id.spinner_rollno);
-            email = (TextView) itemView.findViewById(R.id.spinner_email);
-            mailimage = (ImageView) itemView.findViewById(R.id.mail_image);
+            firstname = itemView.findViewById(R.id.spinner_firstname);
+            rollno = itemView.findViewById(R.id.spinner_rollno);
+            email = itemView.findViewById(R.id.spinner_email);
+            mailimage = itemView.findViewById(R.id.mail_image);
         }
 
     }

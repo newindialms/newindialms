@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -47,9 +48,9 @@ public class NotificationTabAdapter extends ArrayAdapter<NotificationTabListItem
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView notification_title = (TextView) view.findViewById(R.id.notification_title);
-        TextView notification_message = (TextView) view.findViewById(R.id.notification_message);
-        TextView notification_date = (TextView) view.findViewById(R.id.notification_date);
+        TextView notification_title = view.findViewById(R.id.notification_title);
+        TextView notification_message = view.findViewById(R.id.notification_message);
+        TextView notification_date = view.findViewById(R.id.notification_date);
 
         //getting the hero of the specified position
         final NotificationTabListItems hero = notificationTabListItems.get(position);

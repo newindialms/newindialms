@@ -2,8 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -50,10 +51,10 @@ public class ProgramScreenCourseModuleAdapter extends ArrayAdapter<ProgramScreen
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreencoursemodulelist = (TextView) view.findViewById(R.id.studentpic_programscreencoursemodulelist);
-        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
-        TextView studentpic_programscreencoursemodulecode = (TextView) view.findViewById(R.id.studentpic_programscreencoursemodulelistcode);
-        ImageView studentpic_programlistarrow = (ImageView) view.findViewById(R.id.studentPicarrow);
+        TextView studentpic_programscreencoursemodulelist = view.findViewById(R.id.studentpic_programscreencoursemodulelist);
+        RelativeLayout relative1 = view.findViewById(R.id.relative1);
+        TextView studentpic_programscreencoursemodulecode = view.findViewById(R.id.studentpic_programscreencoursemodulelistcode);
+        ImageView studentpic_programlistarrow = view.findViewById(R.id.studentPicarrow);
 
         //getting the hero of the specified position
         final ProgramScreenCourseModuleListItems hero1 = programScreenCourseModuleListItems.get(position);

@@ -8,12 +8,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +49,7 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_single_faculty_record);
 
-        toolbar_delete_faculty = (Toolbar) findViewById(R.id.toolbar_delete_faculty);
+        toolbar_delete_faculty = findViewById(R.id.toolbar_delete_faculty);
         toolbar_delete_faculty.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_delete_faculty);
         toolbar_delete_faculty.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,11 +60,11 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
         });
 
 
-        FIRSTNAME = (TextView) findViewById(R.id.textFirstName);
-        DESIGNATION = (TextView) findViewById(R.id.textDesignation);
-        ROLLNO = (TextView) findViewById(R.id.textRollno);
+        FIRSTNAME = findViewById(R.id.textFirstName);
+        DESIGNATION = findViewById(R.id.textDesignation);
+        ROLLNO = findViewById(R.id.textRollno);
 
-        DeleteButton = (Button) findViewById(R.id.buttonDeleteFaculty);
+        DeleteButton = findViewById(R.id.buttonDeleteFaculty);
 
         //Receiving the ListView Clicked item value send by previous activity.
         TempItem = getIntent().getStringExtra("ListViewValue");
@@ -103,7 +104,7 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
 
                 progressDialog2.dismiss();
 
-                Toast.makeText(ShowFacultySingleRecordActivity.this, httpResponseMsg.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ShowFacultySingleRecordActivity.this, httpResponseMsg, Toast.LENGTH_LONG).show();
 
                 finish();
 
@@ -199,9 +200,9 @@ public class ShowFacultySingleRecordActivity extends AppCompatActivity {
                             jsonObject = jsonArray.getJSONObject(i);
 
                             // Storing Student Name, Phone Number, Class into Variables.
-                            FirstNameHolder = jsonObject.getString("firstname").toString();
-                            Designation = jsonObject.getString("designation").toString();
-                            RollnoHolder = jsonObject.getString("rollno").toString();
+                            FirstNameHolder = jsonObject.getString("firstname");
+                            Designation = jsonObject.getString("designation");
+                            RollnoHolder = jsonObject.getString("rollno");
 
                         }
                     } catch (JSONException e) {

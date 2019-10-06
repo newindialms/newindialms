@@ -1,13 +1,14 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -47,9 +48,9 @@ public class ProgramScreenYearAdapterStudentName extends ArrayAdapter<ProgramScr
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        TextView studentpic_programscreenyearlist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentnamelist);
-        TextView studentpic_programscreenstudentrollnolist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentrollnolist);
-        TextView studentpic_programscreenstudentspecializationlist = (TextView) view.findViewById(R.id.studentpic_programscreenstudentspecializationlist);
+        TextView studentpic_programscreenyearlist = view.findViewById(R.id.studentpic_programscreenstudentnamelist);
+        TextView studentpic_programscreenstudentrollnolist = view.findViewById(R.id.studentpic_programscreenstudentrollnolist);
+        TextView studentpic_programscreenstudentspecializationlist = view.findViewById(R.id.studentpic_programscreenstudentspecializationlist);
 
         //getting the hero of the specified position
         final ProgramScreenYearStudentNameListItems hero = programScreenYearStudentNameListItems.get(position);

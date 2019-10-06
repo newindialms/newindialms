@@ -1,8 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,9 +56,9 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
 
 
         //getting the view elements of the list from the view
-        faculty_courselist_attendance_take = (TextView) view.findViewById(R.id.faculty_courselist_attendance_take);
-        faculty_courselist_attendance_take_roolno = (TextView) view.findViewById(R.id.faculty_courselist_attendance_take_roolno);
-        attendance_switch = (Switch) view.findViewById(R.id.simpleSwitchtakeattendance);
+        faculty_courselist_attendance_take = view.findViewById(R.id.faculty_courselist_attendance_take);
+        faculty_courselist_attendance_take_roolno = view.findViewById(R.id.faculty_courselist_attendance_take_roolno);
+        attendance_switch = view.findViewById(R.id.simpleSwitchtakeattendance);
 
 
         //getting the hero of the specified position
@@ -75,11 +76,11 @@ public class FacultyCourseListTakeAttendanceAdapter extends ArrayAdapter<Faculty
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
                     status = "Present";
-                    presentlist.add(hero.getStudentrollno().toString());
+                    presentlist.add(hero.getStudentrollno());
                 } else {
                     status = "Absent";//edit here
                     //Toast.makeText(getContext(), hero.getStudentrollno().toString(), Toast.LENGTH_LONG).show();
-                    absentlist.add(hero.getStudentrollno().toString());
+                    absentlist.add(hero.getStudentrollno());
                     hero.setStatus(true);
                 }
 

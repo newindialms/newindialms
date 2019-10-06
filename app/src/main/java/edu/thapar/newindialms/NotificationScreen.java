@@ -2,9 +2,10 @@ package edu.thapar.newindialms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
 
 /**
  * Created by kamalshree on 10/28/2017.
@@ -18,7 +19,7 @@ public class NotificationScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_screen);
 
-        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_all_notiifcation = findViewById(R.id.toolbar_all_notiifcation);
         toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
 
         setSupportActionBar(toolbar_all_notiifcation);

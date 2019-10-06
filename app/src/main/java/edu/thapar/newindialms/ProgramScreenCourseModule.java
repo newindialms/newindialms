@@ -2,14 +2,15 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,9 +50,9 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
         setContentView(R.layout.activity_program_screen_coursemodule);
         specializationname = getIntent().getStringExtra("specializationname");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
+        studentpic_toolbar = findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        TextView studentpic_title = findViewById(R.id.studentpic_title);
         studentpic_title.setText(specializationname);
         setSupportActionBar(studentpic_toolbar);
         studentpic_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -61,15 +62,15 @@ public class ProgramScreenCourseModule extends AppCompatActivity {
             }
         });
 
-        Studentpic_programycoursemodule_title = (TextView) findViewById(R.id.Studentpic_programycoursemodule_title);
+        Studentpic_programycoursemodule_title = findViewById(R.id.Studentpic_programycoursemodule_title);
         Studentpic_programycoursemodule_title.setText(specializationname + " Courses");
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreencoursemodulelist_ListView);
+        listView = findViewById(R.id.studentpic_programscreencoursemodulelist_ListView);
         pglist = new ProgramScreenCourseModuleListItems(specializationname);
         pglist.setSpecializationname(specializationname);
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

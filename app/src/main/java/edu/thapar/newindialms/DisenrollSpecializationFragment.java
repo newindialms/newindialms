@@ -3,15 +3,15 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -55,11 +55,11 @@ public class DisenrollSpecializationFragment extends Fragment {
         rootview = inflater.inflate(R.layout.fragment_enrolled_specialization, container, false);
         studentid = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
-        listView = (ListView) rootview.findViewById(R.id.enrolledcourselistView);
+        listView = rootview.findViewById(R.id.enrolledcourselistView);
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = rootview.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

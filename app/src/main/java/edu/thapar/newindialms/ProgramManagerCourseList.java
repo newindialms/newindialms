@@ -2,16 +2,15 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -46,10 +45,10 @@ public class ProgramManagerCourseList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_program_manager_courselist);
         yearVal=getIntent().getStringExtra("year");
-        CourselistTitle = (TextView) findViewById(R.id.CourselistTitle);
+        CourselistTitle = findViewById(R.id.CourselistTitle);
 
-        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
-        toolbar_title = (TextView) findViewById(R.id.itemsselected);
+        toolbar_all_notiifcation = findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_title = findViewById(R.id.itemsselected);
         toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
 
 
@@ -61,11 +60,11 @@ public class ProgramManagerCourseList extends AppCompatActivity {
             }
         });
 
-        recyclerView = (RecyclerView) findViewById(R.id.courselistRecyclerview);
+        recyclerView = findViewById(R.id.courselistRecyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
 
         listItemCourseLists = new ArrayList<>();
 

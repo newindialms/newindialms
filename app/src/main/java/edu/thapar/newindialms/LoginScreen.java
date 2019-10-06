@@ -6,9 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -59,7 +60,7 @@ public class LoginScreen extends AppCompatActivity {
         token = FirebaseInstanceId.getInstance().getToken();
         deviceid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        toolbar_login_screen = (Toolbar) findViewById(R.id.toolbar_login_screen);
+        toolbar_login_screen = findViewById(R.id.toolbar_login_screen);
         toolbar_login_screen.setNavigationIcon(R.drawable.ic_left);
         setSupportActionBar(toolbar_login_screen);
         toolbar_login_screen.setNavigationOnClickListener(new View.OnClickListener() {
@@ -74,7 +75,7 @@ public class LoginScreen extends AppCompatActivity {
 
         layout = inflater.inflate(R.layout.custom_toast,
                 (ViewGroup) findViewById(R.id.custom_toast_layout_id));
-        final TextView toast_text = (TextView) layout.findViewById(R.id.toast_text);
+        final TextView toast_text = layout.findViewById(R.id.toast_text);
 
        /* if(SharedPrefManager.getInstance(this).isLoggedIn()){
             // logged in
@@ -83,7 +84,7 @@ public class LoginScreen extends AppCompatActivity {
             return;
         }*/
 
-        login_signup = (TextView) findViewById(R.id.login_signup);
+        login_signup = findViewById(R.id.login_signup);
 
         login_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,9 +96,9 @@ public class LoginScreen extends AppCompatActivity {
         });
 
         builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
-        login_id = (EditText) findViewById(R.id.login_id);
-        login_phone = (EditText) findViewById(R.id.login_phone);
-        login_button = (Button) findViewById(R.id.login_button);
+        login_id = findViewById(R.id.login_id);
+        login_phone = findViewById(R.id.login_phone);
+        login_button = findViewById(R.id.login_button);
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override

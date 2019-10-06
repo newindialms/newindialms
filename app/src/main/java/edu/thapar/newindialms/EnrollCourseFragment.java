@@ -3,15 +3,16 @@ package edu.thapar.newindialms;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -63,8 +64,8 @@ public class EnrollCourseFragment extends Fragment {
         studentid = getActivity().getIntent().getExtras().getString("studentid");
         student_rollnno = getActivity().getIntent().getExtras().getString("studentid");
         heroList = new ArrayList<>();
-        listView = (ListView) rootview.findViewById(R.id.enrollcourses_ListView);
-        EnrollButton = (Button) rootview.findViewById(R.id.EnrollButton);
+        listView = rootview.findViewById(R.id.enrollcourses_ListView);
+        EnrollButton = rootview.findViewById(R.id.EnrollButton);
         loadRecyclerViewData();
 
         EnrollButton.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +74,7 @@ public class EnrollCourseFragment extends Fragment {
                 onClickData(view);
             }
         });
-        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = rootview.findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

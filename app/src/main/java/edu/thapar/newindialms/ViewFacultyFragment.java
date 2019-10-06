@@ -3,13 +3,14 @@ package edu.thapar.newindialms;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,8 +40,8 @@ public class ViewFacultyFragment extends Fragment {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.activity_show_all_faculty, container, false);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.showfaculty_swipe);
-        FacultyListView = (ListView) rootview.findViewById(R.id.all_faculty_list);
+        swipeRefreshLayout = rootview.findViewById(R.id.showfaculty_swipe);
+        FacultyListView = rootview.findViewById(R.id.all_faculty_list);
 
 
         new GetHttpResponse(getActivity()).execute();
@@ -101,14 +102,14 @@ public class ViewFacultyFragment extends Fragment {
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Faculty Id TO IdList Array.
-                                IdList.add(jsonObject.getString("facultydetails_ID").toString());
+                                IdList.add(jsonObject.getString("facultydetails_ID"));
 
                                 //Adding Faculty Name.
-                                faculty.FacultyName = jsonObject.getString("faculty_firstname").toString();
-                                faculty.FacultyProgram = jsonObject.getString("faculty_program").toString();
-                                faculty.FacultyID = jsonObject.getString("faculty_employeeid").toString();
-                                faculty.FacultyCode = jsonObject.getString("faculty_code").toString();
-                                faculty.FacultySpecialization = jsonObject.getString("faculty_specialization").toString();
+                                faculty.FacultyName = jsonObject.getString("faculty_firstname");
+                                faculty.FacultyProgram = jsonObject.getString("faculty_program");
+                                faculty.FacultyID = jsonObject.getString("faculty_employeeid");
+                                faculty.FacultyCode = jsonObject.getString("faculty_code");
+                                faculty.FacultySpecialization = jsonObject.getString("faculty_specialization");
                                 facultyList.add(faculty);
 
                             }

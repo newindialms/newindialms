@@ -34,7 +34,6 @@ public class SendEmailAll extends AsyncTask<Void, Void, Void> {
     private String Email_Address;
     private String Password;
     ArrayList<String> EmailList = new ArrayList<>();
-    ;
 
     //Progressdialog to show while sending email
     private ProgressDialog progressDialog;

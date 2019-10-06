@@ -2,13 +2,14 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,9 +53,9 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
         setContentView(R.layout.activity_program_screen_studentfulllist);
         coursesname = getIntent().getStringExtra("coursesname");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
+        studentpic_toolbar = findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        TextView studentpic_title = findViewById(R.id.studentpic_title);
 
         studentpic_title.setText(coursesname);
         setSupportActionBar(studentpic_toolbar);
@@ -65,14 +66,14 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
             }
         });
 
-        Studentpic_programspecialization_title = (TextView) findViewById(R.id.Studentpic_programstudentfulllist_title);
+        Studentpic_programspecialization_title = findViewById(R.id.Studentpic_programstudentfulllist_title);
         Studentpic_programspecialization_title.setText(coursesname);
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.studentpic_programscreenstudentfulllist_ListView);
+        listView = findViewById(R.id.studentpic_programscreenstudentfulllist_ListView);
 
         loadRecyclerViewData();
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.showfeedback_swipe);
+        swipeRefreshLayout = findViewById(R.id.showfeedback_swipe);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -142,7 +143,7 @@ public class ProgramScreenStudentFullList extends AppCompatActivity {
 
 
     public void myarraycount(int rowcount) {
-        Studentpic_programstudentfulllist_total = (TextView) findViewById(R.id.Studentpic_programstudentfulllist_total);
+        Studentpic_programstudentfulllist_total = findViewById(R.id.Studentpic_programstudentfulllist_total);
         Studentpic_programstudentfulllist_total.setText("Total Students : " + rowcount);
     }
 

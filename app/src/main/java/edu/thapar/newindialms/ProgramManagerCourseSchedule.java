@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -55,10 +56,10 @@ public class ProgramManagerCourseSchedule extends AppCompatActivity {
         day_details = getIntent().getStringExtra("day_details");
         semester_details = getIntent().getStringExtra("semester_details");
 
-        studentpic_toolbar = (Toolbar) findViewById(R.id.studentpic_toolbar);
+        studentpic_toolbar = findViewById(R.id.studentpic_toolbar);
         studentpic_toolbar.setNavigationIcon(R.drawable.ic_left);
 
-        TextView studentpic_title = (TextView) findViewById(R.id.studentpic_title);
+        TextView studentpic_title = findViewById(R.id.studentpic_title);
         studentpic_title.setText("MBA Program Time Table");
 
         setSupportActionBar(studentpic_toolbar);
@@ -69,7 +70,7 @@ public class ProgramManagerCourseSchedule extends AppCompatActivity {
             }
         });
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.programscreen_courseschedulelist_ListView);
+        listView = findViewById(R.id.programscreen_courseschedulelist_ListView);
         loadRecyclerViewData();
         loadRecyclerTimeTable();
 
@@ -78,7 +79,7 @@ public class ProgramManagerCourseSchedule extends AppCompatActivity {
         ViewGroup footer = (ViewGroup) layoutinflater.inflate(R.layout.activity_timetable_footer, listView, false);
         listView.addFooterView(footer);
 
-        TextView timetable_table = (TextView) findViewById(R.id.timetable_table);
+        TextView timetable_table = findViewById(R.id.timetable_table);
         timetable_table.setPaintFlags(timetable_table.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         timetable_table.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,12 +133,12 @@ public class ProgramManagerCourseSchedule extends AppCompatActivity {
 
 
     public void myarraycount(String from, String to, String Duration) {
-        timetable_title3 = (TextView) findViewById(R.id.timetable_title3);
-        timetable_title2 = (TextView) findViewById(R.id.timetable_title2);
+        timetable_title3 = findViewById(R.id.timetable_title3);
+        timetable_title2 = findViewById(R.id.timetable_title2);
 
-        timetable_title5 = (TextView) findViewById(R.id.timetable_title5);
-        timetable_title6 = (TextView) findViewById(R.id.timetable_title6);
-        timetable_title4 = (TextView) findViewById(R.id.timetable_title4);
+        timetable_title5 = findViewById(R.id.timetable_title5);
+        timetable_title6 = findViewById(R.id.timetable_title6);
+        timetable_title4 = findViewById(R.id.timetable_title4);
 
         timetable_title3.setText("Issue: " + issue_details);
         timetable_title2.setText(semester_details);

@@ -2,11 +2,12 @@ package edu.thapar.newindialms;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,7 +40,7 @@ public class NotificationTab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_notification);
 
-        toolbar_all_notiifcation = (Toolbar) findViewById(R.id.toolbar_all_notiifcation);
+        toolbar_all_notiifcation = findViewById(R.id.toolbar_all_notiifcation);
         toolbar_all_notiifcation.setNavigationIcon(R.drawable.ic_left);
 
         setSupportActionBar(toolbar_all_notiifcation);
@@ -52,7 +53,7 @@ public class NotificationTab extends AppCompatActivity {
 
 
         heroList = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.notification_listview);
+        listView = findViewById(R.id.notification_listview);
         loadRecyclerViewData();
 
 

@@ -1,7 +1,6 @@
 package edu.thapar.newindialms;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -83,15 +84,15 @@ public class StudentScheduleDisplayFirstYearAdapter extends RecyclerView.Adapter
         HeroViewHolder(View itemView) {
             super(itemView);
 
-            student_scheduledisplay_starttime = (TextView) itemView.findViewById(R.id.student_scheduledisplay_starttime);
-            student_scheduledisplay_course = (TextView) itemView.findViewById(R.id.student_scheduledisplay_course);
-            student_scheduledisplay_course_code = (TextView) itemView.findViewById(R.id.student_scheduledisplay_course_code);
-            student_scheduledisplay_classroom = (TextView) itemView.findViewById(R.id.student_scheduledisplay_classroom);
-            student_scheduledisplay_starttimes = (TextView) itemView.findViewById(R.id.student_scheduledisplay_starttimes);
-            student_scheduledisplay_faculty = (TextView) itemView.findViewById(R.id.student_scheduledisplay_faculty);
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            student_scheduledisplay_starttime = itemView.findViewById(R.id.student_scheduledisplay_starttime);
+            student_scheduledisplay_course = itemView.findViewById(R.id.student_scheduledisplay_course);
+            student_scheduledisplay_course_code = itemView.findViewById(R.id.student_scheduledisplay_course_code);
+            student_scheduledisplay_classroom = itemView.findViewById(R.id.student_scheduledisplay_classroom);
+            student_scheduledisplay_starttimes = itemView.findViewById(R.id.student_scheduledisplay_starttimes);
+            student_scheduledisplay_faculty = itemView.findViewById(R.id.student_scheduledisplay_faculty);
+            imageView = itemView.findViewById(R.id.imageView);
 
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
 }

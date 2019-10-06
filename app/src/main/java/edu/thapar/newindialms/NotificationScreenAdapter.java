@@ -2,13 +2,14 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -74,9 +75,9 @@ public class NotificationScreenAdapter extends RecyclerView.Adapter<Notification
         public NotificationScreenViewHolder(View itemView) {
             super(itemView);
 
-            msgTitle = (TextView) itemView.findViewById(R.id.faculty_notificationscreen_msgtitle);
-            msgTime = (TextView) itemView.findViewById(R.id.faculty_notificationscreen_msgtime);
-            msgButton = (Button) itemView.findViewById(R.id.faculty_notificationscreen_msgbutton);
+            msgTitle = itemView.findViewById(R.id.faculty_notificationscreen_msgtitle);
+            msgTime = itemView.findViewById(R.id.faculty_notificationscreen_msgtime);
+            msgButton = itemView.findViewById(R.id.faculty_notificationscreen_msgbutton);
         }
 
 

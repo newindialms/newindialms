@@ -3,10 +3,11 @@ package edu.thapar.newindialms;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -46,8 +47,8 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
             return;
         }*/
 
-        login_button = (Button) findViewById(R.id.mainscreen_login);
-        register_button = (Button) findViewById(R.id.mainscreen_register);
+        login_button = findViewById(R.id.mainscreen_login);
+        register_button = findViewById(R.id.mainscreen_register);
 
         login_button.setOnClickListener(this);
         register_button.setOnClickListener(this);

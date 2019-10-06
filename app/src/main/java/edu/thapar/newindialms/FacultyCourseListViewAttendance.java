@@ -3,13 +3,14 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by kamalshree on 11/18/2017.
@@ -30,9 +31,9 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
         coursetype = getIntent().getStringExtra("coursetype");
-        faculty_toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar = findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
-        TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
+        TextView faculty_title = findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);
         setSupportActionBar(faculty_toolbar);
         faculty_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -43,8 +44,8 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         });
 
 
-        calendarView = (CalendarView) findViewById(R.id.calendarView);
-        ShowButton = (Button) findViewById(R.id.ChooseButton);
+        calendarView = findViewById(R.id.calendarView);
+        ShowButton = findViewById(R.id.ChooseButton);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

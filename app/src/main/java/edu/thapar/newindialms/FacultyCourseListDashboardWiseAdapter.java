@@ -2,8 +2,6 @@ package edu.thapar.newindialms;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -50,12 +51,12 @@ public class FacultyCourseListDashboardWiseAdapter extends ArrayAdapter<FacultyC
         View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the view
-        RelativeLayout relative1 = (RelativeLayout) view.findViewById(R.id.relative1);
-        RelativeLayout relative2 = (RelativeLayout) view.findViewById(R.id.relative2);
-        TextView faculty_courselist_dashboard_attendance = (TextView) view.findViewById(R.id.faculty_courselist_dashboard_attendance);
-        ImageView faculty_courselist_rightarrow1 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow1);
-        TextView faculty_courselist_dashboard_feedback = (TextView) view.findViewById(R.id.faculty_courselist_dashboard_feedback);
-        ImageView faculty_courselist_rightarrow2 = (ImageView) view.findViewById(R.id.faculty_courselist_rightarrow2);
+        RelativeLayout relative1 = view.findViewById(R.id.relative1);
+        RelativeLayout relative2 = view.findViewById(R.id.relative2);
+        TextView faculty_courselist_dashboard_attendance = view.findViewById(R.id.faculty_courselist_dashboard_attendance);
+        ImageView faculty_courselist_rightarrow1 = view.findViewById(R.id.faculty_courselist_rightarrow1);
+        TextView faculty_courselist_dashboard_feedback = view.findViewById(R.id.faculty_courselist_dashboard_feedback);
+        ImageView faculty_courselist_rightarrow2 = view.findViewById(R.id.faculty_courselist_rightarrow2);
 
 
         //getting the hero of the specified position
