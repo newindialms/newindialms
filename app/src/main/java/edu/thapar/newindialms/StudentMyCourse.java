@@ -1,6 +1,6 @@
 package edu.thapar.newindialms;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by kamalshree on 9/26/2017.

@@ -3,9 +3,9 @@ package edu.thapar.newindialms;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 
 public class FacultyCourseListViewAttendance extends AppCompatActivity {
-    android.support.v7.widget.Toolbar faculty_toolbar;
+    androidx.appcompat.widget.Toolbar faculty_toolbar;
     private android.widget.CalendarView calendarView;
     private Button ShowButton;
     private String datevalue;
@@ -30,7 +30,7 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
         coursename = getIntent().getStringExtra("coursename");
         faculty_employeeid = getIntent().getStringExtra("faculty_employeeid");
         coursetype = getIntent().getStringExtra("coursetype");
-        faculty_toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.facultycourselist_toolbar);
+        faculty_toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.facultycourselist_toolbar);
         faculty_toolbar.setNavigationIcon(R.drawable.ic_left);
         TextView faculty_title = (TextView) findViewById(R.id.facultydashboard_toolbar_title);
         faculty_title.setText(coursename);

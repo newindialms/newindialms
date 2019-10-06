@@ -1,17 +1,12 @@
 package edu.thapar.newindialms;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
 
 /**
  * Created by kamalshree on 10/7/2017.
  */
 
-public class FCMInstanceIdService extends FirebaseInstanceIdService {
+public class FCMInstanceIdService  {
 
-    @Override
-    public void onTokenRefresh() {
-        super.onTokenRefresh();
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-    }
+    String refreshedToken = FirebaseInstanceId.getInstance().getToken();
 }

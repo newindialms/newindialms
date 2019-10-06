@@ -18,7 +18,7 @@
         android:textColor="@color/textColor"
         android:textSize="24sp" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/showfaculty_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +29,6 @@
                     android:layout_height="match_parent"
                     android:layout_below="@+id/all_faculty_records"
                     android:layout_centerHorizontal="true" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

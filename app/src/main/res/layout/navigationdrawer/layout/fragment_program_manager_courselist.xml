@@ -26,20 +26,20 @@
         android:visibility="visible"
         tools:text="Course List" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/CourselistTitle"
         android:background="@color/colorPrimaryDark">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/courselistRecyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 

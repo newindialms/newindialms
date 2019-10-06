@@ -23,7 +23,7 @@
         android:textColor="@color/textColor"
         android:textSize="24sp" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,5 +40,5 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:dividerHeight="10.0sp" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>

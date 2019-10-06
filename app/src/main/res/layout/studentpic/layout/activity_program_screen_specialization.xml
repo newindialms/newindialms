@@ -24,7 +24,7 @@
         android:textColor="@color/textColor"
         android:textSize="24sp" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,5 +38,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/Studentpic_programspecialization_title" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>

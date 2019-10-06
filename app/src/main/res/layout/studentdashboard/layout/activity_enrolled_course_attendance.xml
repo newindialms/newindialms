@@ -22,7 +22,7 @@
         android:textAlignment="center"
         android:textColor="@color/studentcolorPrimaryDark"
         android:textSize="24sp" />
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/showfeedback_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,7 +30,7 @@
         android:id="@+id/enrolledcourselistView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <!-- TODO: Update blank fragment layout -->
 
 </LinearLayout>
