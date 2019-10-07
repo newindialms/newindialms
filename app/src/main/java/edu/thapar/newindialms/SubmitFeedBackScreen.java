@@ -258,9 +258,15 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
+
+                String joinedresponses= TextUtils.join(",", feedbackresponses);
+                String joinedquestions= TextUtils.join(", ", feedbackquestions);
+
+                Log.d("My response", joinedresponses);
+                Log.d("My question", joinedquestions);
                /* for (int i = 0; i < adapter.getRateSubmittedFeedbackDetails().size(); i++) {
                     feedbackresponses.add(adapter.getRateSubmittedFeedbackDetails().get(i));
-                }*/
+                }
 
                 int j = 0;
                 for (String object : feedbackresponses) {
@@ -269,9 +275,10 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                 int k = 0;
                 for (String object : feedbackquestions) {
                     params.put("feedback_question[" + (k++) + "]", object);
-                }
+                }*/
 
-
+                params.put("feedback_response",joinedresponses);
+                params.put("feedback_question",joinedquestions);
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
                 params.put("feedback_sent_date", course_date);
@@ -339,9 +346,15 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
+
+                String joinedresponses= TextUtils.join(",", feedbackresponses);
+                String joinedquestions= TextUtils.join(", ", feedbackquestions);
+
+                Log.d("My response", joinedresponses);
+                Log.d("My question", joinedquestions);
               /*  for (int i = 0; i < adapter.getLikeSubmittedFeedbackDetails().size(); i++) {
                     feedbackresponses.add(adapter.getLikeSubmittedFeedbackDetails().get(i));
-                }*/
+                }
 
                 int j = 0;
                 for (String object : feedbackresponses) {
@@ -350,9 +363,10 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                 int k = 0;
                 for (String object : feedbackquestions) {
                     params.put("feedback_question[" + (k++) + "]", object);
-                }
+                }*/
 
-
+                params.put("feedback_response",joinedresponses);
+                params.put("feedback_question",joinedquestions);
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
                 params.put("feedback_sent_date", course_date);
@@ -421,10 +435,15 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                     feedbackresponses.add(mentry2.getKey().toString());
                     feedbackquestions.add(mentry2.getValue().toString());
                 }
+
+                String joinedresponses= TextUtils.join(",", feedbackresponses);
+                String joinedquestions= TextUtils.join(", ", feedbackquestions);
+
+                Log.d("My response", joinedresponses);
+                Log.d("My question", joinedquestions);
               /*  for (int i = 0; i < adapter.getSmileySubmittedFeedbackDetails().size(); i++) {
                     feedbackresponses.add(adapter.getSmileySubmittedFeedbackDetails().get(i));
                 }
-*/
                 int j = 0;
                 for (String object : feedbackresponses) {
                     params.put("feedback_response[" + (j++) + "]", object);
@@ -432,8 +451,9 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
                 int k = 0;
                 for (String object : feedbackquestions) {
                     params.put("feedback_question[" + (k++) + "]", object);
-                }
-
+                }*/
+                params.put("feedback_response",joinedresponses);
+                params.put("feedback_question",joinedquestions);
                 params.put("faculty_id", faculty_id);
                 params.put("coursename", course_name);
                 params.put("feedback_sent_date", course_date);
