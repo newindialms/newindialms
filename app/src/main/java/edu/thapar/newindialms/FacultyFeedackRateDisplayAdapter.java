@@ -62,9 +62,10 @@ public class FacultyFeedackRateDisplayAdapter extends ArrayAdapter<FacultyFeedba
         text_rating_questions.setText(hero.getQuestion());
         enrollcourse_daywise_display_date.setText(hero.getDaywise_date());
         enrollcourse_daywise_display_time.setText(hero.getDaywise_time());
-        int numberOfStars = (int) Math.round(hero.getStars());
-        staratebar.setNumStars(numberOfStars);
-        staratebar.setRating(numberOfStars);
+       // int numberOfStars = (int) Math.round(hero.getStars());
+        Double numberOfStars = hero.getStars();
+        //staratebar.setNumStars(numberOfStars);
+        staratebar.setRating(numberOfStars.floatValue());
 
         //finally returning the view
         return view;
