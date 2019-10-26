@@ -12,6 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by kamalshree on 11/18/2017.
  */
@@ -46,6 +50,8 @@ public class FacultyCourseListViewAttendance extends AppCompatActivity {
 
         calendarView = findViewById(R.id.calendarView);
         ShowButton = findViewById(R.id.ChooseButton);
+        datevalue = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

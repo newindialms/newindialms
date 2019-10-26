@@ -11,6 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by kamalshree on 11/20/2017.
  */
@@ -54,6 +58,7 @@ public class FacultyFeedbackScheduleDisplay extends AppCompatActivity {
 
         calendarView = findViewById(R.id.schedule_calendarView);
         ScheduleButton = findViewById(R.id.ScheduleButton);
+        datevalue = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

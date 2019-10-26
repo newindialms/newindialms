@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by kamalshree on 11/20/2017.
@@ -42,6 +44,7 @@ public class FacultySchedule extends Fragment {
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         month_name  = month_date.format(cal.getTime());
         yearval=Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        datevalue = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         //monthval.setText(month_name+" "+yearval);
 
 //        calendarView.setOnDateSelectedListener(new WeekDatePicker.OnDateSelected() {
