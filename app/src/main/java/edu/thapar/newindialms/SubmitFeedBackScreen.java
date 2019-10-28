@@ -101,6 +101,7 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
     }
 
     public void submitfeedbackfunction(View v) {
+        boolean emptyChecker=false;
         /*Toast.makeText(this,"Rate array"+adapter.getRateSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
         Toast.makeText(this,"Like array"+adapter.getLikeSubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
         Toast.makeText(this,"Smiley array"+adapter.getSmileySubmittedFeedbackDetails().size(),Toast.LENGTH_LONG).show();
@@ -108,19 +109,32 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         //SubmitFeedBack();
         if (adapter.getRateSubmittedFeedbackDetails().size() != 0) {
             SubmitRateFeedBack();
+            emptyChecker=true;
         }
         if (adapter.getLikeSubmittedFeedbackDetails().size() != 0) {
             SubmitLikeFeedBack();
+            emptyChecker=true;
         }
         if (adapter.getSmileySubmittedFeedbackDetails().size() != 0) {
             SubmitSmileyFeedBack();
+            emptyChecker=true;
         }
         if (adapter.getTextSubmittedFeedbackDetails().size() != 0) {
             SubmitTextFeedBack();
+            emptyChecker=true;
         }
-        SubmitAttendanceAfterFeedback();
-        Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
-        startActivity(thankyoufeedbackintent);
+        if(emptyChecker){
+            SubmitAttendanceAfterFeedback();
+            Intent thankyoufeedbackintent = new Intent(getApplicationContext(), Thankyou_feedback_screen.class);
+            startActivity(thankyoufeedbackintent);
+        }
+        else{
+            builder = new AlertDialog.Builder(SubmitFeedBackScreen.this, R.style.MyStudentAlertDialogStyle);
+            builder.setTitle("Feedback");
+            builder.setMessage("Please submit the Feedback.");
+            displayAlert();
+        }
+
     }
 
     private void SubmitAttendanceAfterFeedback() {
@@ -575,4 +589,13 @@ public class SubmitFeedBackScreen extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void displayAlert() {
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialoginterface, int i) {
+                dialoginterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }
